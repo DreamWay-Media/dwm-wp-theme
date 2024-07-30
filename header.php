@@ -34,7 +34,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
   <!--header-->
-  <header class="header-main-wrap" data-aos="slide-down">
+  <header class="header-main-wrap">
     <div class="container">
       <div class="row"> 
         

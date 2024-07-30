@@ -91,30 +91,7 @@ get_header();
   </div>
   <!--owner message--> 
   
-  <!--about sucess-->
-  <section class="about-sucess-wrap">
-    <div class="container">
-      <ul class="row">
-	     <?php if( have_rows('success') ): ?>
-						
-				<?php 
-				$counter=1;
-				while( have_rows('success') ): the_row(); 
-					
-						$success_heading = get_sub_field('success_heading');
-						$success_count = get_sub_field('success_count');?>
-						<li class="col-md-3">
-						  <div class="listing-about-sucess"> <span> <?php echo $success_heading; ?></span> <strong> <?php echo $success_count; ?> </strong> </div>
-						</li>
-		<?php 
-					$counter++;
-					endwhile; ?>
-			<?php endif; ?>
-      
-      </ul>
-    </div>
-  </section>
-  <!--about sucess--> 
+  
    <?php 
 	
 	$team_heading = get_field('team_heading');
@@ -124,58 +101,7 @@ get_header();
 	$join_team_button_text = get_field('join_team_button_text');
 	$join_team_button_link = get_field('join_team_button_link');
 	?>
-  <!--team-->
-  <section class="team-main-wraper">
-    <div class="container">
-      <h3> <?php echo $team_heading; ?></h3>
-      <ul class="row">
-	    <?php if( have_rows('team_members') ): ?>
-						
-				<?php 
-				$counter=1;
-				while( have_rows('team_members') ): the_row(); 
-					
-						$image = get_sub_field('image');
-						$name = get_sub_field('name');
-						$designation = get_sub_field('designation');
-						?>
-					
-						   <li class="col-md-3 col-6">
-							  <div class="team-listing-wraper">
-								<div class="team-listing-image" style="background:url(<?php echo $image['url']; ?> ) no-repeat top;"></div>
-								<div class="team-listing-text">
-								  <h5><?php echo $name; ?> </h5>
-								  <span> <?php echo $designation; ?>  </span> </div>
-							  </div>
-							</li>
-		<?php 
-					$counter++;
-					endwhile; ?>
-			<?php endif; ?>
-	  
-      </ul>
-    </div>
-  </section>
-  <!--team--> 
   
-  <!--Join our team-->
-  <div class="join-team-wraper">
-    <div class="container">
-      <div class="join-team-inner">
-        <div class="row">
-          <div class="col-md-6">
-            <h2> <?php echo $join_team_heading; ?></h2>
-          </div>
-          <div class="col-md-6">
-            <div class="join-team-text">
-              <p> <?php echo $join_team_description; ?> </p>
-              <a href="<?php echo $join_team_button_link; ?>"> <?php echo $join_team_button_text; ?> <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/arrow-team.svg" alt="team"></a> </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Join our team--> 
     <?php 
 	
 	$about_contact_heading = get_field('about_contact_heading');
