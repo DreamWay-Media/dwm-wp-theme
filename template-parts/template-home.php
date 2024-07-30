@@ -16,7 +16,7 @@ get_header();
   <section class="slider-main-wrap">
     <div class="container">
       <div class="row">
-        <div class="mobile-slider-image" data-aos="zoom-in-up"><img src="<?php echo $banner_image['url'];?>" alt="<?php echo $banner_image['alt'];?>" title="<?php echo $banner_image['alt'];?>"></div>
+        <div class="mobile-slider-image" data-aos="fade-up"><img src="<?php echo $banner_image['url'];?>" alt="<?php echo $banner_image['alt'];?>" title="<?php echo $banner_image['alt'];?>"></div>
         
         <!--text-->
         <div class="col-md-5">
@@ -30,7 +30,7 @@ get_header();
         
         <!--image-->
         <div class="col-md-7">
-          <div class="slider-image" data-aos="zoom-in-up"><img src="<?php echo $banner_image['url'];?>" alt="<?php echo $banner_image['alt'];?>" title="<?php echo $banner_image['alt'];?>"></div>
+          <div class="slider-image" data-aos="fade-up"><img src="<?php echo $banner_image['url'];?>" alt="<?php echo $banner_image['alt'];?>" title="<?php echo $banner_image['alt'];?>"></div>
         </div>
         <!--image--> 
         
@@ -59,24 +59,7 @@ get_header();
   <section class="services-main-wraper">
     <div class="container"> 
       
-      <!--service heading-->
-      <div class="service-heading-wrap">
-        <div class="row"> 
-          
-          <!--heading-->
-          <div class="col-md-6">
-            <h2 data-aos="fade-up"><?php echo $we_offer_heading;?></h2>
-          </div>
-          <!--heading-->
-          
-          <div class="col-md-6">
-            <div class="text-services-wrp"  data-aos="fade-up">
-              <p><?php echo $we_offer_description_right;?> </p>
-              <a href="<?php echo $we_offer_button_link;?>"> <?php echo $we_offer_button_text;?> </a> </div>
-          </div>
-        </div>
-      </div>
-      <!--service heading-->
+
       
       <div class="accordin-services-wrap" id="arrowsection">
         <div class="accordion" id="accordionExample">
@@ -260,7 +243,7 @@ get_header();
     <!--heading--> 
     
     <!--listing-->
-    <div class="clients-slider-wrap" data-aos="zoom-in-up">
+    <div class="clients-slider-wrap" data-aos="fade-up">
       <div class="carousel-wrap">
         <div class="owl-carousel">
          <?php if( have_rows('testimonials') ): ?>

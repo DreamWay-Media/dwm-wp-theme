@@ -28,6 +28,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <title>Dreamway Media</title>
 
+<script>document.write('<script src="http://'
+    + (location.host || 'localhost').split(':')[0]
+    + ':8000/livereload.js?snipver=1"></'
+    + 'script>')</script>
 
 <?php wp_head(); ?>
 </head>
