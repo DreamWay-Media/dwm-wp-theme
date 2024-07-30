@@ -22,7 +22,7 @@ get_header();
         <div class="col-md-5">
           <div class="slider-text-wrap">
             <h1  data-aos="fade-up"><?php echo $banner_heading;?> </h1>
-            <p data-aos="fade-down"><?php echo $banner_description;?></p>
+            <p data-aos="fade-up"><?php echo $banner_description;?></p>
             <div class="slider-text-btn" data-aos="fade-up"><a href="<?php echo $banner_button_link;?>"> <?php echo $banner_button_text;?> </a></div>
           </div>
         </div>
