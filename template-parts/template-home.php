@@ -49,7 +49,7 @@ get_header();
   
   <!--about-->
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<div class="container bootstrap snippets bootdey">
+<div class="container bootstrap snippets bootdey " data-aos="fade-up">
 <section id="services" class="current">
     <div class="services-top">
         <div class="container bootstrap snippets bootdey">
