@@ -203,55 +203,7 @@ get_header();
 <!--content-->
 <section class="content-main-wrap"> 
   
-  <!--service-->
-  <section class="services-main-wraper">
-    <div class="container"> 
-      
-
-      
-      <div class="accordin-services-wrap" id="arrowsection">
-        <div class="accordion" id="accordionExample">
-           <?php if( have_rows('we_offer_services') ): ?>
-						
-				<?php 
-				$counter=1;
-				while( have_rows('we_offer_services') ): the_row(); 
-					
-						$service_title = get_sub_field('service_title');
-						$service_description = get_sub_field('service_description');
-						$service_image = get_sub_field('service_image');
-						$service_button_text = get_sub_field('service_button_text');
-						$service_button_link = get_sub_field('service_button_link');
-						
-					?>
-						
-							<div class="accordion-item">
-								<h2 class="accordion-header" id="headingOne<?php echo $counter;?>">
-								  <button data-aos="fade-up" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<?php echo $counter;?>" aria-expanded="true" aria-controls="collapseOne">
-								  <div class="number-accordin"> 0<?php echo $counter;?> </div>
-								  <h4> <?php echo $service_title;?></h4>
-								  <p> <?php echo $service_description;?></p>
-								  </button>
-								</h2>
-								<div id="collapseOne<?php echo $counter;?>" class="accordion-collapse collapse <?php if($counter==1){ echo 'show';}?>" aria-labelledby="headingOne<?php echo $counter;?>" data-bs-parent="#accordionExample">
-								  <div class="accordion-body">
-									<div class="according-image-btn"  data-aos="flip-down">
-									  <div class="image-services-wrap" style="background:url(<?php echo $service_image['url'];?>) no-repeat top;"></div>
-									  <div class="arrow-icon-wrap"> <a href="<?php echo $service_button_link;?>"> <span> <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/arrow.svg" alt="arrow"> </span> <strong> <?php echo $service_button_text;?> </strong></a> </div>
-									</div>
-								  </div>
-								</div>
-							 </div>
-		<?php 
-					$counter++;
-					endwhile; ?>
-			<?php endif; ?>
-		  
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--service--> 
+  
   
   <?php 
 	$info_heading = get_field('info_heading');
