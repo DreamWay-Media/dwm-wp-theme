@@ -266,7 +266,7 @@ get_header();
 						$args = array (
 										'posts_per_page' => 4, /* how many post you need to display */
 										'offset' => 0,
-										'order' => 'ASC',
+										'order' => 'DESC',
 										'post_type' => 'projects', /* your post type name */
 										'post_status' => 'publish'
 									);
