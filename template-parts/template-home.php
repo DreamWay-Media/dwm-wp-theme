@@ -281,7 +281,7 @@ get_header();
 									//$blog_short_description = get_field('blog_short_description', $post_id);?>
 								
 									  <li class="col-md-6">
-										  <div class="listing-featured-wrap" data-aos="zoom-in-right">
+										  <div class="listing-featured-wrap" data-aos="fade-up">
 											<div class="listing-featured-wrap-image" style="background:url(<?php echo  wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()))?>) no-repeat top;"></div>
 											<div class="listing-featured-text">
 											  <div class="tag-featured-wrap"> 
