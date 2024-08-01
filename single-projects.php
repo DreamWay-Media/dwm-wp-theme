@@ -310,7 +310,7 @@ get_header();
   <!--cta-->
   <div class="cta-main-wraper">
     <div class="container">
-      <h2 data-aos="zoom-out-down" class="aos-init aos-animate"> <?php echo $cta_heading;?> </h2>
+      <h2 data-aos="fade-up" class="aos-init aos-animate"> <?php echo $cta_heading;?> </h2>
       <div class="btn-cta-wrap aos-init aos-animate" data-aos="fade-up"><a href="<?php echo $cta_button_link;?> "><?php echo $cta_button_text;?> </a></div>
     </div>
   </div>

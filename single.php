@@ -119,7 +119,7 @@ get_header();
   <!--cta-->
   <div class="cta-main-wraper">
     <div class="container">
-      <h2 data-aos="zoom-out-down" class="aos-init aos-animate"> Ready to unlock the full potential <br>
+      <h2 data-aos="fade-up" class="aos-init aos-animate"> Ready to unlock the full potential <br>
         of your business with a dynamic <br>
         digital strategy? </h2>
       <div class="btn-cta-wrap aos-init aos-animate" data-aos="fade-up"><a href="#">Start now </a></div>

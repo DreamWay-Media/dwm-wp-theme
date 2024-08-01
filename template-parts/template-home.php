@@ -393,7 +393,7 @@ get_header();
 							$logo = get_sub_field('logo');
 							?>
 								<div class="item">
-								  <div class="partner-logo-wrap" data-aos="zoom-in-down"> <img src="<?php echo $logo['url'];?>" alt="<?php echo $logo['url'];?>" title="<?php echo $logo['url'];?>"> </div>
+								  <div class="partner-logo-wrap" data-aos="fade-up"> <img src="<?php echo $logo['url'];?>" alt="<?php echo $logo['url'];?>" title="<?php echo $logo['url'];?>"> </div>
 								</div>
 					<?php 
 						$counter++;
@@ -412,7 +412,7 @@ get_header();
   <!--cta-->
   <div class="cta-main-wraper">
     <div class="container">
-      <h2 data-aos="zoom-out-down"> <?php echo $cta_heading;?></h2>
+      <h2 data-aos="fade-up"> <?php echo $cta_heading;?></h2>
       <div class="btn-cta-wrap"><a href="<?php echo $cta_button_link;?>"> <?php echo $cta_button_text;?> </a></div>
     </div>
   </div>

@@ -110,7 +110,7 @@ get_header();
   <!--cta-->
   <div class="cta-main-wraper">
     <div class="container">
-      <h2 data-aos="zoom-out-down" class="aos-init aos-animate"> <?php echo $about_contact_heading; ?> </h2>
+      <h2 data-aos="fade-up" class="aos-init aos-animate"> <?php echo $about_contact_heading; ?> </h2>
       <p> <?php echo $about_contact_sub_heading; ?></p>
       <?php echo do_shortcode('[contact-form-7 id="b8b65df" title="About US Page"]');?>
 	  
