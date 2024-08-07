@@ -684,14 +684,7 @@ img {
 }
 .featured-listing-wrap ul li .listing-featured-wrap {
 }
-.featured-listing-wrap ul li .listing-featured-wrap:hover .listing-featured-wrap-image {
-  filter: blur(2px);
-  transition: ease-in 0.5s;
-  -moz-transition: ease-in 0.5s;
-  -webkit-transition: ease-in 0.5s;
-  -ms-transition: ease-in 0.5s;
-  -o-transition: ease-in 0.5s;
-}
+
 .listing-featured-wrap .listing-featured-wrap-image {
   height: 525px;
   background-size: cover !important;

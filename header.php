@@ -19,14 +19,14 @@
 
 <!--CSS -->
 <link href="<?php echo get_stylesheet_directory_uri();?>/assets/css/bootstrap.min.css" rel="stylesheet">
-<link href="<?php echo get_stylesheet_directory_uri();?>/assets/css/style.css?v=1" rel="stylesheet">
+
 <link href="<?php echo get_stylesheet_directory_uri();?>/assets/css/aos.css" rel="stylesheet">
 <link href="<?php echo get_stylesheet_directory_uri();?>/assets/css/owl.carousel.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
 <!--fonts-->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<title>Dreamway Media</title>
+<title>DreamWay Media</title>
 
 <script>document.write('<script src="http://'
     + (location.host || 'localhost').split(':')[0]
