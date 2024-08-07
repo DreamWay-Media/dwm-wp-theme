@@ -64,7 +64,7 @@ get_header();
 						$args = array (
 										'posts_per_page' => -1, /* how many post you need to display */
 										'offset' => 0,
-										'order' => 'ASC',
+										'order' => 'DESC',
 										'post_type' => 'projects', /* your post type name */
 										'post_status' => 'publish'
 									);
@@ -90,7 +90,7 @@ get_header();
                                     
 									//$blog_short_description = get_field('blog_short_description', $post_id);?>
 									   <li class="col-md-6" data-categories="<?php echo esc_attr($categories_string); ?>">
-										  <div class="listing-featured-wrap" data-aos="zoom-in-right">
+										  <div class="listing-featured-wrap">
 											<div class="listing-featured-wrap-image" style="background:url(<?php echo  wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()))?>) no-repeat top;"></div>
 											<div class="listing-featured-text">
 											  <div class="tag-featured-wrap"> 
@@ -134,7 +134,7 @@ get_header();
   <!--cta-->
   <div class="cta-main-wraper">
     <div class="container">
-      <h2 data-aos="zoom-out-down" class="aos-init aos-animate"><?php echo $cta_heading;?>  </h2>
+      <h2 data-aos="fade-up" class="aos-init aos-animate"><?php echo $cta_heading;?>  </h2>
       <div class="btn-cta-wrap aos-init aos-animate" data-aos="fade-up"><a href="<?php echo $cta_button_link;?>"><?php echo $cta_button_text;?></a></div>
     </div>
   </div>

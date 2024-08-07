@@ -49,7 +49,7 @@ get_header();
   
   <!--about-->
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<div class="container bootstrap snippets bootdey">
+<div class="container bootstrap snippets bootdey " data-aos="fade-up">
 <section id="services" class="current">
     <div class="services-top">
         <div class="container bootstrap snippets bootdey">
@@ -203,55 +203,7 @@ get_header();
 <!--content-->
 <section class="content-main-wrap"> 
   
-  <!--service-->
-  <section class="services-main-wraper">
-    <div class="container"> 
-      
-
-      
-      <div class="accordin-services-wrap" id="arrowsection">
-        <div class="accordion" id="accordionExample">
-           <?php if( have_rows('we_offer_services') ): ?>
-						
-				<?php 
-				$counter=1;
-				while( have_rows('we_offer_services') ): the_row(); 
-					
-						$service_title = get_sub_field('service_title');
-						$service_description = get_sub_field('service_description');
-						$service_image = get_sub_field('service_image');
-						$service_button_text = get_sub_field('service_button_text');
-						$service_button_link = get_sub_field('service_button_link');
-						
-					?>
-						
-							<div class="accordion-item">
-								<h2 class="accordion-header" id="headingOne<?php echo $counter;?>">
-								  <button data-aos="fade-up" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<?php echo $counter;?>" aria-expanded="true" aria-controls="collapseOne">
-								  <div class="number-accordin"> 0<?php echo $counter;?> </div>
-								  <h4> <?php echo $service_title;?></h4>
-								  <p> <?php echo $service_description;?></p>
-								  </button>
-								</h2>
-								<div id="collapseOne<?php echo $counter;?>" class="accordion-collapse collapse <?php if($counter==1){ echo 'show';}?>" aria-labelledby="headingOne<?php echo $counter;?>" data-bs-parent="#accordionExample">
-								  <div class="accordion-body">
-									<div class="according-image-btn"  data-aos="flip-down">
-									  <div class="image-services-wrap" style="background:url(<?php echo $service_image['url'];?>) no-repeat top;"></div>
-									  <div class="arrow-icon-wrap"> <a href="<?php echo $service_button_link;?>"> <span> <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/arrow.svg" alt="arrow"> </span> <strong> <?php echo $service_button_text;?> </strong></a> </div>
-									</div>
-								  </div>
-								</div>
-							 </div>
-		<?php 
-					$counter++;
-					endwhile; ?>
-			<?php endif; ?>
-		  
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--service--> 
+  
   
   <?php 
 	$info_heading = get_field('info_heading');
@@ -314,7 +266,7 @@ get_header();
 						$args = array (
 										'posts_per_page' => 4, /* how many post you need to display */
 										'offset' => 0,
-										'order' => 'ASC',
+										'order' => 'DESC',
 										'post_type' => 'projects', /* your post type name */
 										'post_status' => 'publish'
 									);
@@ -329,7 +281,7 @@ get_header();
 									//$blog_short_description = get_field('blog_short_description', $post_id);?>
 								
 									  <li class="col-md-6">
-										  <div class="listing-featured-wrap" data-aos="zoom-in-right">
+										  <div class="listing-featured-wrap" data-aos="fade-up">
 											<div class="listing-featured-wrap-image" style="background:url(<?php echo  wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()))?>) no-repeat top;"></div>
 											<div class="listing-featured-text">
 											  <div class="tag-featured-wrap"> 
@@ -441,7 +393,7 @@ get_header();
 							$logo = get_sub_field('logo');
 							?>
 								<div class="item">
-								  <div class="partner-logo-wrap" data-aos="zoom-in-down"> <img src="<?php echo $logo['url'];?>" alt="<?php echo $logo['url'];?>" title="<?php echo $logo['url'];?>"> </div>
+								  <div class="partner-logo-wrap" data-aos="fade-up"> <img src="<?php echo $logo['url'];?>" alt="<?php echo $logo['url'];?>" title="<?php echo $logo['url'];?>"> </div>
 								</div>
 					<?php 
 						$counter++;
@@ -460,7 +412,7 @@ get_header();
   <!--cta-->
   <div class="cta-main-wraper">
     <div class="container">
-      <h2 data-aos="zoom-out-down"> <?php echo $cta_heading;?></h2>
+      <h2 data-aos="fade-up"> <?php echo $cta_heading;?></h2>
       <div class="btn-cta-wrap"><a href="<?php echo $cta_button_link;?>"> <?php echo $cta_button_text;?> </a></div>
     </div>
   </div>
