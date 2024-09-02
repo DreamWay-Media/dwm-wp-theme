@@ -381,28 +381,28 @@ get_header();
   <!--What Our Clients Say?--> 
   
   <!--partners-->
-  <div class="partner-main-wrap">
+  <!-- <div class="partner-main-wrap">
     <div class="carousel-wrap">
       <div class="owl-carousel partner-carousel">
-	       <?php if( have_rows('home_partner_logos') ): ?>
+	       <?php //( have_rows('home_partner_logos') ): ?>
 							
 					<?php 
-					$counter=1;
-					while( have_rows('home_partner_logos') ): the_row(); 
+					//$counter=1;
+					//while( have_rows('home_partner_logos') ): the_row(); 
 						
-							$logo = get_sub_field('logo');
+							//$logo = get_sub_field('logo');
 							?>
 								<div class="item">
-								  <div class="partner-logo-wrap" data-aos="fade-up"> <img src="<?php echo $logo['url'];?>" alt="<?php echo $logo['url'];?>" title="<?php echo $logo['url'];?>"> </div>
+								  <div class="partner-logo-wrap" data-aos="fade-up"> <img src="<?php //echo $logo['url'];?>" alt="<?php //echo $logo['url'];?>" title="<?php //echo $logo['url'];?>"> </div>
 								</div>
 					<?php 
-						$counter++;
-						endwhile; ?>
-				<?php endif; ?>
+						//$counter++;
+						//endwhile; ?>
+				<?php //endif; ?>
       
       </div>
     </div>
-  </div>
+  </div> -->
   <!--partners--> 
   <?php 
 	$cta_heading = get_field('cta_heading');
