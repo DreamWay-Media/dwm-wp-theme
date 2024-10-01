@@ -1557,14 +1557,7 @@ img {
 .icon-next-btn img {
   width: 70px;
 }
-.service-inner-image:hover .image-blur {
-  filter: blur(2px);
-  transition: ease-in 0.5s;
-  -moz-transition: ease-in 0.5s;
-  -webkit-transition: ease-in 0.5s;
-  -ms-transition: ease-in 0.5s;
-  -o-transition: ease-in 0.5s;
-}
+/* Removed blur effect */
 .blog-listing-wraper {
   padding: 80px 0;
 }
