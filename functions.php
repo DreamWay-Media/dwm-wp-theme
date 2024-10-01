@@ -141,13 +141,19 @@ function dreamway_media_scripts() {
 	// wp_enqueue_style( 'dreamway-media-style', get_stylesheet_uri(), array());
 
 	wp_enqueue_style( 'dreamway-media-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'dreamway-media-style', 'rtl', 'replace' );
-
 	wp_enqueue_script( 'dreamway-media-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
+	wp_script_add_data( 'dreamway-media-navigation', 'async', true );
+	
+	// Check if comments are open and enqueue the comment reply script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Localize script for dynamic data
+	wp_localize_script( 'dreamway-media-navigation', 'dreamwayMedia', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'some_text' => __( 'This is a localized string.', 'dreamway-media' ),
+	) );
 }
 add_action( 'wp_enqueue_scripts', 'dreamway_media_scripts' );
 
@@ -201,4 +207,26 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 	
+} else {
+    // Fallback: ACF is not active
+    function acf_fallback_notice() {
+        echo '<div class="error"><p>' . __( 'The ACF plugin is required for theme options.', 'dreamway-media' ) . '</p></div>';
+    }
+    add_action( 'admin_notices', 'acf_fallback_notice' );
+}
+
+/**
+ * Check if a menu item has submenus.
+ *
+ * @param array $menuitems Array of menu items.
+ * @param int $parent_id Parent menu item ID.
+ * @return bool True if the menu has submenus, false otherwise.
+ */
+function has_submenu($menuitems, $parent_id) {
+    foreach ($menuitems as $item) {
+        if ($item->menu_item_parent == $parent_id) {
+            return true;
+        }
+    }
+    return false;
 }
