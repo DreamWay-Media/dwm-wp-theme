@@ -16,6 +16,13 @@
 			$footer_copyrights_text = get_field('footer_copyrights_text', 'option');
 			
 		?>
+
+<?php
+      $linkedin_url = 'https://www.linkedin.com/company/dreamwaymedia/';
+      $twitter_url = 'https://x.com/dreamwaymedia/';
+      $youtube_url = 'https://www.youtube.com/@dreamwaymedia6203/';
+    ?>
+
 <!--footer-->
 <footer class="footer-main-wraper">
   <div class="container">
@@ -28,9 +35,20 @@
       </div>
       <!--logo, detail--> 
       
-      <!--footer nav-->
+      <!--footer nav + social-->
       <div class="col-md-6"> 
-        
+        <!-- Social icons + Navigation wrapper -->
+        <div class="footer-social-nav-wrap" style="position: relative;">
+          <!--social icons-->
+          <div class="footer-social-icons" style="text-align: left;">
+            <ul style="list-style: none; padding: 0; display: flex; gap: 15px;">
+              <li><a href="<?php echo $linkedin_url; ?>" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a></li>
+              <li><a href="<?php echo $twitter_url; ?>" target="_blank" title="Twitter"><i class="fab fa-twitter fa-2x"></i></a></li>
+              <li><a href="<?php echo $youtube_url; ?>" target="_blank" title="YouTube"><i class="fab fa-youtube fa-2x"></i></a></li>
+            </ul>
+          </div>
+          <!--social icons-->
+          
         <!--nav-->
         <div class="fotoer-nav-wrap">
           <ul>
@@ -68,6 +86,63 @@
       
     </div>
   </div>
+
+  <style>
+    /* Footer Social Icons - General Styles */
+    .footer-social-icons ul {
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-social-icons ul li a i {
+      font-size: 2rem;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+    .footer-social-icons ul li a i:hover {
+      color: #c8f031; 
+    }
+    /* Media Queries for smaller screens */
+    @media (max-width: 768px) {
+    .footer-social-icons ul li a i {
+      font-size: 1.5rem; /* Smaller icon size for mobile */
+    }
+    .footer-social-icons {
+      margin-top: 10px;
+    }
+    .footer-nav-wrap ul {
+      text-align: left;
+      padding-bottom: 30px;
+    }
+    }
+    @media (max-width: 768px) {
+    .footer-social-icons ul {
+      display: flex; /* Ensure it uses flexbox */
+      justify-content: flex-start !important; /* Force alignment to the left */
+    }
+    .footer-social-icons ul li a i {
+      font-size: 1.5rem; /* Shrink the icons when the screen size is small */
+    }
+    .footer-nav-wrap {
+      margin-top: 15px; /* Adjust nav links to create space from the social icons */
+    }
+    }
+
+    /* Larger screens */
+    .footer-social-icons ul li a i {
+      font-size: 2rem; /* Keep the original icon size for larger screens */
+    }
+    .footer-social-nav-wrap {
+      margin-top: 60px; /* Adjust for larger screens to move icons lower */
+      padding-bottom: 43px;
+    }
+    .footer-social-icons ul {
+      display: flex; /* Ensure it uses flexbox */
+      justify-content: flex-end; /* Align to the right on larger screens */
+    }
+  </style>
 </footer>
 <!--footer--> 
 
