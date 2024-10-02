@@ -21,7 +21,7 @@
     <link href="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/css/aos.css'); ?>" rel="stylesheet">
     <link href="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/css/owl.carousel.min.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <!--fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title><?php bloginfo('name'); ?></title>
