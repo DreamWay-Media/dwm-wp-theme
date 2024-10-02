@@ -16,6 +16,7 @@
 			$footer_copyrights_text = get_field('footer_copyrights_text', 'option');
 			
 		?>
+
 <!--footer-->
 <footer class="footer-main-wraper">
   <div class="container">
@@ -28,10 +29,21 @@
       </div>
       <!--logo, detail--> 
       
-      <!--footer nav-->
+      <!--footer nav + social-->
       <div class="col-md-6"> 
-        
-        <!--nav-->
+        <!-- Social icons + Navigation wrapper -->
+        <div class="footer-social-nav-wrap" style="position: relative;">
+          <!-- Footer Widget Area for Social Links -->
+          <div class="footer-widget-area">
+            <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
+              <?php dynamic_sidebar( 'footer-1' ); ?>
+            <?php else : ?>
+              <p>Add widgets to the Footer Widget Area via WordPress admin.</p>
+            <?php endif; ?>
+          </div>
+      <!--social icons-->
+          
+      <!--nav-->
         <div class="fotoer-nav-wrap">
           <ul>
 		  <?php 

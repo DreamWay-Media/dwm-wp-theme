@@ -52,7 +52,7 @@ get_header();
                   </div>
                   <div class="col-md-12">
                     <div class="service-inner-image">
-                      <img class="image-blur" src="<?php echo esc_url( $service_image['url'] ); ?>" alt="<?php echo esc_attr( $service_image['alt'] ); ?>" title="<?php echo esc_attr( $service_image['alt'] ); ?>"> 
+                      <img src="<?php echo esc_url( $service_image['url'] ); ?>" alt="<?php echo esc_attr( $service_image['alt'] ); ?>" title="<?php echo esc_attr( $service_image['alt'] ); ?>"> 
                     </div>
                   </div>
                   <div class="col-md-12">
@@ -71,7 +71,7 @@ get_header();
                                   <img src="<?php echo esc_url( $feature_image['url'] ); ?>" alt="<?php echo esc_attr( $feature_image['alt'] ); ?>" title="<?php echo esc_attr( $feature_image['title'] ); ?>">
                                   <?php echo esc_html( $feature_title ); ?>
                                 </h5>
-                                <p><?php echo esc_html( $feature_description ); ?></p>
+                                <p><?php echo wp_kses_post( $feature_description ); ?></p>
                               </div>
                             </li>
                           <?php endwhile; ?>
