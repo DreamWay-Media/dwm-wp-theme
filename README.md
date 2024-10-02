@@ -16,106 +16,52 @@
 2. **Create a `docker-compose.yml` File** In the root of your project (or a dedicated folder for your WordPress site), create a file named `docker-compose.yml` with the following contents:
 	```
 	services:
-
-	wordpress:
-
-	image:  wordpress:latest
-
-	container_name:  wordpress
-
-	ports:
-
-	-  "8000:80"
-
-	environment:
-
-	WORDPRESS_DB_HOST:  db:3306
-
-	WORDPRESS_DB_USER:  root
-
-	WORDPRESS_DB_PASSWORD:  yourpassword
-
-	WORDPRESS_DB_NAME:  wordpress
-
-	volumes:
-
-	-  ./wordpress:/var/www/html
-
-	-  ./custom-php.ini:/usr/local/etc/php/conf.d/custom-php.ini
-
-	depends_on:
-
-	-  db
-
-	networks:
-
-	-  app-network
-
-	  
-
-	phpmyadmin:
-
-	image:  arm64v8/phpmyadmin  # Use 'phpmyadmin/phpmyadmin' if not on Apple Silicon (ARM)
-
-	container_name:  phpmyadmin
-
-	environment:
-
-	PMA_HOST:  db
-
-	MYSQL_ROOT_PASSWORD:  yourpassword
-
-	ports:
-
-	-  "8080:80"
-
-	volumes:
-
-	-  ./custom-php.ini:/usr/local/etc/php/conf.d/custom-php.ini
-
-	depends_on:
-
-	-  db
-
-	networks:
-
-	-  app-network
-
-	  
-
-	db:
-
-	image:  mysql:8.0
-
-	container_name:  db
-
-	environment:
-
-	MYSQL_ROOT_PASSWORD:  yourpassword
-
-	MYSQL_DATABASE:  wordpress
-
-	volumes:
-
-	-  db_data:/var/lib/mysql
-
-	networks:
-
-	-  app-network
-
-	  
-
-	volumes:
-
-	db_data:
-
-	  
-
-	networks:
-
-	app-network:
-
-	driver:  bridge
+		wordpress:
+			image:  wordpress:latest
+			container_name:  wordpress
+			ports:
+				-  "8000:80"
+			environment:
+				WORDPRESS_DB_HOST:  db:3306
+				WORDPRESS_DB_USER:  root
+				WORDPRESS_DB_PASSWORD:  yourpassword
+				WORDPRESS_DB_NAME:  wordpress
+			volumes:
+				-  ./wordpress:/var/www/html
+				-  ./custom-php.ini:/usr/local/etc/php/conf.d/custom-php.ini
+			depends_on:
+				-  db
+			networks:
+				-  app-network
+		phpmyadmin:
+			image:  arm64v8/phpmyadmin  # Use 'phpmyadmin/phpmyadmin' if not on Apple Silicon (ARM)
+			container_name:  phpmyadmin
+			environment:
+				PMA_HOST:  db
+				MYSQL_ROOT_PASSWORD:  yourpassword
+			ports:
+				-  "8080:80"
+			volumes:
+				-  ./custom-php.ini:/usr/local/etc/php/conf.d/custom-php.ini
+			depends_on:
+				-  db
+			networks:
+				-  app-network	  
+		db:
+			image:  mysql:8.0
+			container_name:  db
+			environment:
+				MYSQL_ROOT_PASSWORD:  yourpassword
+				MYSQL_DATABASE:  wordpress
+			volumes:
+				-  db_data:/var/lib/mysql
+			networks:
+				-  app-network	  
+		volumes:
+			db_data:
+		networks:
+				app-network:
+					driver:  bridge
 	```
 	#### Note:
 	- On **ARM-based systems** (like Apple Silicon), you'll need to use the `arm64v8/phpmyadmin` image, as you have done.
