@@ -57,11 +57,11 @@
 				-  db_data:/var/lib/mysql
 			networks:
 				-  app-network	  
-		volumes:
-			db_data:
-		networks:
-				app-network:
-					driver:  bridge
+	volumes:
+		db_data:
+	networks:
+		app-network:
+			driver:  bridge
 	```
 	#### Note:
 	- On **ARM-based systems** (like Apple Silicon), you'll need to use the `arm64v8/phpmyadmin` image, as you have done.
