@@ -242,3 +242,12 @@ function has_submenu($menuitems, $parent_id) {
     }
     return false;
 }
+function add_target_blank_to_social_links( $block_content, $block ) {
+    // Check if the block is a social links block
+    if ( strpos( $block['blockName'], 'core/social-links' ) !== false ) {
+        // Add target="_blank" to all anchor tags in the block content
+        $block_content = str_replace('<a', '<a target="_blank" rel="noopener noreferrer"', $block_content);
+    }
+    return $block_content;
+}
+add_filter('render_block', 'add_target_blank_to_social_links', 10, 2);
