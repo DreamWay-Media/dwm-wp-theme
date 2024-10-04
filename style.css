@@ -2701,3 +2701,21 @@ margin-top: 15px;
   border: none;
   outline: none;
 }
+/* Apply custom styles for screens between 576px and 768px */
+@media (min-width: 768px) and (max-width: 992px) {
+  .service-block .ico {
+    font-size: 33px !important; /* Reduce the icon size for this range */
+  }
+  .name{
+    font-size: 15px !important;
+  }
+  .info{
+    font-size: 11px !important;
+  }
+  .text{
+    font-size: 9px !important;
+  }
+  .text-block{
+    margin-left: 40 !important;
+  }
+}

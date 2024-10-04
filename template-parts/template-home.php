@@ -62,17 +62,17 @@ get_header();
     <div class="services-top">
         <div class="container bootstrap snippets bootdey">
             <div class="row text-center">
-                <div class="col-sm-12 col-md-12 col-md-12">
+                <div class="col-12">
                     <h2>What We Offer</h2>
                     <h2 style="font-size: 60px;line-height: 60px;margin-bottom: 20px;font-weight: 900;">What you really need</h2>
                     <p>We offer wider range of services to ensure you get what you need, all under one roof.</p>
                 </div>
             </div>
     <div class="row">
-      <div class="col-md-offset-1 col-sm-12 col-md-12 col-md-10">
+      <div class="col-sm-12 col-md-12 col-lg-12">
           <div class="services-list">
               <div class="row">
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-magic highlight"></div>
                           <div class="text-block">
@@ -82,7 +82,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-code highlight"></div>
                           <div class="text-block">
@@ -92,7 +92,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-pencil highlight"></div>
                           <div class="text-block">
@@ -102,7 +102,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-camera highlight"></div>
                           <div class="text-block">
@@ -112,7 +112,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-film highlight"></div>
                           <div class="text-block">
@@ -122,7 +122,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-video-camera highlight"></div>
                           <div class="text-block">
@@ -132,7 +132,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-bullhorn highlight"></div>
                           <div class="text-block">
@@ -142,7 +142,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-shopping-cart highlight"></div>
                           <div class="text-block">
@@ -152,7 +152,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-umbrella highlight"></div>
                           <div class="text-block">
