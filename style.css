@@ -119,7 +119,7 @@ img {
 }
 .header-nav-wrap ul li {
   display: inline-block;
-  margin-left: 55px;
+  margin-left: calc(10px + 2vw); /* Adjust spacing based on viewport width */
 }
 .header-nav-wrap ul li a {
   color: #aaaaaa;
@@ -190,6 +190,46 @@ img {
   color: #1a1e24;
   background: #c8f031;
 }
+/* Ensure dropdown toggle is styled correctly */
+.drawer-menu .dropdown-toggle {
+  display: flex;
+  justify-content: space-between; /* Align caret to the right */
+  align-items: center; /* Vertically center text and icon */
+  width: 100%; /* Make the toggle button take full width */
+  padding: 0px 30px; /* Adjust padding as needed */
+  color: #ffffff;
+}
+
+/* Style for the dropdown content */
+.drawer-menu .dropdown-menu {
+  position: relative !important; /* Position relative to its container */
+  top: 0; /* Adjust based on alignment needs */
+  left: 0; /* Align to the left side */
+  background-color: #000; /* Ensure background color */
+  padding: 10px 20px; /* Adjust padding */
+  width: 100%; /* Make sure dropdown takes full width */
+  transform: translate3d(-10px, -20px, 0px) !important;
+  margin-bottom: 20px;
+}
+
+/* Ensure dropdown menu items have proper padding and spacing */
+.drawer-menu .dropdown-menu li a {
+  padding: 10px 30px; /* Adjust padding for better alignment */
+  color: #ffffff; /* Ensure text color */
+}
+
+/* Dropdown hover effect */
+.drawer-menu .dropdown-menu li a:hover {
+  background-color: #c8f031; /* Change hover background color */
+  color: #000; /* Change hover text color */
+}
+
+/* Optional: Adjust caret positioning */
+.dropdown-toggle img {
+  margin-left: auto; /* Push the caret to the right */
+  width: 12px; /* Adjust size as needed */
+}
+
 /* checkbox */
 .check {
   display: none;
@@ -2091,6 +2131,9 @@ margin-top: 15px;
   align-items: left;
   justify-content: start;
 }
+.dropdown{
+  padding-left: 0 !important;
+}
 }
 
 /* CSS footer */
@@ -2238,18 +2281,16 @@ margin-top: 15px;
   .menusitebar-main-wraper {
     display: block;
   }
-  .dropdown-menu {
+  .drawer-menu .dropdown-menu {
     position: relative !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: 100%;
-    max-width: 100% !important;
-    margin-top: -62px !important;
-    float: none !important;
-    clear: both !important;
-    margin-left: -33px !important;
+    top: 0 !important; /* Position the dropdown below the Services button */
+    left: 40px !important; /* Align the left side of the menu to the middle of the container */
+    transform: translateX(-50%); /* Shift the menu to the left by 50% of its width for true centering */
+    background-color: #000; /* Ensure background color */
+    padding: 10px 20px; /* Adjust padding */
+    width: 220px; /* Set a fixed width to control the size */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional: shadow for visibility */
+    margin-left: 50px;
   }
   .dropdown-menu a {
     line-height: 22px !important;
