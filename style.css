@@ -2257,9 +2257,11 @@ margin-top: 15px;
   .dropdown {
     line-height: 65px !important;
     border-bottom: 1px solid #1e1e1e;
+    padding-left: 30px;
   }
   .dropdown-toggle {
     font-size: 16px !important;
+    color: #fff;
   }
 }
 @media screen and (max-width: 990px) {
