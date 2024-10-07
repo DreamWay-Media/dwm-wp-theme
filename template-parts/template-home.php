@@ -40,12 +40,13 @@ get_header();
   <!--slider--> 
   
   <!--scroll down-->
-  <div class="scroll-down-btn" data-aos="fade-up"> <a href="#arrowsection"> <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="circle"> </a> </div>
+  <div class="scroll-down-btn" data-aos="fade-up"> <a href="#about-main-wrap"> <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="circle"></a> 
+</div>
   <!--scroll down--> 
   
 </section>
 <!--header slider--> 
-<section class="about-main-wrap"> 
+<section class="about-main-wrap" id="about-main-wrap"> 
   
   <!--about-->
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
