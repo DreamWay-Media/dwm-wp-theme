@@ -69,7 +69,7 @@
 
 3. **Create a Custom `php.ini` File** 
 In the root of your project directory, create a `custom-php.ini` file to increase the upload size and adjust memory settings. 
-Add the following contents:<br>```ini ; Increase upload size limits upload_max_filesize = 32M post_max_size = 32M max_execution_time = 300 max_input_time = 300 memory_limit = 256M ``` 
+Add the following contents:<br>`; Increase upload size limits`<br>`upload_max_filesize = 32M`<br>`post_max_size = 32M`<br>`max_execution_time = 300`<br>`max_input_time = 300`<br>`memory_limit = 256M`
 
 	This file ensures that WordPress can handle larger uploads and have sufficient memory to process large operations.
 
