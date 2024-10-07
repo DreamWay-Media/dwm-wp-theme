@@ -680,8 +680,10 @@ img {
 /* Removed empty ruleset */
 
 .listing-featured-wrap .listing-featured-wrap-image {
-  height: 525px;
+  width: 100%;
+  height: auto;
   background-size: cover !important;
+  aspect-ratio: 1/1;
   border-radius: 6px;
 }
 .tag-featured-wrap {
@@ -699,7 +701,7 @@ img {
 }
 .listing-featured-text h3 {
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 30px;
   padding: 25px 0 15px 0;
 }
 .listing-featured-text h3 a {
@@ -2127,9 +2129,6 @@ margin-top: 15px;
     font-size: 10px;
     margin-right: 7px;
   }
-  .listing-featured-text h3 {
-    font-size: 30px;
-  }
 }
 @media (max-width: 1200px) and (min-width: 1170px) {
   .slider-main-wrap h1 {
@@ -2209,9 +2208,6 @@ margin-top: 15px;
   .tag-featured-wrap span {
     margin-bottom: 15px;
     display: inline-block;
-  }
-  .listing-featured-wrap .listing-featured-wrap-image {
-    height: 370px;
   }
   .cta-main-wraper h2 {
     padding: 0;
@@ -2355,7 +2351,6 @@ margin-top: 15px;
   }
   .listing-featured-text h3 {
     padding: 0 0 10px 0;
-    font-size: 35px;
   }
   .tag-featured-wrap span {
     padding: 6px 15px;
@@ -2672,9 +2667,6 @@ margin-top: 15px;
   }
   .team-listing-wraper .team-listing-image {
     margin-bottom: 10px;
-  }
-  .listing-featured-wrap .listing-featured-wrap-image {
-    height: 256px;
   }
   .cta-main-wraper h2 {
     font-size: 22px;
