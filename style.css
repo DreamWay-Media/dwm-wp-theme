@@ -98,22 +98,20 @@ img {
 /* CSS Document */
 
 /* CSS header & slider */
-.header-main-wrap {
-  background: #101010;
-}
 .header-slider-wrap {
   background: #101010;
   height: 100vh;
 }
 /* CSS header */
 .header-main-wrap {
+  background: #101010;
   border-bottom: 1px solid #333333;
   padding: 12px 0;
   position: relative;
   z-index: 1;
 }
-.header-nav-wrap {
-}
+
+/* Removed empty ruleset */
 .header-nav-wrap ul {
   list-style: none;
   text-align: right;
@@ -423,8 +421,7 @@ img {
 .services-main-wraper {
   padding: 90px 0;
 }
-.service-heading-wrap {
-}
+/* Removed empty ruleset */
 .service-heading-wrap h2 {
   font-size: 50px;
   color: #000;
@@ -512,10 +509,10 @@ img {
   height: 1.65rem;
   margin-left: auto;
   content: "";
-  background-image: url(
-    data:image/svg + xml,
-    %3csvgxmlns="http://www.w3.org/2000/svg"viewBox="0 0 16 16"fill="%23212529"%3e%3cpathfill-rule="evenodd"d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/%3e%3c/svg%3e
-  );
+  .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  }
+  
   background-repeat: no-repeat;
   background-size: 1.65rem;
   transition: transform 0.2s ease-in-out;
@@ -639,8 +636,7 @@ img {
 .site-number-main-wrap ul li {
   text-align: center;
 }
-.site-number-main-wrap ul li .number-list-wrap {
-}
+/* Removed empty ruleset */
 .site-number-main-wrap ul li .number-list-wrap strong {
   font-size: 50px;
   font-weight: 800;
@@ -674,20 +670,20 @@ img {
   font-weight: 300;
   padding-top: 10px;
 }
-.featured-listing-wrap {
-}
+/* Removed empty ruleset */
 .featured-listing-wrap ul {
   list-style: none;
 }
 .featured-listing-wrap ul li {
   margin-bottom: 30px;
 }
-.featured-listing-wrap ul li .listing-featured-wrap {
-}
+/* Removed empty ruleset */
 
 .listing-featured-wrap .listing-featured-wrap-image {
-  height: 525px;
+  width: 100%;
+  height: auto;
   background-size: cover !important;
+  aspect-ratio: 1/1;
   border-radius: 6px;
 }
 .tag-featured-wrap {
@@ -705,7 +701,7 @@ img {
 }
 .listing-featured-text h3 {
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 30px;
   padding: 25px 0 15px 0;
 }
 .listing-featured-text h3 a {
@@ -750,8 +746,7 @@ img {
   position: relative;
   margin-bottom: 70px;
 }
-.listing-client-wrap {
-}
+/* Removed empty ruleset */
 .listing-client-wrap p {
   font-size: 16px;
   font-style: italic;
@@ -925,13 +920,11 @@ img {
 .connect-main-wrap p strong {
   color: #000000;
 }
-.owner-message-wraper {
-}
+/* Removed empty ruleset */
 .connect-heading {
   margin-bottom: 30px;
 }
-.owner-info-wrap {
-}
+/* Removed empty ruleset */
 .owner-info-wrap .owner-info-image {
   width: 60px;
   height: 60px;
@@ -968,8 +961,7 @@ img {
 .about-sucess-wrap ul {
   list-style: none;
 }
-.about-sucess-wrap ul li {
-}
+/* Removed empty ruleset */
 .listing-about-sucess {
   line-height: 55px;
 }
@@ -997,10 +989,8 @@ img {
   list-style: none;
   margin-top: 70px;
 }
-.team-main-wraper ul li {
-}
-.team-main-wraper ul li .team-listing-wraper {
-}
+/* Removed empty ruleset */
+/* Removed empty ruleset */
 .team-listing-wraper .team-listing-image {
   height: 280px;
   border-radius: 6px;
@@ -1218,8 +1208,7 @@ img {
 .slider-image-wrap img {
   width: 70%;
 }
-.what-they-need-wrap {
-}
+/* Removed empty ruleset */
 .what-they-need-wrap h3 {
   font-size: 32px;
   font-weight: bold;
@@ -1258,8 +1247,7 @@ img {
   padding-bottom: 40px;
   border-bottom: 1px solid #ddd;
 }
-.product-detail-text {
-}
+/* Removed empty ruleset */
 .product-detail-text h4 {
   font-size: 18px;
   color: #666;
@@ -1296,8 +1284,7 @@ img {
 .main-job-wraper ul {
   list-style: none;
 }
-.main-job-wraper ul li {
-}
+/* Removed empty ruleset */
 .main-job-wraper ul li {
   width: 45%;
   display: inline-block;
@@ -1334,13 +1321,11 @@ img {
   padding-bottom: 50px;
   border-bottom: 1px solid #ddd;
 }
-.logo-image-wrap ul li {
-}
+/* Removed empty ruleset */
 .design-development-wrap {
   padding-bottom: 60px;
 }
-.design-development-wrap .heading-text-wrap {
-}
+/* Removed empty ruleset */
 .heading-text-wrap h3 {
   font-size: 30px;
   color: #000;
@@ -1390,8 +1375,7 @@ img {
   margin-bottom: 60px;
   padding-bottom: 60px;
 }
-.project-video-wrap {
-}
+/* Removed empty ruleset */
 .project-video-wrap h5 {
   text-transform: uppercase;
   font-size: 16px;
@@ -1433,12 +1417,9 @@ img {
   list-style: none;
   margin-top: 50px;
 }
-.product-design-wraper ul li {
-}
-.product-design-wraper ul li .listing-design-wrap {
-}
-.listing-design-wrap .listing-design-image {
-}
+/* Removed empty ruleset */
+/* Removed empty ruleset */
+/* Removed empty ruleset */
 .service-slider-wrap {
   padding-top: 50px;
 }
@@ -1471,8 +1452,7 @@ img {
   padding-bottom: 60px;
   margin-bottom: 60px;
 }
-.services-listing-wraper ul li .service-list-wrap {
-}
+/* Removed empty ruleset */
 .service-list-wrap .listing-service-wrap {
   width: 50px;
   height: 50px;
@@ -1507,8 +1487,7 @@ img {
   border: none !important;
   padding-bottom: 0 !important;
 }
-.service-list-info ul li .inner-list-service {
-}
+/* Removed empty ruleset */
 .inner-list-service h5 {
   font-size: 24px;
   color: #000;
@@ -1580,14 +1559,7 @@ img {
 .icon-next-btn img {
   width: 70px;
 }
-.service-inner-image:hover .image-blur {
-  filter: blur(2px);
-  transition: ease-in 0.5s;
-  -moz-transition: ease-in 0.5s;
-  -webkit-transition: ease-in 0.5s;
-  -ms-transition: ease-in 0.5s;
-  -o-transition: ease-in 0.5s;
-}
+/* Removed blur effect */
 .blog-listing-wraper {
   padding: 80px 0;
 }
@@ -1624,13 +1596,11 @@ img {
   color: #666666;
   line-height: 26px;
 }
-.small-listing-wrap {
-}
+/* Removed empty ruleset */
 .small-listing-wrap ul {
   list-style: none;
 }
-.small-listing-wrap ul li {
-}
+/* Removed empty ruleset */
 .small-listing-wrap ul li .blog-small-list {
   margin-bottom: 35px;
 }
@@ -1817,8 +1787,7 @@ img {
 .contact-main-wraper {
   padding: 60px 0;
 }
-.contact-text-wrap {
-}
+/* Removed empty ruleset */
 .contact-text-wrap h3 {
   font-size: 50px;
   color: #000;
@@ -1853,8 +1822,7 @@ img {
 .social-contact a img {
   width: 40px;
 }
-.contact-review-wrap {
-}
+/* Removed empty ruleset */
 .contact-review-wrap h5 {
   font-size: 15px;
   color: #91b210;
@@ -1902,8 +1870,7 @@ img {
   text-transform: uppercase;
   margin-left: 65px;
 }
-.contact-form-wraper form .form-group {
-}
+/* Removed empty ruleset */
 .contact-form-wraper form .form-group .form-control {
   height: 85px;
   border: none;
@@ -2020,21 +1987,18 @@ img {
 .drag-text {
   text-align: center;
 }
-
 .drag-text h3 {
   font-weight: 100;
   text-transform: uppercase;
   color: #15824b;
   padding: 30px 0;
 }
-
 .file-upload-image {
   max-height: 200px;
   max-width: 200px;
   margin: auto;
   padding: 20px;
 }
-
 .remove-image {
   width: 200px;
   margin: 0;
@@ -2049,14 +2013,12 @@ img {
   text-transform: uppercase;
   font-weight: 700;
 }
-
 .remove-image:hover {
   background: #c13b2a;
   color: #ffffff;
   transition: all 0.2s ease;
   cursor: pointer;
 }
-
 .remove-image:active {
   border: 0;
   transition: all 0.2s ease;
@@ -2067,8 +2029,20 @@ img {
 /* CSS footer */
 
 .footer-main-wraper {
-  padding: 60px 0;
+  padding: 48px 0;
   background: #101010;
+}
+.footer-main-wraper .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Ensure the row takes full height of the footer */
+}
+.footer-widget-area {
+  margin-top: 8px;
+  display: flex;
+  justify-content: end; /* Space out widgets evenly */
+  align-items: right;
 }
 .footer-main-wraper p {
   font-size: 14px;
@@ -2076,11 +2050,12 @@ img {
   padding-right: 220px;
   line-height: 26px;
   font-weight: 300;
+  margin-bottom: 22px; /* adjust 1 */
 }
 .fotoer-nav-wrap ul {
   list-style: none;
   text-align: right;
-  margin-top: 110px;
+  margin-top: 40px;
   margin-bottom: 15px;
 }
 .fotoer-nav-wrap ul li {
@@ -2097,10 +2072,29 @@ img {
   text-align: right;
   font-size: 12px;
   color: #aaaaaa;
+  margin-bottom: 8px;
 }
 .mobile-slider-image {
   display: none;
 }
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+.footer-nav-wrap ul {
+text-align: left;
+padding-bottom: 30px;
+}
+}
+@media (max-width: 768px) {
+.footer-nav-wrap {
+margin-top: 15px;
+}
+.footer-widget-area {
+  margin-top: 8px;
+  align-items: left;
+  justify-content: start;
+}
+}
+
 /* CSS footer */
 
 /* CSS media screens */
@@ -2134,9 +2128,6 @@ img {
   .tag-featured-wrap span {
     font-size: 10px;
     margin-right: 7px;
-  }
-  .listing-featured-text h3 {
-    font-size: 30px;
   }
 }
 @media (max-width: 1200px) and (min-width: 1170px) {
@@ -2218,9 +2209,6 @@ img {
     margin-bottom: 15px;
     display: inline-block;
   }
-  .listing-featured-wrap .listing-featured-wrap-image {
-    height: 370px;
-  }
   .cta-main-wraper h2 {
     padding: 0;
     margin-bottom: 40px;
@@ -2265,9 +2253,11 @@ img {
   .dropdown {
     line-height: 65px !important;
     border-bottom: 1px solid #1e1e1e;
+    padding-left: 30px;
   }
   .dropdown-toggle {
     font-size: 16px !important;
+    color: #fff;
   }
 }
 @media screen and (max-width: 990px) {
@@ -2363,7 +2353,6 @@ img {
   }
   .listing-featured-text h3 {
     padding: 0 0 10px 0;
-    font-size: 35px;
   }
   .tag-featured-wrap span {
     padding: 6px 15px;
@@ -2403,6 +2392,7 @@ img {
   }
   .copyright-wrap {
     text-align: left;
+    margin-bottom: 0;
   }
   .footer-main-wraper {
     padding-bottom: 30px;
@@ -2680,12 +2670,28 @@ img {
   .team-listing-wraper .team-listing-image {
     margin-bottom: 10px;
   }
-  .listing-featured-wrap .listing-featured-wrap-image {
-    height: 256px;
-  }
   .cta-main-wraper h2 {
     font-size: 22px;
   }
 }
-
-/* CSS media screens */
+.copyMessage {
+  display: none;
+  color: green;
+  transition: opacity 0.5s;
+}
+.copyMessage.show {
+  display: inline-block;
+  opacity: 1;
+}
+#submit {
+  width: 100%;
+  height: 50px;
+  background: #101010;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 30px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}

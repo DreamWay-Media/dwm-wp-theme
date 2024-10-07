@@ -10,9 +10,7 @@
 /**
  * Jetpack setup function.
  *
- * See: https://jetpack.com/support/infinite-scroll/
- * See: https://jetpack.com/support/responsive-videos/
- * See: https://jetpack.com/support/content-options/
+ * Adds support for Infinite Scroll, Responsive Videos, and Content Options.
  */
 function dreamway_media_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
@@ -53,6 +51,8 @@ add_action( 'after_setup_theme', 'dreamway_media_jetpack_setup' );
 if ( ! function_exists( 'dreamway_media_infinite_scroll_render' ) ) :
 	/**
 	 * Custom render function for Infinite Scroll.
+	 *
+	 * Loads the appropriate content template based on the post type or search.
 	 */
 	function dreamway_media_infinite_scroll_render() {
 		while ( have_posts() ) {

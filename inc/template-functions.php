@@ -1,6 +1,6 @@
 <?php
 /**
- * Functions which enhance the theme by hooking into WordPress
+ * Functions that enhance the theme by hooking into WordPress.
  *
  * @package Dreamway_Media
  */
@@ -12,12 +12,12 @@
  * @return array
  */
 function dreamway_media_body_classes( $classes ) {
-	// Adds a class of hfeed to non-singular pages.
+	// Adds a class of 'hfeed' to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
 	}
 
-	// Adds a class of no-sidebar when there is no sidebar present.
+	// Adds a class of 'no-sidebar' when there is no sidebar present.
 	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		$classes[] = 'no-sidebar';
 	}
@@ -27,7 +27,7 @@ function dreamway_media_body_classes( $classes ) {
 add_filter( 'body_class', 'dreamway_media_body_classes' );
 
 /**
- * Add a pingback url auto-discovery header for single posts, pages, or attachments.
+ * Adds a pingback URL auto-discovery header for single posts, pages, or attachments.
  */
 function dreamway_media_pingback_header() {
 	if ( is_singular() && pings_open() ) {
