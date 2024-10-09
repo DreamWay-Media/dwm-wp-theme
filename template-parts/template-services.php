@@ -14,7 +14,7 @@ get_header();
   <!--slider-->
   <section class="service-slider-wrap">
     <div class="container">
-      <h1>Our Services</h1>
+      <h1 id="services-title">Our Services</h1>
       <p><?php echo esc_html( $our_service_banner_description ); ?></p>
     </div>
   </section>

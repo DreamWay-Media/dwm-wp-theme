@@ -729,8 +729,10 @@ img {
 /* Removed empty ruleset */
 
 .listing-featured-wrap .listing-featured-wrap-image {
-  height: 525px;
+  width: 100%;
+  height: auto;
   background-size: cover !important;
+  aspect-ratio: 1 / 1;
   border-radius: 6px;
 }
 .tag-featured-wrap {
@@ -748,7 +750,7 @@ img {
 }
 .listing-featured-text h3 {
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 30px;
   padding: 25px 0 15px 0;
 }
 .listing-featured-text h3 a {
@@ -2261,9 +2263,6 @@ margin-top: 15px;
     margin-bottom: 15px;
     display: inline-block;
   }
-  .listing-featured-wrap .listing-featured-wrap-image {
-    height: 370px;
-  }
   .cta-main-wraper h2 {
     padding: 0;
     margin-bottom: 40px;
@@ -2799,8 +2798,24 @@ margin-top: 15px;
     margin-top: 100px;
   }
 }
-@media (max-width: 1400px) {
+@media (max-width: 992px) and (min-width: 768px){
   .listing-featured-text h3 {
-    font-size: 25px !important;
+    font-size: 20px !important;
+  }
+  .portfolio-listing-wrap ul li .listing-featured-text p {
+    font-size: 15px !important;
+  }
+}
+@media (max-width: 1500px) and (min-width: 1170px) {
+  .slider-portfolio-wrap p {
+    margin-top: 0;
+  }
+}
+@media (min-width: 1170px) {
+  #blog-title, #services-title {
+    padding-top: 50px; /*blog and services */
+  }
+  #project-title {
+    padding-top: 30px;
   }
 }
