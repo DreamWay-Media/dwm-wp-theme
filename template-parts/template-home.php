@@ -331,7 +331,7 @@ get_header();
       <div class="carousel-wrap">
         <div class="owl-carousel">
           <?php if (have_rows('testimonials')) : 
-            while (have_rows('testimonials')) : the_row(); 
+            while (have_rows('testimonials')) : the_row();
               $customer_name = get_sub_field('customer_name');
               $customer_designation = get_sub_field('customer_designation');
               $customer_image = get_sub_field('customer_image');
