@@ -3,9 +3,6 @@
 ## Requirements
 
 - [Docker](https://www.docker.com/get-started/)
-- [MySQL Database Export](https://drive.google.com/file/d/13TnXG9MzweNhtrccyi1o8RwS0TPDK00h/view)
-- [Uploads](https://dreamwaymedia.com/wp-content/uploads.zip)
-- [Plugins](https://dreamwaymedia.com/wp-content/plugins.zip)
 
 ## Setup
 
