@@ -368,7 +368,7 @@ get_header();
   <div class="cta-main-wraper">
     <div class="container">
       <h2 data-aos="fade-up"><?php echo wp_kses_post($cta_heading); ?></h2>
-      <div class="btn-cta-wrap">
+      <div class="btn-cta-wrap aos-init" data-aos="fade-up">
         <a class="homeStartNowBtn" href="<?php echo esc_url($cta_button_link); ?>"><?php echo esc_html($cta_button_text); ?></a>
       </div>
     </div>
