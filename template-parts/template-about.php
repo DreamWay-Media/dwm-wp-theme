@@ -3,7 +3,7 @@
 get_header();
 ?>
 
-<?php 
+<?php
 $about_banner_description = get_field('about_banner_description');
 $about_banner_image = get_field('about_banner_image');
 $about_connecting_brand_heading = get_field('about_connecting_brand_heading');
@@ -20,12 +20,12 @@ $test_string = '<strong>Bold Text</strong> Regular text';
       <p><?php echo wp_kses_post($about_banner_description); ?></p>
     </div>
   </section>
-  <!--slider--> 
+  <!--slider-->
 </section>
-<!--header slider--> 
+<!--header slider-->
 
 <!--content-->
-<section class="content-main-wrap"> 
+<section class="content-main-wrap">
 
   <!--about image-->
   <div class="container">
@@ -33,11 +33,11 @@ $test_string = '<strong>Bold Text</strong> Regular text';
       <img src="<?php echo esc_url($about_banner_image['url']); ?>" alt="<?php echo esc_attr($about_banner_image['alt']); ?>" title="<?php echo esc_attr($about_banner_image['title']); ?>">
     </section>
   </div>
-  <!--about image--> 
+  <!--about image-->
   
   <!--Connecting Brands and Audiences-->
   <section class="connect-main-wrap">
-    <div class="container"> 
+    <div class="container">
       <div class="connect-heading">
         <div class="row">
           <!--heading-->
@@ -51,9 +51,9 @@ $test_string = '<strong>Bold Text</strong> Regular text';
       </div>
     </div>
   </section>
-  <!--Connecting Brands and Audiences--> 
+  <!--Connecting Brands and Audiences-->
 
-  <?php 
+  <?php
   $founder_image = get_field('founder_image');
   $founder_name = get_field('founder_name');
   $founder_description = get_field('founder_description');
@@ -62,7 +62,7 @@ $test_string = '<strong>Bold Text</strong> Regular text';
   <!--owner message-->
   <div class="container">
     <section class="owner-message-wraper">
-      <div class="row"> 
+      <div class="row">
         <!--owner info-->
         <div class="col-md-6">
           <div class="owner-info-wrap">
@@ -83,7 +83,51 @@ $test_string = '<strong>Bold Text</strong> Regular text';
       </div>
     </section>
   </div>
-  <!--owner message--> 
+  <!--owner message-->
+
+  <!-- Meet the Team -->
+<?php 
+$intro = get_field('meet_the_team');
+$args = array(
+    'post_type' => 'meet-the-team',
+    'posts_per_page' => -1,
+);
+
+$query = new WP_Query($args);
+
+if ($query->have_posts()) : ?>
+    <div class="container">
+        <h2 class="team-intro"><?php echo esc_html($intro); ?></h2>
+        <div class="team-all row">
+            <?php 
+            // Loop through custom post type: Team
+            while ($query->have_posts()) : $query->the_post();
+                // Gather custom fields to display
+                $intro = get_field('meet_the_team');
+                $image = get_field('team_member_image');
+                $image_url = esc_url($image['url']);
+                $image_alt = esc_attr($image['alt']);
+                $name = get_field('team_member_name');
+                $title = get_field('team_member_title');
+            ?>
+                <div class="team-member col-sm-4 col-md-3">
+                    <?php if ($image) : ?>
+                        <img class="about-team-image" src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />
+                    <?php else : ?>
+                        <p>No photo available</p>
+                    <?php endif; ?>
+                    <h4 class="about-team-name"><?php echo esc_html($name); ?></h4>
+                    <p class="about-team-title"><?php echo esc_html($title); ?></p>
+                </div> <!-- Closes team-member div -->
+            <?php endwhile; ?>
+        </div> <!-- Closes team-all div -->
+    </div> <!-- Closes container div -->
+    <?php wp_reset_postdata(); // Reset the post data ?>
+<?php else : ?>
+    <p>No posts found.</p>
+<?php endif; ?>
+<!-- Meet the Team -->
+
 
   <?php 
   $team_heading = get_field('team_heading');
