@@ -46,15 +46,14 @@ get_header();
   <!--slider--> 
   
   <!--scroll down-->
-  <div class="scroll-down-btn" data-aos="fade-up">
-    <a href="#arrowsection"><img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/circle.svg'); ?>" alt="circle"></a>
+  <div class="scroll-down-btn" data-aos="fade-up"> <a href="#about-main-wrap"> <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="circle"></a> 
   </div>
   <!--scroll down--> 
   
 </section>
 <!--header slider--> 
-
-<section class="about-main-wrap"> 
+<section class="about-main-wrap" id="about-main-wrap"> 
+  
   <!--about-->
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
   <div class="container bootstrap snippets bootdey " data-aos="fade-up">
@@ -62,17 +61,17 @@ get_header();
     <div class="services-top">
         <div class="container bootstrap snippets bootdey">
             <div class="row text-center">
-                <div class="col-sm-12 col-md-12 col-md-12">
+                <div class="col-12">
                     <h2>What We Offer</h2>
                     <h2 style="font-size: 60px;line-height: 60px;margin-bottom: 20px;font-weight: 900;">What you really need</h2>
                     <p>We offer wider range of services to ensure you get what you need, all under one roof.</p>
                 </div>
             </div>
     <div class="row">
-      <div class="col-md-offset-1 col-sm-12 col-md-12 col-md-10">
+      <div class="col-sm-12 col-md-12 col-lg-12">
           <div class="services-list">
               <div class="row">
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-magic highlight"></div>
                           <div class="text-block">
@@ -82,7 +81,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-code highlight"></div>
                           <div class="text-block">
@@ -92,7 +91,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-pencil highlight"></div>
                           <div class="text-block">
@@ -102,7 +101,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-camera highlight"></div>
                           <div class="text-block">
@@ -112,7 +111,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-film highlight"></div>
                           <div class="text-block">
@@ -122,7 +121,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-video-camera highlight"></div>
                           <div class="text-block">
@@ -132,7 +131,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-bullhorn highlight"></div>
                           <div class="text-block">
@@ -142,7 +141,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-shopping-cart highlight"></div>
                           <div class="text-block">
@@ -152,7 +151,7 @@ get_header();
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 col-md-4">
+                  <div class="col-sm-6 col-md-4">
                       <div class="service-block" style="visibility: visible;">
                           <div class="ico fa fa-umbrella highlight"></div>
                           <div class="text-block">
@@ -370,7 +369,7 @@ get_header();
     <div class="container">
       <h2 data-aos="fade-up"><?php echo wp_kses_post($cta_heading); ?></h2>
       <div class="btn-cta-wrap">
-        <a href="<?php echo esc_url($cta_button_link); ?>"><?php echo esc_html($cta_button_text); ?></a>
+        <a class="homeStartNowBtn" href="<?php echo esc_url($cta_button_link); ?>"><?php echo esc_html($cta_button_text); ?></a>
       </div>
     </div>
   </div>

@@ -1,70 +1,81 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+# Installation
 
-_s
-===
+## Requirements
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+- [Docker](https://www.docker.com/get-started/)
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+## Setup
 
-* A modern workflow with a pre-made command-line interface to turn your project into a more pleasant experience.
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A custom header implementation in `inc/custom-header.php`. Just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/template-functions.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample layouts in `sass/layouts/` made using CSS Grid for a sidebar on either side of your content. Just uncomment the layout of your choice in `sass/style.scss`.
-Note: `.no-sidebar` styles are automatically loaded.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
+### **Step 1: Install Docker and WordPress Locally**
+1. **Install Docker**
+	[Docker Installation Guide](https://docs.docker.com/desktop/?_gl=1*xj8wza*_gcl_au*MTgxODIyMzIxMy4xNzI3ODk1Njkw*_ga*MTg1ODI5ODQwMS4xNzI2OTgzMjI5*_ga_XJWPQMJYHQ*MTcyNzg5NTY4OS4yLjEuMTcyNzg5NjUwNi42MC4wLjA.)
 
-Installation
----------------
+2. **Create a `docker-compose.yml` File** In the root of your project (or a dedicated folder for your WordPress site)
 
-### Requirements
+3. **Create a Custom `php.ini` File** 
+In the root of your project directory, create a `custom-php.ini` file to increase the upload size and adjust memory settings.
 
-`_s` requires the following dependencies:
+4. **Start the Docker Containers**
+		After setting up the Docker compose file and custom `php.ini`, start the Docker containers by running:
+	`docker-compose up -d`
 
-- [Node.js](https://nodejs.org/)
-- [Composer](https://getcomposer.org/)
+6. **Access WordPress**
+	After the containers are up, you can access your WordPress site at: http://localhost:8000
 
-### Quick Start
+7. **Access phpMyAdmin**
+	phpMyAdmin will be available at: http://localhost:8080
+	
+	You can use phpMyAdmin to manage your MySQL database. The login credentials are:
+	-   Username: `root`
+	-   Password: `yourpassword`
 
-Clone or download this repository, change its name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a six-step find and replace on the name in all the templates.
+### Step 2: Set Up the WordPress Theme
+Once WordPress is running locally, follow these steps to install the theme:
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain and replace with: `'megatherium-is-awesome'`.
-2. Search for `_s_` to capture all the functions names and replace with: `megatherium_is_awesome_`.
-3. Search for `Text Domain: _s` in `style.css` and replace with: `Text Domain: megatherium-is-awesome`.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks and replace with: <code>&nbsp;Megatherium_is_Awesome</code>.
-5. Search for `_s-` to capture prefixed handles and replace with: `megatherium-is-awesome-`.
-6. Search for `_S_` (in uppercase) to capture constants and replace with: `MEGATHERIUM_IS_AWESOME_`.
+1. **Clone the Repository into the `wp-content/themes` Directory**  
+In your WordPress Docker setup, the `wp-content` directory is mapped to your local filesystem. Navigate to your WordPress `wp-content/themes` directory and clone this repository:
+	```
+	cd /path/to/your-wordpress-installation/wp-content/themes
+	git clone https://github.com/DreamWay-Media/dwm-wp-theme.git
+	```
+2. **Store Uploads and Plugins folders**
+	After extracting the zip files, store the `Uploads` and `Plugins` directories in `wp-content`.
 
-Then, update the stylesheet header in `style.css`, the links in `footer.php` with your own information and rename `_s.pot` from `languages` folder to use the theme's slug. Next, update or delete this readme.
-
-### Setup
-
-To start using all the tools that come with `_s`  you need to install the necessary Node.js and Composer dependencies :
-
-```sh
-$ composer install
-$ npm install
+### Step 3: Import the MySQL Database
+1. **Place the Database File**
+	Place the MySQL database export file (`thisiswh_db_dev_dreamway.sql`) in the root of your project directory.
+	
+2. **Access the MySQL Container**
+	Once inside the MySQL container, log into MySQL using the root credentials:
+	`mysql -u root -pyourpassword`
+	
+3. **Use the WordPress Database**
+	Tell MySQL to use the WordPress database:
+	`USE wordpress;`
+	
+4. **Insert a new Admin User**
+	Run the following SQL command to insert a new user with admin privileges:<br>
 ```
+INSERT INTO wp_users (user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_status, display_name)
+VALUES ('admin', MD5('yourpassword'), 'Admin', 'admin@example.com', 'http://localhost', NOW(), 0, 'Admin');
+```
+This command creates a new user named `admin` with the password `yourpassword` (replace this with your actual values).
 
-### Available CLI commands
+5. **Assign Administrator Role**
+	Next, assign the new user the administrator role by inserting the necessary records into the `wp_usermeta` table:<br>`INSERT INTO wp_usermeta (user_id, meta_key, meta_value)
+VALUES ((SELECT ID FROM wp_users WHERE user_login = 'admin'), 'wp_capabilities', 'a:1:{s:13:"administrator";b:1;}');`
 
-`_s` comes packed with CLI commands tailored for WordPress theme development :
+	`INSERT INTO wp_usermeta (user_id, meta_key, meta_value)
+VALUES ((SELECT ID FROM wp_users WHERE user_login = 'admin'), 'wp_user_level', '10');`
 
-- `composer lint:wpcs` : checks all PHP files against [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
-- `composer lint:php` : checks all PHP files for syntax errors.
-- `composer make-pot` : generates a .pot file in the `languages/` directory.
-- `npm run compile:css` : compiles SASS files to css.
-- `npm run compile:rtl` : generates an RTL stylesheet.
-- `npm run watch` : watches all SASS files and recompiles them to css when they change.
-- `npm run lint:scss` : checks all SASS files against [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
-- `npm run lint:js` : checks all JavaScript files against [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
-- `npm run bundle` : generates a .zip archive for distribution, excluding development and system files.
+6. **Exit MySQL**
+	`exit;`
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+7. **Log in to WordPress Admin**
+	Now, go to `http://localhost:8000/wp-admin` and log in with the username `admin` and the password you set in Step 4. You should now have full administrator access to the WordPress dashboard.
 
-Good luck!
+### Step 4: Access WordPress Admin and Activate the Theme:
+1. **Activate the Theme**
+	Once the theme is cloned, the database is imported, and have created admin credentials, log in to your WordPress admin dashboard at http://localhost:8000/wp-admin and go to **Plugins** to and activate each of them. Then go to **Appearance > Themes** to activate the theme.
+
+### Happy developing!

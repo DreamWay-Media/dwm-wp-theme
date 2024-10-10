@@ -131,6 +131,18 @@ function dreamway_media_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	// Footer widget area
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Footer Widget Area', 'dreamway-media' ),
+            'id'            => 'footer-1',
+            'description'   => esc_html__( 'Add widgets here for the footer.', 'dreamway-media' ),
+            'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="footer-widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
 }
 add_action( 'widgets_init', 'dreamway_media_widgets_init' );
 
