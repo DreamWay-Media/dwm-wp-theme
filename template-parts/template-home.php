@@ -279,11 +279,13 @@ get_header();
               ?>
               <li class="col-md-6">
                 <div class="listing-featured-wrap" data-aos="fade-up">
-                  <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div>
+                <a href="<?php echo esc_url(get_the_permalink()); ?>">
+                  <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
                   <div class="listing-featured-text">
                     <div class="tag-featured-wrap">
                       <?php 
                       $terms = wp_get_post_terms(get_the_ID(), array('project_category'));
+                   
                       foreach ($terms as $term) : ?>
                         <span><?php echo esc_html($term->name); ?></span>
                       <?php endforeach; ?>
