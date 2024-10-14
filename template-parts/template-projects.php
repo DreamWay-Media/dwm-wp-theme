@@ -18,11 +18,11 @@ $cta_button_link = get_field('cta_button_link');
   <section class="slider-portfolio-wrap">
     <div class="container">
       <div class="heading-text-wrap">
-        <div class="d-flex flex-column">
-          <div>
+        <div class="row">
+          <div class="col-md-6">
             <h1><?php echo wp_kses_post( $banner_heading ); ?></h1>
           </div>
-          <div class="col-sm-9 col-md-6">
+          <div class="col-md-6">
             <p><?php echo esc_html( $banner_description ); ?></p>
           </div>
         </div>
@@ -83,9 +83,9 @@ $cta_button_link = get_field('cta_button_link');
             $categories_string = esc_attr( implode(' ', $categories) );
             $thumbnail_url = esc_url( wp_get_attachment_url(get_post_thumbnail_id($post_id)) );
             ?>
-            <li class="col-md-6 col-lg-4" data-categories="<?php echo $categories_string; ?>">
-              <div class="listing-featured-wrap"> <a href="<?php echo esc_url(get_the_permalink()); ?>">
-                <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
+            <li class="col-md-4" data-categories="<?php echo $categories_string; ?>">
+              <div class="listing-featured-wrap">
+                <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div>
                 <div class="listing-featured-text">
                   <div class="tag-featured-wrap">
                     <?php foreach ($terms as $term) : ?>
