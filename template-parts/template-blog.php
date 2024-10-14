@@ -40,30 +40,32 @@ get_header();
               $main_query->the_post();
               $post_id = get_the_ID();
               ?>
-              <div class="big-blog-list-wrap">
-                <div class="big-blog-list-image">
-                  <img src="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id($post_id))); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-                </div>
-                <div class="blog-tag-wrap">
-                  <span><?php echo esc_html(get_the_category($post_id)[0]->name); ?></span> 
-                  <strong><?php echo esc_html(get_the_date('d-m-Y')); ?></strong>
-                  <div class="clearfix"></div>
-                </div>
-                <h2><a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a></h2>
-                <p>
-                  <?php
-                  $content = strip_tags(get_the_content());
-                  $words = explode(' ', $content);
-                  $excerpt = implode(' ', array_slice($words, 0, 30));
+              <a href="<?php echo esc_url(get_the_permalink()); ?>">
+                <div class="big-blog-list-wrap">
+                  <div class="big-blog-list-image">
+                    <img src="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id($post_id))); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+                  </div>
+                  <div class="blog-tag-wrap">
+                    <span><?php echo esc_html(get_the_category($post_id)[0]->name); ?></span> 
+                    <strong><?php echo esc_html(get_the_date('d-m-Y')); ?></strong>
+                    <div class="clearfix"></div>
+                  </div>
+                  <h2><?php the_title(); ?></h2>
+                  <p>
+                    <?php
+                    $content = strip_tags(get_the_content());
+                    $words = explode(' ', $content);
+                    $excerpt = implode(' ', array_slice($words, 0, 30));
 
-                  if (count($words) > 30) {
-                    $excerpt .= '...';
-                  }
+                    if (count($words) > 30) {
+                      $excerpt .= '...';
+                    }
 
-                  echo esc_html($excerpt);
-                  ?>
-                </p>
-              </div>
+                    echo esc_html($excerpt);
+                    ?>
+                  </p>
+                </div>
+              </a>    
               <?php
             }
           } else {
@@ -93,17 +95,19 @@ get_header();
                   $post_id = get_the_ID();
                   ?>
                   <li>
-                    <div class="blog-small-list">
-                      <div class="blog-small-image" style="background:url(<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id($post_id))); ?>) no-repeat top;"></div>
-                      <div class="blog-small-text">
-                        <div class="small-tags-rap">
-                          <span><?php echo esc_html(get_the_category($post_id)[0]->name); ?></span>
-                          <strong><?php echo esc_html(get_the_date('d-m-Y')); ?></strong>
+                    <a href="<?php echo esc_url(get_the_permalink()); ?>">
+                      <div class="blog-small-list">
+                        <div class="blog-small-image" style="background:url(<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id($post_id))); ?>) no-repeat top;"></div>
+                        <div class="blog-small-text">
+                          <div class="small-tags-rap">
+                            <span><?php echo esc_html(get_the_category($post_id)[0]->name); ?></span>
+                            <strong><?php echo esc_html(get_the_date('d-m-Y')); ?></strong>
+                          </div>
+                          <h4><?php the_title(); ?></h4>
                         </div>
-                        <h4><a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a></h4>
+                        <div class="clearfix"></div>
                       </div>
-                      <div class="clearfix"></div>
-                    </div>
+                    </a>  
                   </li>
                   <?php
                 }
