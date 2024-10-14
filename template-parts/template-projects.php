@@ -18,11 +18,11 @@ $cta_button_link = get_field('cta_button_link');
   <section class="slider-portfolio-wrap">
     <div class="container">
       <div class="heading-text-wrap">
-        <div class="row">
-          <div class="col-md-6">
+        <div class="d-flex flex-column">
+          <div>
             <h1><?php echo wp_kses_post( $banner_heading ); ?></h1>
           </div>
-          <div class="col-md-6">
+          <div class="col-sm-9 col-md-6">
             <p><?php echo esc_html( $banner_description ); ?></p>
           </div>
         </div>
