@@ -98,7 +98,7 @@
   nav: true,
   navText: [
     "<i class='fa fa-angle-left'></i> previous ",
-    "<i class='fa fa-angle-right'></i> next "
+    "next <i class='fa fa-angle-right'></i>"
   ],
   autoplay: true,
   autoplayHoverPause: true,

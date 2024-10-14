@@ -18,7 +18,7 @@ get_header();
     <!-- Slider -->
     <section class="portfolio-slider-wrap">
         <div class="container">
-            <h1><?php the_title(); ?></h1>
+            <h1 id="project-title"><?php the_title(); ?></h1>
             <p>
                 <?php
                 $content = get_the_content();

@@ -117,9 +117,10 @@ img {
   text-align: right;
   margin-top: 20px;
 }
+
 .header-nav-wrap ul li {
   display: inline-block;
-  margin-left: 55px;
+  margin-left: calc(10px + 2vw); /* Adjust spacing based on viewport width */
 }
 .header-nav-wrap ul li a {
   color: #aaaaaa;
@@ -190,6 +191,46 @@ img {
   color: #1a1e24;
   background: #c8f031;
 }
+/* Ensure dropdown toggle is styled correctly */
+.drawer-menu .dropdown-toggle {
+  display: flex;
+  justify-content: space-between; /* Align caret to the right */
+  align-items: center; /* Vertically center text and icon */
+  width: 100%; /* Make the toggle button take full width */
+  padding: 0px 30px; /* Adjust padding as needed */
+  color: #ffffff;
+}
+
+/* Style for the dropdown content */
+.drawer-menu .dropdown-menu {
+  position: relative !important; /* Position relative to its container */
+  top: 0; /* Adjust based on alignment needs */
+  left: 0; /* Align to the left side */
+  background-color: #000; /* Ensure background color */
+  padding: 10px 20px; /* Adjust padding */
+  width: 100%; /* Make sure dropdown takes full width */
+  transform: translate3d(-10px, -20px, 0px) !important;
+  margin-bottom: 20px;
+}
+
+/* Ensure dropdown menu items have proper padding and spacing */
+.drawer-menu .dropdown-menu li a {
+  padding: 10px 30px; /* Adjust padding for better alignment */
+  color: #ffffff; /* Ensure text color */
+}
+
+/* Dropdown hover effect */
+.drawer-menu .dropdown-menu li a:hover {
+  background-color: #c8f031; /* Change hover background color */
+  color: #000; /* Change hover text color */
+}
+
+/* Optional: Adjust caret positioning */
+.dropdown-toggle img {
+  margin-left: auto; /* Push the caret to the right */
+  width: 12px; /* Adjust size as needed */
+}
+
 /* checkbox */
 .check {
   display: none;
@@ -467,6 +508,14 @@ img {
   .wrapper {
     width: 100%;
   }
+  .listing-client-wrap {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+.inner-header-slider-wrap {
+  height: 520px;
 }
 .panel-heading {
   padding: 0;
@@ -686,7 +735,7 @@ img {
   width: 100%;
   height: auto;
   background-size: cover !important;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   border-radius: 6px;
 }
 .tag-featured-wrap {
@@ -738,7 +787,7 @@ img {
   border: 1px solid #c8f031;
 }
 .client-main-review-wrap {
-  padding: 80px 0;
+  padding: 60px 0;
   position: relative;
 }
 .client-heading-wrap h2 {
@@ -747,40 +796,67 @@ img {
   line-height: 60px;
   font-weight: bold;
   position: relative;
-  margin-bottom: 70px;
+  margin-bottom: 20px;
 }
 /* Removed empty ruleset */
+.listing-client-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the text vertically */
+  align-items: flex-start; /* Align the text to the start (left) */
+  height: 300px; /* Keep a consistent height for all testimonials */
+  padding: 20px;
+  margin-bottom: 25px;
+  text-align: center; /* Center text horizontally if needed */
+  margin-top: 25px;
+}
 .listing-client-wrap p {
   font-size: 16px;
   font-style: italic;
-  padding-bottom: 122px;
-  height: 110px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  flex-grow: 1;
+  display: flex;
+  align-items: center; /* Center text vertically within the space */
+  justify-content: center; /* Center text horizontally */
+  text-align: start;
 }
-.listing-client-wrap .client-image {
+.client-name-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: auto; /* Pushes the profile image and name to the bottom */
+}
+.client-image {
   width: 60px;
   height: 60px;
-  background-size: 100% !important;
-  float: left;
+  background-size: cover !important;
+  background-position: center;
   border-radius: 50%;
-  margin-right: 15px;
+  flex-shrink: 0;
 }
-.listing-client-wrap .client-name {
-  float: left;
-  width: 69%;
-  margin-top: 10px;
+.client-name {
+  display: flex;
+  flex-direction: column;
 }
 .client-name h5 {
   font-size: 16px;
   font-weight: bold;
   color: #000;
+  margin: 0;
+  text-align: start; /* Center the name */
 }
 .client-name span {
   font-size: 13px;
   color: #666666;
+  margin-top: 5px;
+  text-align: start; /* Center the designation */
 }
 .owl-nav {
   position: absolute;
-  top: -106px;
+  top: -60px;
   right: 22%;
 }
 .owl-nav button {
@@ -810,21 +886,6 @@ img {
 }
 .owl-dots {
   display: none;
-}
-.partner-main-wrap {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-top: 1px solid #e6e6e6cc;
-  margin-top: 30px;
-}
-.partner-carousel .owl-nav {
-  display: none;
-}
-.partner-logo-wrap {
-  text-align: center;
-}
-.partner-logo-wrap img {
-  width: 200px;
 }
 .cta-main-wraper {
   background: url(assets/images/bg-agency.svg) no-repeat top;
@@ -905,6 +966,7 @@ img {
     transform: translate(0, 0);
   }
 }
+
 .connect-main-wrap {
   padding-bottom: 60px;
 }
@@ -958,6 +1020,38 @@ img {
   font-style: italic;
   padding-right: 15px;
 }
+
+.team-intro{
+  padding-top: 90px;
+  font-size: 60px;
+  color: #101010;
+  font-weight: bold;
+  text-align: center;
+}
+.team-all{
+  padding: 90px 40px;
+  gap: 48px;
+  justify-content: space-around;
+}
+.team-member{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.about-team-image{
+  clip-path: circle();
+  max-width: 120px;
+}
+.about-team-name{
+  font-weight: 600;
+  text-align: center;
+}
+.about-team-title{
+  color: #444444;
+  text-align: center;
+}
+
 .about-sucess-wrap {
   padding: 30px 0;
 }
@@ -1171,7 +1265,7 @@ img {
 .portfolio-slider-wrap .single-portfolio-list {
   text-align: center;
   margin-top: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
 .portfolio-slider-wrap .single-portfolio-list span {
   background: #202020;
@@ -1180,6 +1274,8 @@ img {
   padding: 10px 15px;
   margin-right: 10px;
   border-radius: 30px;
+  margin-top: 9px;
+  display: inline-block;
 }
 .button-portfolio {
   text-align: center;
@@ -1857,6 +1953,16 @@ img {
   text-transform: uppercase;
   margin-left: 65px;
 }
+a.homeStartNowBtn{
+  color: black;
+  border: 1px solid black;
+  padding: 16px 35px;
+  border-radius: 6px;
+}
+a.homeStartNowBtn:hover{
+  color: white;
+  background-color: black;
+}
 /* Removed empty ruleset */
 .contact-form-wraper form .form-group .form-control {
   height: 85px;
@@ -2080,21 +2186,15 @@ margin-top: 15px;
   align-items: left;
   justify-content: start;
 }
+.dropdown{
+  padding-left: 0 !important;
+}
 }
 
 /* CSS footer */
 
 /* CSS media screens */
 
-@media (max-width: 1500px) and (min-width: 1170px) {
-  .header-slider-wrap {
-    height: auto;
-    padding-bottom: 60px;
-  }
-  .inner-slider-image {
-    margin-top: -80px;
-  }
-}
 @media (max-width: 1400px) and (min-width: 1170px) {
   .slider-main-wrap h1 {
     font-size: 72px;
@@ -2218,18 +2318,16 @@ margin-top: 15px;
   .menusitebar-main-wraper {
     display: block;
   }
-  .dropdown-menu {
+  .drawer-menu .dropdown-menu {
     position: relative !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: 100%;
-    max-width: 100% !important;
-    margin-top: -62px !important;
-    float: none !important;
-    clear: both !important;
-    margin-left: -33px !important;
+    top: 0 !important; /* Position the dropdown below the Services button */
+    left: 40px !important; /* Align the left side of the menu to the middle of the container */
+    transform: translateX(-50%); /* Shift the menu to the left by 50% of its width for true centering */
+    background-color: #000; /* Ensure background color */
+    padding: 10px 20px; /* Adjust padding */
+    width: 220px; /* Set a fixed width to control the size */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional: shadow for visibility */
+    margin-left: 50px;
   }
   .dropdown-menu a {
     line-height: 22px !important;
@@ -2237,7 +2335,6 @@ margin-top: 15px;
   .dropdown {
     line-height: 65px !important;
     border-bottom: 1px solid #1e1e1e;
-    padding-left: 30px;
   }
   .dropdown-toggle {
     font-size: 16px !important;
@@ -2248,6 +2345,7 @@ margin-top: 15px;
   .container {
     max-width: 100%;
     padding: 0 25px;
+    height: 100%;
   }
   .inner-slider-wrap p {
     width: 100%;
@@ -2345,19 +2443,35 @@ margin-top: 15px;
     margin-top: 0;
   }
   .owl-nav {
-    top: -54px;
+    top: 0px;
     right: auto;
     left: 135px;
   }
   .listing-client-wrap {
-    margin: 32px;
+    margin: 10px;
+    height: auto; /* Let the height adjust to content */
+    margin-bottom: 0;
   }
   .listing-client-wrap p {
-    height: auto;
-    padding-bottom: 20px;
+    height: auto; /* Remove fixed height to prevent text from being cut off */
+    margin-bottom: 15px; /* Add margin to separate text from the client name and image */
+    line-height: 1.5; /* Ensure proper line spacing for readability */
+    margin-top: 0;
   }
   .client-main-review-wrap {
-    padding-bottom: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+
+
+  .slider-image-wrap {
+    margin-top: -40px; /* Adjust this to move the image down */
+    padding-bottom: 30px; /* Reduce padding to make space */
+  }
+
+  .button-portfolio {
+    margin-top: 20px; /* Add margin to push the link down if needed */
   }
   .cta-main-wraper {
     padding-top: 50px;
@@ -2677,4 +2791,60 @@ margin-top: 15px;
   border-radius: 6px;
   border: none;
   outline: none;
+}
+/* Apply custom styles for screens between 576px and 768px */
+@media (min-width: 768px) and (max-width: 992px) {
+  .service-block .ico {
+    font-size: 33px !important; /* Reduce the icon size for this range */
+  }
+  .name{
+    font-size: 15px !important;
+  }
+  .info{
+    font-size: 11px !important;
+  }
+  .text{
+    font-size: 9px !important;
+  }
+  .text-block{
+    margin-left: 40 !important;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .owl-nav {
+    top: 0px;
+    right: auto;
+    left: 135px;
+  }
+  .listing-client-wrap {
+    margin-top: 80px;
+    padding-top: 60px;    
+    margin-bottom: 55px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1169px) {
+  .slider-image-wrap img{
+    margin-top: 100px;
+  }
+}
+@media (max-width: 992px) and (min-width: 768px){
+  .listing-featured-text h3 {
+    font-size: 20px !important;
+  }
+  .portfolio-listing-wrap ul li .listing-featured-text p {
+    font-size: 15px !important;
+  }
+}
+@media (max-width: 1500px) and (min-width: 1170px) {
+  .slider-portfolio-wrap p {
+    margin-top: 0;
+  }
+}
+@media (min-width: 1170px) {
+  #blog-title, #services-title {
+    padding-top: 50px; /*blog and services */
+  }
+  #project-title {
+    padding-top: 30px;
+  }
 }

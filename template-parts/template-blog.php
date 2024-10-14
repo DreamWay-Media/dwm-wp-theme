@@ -9,7 +9,7 @@ get_header();
   <!--slider-->
   <section class="service-slider-wrap">
     <div class="container">
-      <h1>OUR BLOG</h1>
+      <h1 id="blog-title">OUR BLOG</h1>
       <p><?php echo apply_filters('the_content', $post->post_content); ?></p>
     </div>
   </section>
