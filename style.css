@@ -1956,7 +1956,7 @@ img {
   font-size: 13px;
   color: #666666;
 }
-.aboutformbtn, a.homeStartNowBtn {
+.aboutformbtn {
   background: #101010;
   padding: 16px 35px;
   color: #fff;
@@ -1964,13 +1964,17 @@ img {
   font-weight: bold;
   border-radius: 6px;
   text-transform: uppercase;
-}
-.aboutformbtn {
   margin-left: 65px;
 }
+a.homeStartNowBtn{
+  color: black;
+  border: 1px solid black;
+  padding: 16px 35px;
+  border-radius: 6px;
+}
 a.homeStartNowBtn:hover{
-  background: #c8f031;
-  color: #101010;
+  color: white;
+  background-color: black;
 }
 /* Removed empty ruleset */
 .contact-form-wraper form .form-group .form-control {
