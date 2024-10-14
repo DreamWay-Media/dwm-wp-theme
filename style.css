@@ -1176,9 +1176,6 @@ img {
   font-size: 50px;
   font-weight: bold;
 }
-.slider-portfolio-wrap p {
-  margin-top: 35px;
-}
 .filter-project-btns {
   margin-top: 3%;
 }
@@ -1656,6 +1653,9 @@ img {
   font-size: 14px;
   border-radius: 30px;
 }
+.big-blog-list-wrap h2 {
+  color: #000000;
+}
 .big-blog-list-image img {
   width: 100%;
 }
@@ -1715,7 +1715,7 @@ img {
   font-size: 14px;
   float: right;
 }
-.blog-small-text h4 a {
+.blog-small-text h4 {
   font-weight: bold;
   color: #000;
   font-size: 22px;
@@ -2570,7 +2570,6 @@ margin-top: 15px;
     width: 100%;
   }
   .heading-text-wrap p {
-    margin-top: 0;
     padding: 15px 0;
   }
   .slider-portfolio-wrap h1 {
@@ -2833,11 +2832,6 @@ margin-top: 15px;
   }
   .portfolio-listing-wrap ul li .listing-featured-text p {
     font-size: 15px !important;
-  }
-}
-@media (max-width: 1500px) and (min-width: 1170px) {
-  .slider-portfolio-wrap p {
-    margin-top: 0;
   }
 }
 @media (min-width: 1170px) {
