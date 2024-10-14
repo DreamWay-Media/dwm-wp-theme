@@ -356,7 +356,10 @@ img {
   margin-bottom: 90px;
 }
 .portfolio-header-slider-wrap {
-  height: 575px;
+  height: auto;
+}
+.heading-text-wrap {
+  color: #ffffff;
 }
 /* CSS header */
 
@@ -1080,11 +1083,6 @@ img {
   font-weight: bold;
 }
 .slider-portfolio-wrap p {
-  font-size: 16px;
-  color: #dddddd;
-  line-height: 26px;
-  font-weight: 300;
-  padding-left: 50px;
   margin-top: 35px;
 }
 .filter-project-btns {
@@ -1326,17 +1324,6 @@ img {
   padding-bottom: 60px;
 }
 /* Removed empty ruleset */
-.heading-text-wrap h3 {
-  font-size: 30px;
-  color: #000;
-  font-weight: bold;
-}
-.heading-text-wrap p {
-  font-size: 16px;
-  color: #666666;
-  padding: 30px 0 40px 0;
-  padding-right: 75px;
-}
 .btn-website-wrap a {
   background: #101010;
   padding: 18px 35px;
@@ -2107,9 +2094,6 @@ margin-top: 15px;
   .inner-slider-image {
     margin-top: -80px;
   }
-  .slider-portfolio-wrap p {
-    margin-top: 0;
-  }
 }
 @media (max-width: 1400px) and (min-width: 1170px) {
   .slider-main-wrap h1 {
@@ -2473,7 +2457,6 @@ margin-top: 15px;
   }
   .heading-text-wrap p {
     margin-top: 0;
-    padding-right: 0;
     padding: 15px 0;
   }
   .slider-portfolio-wrap h1 {
