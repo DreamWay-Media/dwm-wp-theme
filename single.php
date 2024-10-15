@@ -13,7 +13,6 @@ get_header();
 <section class="header-slider-wrap inner-header-slider-wrap">
   <?php while ( have_posts() ) : the_post(); ?>
   <?php $post_id = get_the_ID(); ?>
-  <?php $blog_sidebar_image = get_field('blog_sidebar_image', $post_id); ?>
 
   <!-- Slider -->
   <section class="blog-single-wrap">
@@ -40,7 +39,7 @@ get_header();
     <div class="container">
       <div class="row">
         <!-- Detail -->
-        <div class="col-md-9">
+        <div>
           <div class="blog-detail-wraper">
             <?php the_content(); ?>
 
@@ -63,26 +62,31 @@ get_header();
                 <span class="copyMessage" id="linkedInMessage">Copied</span>
               </div>
 
-              <div class="leave-comment-wrap">
-                <?php 
-                // If comments are open or we have at least one comment, load up the comment template.
-                if ( comments_open() || get_comments_number() ) :
-                  comments_template();
-                endif;
-                ?>
-              </div>
-            </div>
-          </div>
-        </div>
+              <div class="leave-comment-wrap bg-light p-4 rounded shadow mt-5">
+                <?php if (comments_open() || get_comments_number()) : ?>
+                    <?php 
+                    // Customize the comment form using Bootstrap classes
+                    $comment_form_args = array(
+                        'fields' => array(
+                            'author' => '<div class="form-group mb-3"><label for="author" class="form-label">Name *</label> ' .
+                                        '<input id="author" name="author" type="text" class="form-control" value="" size="30" /></div>',
+                            'email'  => '<div class="form-group mb-3"><label for="email" class="form-label">Email *</label> ' .
+                                        '<input id="email" name="email" type="email" class="form-control" value="" size="30" /></div>',
+                            'url'    => '<div class="form-group mb-3"><label for="url" class="form-label">Website</label> ' .
+                                        '<input id="url" name="url" type="url" class="form-control" value="" size="30" /></div>',
+                        ),
+                        'comment_field' => '<div class="form-group mb-3"><label for="comment" class="form-label">Comment *</label> ' .
+                                          '<textarea id="comment" name="comment" class="form-control" rows="5" aria-required="true"></textarea></div>',
+                        'submit_button' => '<button type="submit" class="btn btn-primary">Post Comment</button>',
+                        'comment_notes_before' => '<p class="form-text text-muted mb-3">Your email address will not be published. Required fields are marked *</p>',
+                    );
 
-        <!-- Sidebar -->
-        <div class="col-md-3">
-          <div class="right-blog-wrap">
-            <?php if ( $blog_sidebar_image && is_array( $blog_sidebar_image ) ) : ?>
-              <img src="<?php echo esc_url($blog_sidebar_image['url']); ?>" alt="<?php echo esc_attr($blog_sidebar_image['alt']); ?>">
-            <?php else : ?>
-              <p>No sidebar image available.</p>
-            <?php endif; ?>
+                    comment_form($comment_form_args);
+                    ?>
+                <?php endif; ?>
+            </div>
+
+            </div>
           </div>
         </div>
       </div>
