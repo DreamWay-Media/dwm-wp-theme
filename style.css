@@ -1898,15 +1898,6 @@ img {
   width: 25px;
   margin-right: 10px;
 }
-.social-contact {
-  margin-bottom: 30px;
-}
-.social-contact a {
-  text-decoration: none;
-}
-.social-contact a img {
-  width: 40px;
-}
 /* Removed empty ruleset */
 .contact-review-wrap h5 {
   font-size: 15px;

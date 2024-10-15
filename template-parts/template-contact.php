@@ -36,11 +36,6 @@ get_header();
               <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/time-contact.svg" alt="time"> <?php echo esc_html($contact_timing); ?></li>
               <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/location-contact.svg" alt="location"> <?php echo esc_html($contact_address); ?></li>
             </ul>
-            <div class="social-contact"> 
-              <a href="<?php echo esc_url($contact_facebook_link); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/facebook-contact.svg" alt="facebook"></a> 
-              <a href="<?php echo esc_url($contact_twitter_link); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/twitter-contact.svg" alt="twitter"></a> 
-              <a href="<?php echo esc_url($contact_linkedin_link); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/linked-contact.svg" alt="linkedin"></a> 
-            </div>
             <div class="contact-review-wrap">
               <h5><?php echo esc_html($contact_feature_review_heading); ?></h5>
               <p><?php echo esc_html($contact_review_message); ?></p>
