@@ -63,13 +63,27 @@ get_header();
                 <span class="copyMessage" id="linkedInMessage">Copied</span>
               </div>
 
-              <div class="leave-comment-wrap">
-                <?php 
-                // If comments are open or we have at least one comment, load up the comment template.
-                if ( comments_open() || get_comments_number() ) :
-                  comments_template();
-                endif;
-                ?>
+              <div class="leave-comment-wrap bg-light p-4 rounded shadow mt-5">
+                  <h2 class="mb-4">Leave a Reply</h2>
+                  <?php 
+                  // Customize the comment form using Bootstrap classes
+                  $comment_form_args = array(
+                      'fields' => array(
+                          'author' => '<div class="form-group mb-3"><label for="author" class="form-label">Name *</label> ' .
+                                      '<input id="author" name="author" type="text" class="form-control" value="" size="30" /></div>',
+                          'email'  => '<div class="form-group mb-3"><label for="email" class="form-label">Email *</label> ' .
+                                      '<input id="email" name="email" type="email" class="form-control" value="" size="30" /></div>',
+                          'url'    => '<div class="form-group mb-3"><label for="url" class="form-label">Website</label> ' .
+                                      '<input id="url" name="url" type="url" class="form-control" value="" size="30" /></div>',
+                      ),
+                      'comment_field' => '<div class="form-group mb-3"><label for="comment" class="form-label">Comment *</label> ' .
+                                        '<textarea id="comment" name="comment" class="form-control" rows="5" aria-required="true"></textarea></div>',
+                      'submit_button' => '<button type="submit" class="btn btn-primary">Post Comment</button>',
+                      'comment_notes_before' => '<p class="form-text text-muted mb-3">Your email address will not be published. Required fields are marked *</p>',
+                  );
+
+                  comment_form($comment_form_args);
+                  ?>
               </div>
             </div>
           </div>
