@@ -13,7 +13,6 @@ get_header();
 <section class="header-slider-wrap inner-header-slider-wrap">
   <?php while ( have_posts() ) : the_post(); ?>
   <?php $post_id = get_the_ID(); ?>
-  <?php $blog_sidebar_image = get_field('blog_sidebar_image', $post_id); ?>
 
   <!-- Slider -->
   <section class="blog-single-wrap">
@@ -40,7 +39,7 @@ get_header();
     <div class="container">
       <div class="row">
         <!-- Detail -->
-        <div class="col-md-9">
+        <div>
           <div class="blog-detail-wraper">
             <?php the_content(); ?>
 
@@ -88,17 +87,6 @@ get_header();
             </div>
 
             </div>
-          </div>
-        </div>
-
-        <!-- Sidebar -->
-        <div class="col-md-3">
-          <div class="right-blog-wrap">
-            <?php if ( $blog_sidebar_image && is_array( $blog_sidebar_image ) ) : ?>
-              <img src="<?php echo esc_url($blog_sidebar_image['url']); ?>" alt="<?php echo esc_attr($blog_sidebar_image['alt']); ?>">
-            <?php else : ?>
-              <p>No sidebar image available.</p>
-            <?php endif; ?>
           </div>
         </div>
       </div>
