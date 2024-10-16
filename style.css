@@ -1704,6 +1704,45 @@ img {
   background-size: cover !important;
   float: left;
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0px;
+}
+.custom-pagination {
+  font-size: 20px;
+}
+.pagination-link {
+  margin: 0px 8px;
+}
+.page-numbers {
+  color: black;
+}
+.page-numbers:hover {
+  color: black;
+} 
+.current {
+  font-weight: bolder;
+}
+.next {
+  color: black;
+  border: 1px solid black;
+  padding: 16px 35px;
+  border-radius: 6px;
+}
+.next:hover {
+  color: white;
+  background-color: black;
+}
+.prev {
+  color: black;
+  border: 1px solid black;
+  padding: 16px 35px;
+  border-radius: 6px;}
+.prev:hover {
+  color: white;
+  background-color: black;
+}
 .blog-small-text {
   width: 61%;
   float: left;
