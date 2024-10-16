@@ -2495,8 +2495,7 @@ margin-top: 15px;
     text-align: left;
   }
   .fotoer-nav-wrap ul li {
-    display: block;
-    margin-left: 0;
+    margin-left: 5px;
     margin-bottom: 5px;
   }
   .copyright-wrap {
