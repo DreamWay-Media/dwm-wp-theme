@@ -26,10 +26,14 @@ get_header();
         <!-- Main blog posts -->
         <div class="col-md-6">
           <?php 
+          // Get the current page number
+          $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+          $main_offset = ($paged - 1) * 10; // Adjust for pagination
+          // Set up the query for main blog posts
           $args_main_posts = [
-            'posts_per_page' => 2,
-            'offset' => 0,
-            'order' => 'ASC',
+            'posts_per_page' => 2, // Number of main blog posts to display
+            'offset' => $main_offset,
+            'order' => 'DESC',
             'post_type' => 'post',
             'post_status' => 'publish'
           ];
@@ -79,11 +83,17 @@ get_header();
         <div class="col-md-6">
           <div class="small-listing-wrap">
             <ul>
-              <?php 
+              <?php
+              $small_offset = ($paged - 1) * 10 + 2; // Start after main posts 
+              // Total posts displayed so far: 2 main + 8 secondary
+              function offset ($i) {
+                return 2 + (10 * ($i - 1));
+              };
               $args_small_posts = [
                 'posts_per_page' => 8,
-                'offset' => 2,
-                'order' => 'ASC',
+                'offset' => $small_offset,
+                'paged' => $paged,
+                'order' => 'DESC',
                 'post_type' => 'post',
                 'post_status' => 'publish'
               ];
@@ -118,6 +128,38 @@ get_header();
               wp_reset_postdata();
               ?>
             </ul>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Pagination Links -->
+          <div class="pagination">
+            <?php
+            // Pagination logic
+            $big = 999999999; // An unlikely integer to serve as a placeholder
+            $total_posts = wp_count_posts()->publish; // Total published posts
+            $total_pages = ceil($total_posts / 10);
+            $pagination_links = paginate_links([
+              'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+              'format' => '?paged=%#%',
+              'current' => max(1, get_query_var('paged')),
+              'total' => $total_pages,
+              'prev_text' => '<span class="pagination-prev">' . __('&laquo; Prev') . '</span>',
+              'next_text' => '<span class="pagination-next">' . __('Next &raquo;') . '</span>',
+              'type' => 'array',
+            ]);
+          
+            if ($pagination_links) {
+              echo '<div class="custom-pagination">';
+              foreach ($pagination_links as $link) {
+                  if(strpos($link, 'pagination-prev') !== false || strpos($link, 'pagination-next') !== false) {
+                    echo '<span class="pagination-link btn-cta-wrap aos-init aos-animate" data-aos="fade-up">' . $link . '</span>';
+                  } else {
+                    echo '<span class="pagination-link">' . $link . '</span>';
+                  };
+              }
+              echo '</div>';
+            }
+            ?>
           </div>
         </div>
       </div>
