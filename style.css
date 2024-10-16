@@ -2400,6 +2400,16 @@ margin-top: 15px;
   .inner-slider-wrap p {
     width: 100%;
   }
+  
+.Share-this-post-wrap #shareButtons {
+  display: flex;
+  flex-wrap: wrap; 
+}
+
+.Share-this-post-wrap #shareButtons a {
+  margin-bottom: 10px;
+  text-align: center; 
+}
 }
 @media screen and (max-width: 768px) {
   .slider-image {
