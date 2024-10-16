@@ -42,8 +42,7 @@ get_header();
         <div>
           <div class="blog-detail-wraper">
             <?php the_content(); ?>
-
-            <div class="Share-this-post-wrap">
+             <div class="Share-this-post-wrap">
               <h5>Share this post</h5>
               <div id="shareButtons">
                 <a href="<?php echo esc_url(get_the_permalink()); ?>" id="twitterLink">
