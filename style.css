@@ -989,34 +989,42 @@ img {
 .connect-heading {
   margin-bottom: 30px;
 }
+.owner-info-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;                 /* Add gap between image and text */
+}
 /* Removed empty ruleset */
 .owner-info-wrap .owner-info-image {
-  width: 60px;
-  height: 60px;
+  width: 120px;
+  height: 120px;
   background-size: cover !important;
-  float: left;
 }
 .owner-info-text {
-  width: 50%;
-  float: left;
-  margin-top: 10px;
-  margin-left: 10px;
+  text-align: center;
+  margin-top: 20px;
 }
 .owner-message-wraper {
-  padding-bottom: 60px;
+  padding: 90px 40px;        /* Match the padding of the team section */
+  display: flex;
+  justify-content: space-between; /* Ensure proper spacing on larger screens */
+  align-items: center;
+  gap: 40px;                 /* Gap between the image and the text */
+  flex-wrap: wrap;           /* Allow wrapping on smaller screens */
   border-bottom: 1px solid #ddd;
 }
 .owner-info-text h3 {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 24px;           /* Match font size with "Meet the Team" names */
+  font-weight: 600;
 }
 .owner-info-text span {
-  font-size: 16px;
+  font-size: 18px;           /* Match font size with "Meet the Team" titles */
   color: #666666;
 }
 .owner-message-wraper p {
   font-size: 35px;
-  font-weight: 600;
+  font-weight: 500;
   font-style: italic;
   padding-right: 15px;
 }
@@ -2210,6 +2218,13 @@ margin-top: 15px;
     margin-right: 7px;
   }
 }
+@media (max-width: 1200px) and (min-width: 768px) {
+  .owner-message-wraper p {
+    max-width: 90%;          /* Reduce the width for better readability */
+    font-size: 20px;         /* Slightly smaller font size */
+    line-height: 1.7;        /* Increase line height for readability */
+  }
+}
 @media (max-width: 1200px) and (min-width: 1170px) {
   .slider-main-wrap h1 {
     font-size: 55px;
@@ -2522,15 +2537,20 @@ margin-top: 15px;
     padding-bottom: 0px;
   }
   .owner-info-wrap {
-    clear: both;
-    margin-bottom: 80px;
-  }
-  .owner-message-wraper p {
-    font-size: 25px;
-    line-height: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;                 /* Add a gap between the image and text */
   }
   .owner-message-wraper {
-    padding-bottom: 30px;
+    flex-direction: column;  /* Stack content vertically on smaller screens */
+    text-align: center;
+  }
+
+  .owner-message-wraper p {
+    text-align: center;      /* Center text on smaller screens */
+    margin-top: 50px;
+    font-size: 30px;
   }
   .about-sucess-wrap ul {
     text-align: center;
