@@ -1003,7 +1003,6 @@ img {
 }
 .owner-info-text {
   text-align: center;
-  margin-top: 20px;
 }
 .owner-message-wraper {
   padding: 90px 40px;        /* Match the padding of the team section */
@@ -2540,6 +2539,9 @@ margin-top: 15px;
     font-size: 40px;
   }
   .fotoer-nav-wrap ul {
+    display: flex;  
+    flex-wrap: nowrap; 
+    justify-content: space-between;
     margin-top: 15px;
     text-align: left;
   }
