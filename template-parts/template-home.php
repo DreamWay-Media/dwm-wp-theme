@@ -222,7 +222,7 @@ get_header();
       <h3 data-aos="fade-up" data-aos-anchor-placement="top-bottom"><?php echo wp_kses_post($info_heading); ?></h3>
       <ul class="row" data-aos="zoom-in-right">
         <?php if (have_rows('info_features')) : 
-          while (have_rows('info_features')) : the_row(); 
+          while (have_rows('info_features')) : the_row();
             $features_count = get_sub_field('features_count');
             $feature_text = get_sub_field('feature_text');
             ?>
@@ -233,6 +233,7 @@ get_header();
               </div>
             </li>
           <?php endwhile; 
+          wp_reset_postdata();
         endif; ?>
       </ul>
     </div>
@@ -314,6 +315,72 @@ get_header();
     </div>
   </div>
   <!--Our Featured Projects--> 
+
+  <!--Our Featured Blog Posts-->
+  <?php
+  $args = array(
+      'post_type' => 'post',
+      'posts_per_page' => -1, 
+  );
+  $query = new WP_Query($args);
+
+  // Gather field group for Featured Section
+  $featured_blog_title = get_field('featured_blog_title');
+  $featured_blog_description = get_field('featured_blog_description');
+  $featured_blog_button_text = get_field('featured_blog_button_text');
+  ?>
+
+  <div class="featured-blog-wrap">
+    <div class="container">
+      <div class="featured-blog-heading-wrap">
+        <div class="row">
+          <div data-aos="fade-up" class="col-md-6"><h2><?php echo esc_html($featured_blog_title); ?></h2></div>
+          <div data-aos="fade-left" class="col-md-6"><p><?php echo esc_html($featured_blog_description) ?></p></div>
+        </div>
+      </div>  
+      <ul class="row">
+      <?php $count = 0;  ?>
+      <?php if ($query->have_posts()) : ?>
+          <?php while ($query->have_posts()) : $query->the_post(); ?>
+              <?php
+              // Gather field group for featured posts
+              $featured = get_field('is_featured_blog');
+              if ($featured && $count < 3) : // Change $count number as needed ?>
+                  <?php $count++; ?>
+                  <li class="featured-blog-item col-md-4">
+                    <div class="featured-blog" data-aos="fade-up">
+                      <a href="<?php echo esc_url(get_the_permalink()); ?>">
+                        <div class="featured-blog-image" style="background: url(<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id($post->ID))); ?>) no-repeat top;"></div>
+                      </a>
+                      <div class="featured-blog-text">
+                        <h3 class="featured-blog-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                        <p>
+                          <?php
+                          $content = strip_tags(get_the_content());
+                          $words = explode(' ', $content);
+                          $excerpt = implode(' ', array_slice($words, 0, 15));
+                          if (count($words) > 15) {
+                              $excerpt .= '...';
+                          }
+                          echo esc_html($excerpt);
+                          ?>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+              <?php endif; ?>
+          <?php endwhile; ?>
+          <?php wp_reset_postdata(); ?>
+      <?php else : ?>
+          <p>No posts found.</p>
+      <?php endif; ?>
+      </ul>
+      <div class="see-more-btn" data-aos="fade-up">
+        <a href="/blog/"><?php echo esc_html($featured_blog_button_text); ?></a>
+      </div>
+    </div>
+  </div>
+  <!--Our Featured Blog Posts-->
 
   <!--Testimonials Section-->
   <?php $testimonial_heading = get_field('testimonial_heading'); ?>
