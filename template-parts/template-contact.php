@@ -64,6 +64,53 @@ get_header();
   <!--contact--> 
 </section>
 <!--content--> 
+<?php
+// Replace 123 with the actual ID of your home page
+$home_page_id = 6;
+
+if (have_rows('testimonials', $home_page_id)) : ?>
+    <section class="client-main-review-wrap">
+        <div class="client-heading-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 data-aos="fade-up"><?php echo get_field('testimonial_heading', $home_page_id); ?></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clients-slider-wrap" data-aos="fade-up">
+            <div class="carousel-wrap">
+                <div class="owl-carousel">
+                    <?php while (have_rows('testimonials', $home_page_id)) : the_row(); 
+                        $customer_name = get_sub_field('customer_name');
+                        $customer_designation = get_sub_field('customer_designation');
+                        $customer_image = get_sub_field('customer_image');
+                        $customer_message = get_sub_field('customer_message');
+                        ?>
+                        <div class="item">
+                            <div class="listing-client-wrap">
+                                <p><?php echo wp_kses_post($customer_message); ?></p>
+                                <div class="client-name-image">
+                                    <div class="client-image" style="background: url(<?php echo esc_url($customer_image['url']); ?>) no-repeat top;"></div>
+                                    <div class="client-name">
+                                        <h5><?php echo esc_html($customer_name); ?></h5>
+                                        <span><?php echo esc_html($customer_designation); ?></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php else : ?>
+    <p>No testimonials available at the moment.</p>
+<?php endif; ?>
+
 
 <?php
 get_footer();
+
