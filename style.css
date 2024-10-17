@@ -768,6 +768,38 @@ img {
   margin: 0;
   color: #aaaaaa;
 }
+.featured-blog-wrap{
+  padding: 80px 0px;
+}
+.featured-blog-wrap h2 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-right: 120px;
+  line-height: 52px;
+}
+.featured-blog-wrap .row {
+  padding-bottom: 40px;
+}
+.featured-blog-heading-wrap{
+  margin-bottom: 40px;
+}
+.featured-blog-item {
+  list-style-type: none;
+}
+.featured-blog-image {
+  width: 100%;
+  height: auto;
+  background-size: cover !important;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+}
+.featured-blog-title {
+  padding: 24px 0px 16px 0px;
+}
+.featured-blog-title a{
+  color: black;
+  font-size: 30px;
+}
 .see-more-btn {
   margin-top: 40px;
   text-align: center;
@@ -1946,44 +1978,6 @@ img {
 .contact-text-wrap ul li img {
   width: 25px;
   margin-right: 10px;
-}
-/* Removed empty ruleset */
-.contact-review-wrap h5 {
-  font-size: 15px;
-  color: #91b210;
-  text-transform: uppercase;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-.contact-review-wrap p {
-  font-style: italic;
-  font-size: 16px;
-  padding-right: 162px;
-}
-.review-contact-wrap {
-  margin-top: 0;
-}
-.review-contact-wrap .review-contact-image {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-size: cover !important;
-  float: left;
-}
-.review-contact-text {
-  width: 70%;
-  float: left;
-  padding-left: 15px;
-  margin-top: 10px;
-}
-.review-contact-text h4 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #000;
-}
-.review-contact-text span {
-  font-size: 13px;
-  color: #666666;
 }
 .aboutformbtn {
   background: #101010;

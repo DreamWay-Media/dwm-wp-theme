@@ -36,17 +36,6 @@ get_header();
               <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/time-contact.svg" alt="time"> <?php echo esc_html($contact_timing); ?></li>
               <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/location-contact.svg" alt="location"> <?php echo esc_html($contact_address); ?></li>
             </ul>
-            <div class="contact-review-wrap">
-              <h5><?php echo esc_html($contact_feature_review_heading); ?></h5>
-              <p><?php echo esc_html($contact_review_message); ?></p>
-              <div class="review-contact-wrap">
-                <div class="review-contact-image" style="background:url(<?php echo esc_url($review_user_image['url']); ?>) no-repeat top;"></div>
-                <div class="review-contact-text">
-                  <h4><?php echo esc_html($review_user_name); ?></h4>
-                  <span><?php echo esc_html($review_user_designation); ?></span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <!--text--> 
@@ -63,6 +52,7 @@ get_header();
   </section>
   <!--contact--> 
 </section>
+
 <!--content--> 
 <?php
 // Replace 123 with the actual ID of your home page
