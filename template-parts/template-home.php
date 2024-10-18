@@ -6,9 +6,9 @@ get_header();
 
 <section class="header-slider-wrap"> 
   <?php 
+  // Fetching banner fields for text content
   $banner_heading = get_field('banner_heading');
   $banner_description = get_field('banner_description');
-  $banner_image = get_field('banner_image');
   $banner_button_text = get_field('banner_button_text');
   $banner_button_link = get_field('banner_button_link');
   ?>
@@ -17,40 +17,73 @@ get_header();
   <section class="slider-main-wrap">
     <div class="container">
       <div class="row">
-        <div class="mobile-slider-image" data-aos="fade-up">
-          <img src="<?php echo esc_url($banner_image['url']); ?>" alt="<?php echo esc_attr($banner_image['alt']); ?>" title="<?php echo esc_attr($banner_image['alt']); ?>">
-        </div>
-        
-        <!--text-->
+        <!--Text on the left side-->
         <div class="col-md-5">
-          <div class="slider-text-wrap">
-            <h1 data-aos="fade-up"><?php echo wp_kses_post($banner_heading); ?></h1>
-            <p data-aos="fade-up"><?php echo wp_kses_post($banner_description); ?></p>
-            <div class="slider-text-btn" data-aos="fade-up">
-              <a href="<?php echo esc_url($banner_button_link); ?>"><?php echo esc_html($banner_button_text); ?></a>
+          <div class="slider-text-wrap" data-aos="fade-up">
+            <h1><?php echo wp_kses_post($banner_heading); ?></h1>
+            <p><?php echo wp_kses_post($banner_description); ?></p>
+            <?php if ($banner_button_text && $banner_button_link) : ?>
+            <div class="slider-text-btn">
+              <a href="<?php echo esc_url($banner_button_link); ?>" class="btn"><?php echo esc_html($banner_button_text); ?></a>
             </div>
+            <?php endif; ?>
           </div>
         </div>
-        <!--text--> 
         
-        <!--image-->
+        <!--Slider on the right side-->
         <div class="col-md-7">
-          <div class="slider-image" data-aos="fade-up">
-            <img src="<?php echo esc_url($banner_image['url']); ?>" alt="<?php echo esc_attr($banner_image['alt']); ?>" title="<?php echo esc_attr($banner_image['alt']); ?>">
+          <div id="hero-slider" class="owl-carousel owl-theme" data-aos="fade-up">
+            <?php
+            $args = array(
+                'post_type'      => 'hero_slides',
+                'posts_per_page' => -1,
+                'orderby'        => 'menu_order',
+                'order'          => 'ASC',
+            );
+            $slides = new WP_Query( $args );
+
+            if ( $slides->have_posts() ) :
+                while ( $slides->have_posts() ) : $slides->the_post();
+                    $slide_image = get_field('slide_image');
+                    $slide_heading = get_field('slide_heading');
+                    $slide_description = get_field('slide_description');
+                    $button_text = get_field('button_text');
+                    $button_link = get_field('button_link');
+            ?>
+                    <div class="slide-item">
+                        <img src="<?php echo esc_url($slide_image['url']); ?>" alt="<?php echo esc_attr($slide_image['alt']); ?>" />
+                        <div class="slide-content">
+                            <h3><?php echo esc_html($slide_heading); ?></h3>
+                            <p><?php echo esc_html($slide_description); ?></p>
+                            <?php if ( $button_text && $button_link ) : ?>
+                                <a href="<?php echo esc_url($button_link); ?>" class="slider-button"><?php echo esc_html($button_text); ?></a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+            <?php
+                endwhile;
+                wp_reset_postdata();
+            endif;
+            ?>
           </div>
         </div>
-        <!--image--> 
+        <!--Slider End-->
       </div>
     </div>
   </section>
   <!--slider--> 
   
   <!--scroll down-->
-  <div class="scroll-down-btn" data-aos="fade-up"> <a href="#about-main-wrap"> <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="circle"></a> 
+  <div class="scroll-down-btn" data-aos="fade-up"> 
+      <a href="#about-main-wrap"> 
+          <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="scroll down">
+      </a> 
   </div>
   <!--scroll down--> 
   
 </section>
+
+<!-- Rest of your sections remain unchanged -->
 <!--header slider--> 
 <section class="about-main-wrap" id="about-main-wrap"> 
   
@@ -398,7 +431,7 @@ get_header();
     
     <div class="clients-slider-wrap" data-aos="fade-up">
       <div class="carousel-wrap">
-        <div class="owl-carousel">
+        <div id='testimonial-slider' class="owl-carousel">
           <?php if (have_rows('testimonials')) : 
             while (have_rows('testimonials')) : the_row();
               $customer_name = get_sub_field('customer_name');

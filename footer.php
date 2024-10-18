@@ -90,9 +90,27 @@
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/aos.js"></script> 
 <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/owl.carousel.min.js"></script> 
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var heroSlider = document.getElementById('hero-slider');
+        if (heroSlider) {
+            // Initialize the hero slider
+            $(heroSlider).owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: false,
+                dots: true,
+                items: 1, // Ensure only one slide shows at a time
+                autoplay: true,
+                autoplayTimeout: 7000,
+                navText: ['<span class="owl-nav-prev">&lt;</span>', '<span class="owl-nav-next">&gt;</span>'],
+            });
+        }
+    });
+</script>
 <!--owl--> 
 <script>
-    $('.owl-carousel').owlCarousel({
+    $('#testimonial-slider').owlCarousel({
   loop: true,
   margin:15,
   nav: true,

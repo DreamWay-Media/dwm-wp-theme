@@ -2902,3 +2902,148 @@ margin-top: 15px;
     padding-top: 30px;
   }
 }
+/* Wrapper for both image and content to unify the rounded corners */
+#hero-slider .owl-stage {
+  display: flex;
+  align-items: center;
+}
+#hero-slider .slide-item {
+  overflow: hidden; /* Ensure the image and content follow the same border radius */
+  width: 100%; /* Make sure the wrapper takes full width */
+  max-width: 700px; /* Set a max-width to match the image */
+  margin: 0 auto; /* Center the slider items */
+}
+
+/* Ensure all images in the slider are responsive and consistent */
+#hero-slider .slide-item img {
+  width: 100%; /* Image always takes 100% of its container */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 360px; /* Set a maximum height to ensure images are proportionate */
+  object-fit: contain; /* Ensure the image is fully visible without cropping */
+  margin: 0 auto; /* Center the image */
+}
+
+
+/* Ensure the slide content matches the image width */
+#hero-slider .slide-content {
+  width: 100%; /* Always match the image width */
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box; /* Ensure padding is included in the width calculation */
+  overflow-y: auto; /* Enable scrolling if content exceeds max height */
+  max-height: 100%; /* Limit the height to prevent covering other content */
+  margin-top: 5px;
+}
+
+/* General styling for the carousel container */
+#hero-slider {
+  max-width: 600px; /* Set a maximum width for the slider */
+  margin: 0 auto; /* Center the slider */
+}
+
+/* Center the slider vertically within its column */
+.col-md-7 {
+  display: flex;
+  align-items: center; /* Vertically center the slider */
+  justify-content: center; /* Horizontally center the slider */
+  flex-direction: column;
+  flex: 0 0 48%; /* Control the width of the slider */
+  max-width: 48%;
+}
+
+/* Center the text vertically within its column */
+.col-md-5 {
+  display: flex;
+  align-items: center; /* Vertically center the text */
+  flex: 0 0 48%; /* Control the width of the text */
+  max-width: 48%;
+  padding-right: 95px;
+}
+
+#hero-slider .owl-next, #hero-slider .owl-prev {
+  visibility: hidden;
+}
+
+#hero-slider .owl-dots {
+  display: block !important; /* Force dots to be displayed */
+  text-align: center; /* Center the dots */
+  margin-top: 5px; /* Add space above the dots */
+}
+
+#hero-slider .owl-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #ccc; /* Default dot color */
+  border-radius: 50%; /* Make dots circular */
+  margin: 5px;
+  cursor: pointer;
+}
+
+#hero-slider .owl-dot.active {
+  background: #333; /* Color of the active dot */
+}
+/* Ensure consistent size and stacking for smaller screens */
+@media (max-width: 768px) {
+  .col-md-5, .col-md-7 {
+    flex: 0 0 100%; /* Full width for both text and slider */
+    max-width: 100%; /* Ensure full width for both */
+    justify-content: center; /* Center the content on smaller screens */
+    margin: 0 auto; /* Center the columns */
+  }
+
+  /* Move the slider above the text */
+  .col-md-7 {
+    order: -1; /* Ensure the slider is on top */
+    margin: 0 auto; /* Center the slider when it's on top */
+  }
+  .col-md-5 {
+    padding: 0;
+  }
+
+  #hero-slider .owl-next, #hero-slider .owl-prev {
+    visibility: hidden;
+  }
+
+  /* Shrink the slider and its content even more */
+  #hero-slider {
+    max-width: 80%; /* Further reduce the overall width */
+    margin: 0 auto; /* Center it */
+  }
+
+  /* Make the images smaller */
+  #hero-slider .slide-item img {
+    max-width: 100%; /* Make sure the image fits inside the container */
+    max-height: 200px; /* Reduce the height even more */
+    object-fit: contain;
+  }
+
+  /* Ensure the slide content matches the image width */
+  #hero-slider .slide-content {
+    max-width: 100%; /* Full width of the container */
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  /* Adjust padding around the text section */
+  .slider-text-wrap {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  #hero-slider .slide-content {
+    margin-top: 0;
+  }
+  #hero-slider .slide-content p {
+    padding-bottom: 0;
+  }
+  #hero-slider .owl-dots {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+  #hero-slider .owl-dot {
+    margin-top: 0;
+  }
+}
+
+
+
+
