@@ -72,7 +72,7 @@ if (have_rows('testimonials', $home_page_id)) : ?>
 
         <div class="clients-slider-wrap" data-aos="fade-up">
             <div class="carousel-wrap">
-                <div class="owl-carousel">
+                <div id="testimonial-slider" class="owl-carousel">
                     <?php while (have_rows('testimonials', $home_page_id)) : the_row(); 
                         $customer_name = get_sub_field('customer_name');
                         $customer_designation = get_sub_field('customer_designation');

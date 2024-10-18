@@ -244,3 +244,56 @@ function has_submenu($menuitems, $parent_id) {
     }
     return false;
 }
+// Register Custom Post Type for Hero Slides
+function dreamway_register_hero_slides_cpt() {
+    $labels = array(
+        'name'                  => _x( 'Hero Slides', 'Post Type General Name', 'dreamway-media' ),
+        'singular_name'         => _x( 'Hero Slide', 'Post Type Singular Name', 'dreamway-media' ),
+        'menu_name'             => __( 'Hero Slides', 'dreamway-media' ),
+        'name_admin_bar'        => __( 'Hero Slide', 'dreamway-media' ),
+        'archives'              => __( 'Slide Archives', 'dreamway-media' ),
+        'attributes'            => __( 'Slide Attributes', 'dreamway-media' ),
+        'parent_item_colon'     => __( 'Parent Slide:', 'dreamway-media' ),
+        'all_items'             => __( 'All Slides', 'dreamway-media' ),
+        'add_new_item'          => __( 'Add New Slide', 'dreamway-media' ),
+        'add_new'               => __( 'Add New', 'dreamway-media' ),
+        'new_item'              => __( 'New Slide', 'dreamway-media' ),
+        'edit_item'             => __( 'Edit Slide', 'dreamway-media' ),
+        'update_item'           => __( 'Update Slide', 'dreamway-media' ),
+        'view_item'             => __( 'View Slide', 'dreamway-media' ),
+        'view_items'            => __( 'View Slides', 'dreamway-media' ),
+        'search_items'          => __( 'Search Slide', 'dreamway-media' ),
+        'not_found'             => __( 'Not found', 'dreamway-media' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'dreamway-media' ),
+        'featured_image'        => __( 'Slide Image', 'dreamway-media' ),
+        'set_featured_image'    => __( 'Set slide image', 'dreamway-media' ),
+        'remove_featured_image' => __( 'Remove slide image', 'dreamway-media' ),
+        'use_featured_image'    => __( 'Use as slide image', 'dreamway-media' ),
+        'insert_into_item'      => __( 'Insert into slide', 'dreamway-media' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this slide', 'dreamway-media' ),
+        'items_list'            => __( 'Slides list', 'dreamway-media' ),
+        'items_list_navigation' => __( 'Slides list navigation', 'dreamway-media' ),
+        'filter_items_list'     => __( 'Filter slides list', 'dreamway-media' ),
+    );
+    $args = array(
+        'label'                 => __( 'Hero Slide', 'dreamway-media' ),
+        'description'           => __( 'Slides for the homepage hero section.', 'dreamway-media' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+        'hierarchical'          => false,
+        'public'                => false,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-images-alt2',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => false,
+        'can_export'            => true,
+        'has_archive'           => false,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => false,
+        'capability_type'       => 'post',
+    );
+    register_post_type( 'hero_slides', $args );
+}
+add_action( 'init', 'dreamway_register_hero_slides_cpt', 0 );
