@@ -342,7 +342,7 @@ get_header();
         </ul>
       </div>
       
-      <div class="see-more-btn" data-aos="fade-up">
+      <div class="visit-portfolio-btn" data-aos="fade-up">
         <a href="<?php echo esc_url($project_button_link); ?>"><?php echo esc_html($project_button_text); ?></a>
       </div>
     </div>
