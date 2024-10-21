@@ -1989,13 +1989,13 @@ img {
   text-transform: uppercase;
   margin-left: 65px;
 }
-a.homeStartNowBtn{
+a.startNowBtn{
   color: black;
   border: 1px solid black;
   padding: 16px 35px;
   border-radius: 6px;
 }
-a.homeStartNowBtn:hover{
+a.startNowBtn:hover{
   color: white;
   background-color: black;
 }
@@ -2858,6 +2858,25 @@ margin-top: 15px;
   border: none;
   outline: none;
 }
+.visit-portfolio-btn {
+  margin-top: 25px;
+  text-align: center; /* Added text-align: center */
+}
+
+.visit-portfolio-btn a {
+  background: #c8f031;
+  padding: 16px 35px;
+  color: #000000;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.visit-portfolio-btn a:hover {
+  background: #000;
+  color: #fff;
+}
 /* Apply custom styles for screens between 576px and 768px */
 @media (min-width: 768px) and (max-width: 992px) {
   .service-block .ico {
@@ -2970,26 +2989,7 @@ margin-top: 15px;
 #hero-slider .owl-next, #hero-slider .owl-prev {
   visibility: hidden;
 }
-
-#hero-slider .owl-dots {
-  display: block !important; /* Force dots to be displayed */
-  text-align: center; /* Center the dots */
-  margin-top: 5px; /* Add space above the dots */
-}
-
-#hero-slider .owl-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: #ccc; /* Default dot color */
-  border-radius: 50%; /* Make dots circular */
-  margin: 5px;
-  cursor: pointer;
-}
-
-#hero-slider .owl-dot.active {
-  background: #333; /* Color of the active dot */
-}
+/* Removed styling for dots */
 /* Ensure consistent size and stacking for smaller screens */
 @media (max-width: 768px) {
   .col-md-5, .col-md-7 {
@@ -3042,15 +3042,5 @@ margin-top: 15px;
   #hero-slider .slide-content p {
     padding-bottom: 0;
   }
-  #hero-slider .owl-dots {
-    margin-top: 0;
-    margin-bottom: 30px;
-  }
-  #hero-slider .owl-dot {
-    margin-top: 0;
-  }
 }
-
-
-
-
+/* Removed styling for dots */
