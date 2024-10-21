@@ -966,8 +966,8 @@ img {
 .scroll-down-btn {
   margin-top: 0;
   display: block;
-  -webkit-animation: pulse 2s infinite;
-  animation: pulse 2s infinite;
+  opacity: 0; /* Start hidden for fade-in effect */
+  animation: fadeInUp 1s ease-in forwards, pulse 2s infinite 1s; /* Apply fadeInUp first, then pulse */
   color: #ff4081;
 }
 @-webkit-keyframes pulse {
@@ -998,7 +998,42 @@ img {
     transform: translate(0, 0);
   }
 }
+/* Fade-up animation */
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0); /* Start lower */
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0); /* End at normal position */
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+/* Additional styling for the animation duration */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
 
+.animatedFadeInUp {
+  opacity: 0;
+}
+
+.fadeInUp {
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+}
 .connect-main-wrap {
   padding-bottom: 60px;
 }
