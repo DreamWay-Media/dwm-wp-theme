@@ -99,10 +99,12 @@
                 loop: true,
                 margin: 10,
                 nav: false,
-                dots: true,
+                dots: false, // Disabled dots
                 items: 1, // Ensure only one slide shows at a time
-                autoplay: true,
+                autoplay: false,
                 autoplayTimeout: 7000,
+                touchDrag  : false, // Prevent dragging for mobile devices
+                mouseDrag  : false, // Prevent dragging for computers
                 navText: ['<span class="owl-nav-prev">&lt;</span>', '<span class="owl-nav-next">&gt;</span>'],
             });
         }
