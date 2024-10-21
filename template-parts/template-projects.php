@@ -122,7 +122,7 @@ $cta_button_link = get_field('cta_button_link');
     <div class="container">
       <h2 data-aos="fade-up"><?php echo wp_kses_post( $cta_heading ); ?></h2>
       <div class="btn-cta-wrap" data-aos="fade-up">
-        <a href="<?php echo esc_url( $cta_button_link ); ?>"><?php echo esc_html( $cta_button_text ); ?></a>
+        <a class="startNowBtn" href="<?php echo esc_url( $cta_button_link ); ?>"><?php echo esc_html( $cta_button_text ); ?></a>
       </div>
     </div>
   </div>
