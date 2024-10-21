@@ -91,24 +91,26 @@
 <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/owl.carousel.min.js"></script> 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var heroSlider = document.getElementById('hero-slider');
-        if (heroSlider) {
-            // Initialize the hero slider
-            $(heroSlider).owlCarousel({
-                loop: true,
-                margin: 10,
-                nav: false,
-                dots: false, // Disabled dots
-                items: 1, // Ensure only one slide shows at a time
-                autoplay: false,
-                autoplayTimeout: 7000,
-                touchDrag  : false, // Prevent dragging for mobile devices
-                mouseDrag  : false, // Prevent dragging for computers
-                navText: ['<span class="owl-nav-prev">&lt;</span>', '<span class="owl-nav-next">&gt;</span>'],
-            });
-        }
-    });
+document.addEventListener("DOMContentLoaded", function() {
+    var heroSlider = document.getElementById('hero-slider');
+    if (heroSlider) {
+        var totalSlides = $('#hero-slider .slide-item').length;
+
+        // Initialize the hero slider
+        $(heroSlider).owlCarousel({
+            loop: totalSlides > 1, // Only loop if more than 1 slide
+            margin: 10,
+            nav: false,
+            dots: totalSlides > 1, // Show dots only if there is more than 1 slide
+            items: 1, // Ensure only one slide shows at a time
+            autoplay: totalSlides > 1, // Enable autoplay only if more than 1 slide
+            autoplayTimeout: 7000,
+            navText: ['<span class="owl-nav-prev">&lt;</span>', '<span class="owl-nav-next">&gt;</span>'],
+            mouseDrag: totalSlides > 1, // Enable drag only if more than 1 slide
+            touchDrag: totalSlides > 1 // Enable touch drag only if more than 1 slide
+        });
+    }
+});
 </script>
 <!--owl--> 
 <script>
