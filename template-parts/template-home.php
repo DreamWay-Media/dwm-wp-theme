@@ -297,50 +297,51 @@ get_header();
       
       <!--listing-->
       <div class="featured-listing-wrap">
-        <ul class="row">
-          <?php 
-          $args = array(
-            'posts_per_page' => 4,
-            'order'          => 'DESC',
-            'post_type'      => 'projects',
-            'post_status'    => 'publish'
-          );
-          $query = new WP_Query($args);
+  <ul class="row">
+    <?php 
+    $args = array(
+      'posts_per_page' => 6,
+      'order'          => 'DESC',
+      'post_type'      => 'projects',
+      'post_status'    => 'publish'
+    );
+    $query = new WP_Query($args);
 
-          if ($query->have_posts()) :
-            while ($query->have_posts()) : $query->the_post(); 
-              $thumbnail_url = esc_url(wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())));
-              ?>
-              <li class="col-md-6">
-                <div class="listing-featured-wrap" data-aos="fade-up">
-                <a href="<?php echo esc_url(get_the_permalink()); ?>">
-                  <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
-                  <div class="listing-featured-text">
-                    <div class="tag-featured-wrap">
-                      <?php 
-                      $terms = wp_get_post_terms(get_the_ID(), array('project_category'));
-                   
-                      foreach ($terms as $term) : ?>
-                        <span><?php echo esc_html($term->name); ?></span>
-                      <?php endforeach; ?>
-                    </div>
-                    <h3><a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a></h3>
-                    <p>
-                      <?php
-                      $excerpt = wp_trim_words(get_the_content(), 24, '...');
-                      echo esc_html($excerpt);
-                      ?>
-                    </p>
-                  </div>
-                </div>
-              </li>
-            <?php endwhile; 
-          else : ?>
-            <h1 class="page-title screen-reader-text"><?php esc_html_e('No Posts Found', 'dreamway-media'); ?></h1>
-          <?php endif;
-          wp_reset_postdata(); ?>
-        </ul>
-      </div>
+    if ($query->have_posts()) :
+      while ($query->have_posts()) : $query->the_post(); 
+        $thumbnail_url = esc_url(wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())));
+        ?>
+        <li class="col-md-4">
+          <div class="listing-featured-wrap" data-aos="fade-up">
+            <a href="<?php echo esc_url(get_the_permalink()); ?>">
+              <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div>
+            </a>
+            <div class="listing-featured-text">
+              <h3><a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a></h3>
+              <p>
+                <?php
+                $excerpt = wp_trim_words(get_the_content(), 24, '...');
+                echo esc_html($excerpt);
+                ?>
+              </p>
+              <div class="tag-featured-wrap">
+                <?php 
+                $terms = wp_get_post_terms(get_the_ID(), array('project_category'));
+             
+                foreach ($terms as $term) : ?>
+                  <span><?php echo esc_html($term->name); ?></span>
+                <?php endforeach; ?>
+              </div>
+            </div>
+          </div>
+        </li>
+      <?php endwhile; 
+    else : ?>
+      <h1 class="page-title screen-reader-text"><?php esc_html_e('No Posts Found', 'dreamway-media'); ?></h1>
+    <?php endif;
+    wp_reset_postdata(); ?>
+  </ul>
+</div>
       
       <div class="visit-portfolio-btn" data-aos="fade-up">
         <a href="<?php echo esc_url($project_button_link); ?>"><?php echo esc_html($project_button_text); ?></a>
