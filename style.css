@@ -2989,26 +2989,7 @@ margin-top: 15px;
 #hero-slider .owl-next, #hero-slider .owl-prev {
   visibility: hidden;
 }
-
-#hero-slider .owl-dots {
-  display: block !important; /* Force dots to be displayed */
-  text-align: center; /* Center the dots */
-  margin-top: 5px; /* Add space above the dots */
-}
-
-#hero-slider .owl-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: #ccc; /* Default dot color */
-  border-radius: 50%; /* Make dots circular */
-  margin: 5px;
-  cursor: pointer;
-}
-
-#hero-slider .owl-dot.active {
-  background: #333; /* Color of the active dot */
-}
+/* Removed styling for dots */
 /* Ensure consistent size and stacking for smaller screens */
 @media (max-width: 768px) {
   .col-md-5, .col-md-7 {
@@ -3061,13 +3042,6 @@ margin-top: 15px;
   #hero-slider .slide-content p {
     padding-bottom: 0;
   }
-  #hero-slider .owl-dots {
-    margin-top: 0;
-    margin-bottom: 30px;
-  }
-  #hero-slider .owl-dot {
-    margin-top: 0;
-  }
 }
 .no-style-link {
   text-decoration: none;
@@ -3078,7 +3052,3 @@ margin-top: 15px;
   text-decoration: none;
   color: inherit;
 }
-
-
-
-
