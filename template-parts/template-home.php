@@ -74,7 +74,7 @@ get_header();
   <!--slider--> 
   
   <!--scroll down-->
-  <div class="scroll-down-btn" data-aos="fade-up"> 
+  <div class="scroll-down-btn"> 
       <a href="#about-main-wrap"> 
           <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="scroll down">
       </a> 
