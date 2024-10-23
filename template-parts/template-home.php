@@ -433,9 +433,9 @@ get_header();
                           $words = explode(' ', $content);
                           $excerpt = implode(' ', array_slice($words, 0, 15));
                           if (count($words) > 15) {
-                              $excerpt .= '...';
+                              $excerpt .= '..<br><a class="read-more-btn" href="' . esc_url(get_permalink()) . '">Read More.</a>';
                           }
-                          echo esc_html($excerpt);
+                          echo $excerpt;
                           ?>
                         </p>
                       </div>

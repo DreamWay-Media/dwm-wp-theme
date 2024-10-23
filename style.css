@@ -800,6 +800,13 @@ img {
   color: black;
   font-size: 30px;
 }
+.read-more-btn {
+  color: black;
+  font-weight: bold;
+}
+.read-more-btn:hover{
+  color: #c8f031;
+}
 .see-more-btn {
   margin-top: 40px;
   text-align: center;
