@@ -420,7 +420,7 @@ get_header();
               $featured = get_field('is_featured_blog');
               if ($featured && $count < 3) : // Change $count number as needed ?>
                   <?php $count++; ?>
-                  <li class="featured-blog-item col-md-4">
+                  <li class="mb-5 mb-md-0 featured-blog-item col-md-4">
                     <div class="featured-blog" data-aos="fade-up">
                       <a href="<?php echo esc_url(get_the_permalink()); ?>">
                         <div class="featured-blog-image" style="background: url(<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id($post->ID))); ?>) no-repeat top;"></div>
@@ -433,9 +433,9 @@ get_header();
                           $words = explode(' ', $content);
                           $excerpt = implode(' ', array_slice($words, 0, 15));
                           if (count($words) > 15) {
-                              $excerpt .= '...';
+                              $excerpt .= '..<br><a class="read-more-btn" href="' . esc_url(get_permalink()) . '">Read More.</a>';
                           }
-                          echo esc_html($excerpt);
+                          echo $excerpt;
                           ?>
                         </p>
                       </div>
