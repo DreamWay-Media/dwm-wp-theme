@@ -66,10 +66,10 @@
                                         <li>
                                             <?php if (has_submenu($menuitems, $parent_id)) : ?>
                                                 <div class="dropdown">
-                                                    <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown">
-                                                        <?php echo $title; ?>
-                                                        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/caret-down.svg'); ?>" alt="caret-down">
-                                                    </button>
+                                                  <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" onclick="window.location.href='<?php echo $link; ?>'">
+                                                         <?php echo $title; ?>
+                                                  <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/caret-down.svg'); ?>" alt="caret-down">
+                                                  </button>
                                             <?php else : ?>
                                                 <a href="<?php echo $link; ?>" class="title">
                                                     <?php echo $title; ?>
