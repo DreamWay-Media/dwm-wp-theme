@@ -16,9 +16,9 @@ get_header();
   <!--slider-->
   <section class="slider-main-wrap">
     <div class="container">
-      <div class="row">
+      <div class="row header-row">
         <!--Text on the left side-->
-        <div class="col-md-5">
+        <div class="col-md-6 header-section">
           <div class="slider-text-wrap" data-aos="fade-up">
             <h1><?php echo wp_kses_post($banner_heading); ?></h1>
             <p><?php echo wp_kses_post($banner_description); ?></p>
@@ -31,7 +31,7 @@ get_header();
         </div>
         
         <!--Slider on the right side-->
-        <div class="col-md-7">
+        <div class="col-md-6 hero-carousel">
           <div id="hero-slider" class="owl-carousel owl-theme" data-aos="fade-up">
             <?php
             $args = array(
@@ -68,18 +68,19 @@ get_header();
           </div>
         </div>
         <!--Slider End-->
-      </div>
-    </div>
-  </section>
-  <!--slider--> 
-  
-  <!--scroll down-->
+          <!--scroll down-->
   <div class="scroll-down-btn"> 
       <a href="#about-main-wrap"> 
           <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="scroll down">
       </a> 
   </div>
   <!--scroll down--> 
+      </div>
+    </div>
+  </section>
+  <!--slider--> 
+  
+
   
 </section>
 
