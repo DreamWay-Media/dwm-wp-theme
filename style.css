@@ -1324,9 +1324,6 @@ img {
   font-weight: bold;
   text-transform: uppercase;
 }
-.portfolio-slider-wrap {
-  padding-top: 30px;
-}
 .portfolio-slider-wrap h1 {
   text-align: center;
   font-size: 70px;
@@ -1845,7 +1842,6 @@ img {
   margin-bottom: 15px;
 }
 .blog-single-wrap {
-  padding-top: 60px;
   text-align: center;
 }
 .blog-single-wrap h1 {
@@ -2967,11 +2963,6 @@ a.startNowBtn:hover {
   }
   .portfolio-listing-wrap ul li .listing-featured-text p {
     font-size: 15px !important;
-  }
-}
-@media (min-width: 1170px) {
-  #project-title {
-    padding-top: 30px;
   }
 }
 /* Wrapper for both image and content to unify the rounded corners */
