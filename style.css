@@ -96,23 +96,12 @@ img {
   max-width: 100%;
 }
 /* CSS Document */
-.header-row {
-  justify-content: center;
-}
+
 /* CSS header & slider */
 .header-slider-wrap {
   background: #101010;
   height: 100vh;
 }
-/* Centering content within a full-height section */
-.header-slider-wrap {
-  display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  min-height: 100vh; /* Full screen height */
-  box-sizing: border-box; /* Ensure padding doesn’t overflow */
-}
-
 /* CSS header */
 .header-main-wrap {
   background: #101010;
@@ -410,9 +399,13 @@ img {
 .heading-text-wrap {
   color: #ffffff;
 }
-
 /* CSS header */
+
 /* CSS slider */
+
+.slider-main-wrap {
+  padding-top: 75px;
+}
 .slider-main-wrap h1 {
   font-size: 60px;
   color: #fff;
@@ -459,7 +452,7 @@ img {
 }
 .scroll-down-btn {
   margin: -10px auto;
-  width: 114px;
+  width: 6%;
 }
 /* CSS slider */
 
@@ -2346,6 +2339,7 @@ a.startNowBtn:hover {
   }
   .header-slider-wrap {
     height: auto;
+    padding-bottom: 60px;
   }
   .text-services-wrp {
     margin-left: 0;
@@ -2433,7 +2427,7 @@ a.startNowBtn:hover {
 }
 @media screen and (max-width: 990px) {
   .container {
-    max-width: 100vw;
+    max-width: 100%;
     padding: 0 25px;
     height: 100%;
   }
@@ -2463,12 +2457,18 @@ a.startNowBtn:hover {
     background: none;
   }
   .scroll-down-btn {
-    width: 114px;
+    width: 20%;
   }
   .mobile-slider-image {
     display: block;
     width: 80%;
     margin: 0 auto;
+  }
+  .slider-main-wrap {
+    padding-top: 15px;
+  }
+  .slider-main-wrap h1 span {
+    display: inline-block;
   }
   .services-main-wraper {
     padding: 50px 0;
@@ -2870,17 +2870,6 @@ a.startNowBtn:hover {
     font-size: 22px;
   }
 }
-/* Add this CSS for vertical centering on larger screens */
-@media (min-width: 992px) { /* Apply only on larger screens */
-  .slider-main-wrap {
-    display: block;
-    align-items: center; /* Centers vertically */
-    max-height: 100vh; /* Ensures full-screen height */
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-}
-
 .copyMessage {
   display: none;
   color: green;
@@ -2947,9 +2936,9 @@ a.startNowBtn:hover {
     left: 135px;
   }
   .listing-client-wrap {
-    margin-top: 25px;
+    margin-top: 80px;
     padding-top: 60px;
-    margin-bottom: 10px;
+    margin-bottom: 55px;
   }
 }
 @media (min-width: 768px) and (max-width: 1169px) {
@@ -3000,25 +2989,21 @@ a.startNowBtn:hover {
   margin: 0 auto; /* Center the slider */
 }
 /* Center the slider vertically within its column */
-.hero-carousel {
+.col-md-7 {
   display: flex;
   align-items: center; /* Vertically center the slider */
   justify-content: center; /* Horizontally center the slider */
   flex-direction: column;
   flex: 0 0 48%; /* Control the width of the slider */
   max-width: 48%;
-  padding-left: 47.5px;
 }
 /* Center the text vertically within its column */
-.header-section {
+.col-md-5 {
   display: flex;
   align-items: center; /* Vertically center the text */
   flex: 0 0 48%; /* Control the width of the text */
   max-width: 48%;
-  padding-right: 47.5px;
-}
-#hero-slider .owl-item {
-  margin-left: 10px !important;
+  padding-right: 95px;
 }
 #hero-slider .owl-next,
 #hero-slider .owl-prev {
@@ -3043,21 +3028,19 @@ a.startNowBtn:hover {
 }
 /* Ensure consistent size and stacking for smaller screens */
 @media (max-width: 768px) {
-  .hero-carousel,
-  .header-section {
+  .col-md-5,
+  .col-md-7 {
     flex: 0 0 100%; /* Full width for both text and slider */
     max-width: 100%; /* Ensure full width for both */
     justify-content: center; /* Center the content on smaller screens */
     margin: 0 auto; /* Center the columns */
   }
   /* Move the slider above the text */
-  .hero-carousel {
+  .col-md-7 {
     order: -1; /* Ensure the slider is on top */
     margin: 0 auto; /* Center the slider when it's on top */
-    padding-left: 0;
-    padding-right:0;
   }
-  .header-section {
+  .col-md-5 {
     padding: 0;
   }
   #hero-slider .owl-next,
@@ -3066,6 +3049,7 @@ a.startNowBtn:hover {
   }
   /* Shrink the slider and its content even more */
   #hero-slider {
+    max-width: 80%; /* Further reduce the overall width */
     margin: 0 auto; /* Center it */
   }
   /* Make the images smaller */
@@ -3096,9 +3080,6 @@ a.startNowBtn:hover {
   }
   #hero-slider .owl-dot {
     margin-top: 0;
-  }
-  #hero-slider .owl-item {
-    margin-left: 10px !important;
   }
 }
 .no-style-link {
