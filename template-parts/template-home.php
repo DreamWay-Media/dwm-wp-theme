@@ -91,156 +91,102 @@ get_header();
   <!--about-->
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
   <div class="container bootstrap snippets bootdey " data-aos="fade-up">
+<!-- Services Section -->
 <section id="services" class="current">
     <div class="services-top">
         <div class="container bootstrap snippets bootdey">
             <div class="row text-center">
                 <div class="col-12">
                     <h2>What We Offer</h2>
-                    <h2 style="font-size: 60px;line-height: 60px;margin-bottom: 20px;font-weight: 900;">What you really need</h2>
-                    <p>We offer wider range of services to ensure you get what you need, all under one roof.</p>
+                    <h2 style="font-size: 60px; line-height: 60px; margin-bottom: 20px; font-weight: 900;">What you really need</h2>
+                    <p>We offer a wide range of services to ensure you get what you need, all under one roof.</p>
                 </div>
             </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12">
-          <div class="services-list">
-              <div class="row">
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-magic highlight"></div>
-                          <div class="text-block">
-                          <?php
-                              // Get the menu items
-                              $menuitems = wp_get_nav_menu_items(2, array('order' => 'DESC'));
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="services-list">
+                        <div class="row">
+                            <?php
+                            // Query the 'services' custom post type
+                            $args = array(
+                                'post_type' => 'services',
+                                'posts_per_page' => -1,  // Fetch all services
+                                'order' => 'ASC',
+                                'orderby' => 'menu_order',
+                            );
+                            $services_query = new WP_Query($args);
 
-                              // Initialize service link variables
-                              $graphicLink = '';
-                              $codingLink = '';
-                              $contentLink = '';
-                              $photoLink = '';
-                              $motionLink = '';
-                              $videoLink = '';
-                              $marketingLink = '';
-                              $ecommerceLink = '';
-                              $strategyLink = '';
+                            if ($services_query->have_posts()) :
+                                while ($services_query->have_posts()) : $services_query->the_post();
+                                    // Get custom fields
+                                    $service_icon = get_field('service_icon'); // Icon class
+                                    $service_info = get_field('service_info'); // Short info
+                                    $service_link = get_field('service_link'); // Custom link
 
-                              // Loop through menu items and assign URLs to each service link variable
-                              foreach ($menuitems as $item) :
-                                  if ($item->title == 'Graphic Design') :
-                                      $graphicLink = esc_url($item->url);
-                                  elseif ($item->title == 'Web Development') :
-                                      $codingLink = esc_url($item->url);
-                                  elseif ($item->title == 'Content Creation') :
-                                      $contentLink = esc_url($item->url);
-                                  elseif ($item->title == 'Photography') :
-                                      $photoLink = esc_url($item->url);
-                                  elseif ($item->title == 'Motion Graphics') :
-                                      $motionLink = esc_url($item->url);
-                                  elseif ($item->title == 'Video Production') :
-                                      $videoLink = esc_url($item->url);
-                                  elseif ($item->title == 'Web Marketing') :
-                                      $marketingLink = esc_url($item->url);
-                                  elseif ($item->title == 'E-commerce') :
-                                      $ecommerceLink = esc_url($item->url);
-                                  endif;
-                              endforeach;
-                              ?>
-                              <a class="no-style-link" href="<?php echo $graphicLink; ?>"><div class="name">Graphic Design</div></a>
-                              <div class="info">Beauty and function</div>
-                              <div class="text">Branding & Identity Design, Logo Design, Web Design, Product Design, Packaging Design, Thumbnails, Infographics, Amazon A+ </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-code highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $codingLink; ?>"><div class="name">Development/Coding</div></a>
-                              <div class="info">Quality code that lasts</div>
-                              <div class="text">Shopify, WordPress, Magento, WooCommerce, Hydrogen, Gatsby, Etc</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-pencil highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $contentLink; ?>"><div class="name">Content Creation</div></a>
-                              <div class="info">Words that tell your story</div>
-                              <div class="text">Copywriting, Product Meta Content, Website Text Content, Scriptwriting, Ghostwriting</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-camera highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $photoLink; ?>"><div class="name">Photography</div></a>
-                              <div class="info">High-quality images of your products & services</div>
-                              <div class="text">Product Photography, Portrairs, Headshots, Events, Landscape, Realestate </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-film highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $motionLink; ?>"><div class="name">Motion Graphics</div></a>
-                              <div class="info">Create engaging motion graphics to captivate and capture audiences attention</div>
-                              <div class="text">Animations, Special Effects</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-video-camera highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $videoLink; ?>"><div class="name">Video Production</div></a>
-                              <div class="info">Professional videos that tells your brand story and helps with your sales</div>
-                              <div class="text">Filming on Location, Video Editing, Casting, Sound Design, UGC</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-bullhorn highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $marketingLink; ?>"><div class="name">Web Marketing</div></a>
-                              <div class="info">Converting users to customers</div>
-                              <div class="text">SMM (Social Media Managment), SEO (Search Engine Optimizartion), PPC (Pay Per Click), Email Markting</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-shopping-cart highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $ecommerceLink; ?>"><div class="name">E-commerce</div></a>
-                              <div class="info">Helping you run your shop</div>
-                              <div class="text">E-commerce Management, Product Management, System Administration, Shipping & Fulfilment</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-umbrella highlight"></div>
-                          <div class="text-block">
-                              <div class="name">Strategy/Planning</div>
-                              <div class="info">Thinking beyond tomorrow</div>
-                              <div class="text">1-on-1 Consultation, Website audit, Reports</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="see-more-btn" data-aos="fade-up">
-                     <a href="/services/">Our Services</a>
-                  </div>
+                                    // Fallbacks if fields are empty
+                                    if (!$service_icon) {
+                                        $service_icon = 'fa fa-star'; // Default icon
+                                    }
+                                    if (!$service_info) {
+                                        $service_info = get_the_excerpt();
+                                    }
+                                    ?>
+                                    <div class="col-sm-6 col-md-4">
+                                        <div class="service-block" style="visibility: visible;">
+                                            <div class="ico <?php echo esc_attr($service_icon); ?> highlight"></div>
+                                            <div class="text-block">
+                                                <?php if ($service_link) : ?>
+                                                    <a class="no-style-link" href="<?php echo esc_url($service_link); ?>">
+                                                        <div class="name"><?php the_title(); ?></div>
+                                                    </a>
+                                                <?php else : ?>
+                                                    <div class="name"><?php the_title(); ?></div>
+                                                <?php endif; ?>
+                                                <div class="info"><?php echo esc_html($service_info); ?></div>
+                                                <!-- Sub-Services List -->
+                                                <?php
+                                                // Initialize an array to hold sub-services
+                                                $sub_services = array();
+
+                                                if (have_rows('sub_service')) {
+                                                    while (have_rows('sub_service')) {
+                                                        the_row();
+                                                        $sub_service_name = get_sub_field('service');
+                                                        if ($sub_service_name) {
+                                                            $sub_services[] = $sub_service_name;
+                                                        }
+                                                    }
+                                                }
+
+                                                // Now, join the sub-services with commas and output
+                                                if (!empty($sub_services)) {
+                                                    echo '<div class="text">' . esc_html(implode(', ', $sub_services)) . '</div>';
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                endwhile;
+                                wp_reset_postdata();
+                            else :
+                                echo '<p>No services found.</p>';
+                            endif;
+                            ?>
+                        </div>
+                        <div class="see-more-btn" data-aos="fade-up">
+                            <a href="/services/">Our Services</a>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
+<!-- End of Services Section -->
+
+
+
   </div>  
 </section>
 
