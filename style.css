@@ -383,9 +383,6 @@ img {
 .inner-header-slider-wrap {
   height: 570px;
 }
-.inner-slider-wrap {
-  padding-top: 40px;
-}
 .inner-slider-wrap h1 {
   font-size: 70px;
   font-weight: 700;
@@ -1257,9 +1254,6 @@ img {
 .cta-main-wraper .form-group .form-control::placeholder {
   color: #90aa2d;
 }
-.slider-portfolio-wrap {
-  padding-top: 60px;
-}
 .slider-portfolio-wrap h1 {
   color: #fff;
   font-size: 50px;
@@ -1589,9 +1583,6 @@ img {
 /* Removed empty ruleset */
 /* Removed empty ruleset */
 /* Removed empty ruleset */
-.service-slider-wrap {
-  padding-top: 50px;
-}
 .service-slider-wrap h1 {
   font-size: 120px;
   font-weight: bold;
@@ -2979,10 +2970,6 @@ a.startNowBtn:hover {
   }
 }
 @media (min-width: 1170px) {
-  #blog-title,
-  #services-title {
-    padding-top: 50px; /*blog and services */
-  }
   #project-title {
     padding-top: 30px;
   }
