@@ -80,7 +80,10 @@ get_header();
   </section>
   <!--slider--> 
   
-
+  <!--scroll down-->
+  <div class="scroll-down-btn" data-aos="fade-up"> <a href="#about-main-wrap"> <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="circle"></a> 
+  </div>
+  <!--scroll down--> 
   
 </section>
 
@@ -347,41 +350,40 @@ get_header();
     );
     $query = new WP_Query($args);
 
-    if ($query->have_posts()) :
-      while ($query->have_posts()) : $query->the_post(); 
-        $thumbnail_url = esc_url(wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())));
-        ?>
-        <li class="col-md-4">
-          <div class="listing-featured-wrap" data-aos="fade-up">
-            <a href="<?php echo esc_url(get_the_permalink()); ?>">
-              <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div>
-            </a>
-            <div class="listing-featured-text">
-              <h3><a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a></h3>
-              <p>
-                <?php
-                $excerpt = wp_trim_words(get_the_content(), 24, '...');
-                echo esc_html($excerpt);
-                ?>
-              </p>
-              <div class="tag-featured-wrap">
-                <?php 
-                $terms = wp_get_post_terms(get_the_ID(), array('project_category'));
-             
-                foreach ($terms as $term) : ?>
-                  <span><?php echo esc_html($term->name); ?></span>
-                <?php endforeach; ?>
-              </div>
-            </div>
-          </div>
-        </li>
-      <?php endwhile; 
-    else : ?>
-      <h1 class="page-title screen-reader-text"><?php esc_html_e('No Posts Found', 'dreamway-media'); ?></h1>
-    <?php endif;
-    wp_reset_postdata(); ?>
-  </ul>
-</div>
+          if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post(); 
+              $thumbnail_url = esc_url(wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())));
+              ?>
+              <li class="col-md-6">
+                <div class="listing-featured-wrap" data-aos="fade-up">
+                <a href="<?php echo esc_url(get_the_permalink()); ?>">
+                  <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
+                  <div class="listing-featured-text">
+                    <div class="tag-featured-wrap">
+                      <?php 
+                      $terms = wp_get_post_terms(get_the_ID(), array('project_category'));
+                   
+                      foreach ($terms as $term) : ?>
+                        <span><?php echo esc_html($term->name); ?></span>
+                      <?php endforeach; ?>
+                    </div>
+                    <h3><a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a></h3>
+                    <p>
+                      <?php
+                      $excerpt = wp_trim_words(get_the_content(), 24, '...');
+                      echo esc_html($excerpt);
+                      ?>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            <?php endwhile; 
+          else : ?>
+            <h1 class="page-title screen-reader-text"><?php esc_html_e('No Posts Found', 'dreamway-media'); ?></h1>
+          <?php endif;
+          wp_reset_postdata(); ?>
+        </ul>
+      </div>
       
       <div class="visit-portfolio-btn" data-aos="fade-up">
         <a href="<?php echo esc_url($project_button_link); ?>"><?php echo esc_html($project_button_text); ?></a>
@@ -512,7 +514,7 @@ get_header();
     <div class="container">
       <h2 data-aos="fade-up"><?php echo wp_kses_post($cta_heading); ?></h2>
       <div class="btn-cta-wrap aos-init" data-aos="fade-up">
-        <a class="startNowBtn" href="<?php echo esc_url($cta_button_link); ?>"><?php echo esc_html($cta_button_text); ?></a>
+        <a class="homeStartNowBtn" href="<?php echo esc_url($cta_button_link); ?>"><?php echo esc_html($cta_button_text); ?></a>
       </div>
     </div>
   </div>
