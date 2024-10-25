@@ -324,10 +324,12 @@ function create_services_post_type() {
         'description' => 'Displays the list of services offered',
         'public' => true,
         'menu_position' => 5,
-        'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions'),
+        'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'page-attributes'),
         'has_archive' => true,
         'rewrite' => array('slug' => 'services'),
         'menu_icon' => 'dashicons-admin-tools', // Optional icon
+        'orderby' => 'menu_order',
+        'order' => 'ASC',        // Or 'DESC' if you want descending order
     );
 
     register_post_type('services', $args);
