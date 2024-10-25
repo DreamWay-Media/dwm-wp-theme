@@ -120,7 +120,6 @@ get_header();
                                     // Get custom fields
                                     $service_icon = get_field('service_icon'); // Icon class
                                     $service_info = get_field('service_info'); // Short info
-                                    $service_text = get_field('service_text'); // Description
                                     $service_link = get_field('service_link'); // Custom link
 
                                     // Fallbacks if fields are empty
@@ -129,9 +128,6 @@ get_header();
                                     }
                                     if (!$service_info) {
                                         $service_info = get_the_excerpt();
-                                    }
-                                    if (!$service_text) {
-                                        $service_text = get_the_content();
                                     }
                                     ?>
                                     <div class="col-sm-6 col-md-4">
@@ -146,7 +142,26 @@ get_header();
                                                     <div class="name"><?php the_title(); ?></div>
                                                 <?php endif; ?>
                                                 <div class="info"><?php echo esc_html($service_info); ?></div>
-                                                <div class="text"><?php echo esc_html($service_text); ?></div>
+                                                <!-- Sub-Services List -->
+                                                <?php
+                                                // Initialize an array to hold sub-services
+                                                $sub_services = array();
+
+                                                if (have_rows('sub_service')) {
+                                                    while (have_rows('sub_service')) {
+                                                        the_row();
+                                                        $sub_service_name = get_sub_field('service');
+                                                        if ($sub_service_name) {
+                                                            $sub_services[] = $sub_service_name;
+                                                        }
+                                                    }
+                                                }
+
+                                                // Now, join the sub-services with commas and output
+                                                if (!empty($sub_services)) {
+                                                    echo '<div class="text">' . esc_html(implode(', ', $sub_services)) . '</div>';
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
@@ -168,6 +183,7 @@ get_header();
     </div>
 </section>
 <!-- End of Services Section -->
+
 
 
   </div>  
