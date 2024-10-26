@@ -325,7 +325,7 @@ function create_services_post_type() {
         'public' => true,
         'menu_position' => 5,
         'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'page-attributes'),
-        'has_archive' => true,
+        'has_archive' => false,
         'rewrite' => array('slug' => 'services'),
         'menu_icon' => 'dashicons-admin-tools', // Optional icon
         'orderby' => 'menu_order',
