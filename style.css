@@ -100,7 +100,6 @@ img {
 /* CSS header & slider */
 .header-slider-wrap {
   background: #101010;
-  height: 100vh;
 }
 /* CSS header */
 .header-main-wrap {
@@ -372,6 +371,9 @@ img {
 .inner-header-slider-wrap {
   height: 570px;
 }
+.inner-slider-wrap {
+  padding-top: 40px;
+}
 .inner-slider-wrap h1 {
   font-size: 70px;
   font-weight: 700;
@@ -452,7 +454,11 @@ img {
 }
 .scroll-down-btn {
   margin: -10px auto;
-  width: 6%;
+  width: 100px;
+  padding-bottom: 6%;
+}
+#about-main-wrap {
+  scroll-margin-top: -10px;
 }
 /* CSS slider */
 
@@ -1247,6 +1253,9 @@ img {
 .cta-main-wraper .form-group .form-control::placeholder {
   color: #90aa2d;
 }
+.slider-portfolio-wrap {
+  padding-top: 60px;
+}
 .slider-portfolio-wrap h1 {
   color: #fff;
   font-size: 50px;
@@ -1254,6 +1263,7 @@ img {
 }
 .filter-project-btns {
   margin-top: 3%;
+  padding-bottom: 60px;
 }
 .filter-project-btns h2 {
   font-size: 16px;
@@ -1316,6 +1326,9 @@ img {
   border-radius: 6px;
   font-weight: bold;
   text-transform: uppercase;
+}
+.portfolio-slider-wrap {
+  padding-top: 30px;
 }
 .portfolio-slider-wrap h1 {
   text-align: center;
@@ -1573,6 +1586,9 @@ img {
 /* Removed empty ruleset */
 /* Removed empty ruleset */
 /* Removed empty ruleset */
+.service-slider-wrap {
+  padding-top: 60px;
+}
 .service-slider-wrap h1 {
   font-size: 120px;
   font-weight: bold;
@@ -1835,6 +1851,7 @@ img {
   margin-bottom: 15px;
 }
 .blog-single-wrap {
+  padding-top: 60px;
   text-align: center;
 }
 .blog-single-wrap h1 {
@@ -2457,7 +2474,7 @@ a.startNowBtn:hover {
     background: none;
   }
   .scroll-down-btn {
-    width: 20%;
+    width: 92px;
   }
   .mobile-slider-image {
     display: block;
@@ -2466,6 +2483,10 @@ a.startNowBtn:hover {
   }
   .slider-main-wrap {
     padding-top: 15px;
+  }
+  .header-row {
+    padding-bottom: 15px !important;
+    padding-top: 60px;
   }
   .slider-main-wrap h1 span {
     display: inline-block;
@@ -2954,6 +2975,15 @@ a.startNowBtn:hover {
     font-size: 15px !important;
   }
 }
+@media (min-width: 1170px) {
+  #blog-title,
+  #services-title {
+    padding-top: 50px; /*blog and services */
+  }
+  #project-title {
+    padding-top: 30px;
+  }
+}
 /* Wrapper for both image and content to unify the rounded corners */
 #hero-slider .owl-stage {
   display: flex;
@@ -2988,22 +3018,27 @@ a.startNowBtn:hover {
   max-width: 600px; /* Set a maximum width for the slider */
   margin: 0 auto; /* Center the slider */
 }
+.header-row {
+  justify-content: center;
+  padding-bottom: 75px;
+}
 /* Center the slider vertically within its column */
-.col-md-7 {
+.hero-carousel {
   display: flex;
   align-items: center; /* Vertically center the slider */
   justify-content: center; /* Horizontally center the slider */
   flex-direction: column;
   flex: 0 0 48%; /* Control the width of the slider */
   max-width: 48%;
+  padding-left: 47.5px;
 }
 /* Center the text vertically within its column */
-.col-md-5 {
+.header-section {
   display: flex;
   align-items: center; /* Vertically center the text */
   flex: 0 0 48%; /* Control the width of the text */
   max-width: 48%;
-  padding-right: 95px;
+  padding-right: 47.5px;
 }
 #hero-slider .owl-next,
 #hero-slider .owl-prev {
@@ -3026,21 +3061,25 @@ a.startNowBtn:hover {
 #hero-slider .owl-dot.active {
   background: #333; /* Color of the active dot */
 }
+#hero-slider .owl-item {
+  margin-left: 10px !important;
+}
 /* Ensure consistent size and stacking for smaller screens */
 @media (max-width: 768px) {
-  .col-md-5,
-  .col-md-7 {
+  .header-section,
+  .hero-carousel{
     flex: 0 0 100%; /* Full width for both text and slider */
     max-width: 100%; /* Ensure full width for both */
     justify-content: center; /* Center the content on smaller screens */
     margin: 0 auto; /* Center the columns */
   }
   /* Move the slider above the text */
-  .col-md-7 {
+  .hero-carousel{
     order: -1; /* Ensure the slider is on top */
     margin: 0 auto; /* Center the slider when it's on top */
+    padding-left: 12px;
   }
-  .col-md-5 {
+  .header-section {
     padding: 0;
   }
   #hero-slider .owl-next,

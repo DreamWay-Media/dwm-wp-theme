@@ -68,13 +68,6 @@ get_header();
           </div>
         </div>
         <!--Slider End-->
-          <!--scroll down-->
-  <div class="scroll-down-btn"> 
-      <a href="#about-main-wrap"> 
-          <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="scroll down">
-      </a> 
-  </div>
-  <!--scroll down--> 
       </div>
     </div>
   </section>
