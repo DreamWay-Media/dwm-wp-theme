@@ -453,12 +453,9 @@ img {
   border: 2px solid #fff;
 }
 .scroll-down-btn {
-  margin: -10px auto;
   width: 100px;
-  padding-bottom: 6%;
-}
-#about-main-wrap {
-  scroll-margin-top: -10px;
+  position: absolute; 
+  bottom: 50px;
 }
 /* CSS slider */
 
@@ -2358,6 +2355,9 @@ a.startNowBtn:hover {
     height: auto;
     padding-bottom: 60px;
   }
+  .homepage-slider-wrap {
+    padding-bottom: 0 !important;
+  }
   .text-services-wrp {
     margin-left: 0;
   }
@@ -2448,6 +2448,9 @@ a.startNowBtn:hover {
     padding: 0 25px;
     height: 100%;
   }
+  .home-container {
+    height: auto !important;
+  }
   .inner-slider-wrap p {
     width: 100%;
   }
@@ -2483,10 +2486,6 @@ a.startNowBtn:hover {
   }
   .slider-main-wrap {
     padding-top: 15px;
-  }
-  .header-row {
-    padding-bottom: 15px !important;
-    padding-top: 60px;
   }
   .slider-main-wrap h1 span {
     display: inline-block;
@@ -3020,7 +3019,6 @@ a.startNowBtn:hover {
 }
 .header-row {
   justify-content: center;
-  padding-bottom: 75px;
 }
 /* Center the slider vertically within its column */
 .hero-carousel {
@@ -3129,4 +3127,36 @@ a.startNowBtn:hover {
 .no-style-link:hover {
   text-decoration: none;
   color: inherit;
+}
+
+.homepage-hero {
+  height: 86vh; /* Adjust for navbar height */
+  min-height: 550px; /* Minimum height to prevent content squishing */
+  display: flex;
+  align-items: center; /* Align content to the top */
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  position: relative; /* For precise control over scroll button positioning */
+}
+
+
+@media (max-width: 768px) {
+  .homepage-hero {
+    height: 86vh; /* Use full height on very small screens */
+    min-height: 700px;
+  }
+
+  .scroll-down-btn {
+    position: static;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 540px) {
+  .homepage-hero {
+    height: 100vh;
+    min-height: 800px;
+  }
 }
