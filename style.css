@@ -2330,6 +2330,10 @@ a.startNowBtn:hover {
   }
 }
 @media screen and (max-width: 1169px) {
+  .featured-blog-wrap{
+    padding-top: 80px;
+    padding-bottom: 0px;
+  }
   .client-main-review-wrap {
     margin-bottom: 0;
     padding-bottom: 0;
