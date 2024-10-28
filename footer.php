@@ -136,7 +136,29 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 })
-</script> 
+</script>
+
+<!--owl-->
+<script>
+    $('#demo-slider').owlCarousel({
+      loop: true,
+      margin: 15,
+      nav: true,
+      navText: [
+        "<i class='fa fa-angle-left'></i> previous ",
+        "next <i class='fa fa-angle-right'></i>"
+      ],
+      autoplay: false,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1,
+          margin: 24,
+        }
+      }
+    })
+</script>
+<!--owl-->
 <!--owl--> 
 
 <!--owl--> 
