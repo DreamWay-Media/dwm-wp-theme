@@ -453,12 +453,9 @@ img {
   border: 2px solid #fff;
 }
 .scroll-down-btn {
-  margin: -10px auto;
   width: 100px;
-  padding-bottom: 6%;
-}
-#about-main-wrap {
-  scroll-margin-top: -10px;
+  position: absolute; 
+  bottom: 50px;
 }
 /* CSS slider */
 
@@ -511,10 +508,6 @@ img {
 @media (max-width: 992px) {
   .wrapper {
     width: 100%;
-  }
-  .listing-client-wrap {
-    margin-top: 0;
-    padding-top: 0;
   }
 }
 
@@ -2347,6 +2340,38 @@ a.startNowBtn:hover {
   }
 }
 @media screen and (max-width: 1169px) {
+  .featured-blog-wrap{
+    padding-top: 80px;
+    padding-bottom: 0px;
+  }
+  .client-main-review-wrap {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    position: relative;
+  }
+  .listing-client-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the text vertically */
+    align-items: flex-start; /* Align the text to the start (left) */
+    height: 250px; /* Keep a consistent height for all testimonials */
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center; /* Center text horizontally if needed */
+    margin-top: 25px;
+  }
+  .listing-client-wrap p {
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 0px;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+    flex-grow: 1;
+    display: flex;
+    align-items: center; /* Center text vertically within the space */
+    justify-content: center; /* Center text horizontally */
+    text-align: start;
+  }
   .slider-main-wrap h1 {
     font-size: 50px;
     line-height: 50px;
@@ -2357,6 +2382,9 @@ a.startNowBtn:hover {
   .header-slider-wrap {
     height: auto;
     padding-bottom: 60px;
+  }
+  .homepage-slider-wrap {
+    padding-bottom: 0 !important;
   }
   .text-services-wrp {
     margin-left: 0;
@@ -2441,20 +2469,19 @@ a.startNowBtn:hover {
     font-size: 16px !important;
     color: #fff;
   }
-  .dropdown-menu {
-    display: none; /* Hide dropdown by default */
-}
-
-/* Show dropdown when the checkbox is checked */
-.dropdown-toggle:checked + .dropdown-toggle-label + .dropdown-menu {
-    display: block; /* Show dropdown when checkbox is checked */
-}
+ #hero-slider .owl-stage {
+    display: flex;
+    align-items: center;
+  }
 }
 @media screen and (max-width: 990px) {
   .container {
     max-width: 100%;
     padding: 0 25px;
     height: 100%;
+  }
+  .home-container {
+    height: auto !important;
   }
   .inner-slider-wrap p {
     width: 100%;
@@ -2491,10 +2518,6 @@ a.startNowBtn:hover {
   }
   .slider-main-wrap {
     padding-top: 15px;
-  }
-  .header-row {
-    padding-bottom: 15px !important;
-    padding-top: 60px;
   }
   .slider-main-wrap h1 span {
     display: inline-block;
@@ -2570,23 +2593,6 @@ a.startNowBtn:hover {
     right: auto;
     left: 135px;
   }
-  .listing-client-wrap {
-    margin: 10px;
-    height: auto; /* Let the height adjust to content */
-    margin-bottom: 0;
-  }
-  .listing-client-wrap p {
-    height: auto; /* Remove fixed height to prevent text from being cut off */
-    margin-bottom: 15px; /* Add margin to separate text from the client name and image */
-    line-height: 1.5; /* Ensure proper line spacing for readability */
-    margin-top: 0;
-  }
-  .client-main-review-wrap {
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-  }
-
   .slider-image-wrap {
     margin-top: -40px; /* Adjust this to move the image down */
     padding-bottom: 30px; /* Reduce padding to make space */
@@ -2866,9 +2872,6 @@ a.startNowBtn:hover {
     font-size: 36px;
     line-height: 39px;
   }
-  .client-main-review-wrap {
-    padding: 50px 0;
-  }
   .cta-main-wraper h2 {
     font-size: 30px;
   }
@@ -2964,11 +2967,6 @@ a.startNowBtn:hover {
     right: auto;
     left: 135px;
   }
-  .listing-client-wrap {
-    margin-top: 80px;
-    padding-top: 60px;
-    margin-bottom: 55px;
-  }
 }
 @media (min-width: 768px) and (max-width: 1169px) {
   .slider-image-wrap img {
@@ -3028,7 +3026,6 @@ a.startNowBtn:hover {
 }
 .header-row {
   justify-content: center;
-  padding-bottom: 75px;
 }
 /* Center the slider vertically within its column */
 .hero-carousel {
@@ -3140,4 +3137,36 @@ a.startNowBtn:hover {
 }
 .dropdown:hover .dropdown-menu {
   display: block; /* Show dropdown on hover */
+
+
+.homepage-hero {
+  height: 86vh; /* Adjust for navbar height */
+  min-height: 550px; /* Minimum height to prevent content squishing */
+  display: flex;
+  align-items: center; /* Align content to the top */
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  position: relative; /* For precise control over scroll button positioning */
+}
+
+
+@media (max-width: 768px) {
+  .homepage-hero {
+    height: 86vh; /* Use full height on very small screens */
+    min-height: 700px;
+  }
+
+  .scroll-down-btn {
+    position: static;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 540px) {
+  .homepage-hero {
+    height: 100vh;
+    min-height: 800px;
+  }
 }
