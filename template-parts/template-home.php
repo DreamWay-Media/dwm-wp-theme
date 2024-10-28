@@ -4,7 +4,7 @@
 get_header();
 ?>
 
-<section class="header-slider-wrap"> 
+<section class="header-slider-wrap homepage-slider-wrap"> 
   <?php 
   // Fetching banner fields for text content
   $banner_heading = get_field('banner_heading');
@@ -14,8 +14,8 @@ get_header();
   ?>
   
   <!--slider-->
-  <section class="slider-main-wrap">
-    <div class="container">
+  <section class="slider-main-wrap homepage-hero">
+    <div class="container home-container">
       <div class="row header-row">
         <!--Text on the left side-->
         <div class="col-md-6 header-section">
@@ -68,15 +68,14 @@ get_header();
           </div>
         </div>
         <!--Slider End-->
+        <!--scroll down-->
+        <div class="scroll-down-btn" data-aos="fade-up"> <a href="#about-main-wrap"> <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="circle"></a> 
+        </div>
+        <!--scroll down--> 
       </div>
     </div>
   </section>
   <!--slider--> 
-  
-  <!--scroll down-->
-  <div class="scroll-down-btn" data-aos="fade-up"> <a href="#about-main-wrap"> <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="circle"></a> 
-  </div>
-  <!--scroll down--> 
   
 </section>
 
@@ -86,11 +85,11 @@ get_header();
   
   <!--about-->
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-  <div class="container bootstrap snippets bootdey " data-aos="fade-up">
+  <div class="container bootstrap snippets bootdey home-container" data-aos="fade-up">
 <!-- Services Section -->
 <section id="services" class="current">
     <div class="services-top">
-        <div class="container bootstrap snippets bootdey">
+        <div class="container bootstrap snippets bootdey home-container">
             <div class="row text-center">
                 <div class="col-12">
                     <h2>What We Offer</h2>
@@ -233,7 +232,7 @@ get_header();
   
   <!--numbers-->
   <div class="site-number-main-wrap">
-    <div class="container">
+    <div class="container home-container">
       <h3 data-aos="fade-up" data-aos-anchor-placement="top-bottom"><?php echo wp_kses_post($info_heading); ?></h3>
       <ul class="row" data-aos="zoom-in-right">
         <?php if (have_rows('info_features')) : 
@@ -264,7 +263,7 @@ get_header();
   ?>
   
   <div class="featured-main-wraper">
-    <div class="container"> 
+    <div class="container home-container"> 
       <!--heading-->
       <div class="featured-heading-wrap">
         <div class="row">
@@ -346,7 +345,7 @@ get_header();
   ?>
 
   <div class="featured-blog-wrap">
-    <div class="container">
+    <div class="container home-container">
       <div class="featured-blog-heading-wrap">
         <div class="row">
           <div data-aos="fade-up" class="col-md-6"><h2><?php echo esc_html($featured_blog_title); ?></h2></div>
@@ -402,7 +401,7 @@ get_header();
   
   <section class="client-main-review-wrap"> 
     <div class="client-heading-wrap">
-      <div class="container">
+      <div class="container home-container">
         <div class="row">
           <div class="col-md-12">
             <h2 data-aos="fade-up"><?php echo wp_kses_post($testimonial_heading); ?></h2>
@@ -450,7 +449,7 @@ get_header();
   ?>
   
   <div class="cta-main-wraper">
-    <div class="container">
+    <div class="container home-container">
       <h2 data-aos="fade-up"><?php echo wp_kses_post($cta_heading); ?></h2>
       <div class="btn-cta-wrap aos-init" data-aos="fade-up">
         <a class="homeStartNowBtn" href="<?php echo esc_url($cta_button_link); ?>"><?php echo esc_html($cta_button_text); ?></a>
