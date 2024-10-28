@@ -509,10 +509,6 @@ img {
   .wrapper {
     width: 100%;
   }
-  .listing-client-wrap {
-    margin-top: 0;
-    padding-top: 0;
-  }
 }
 
 .inner-header-slider-wrap {
@@ -2344,6 +2340,38 @@ a.startNowBtn:hover {
   }
 }
 @media screen and (max-width: 1169px) {
+  .featured-blog-wrap{
+    padding-top: 80px;
+    padding-bottom: 0px;
+  }
+  .client-main-review-wrap {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    position: relative;
+  }
+  .listing-client-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the text vertically */
+    align-items: flex-start; /* Align the text to the start (left) */
+    height: 250px; /* Keep a consistent height for all testimonials */
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center; /* Center text horizontally if needed */
+    margin-top: 25px;
+  }
+  .listing-client-wrap p {
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 0px;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+    flex-grow: 1;
+    display: flex;
+    align-items: center; /* Center text vertically within the space */
+    justify-content: center; /* Center text horizontally */
+    text-align: start;
+  }
   .slider-main-wrap h1 {
     font-size: 50px;
     line-height: 50px;
@@ -2440,6 +2468,10 @@ a.startNowBtn:hover {
   .dropdown-toggle {
     font-size: 16px !important;
     color: #fff;
+  }
+  #hero-slider .owl-stage {
+    display: flex;
+    align-items: center;
   }
 }
 @media screen and (max-width: 990px) {
@@ -2561,23 +2593,6 @@ a.startNowBtn:hover {
     right: auto;
     left: 135px;
   }
-  .listing-client-wrap {
-    margin: 10px;
-    height: auto; /* Let the height adjust to content */
-    margin-bottom: 0;
-  }
-  .listing-client-wrap p {
-    height: auto; /* Remove fixed height to prevent text from being cut off */
-    margin-bottom: 15px; /* Add margin to separate text from the client name and image */
-    line-height: 1.5; /* Ensure proper line spacing for readability */
-    margin-top: 0;
-  }
-  .client-main-review-wrap {
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-  }
-
   .slider-image-wrap {
     margin-top: -40px; /* Adjust this to move the image down */
     padding-bottom: 30px; /* Reduce padding to make space */
@@ -2857,9 +2872,6 @@ a.startNowBtn:hover {
     font-size: 36px;
     line-height: 39px;
   }
-  .client-main-review-wrap {
-    padding: 50px 0;
-  }
   .cta-main-wraper h2 {
     font-size: 30px;
   }
@@ -2954,11 +2966,6 @@ a.startNowBtn:hover {
     top: 0px;
     right: auto;
     left: 135px;
-  }
-  .listing-client-wrap {
-    margin-top: 80px;
-    padding-top: 60px;
-    margin-bottom: 55px;
   }
 }
 @media (min-width: 768px) and (max-width: 1169px) {
