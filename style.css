@@ -100,7 +100,6 @@ img {
 /* CSS header & slider */
 .header-slider-wrap {
   background: #101010;
-  height: 100vh;
 }
 /* CSS header */
 .header-main-wrap {
@@ -410,10 +409,10 @@ img {
   padding-top: 75px;
 }
 .slider-main-wrap h1 {
-  font-size: 85px;
+  font-size: 60px;
   color: #fff;
   position: relative;
-  line-height: 90px;
+  line-height: auto;
 }
 .slider-main-wrap h1 span {
   display: block;
@@ -451,10 +450,12 @@ img {
 .slider-text-btn a:hover {
   background: #000;
   color: #fff;
+  border: 2px solid #fff;
 }
 .scroll-down-btn {
-  margin: -10px auto;
-  width: 6%;
+  width: 100px;
+  position: absolute; 
+  bottom: 50px;
 }
 /* CSS slider */
 
@@ -508,10 +509,6 @@ img {
   .wrapper {
     width: 100%;
   }
-  .listing-client-wrap {
-    margin-top: 0;
-    padding-top: 0;
-  }
 }
 
 .inner-header-slider-wrap {
@@ -564,7 +561,7 @@ img {
   .accordion-button::after {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   }
-  
+
   background-repeat: no-repeat;
   background-size: 1.65rem;
   transition: transform 0.2s ease-in-out;
@@ -768,7 +765,7 @@ img {
   margin: 0;
   color: #aaaaaa;
 }
-.featured-blog-wrap{
+.featured-blog-wrap {
   padding: 80px 0px;
 }
 .featured-blog-wrap h2 {
@@ -780,7 +777,7 @@ img {
 .featured-blog-wrap .row {
   padding-bottom: 40px;
 }
-.featured-blog-heading-wrap{
+.featured-blog-heading-wrap {
   margin-bottom: 40px;
 }
 .featured-blog-item {
@@ -796,9 +793,16 @@ img {
 .featured-blog-title {
   padding: 24px 0px 16px 0px;
 }
-.featured-blog-title a{
+.featured-blog-title a {
   color: black;
   font-size: 30px;
+}
+.read-more-btn {
+  color: black;
+  font-weight: bold;
+}
+.read-more-btn:hover{
+  color: #c8f031;
 }
 .see-more-btn {
   margin-top: 40px;
@@ -966,8 +970,8 @@ img {
 .scroll-down-btn {
   margin-top: 0;
   display: block;
-  -webkit-animation: pulse 2s infinite;
-  animation: pulse 2s infinite;
+  opacity: 0; /* Start hidden for fade-in effect */
+  animation: fadeInUp 1s ease-in forwards, pulse 2s infinite 1s; /* Apply fadeInUp first, then pulse */
   color: #ff4081;
 }
 @-webkit-keyframes pulse {
@@ -998,7 +1002,42 @@ img {
     transform: translate(0, 0);
   }
 }
+/* Fade-up animation */
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0); /* Start lower */
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0); /* End at normal position */
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+/* Additional styling for the animation duration */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
 
+.animatedFadeInUp {
+  opacity: 0;
+}
+
+.fadeInUp {
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+}
 .connect-main-wrap {
   padding-bottom: 60px;
 }
@@ -1025,7 +1064,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;                 /* Add gap between image and text */
+  gap: 16px; /* Add gap between image and text */
 }
 /* Removed empty ruleset */
 .owner-info-wrap .owner-info-image {
@@ -1037,20 +1076,20 @@ img {
   text-align: center;
 }
 .owner-message-wraper {
-  padding: 90px 40px;        /* Match the padding of the team section */
+  padding: 90px 40px; /* Match the padding of the team section */
   display: flex;
   justify-content: space-between; /* Ensure proper spacing on larger screens */
   align-items: center;
-  gap: 40px;                 /* Gap between the image and the text */
-  flex-wrap: wrap;           /* Allow wrapping on smaller screens */
+  gap: 40px; /* Gap between the image and the text */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
   border-bottom: 1px solid #ddd;
 }
 .owner-info-text h3 {
-  font-size: 24px;           /* Match font size with "Meet the Team" names */
+  font-size: 24px; /* Match font size with "Meet the Team" names */
   font-weight: 600;
 }
 .owner-info-text span {
-  font-size: 18px;           /* Match font size with "Meet the Team" titles */
+  font-size: 18px; /* Match font size with "Meet the Team" titles */
   color: #666666;
 }
 .owner-message-wraper p {
@@ -1060,33 +1099,33 @@ img {
   padding-right: 15px;
 }
 
-.team-intro{
+.team-intro {
   padding-top: 90px;
   font-size: 60px;
   color: #101010;
   font-weight: bold;
   text-align: center;
 }
-.team-all{
+.team-all {
   padding: 90px 40px;
   gap: 48px;
   justify-content: space-around;
 }
-.team-member{
+.team-member {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
 }
-.about-team-image{
+.about-team-image {
   clip-path: circle();
   max-width: 120px;
 }
-.about-team-name{
+.about-team-name {
   font-weight: 600;
   text-align: center;
 }
-.about-team-title{
+.about-team-title {
   color: #444444;
   text-align: center;
 }
@@ -1217,6 +1256,7 @@ img {
 }
 .filter-project-btns {
   margin-top: 3%;
+  padding-bottom: 60px;
 }
 .filter-project-btns h2 {
   font-size: 16px;
@@ -1540,7 +1580,7 @@ img {
 /* Removed empty ruleset */
 /* Removed empty ruleset */
 .service-slider-wrap {
-  padding-top: 50px;
+  padding-top: 60px;
 }
 .service-slider-wrap h1 {
   font-size: 120px;
@@ -1751,7 +1791,7 @@ img {
 }
 .page-numbers:hover {
   color: black;
-} 
+}
 .current {
   font-weight: bolder;
 }
@@ -1769,7 +1809,8 @@ img {
   color: black;
   border: 1px solid black;
   padding: 16px 35px;
-  border-radius: 6px;}
+  border-radius: 6px;
+}
 .prev:hover {
   color: white;
   background-color: black;
@@ -1989,15 +2030,16 @@ img {
   text-transform: uppercase;
   margin-left: 65px;
 }
-a.startNowBtn{
-  color: black;
-  border: 1px solid black;
+a.startNowBtn {
+  color: white;
+  background-color: black;
   padding: 16px 35px;
   border-radius: 6px;
 }
-a.startNowBtn:hover{
-  color: white;
-  background-color: black;
+a.startNowBtn:hover {
+  color: black;
+  background: #c8f031;
+  border: 2px solid black;
 }
 /* Removed empty ruleset */
 .contact-form-wraper form .form-group .form-control {
@@ -2208,23 +2250,23 @@ a.startNowBtn:hover{
 }
 /* Media Queries for smaller screens */
 @media (max-width: 768px) {
-.footer-nav-wrap ul {
-text-align: left;
-padding-bottom: 30px;
-}
+  .footer-nav-wrap ul {
+    text-align: left;
+    padding-bottom: 30px;
+  }
 }
 @media (max-width: 768px) {
-.footer-nav-wrap {
-margin-top: 15px;
-}
-.footer-widget-area {
-  margin-top: 8px;
-  align-items: left;
-  justify-content: start;
-}
-.dropdown{
-  padding-left: 0 !important;
-}
+  .footer-nav-wrap {
+    margin-top: 15px;
+  }
+  .footer-widget-area {
+    margin-top: 8px;
+    align-items: left;
+    justify-content: start;
+  }
+  .dropdown {
+    padding-left: 0 !important;
+  }
 }
 
 /* CSS footer */
@@ -2249,9 +2291,9 @@ margin-top: 15px;
     font-size: 10px;
     margin-right: 7px;
   }
-   .fotoer-nav-wrap ul {
-    display: flex;  
-    flex-wrap: nowrap; 
+  .fotoer-nav-wrap ul {
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     margin-top: 15px;
     text-align: left;
@@ -2259,9 +2301,9 @@ margin-top: 15px;
 }
 @media (max-width: 1200px) and (min-width: 768px) {
   .owner-message-wraper p {
-    max-width: 90%;          /* Reduce the width for better readability */
-    font-size: 20px;         /* Slightly smaller font size */
-    line-height: 1.7;        /* Increase line height for readability */
+    max-width: 90%; /* Reduce the width for better readability */
+    font-size: 20px; /* Slightly smaller font size */
+    line-height: 1.7; /* Increase line height for readability */
   }
 }
 @media (max-width: 1200px) and (min-width: 1170px) {
@@ -2298,6 +2340,38 @@ margin-top: 15px;
   }
 }
 @media screen and (max-width: 1169px) {
+  .featured-blog-wrap{
+    padding-top: 80px;
+    padding-bottom: 0px;
+  }
+  .client-main-review-wrap {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    position: relative;
+  }
+  .listing-client-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the text vertically */
+    align-items: flex-start; /* Align the text to the start (left) */
+    height: 250px; /* Keep a consistent height for all testimonials */
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center; /* Center text horizontally if needed */
+    margin-top: 25px;
+  }
+  .listing-client-wrap p {
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 0px;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+    flex-grow: 1;
+    display: flex;
+    align-items: center; /* Center text vertically within the space */
+    justify-content: center; /* Center text horizontally */
+    text-align: start;
+  }
   .slider-main-wrap h1 {
     font-size: 50px;
     line-height: 50px;
@@ -2308,6 +2382,9 @@ margin-top: 15px;
   .header-slider-wrap {
     height: auto;
     padding-bottom: 60px;
+  }
+  .homepage-slider-wrap {
+    padding-bottom: 0 !important;
   }
   .text-services-wrp {
     margin-left: 0;
@@ -2372,7 +2449,9 @@ margin-top: 15px;
     position: relative !important;
     top: 0 !important; /* Position the dropdown below the Services button */
     left: 40px !important; /* Align the left side of the menu to the middle of the container */
-    transform: translateX(-50%); /* Shift the menu to the left by 50% of its width for true centering */
+    transform: translateX(
+      -50%
+    ); /* Shift the menu to the left by 50% of its width for true centering */
     background-color: #000; /* Ensure background color */
     padding: 10px 20px; /* Adjust padding */
     width: 220px; /* Set a fixed width to control the size */
@@ -2390,6 +2469,10 @@ margin-top: 15px;
     font-size: 16px !important;
     color: #fff;
   }
+  #hero-slider .owl-stage {
+    display: flex;
+    align-items: center;
+  }
 }
 @media screen and (max-width: 990px) {
   .container {
@@ -2397,19 +2480,22 @@ margin-top: 15px;
     padding: 0 25px;
     height: 100%;
   }
+  .home-container {
+    height: auto !important;
+  }
   .inner-slider-wrap p {
     width: 100%;
   }
-  
-.Share-this-post-wrap #shareButtons {
-  display: flex;
-  flex-wrap: wrap; 
-}
 
-.Share-this-post-wrap #shareButtons a {
-  margin-bottom: 10px;
-  text-align: center; 
-}
+  .Share-this-post-wrap #shareButtons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .Share-this-post-wrap #shareButtons a {
+    margin-bottom: 10px;
+    text-align: center;
+  }
 }
 @media screen and (max-width: 768px) {
   .slider-image {
@@ -2423,7 +2509,7 @@ margin-top: 15px;
     background: none;
   }
   .scroll-down-btn {
-    width: 20%;
+    width: 92px;
   }
   .mobile-slider-image {
     display: block;
@@ -2494,7 +2580,7 @@ margin-top: 15px;
     margin-bottom: 20px;
   }
   .listing-featured-text h3 {
-    padding: 0 0 10px 0;
+    padding: 25px 0 10px 0;
   }
   .tag-featured-wrap span {
     padding: 6px 15px;
@@ -2507,24 +2593,6 @@ margin-top: 15px;
     right: auto;
     left: 135px;
   }
-  .listing-client-wrap {
-    margin: 10px;
-    height: auto; /* Let the height adjust to content */
-    margin-bottom: 0;
-  }
-  .listing-client-wrap p {
-    height: auto; /* Remove fixed height to prevent text from being cut off */
-    margin-bottom: 15px; /* Add margin to separate text from the client name and image */
-    line-height: 1.5; /* Ensure proper line spacing for readability */
-    margin-top: 0;
-  }
-  .client-main-review-wrap {
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-  }
-
-
   .slider-image-wrap {
     margin-top: -40px; /* Adjust this to move the image down */
     padding-bottom: 30px; /* Reduce padding to make space */
@@ -2540,8 +2608,8 @@ margin-top: 15px;
     font-size: 40px;
   }
   .fotoer-nav-wrap ul {
-    display: flex;  
-    flex-wrap: nowrap; 
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     margin-top: 15px;
     text-align: left;
@@ -2591,15 +2659,15 @@ margin-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;                 /* Add a gap between the image and text */
+    gap: 16px; /* Add a gap between the image and text */
   }
   .owner-message-wraper {
-    flex-direction: column;  /* Stack content vertically on smaller screens */
+    flex-direction: column; /* Stack content vertically on smaller screens */
     text-align: center;
   }
 
   .owner-message-wraper p {
-    text-align: center;      /* Center text on smaller screens */
+    text-align: center; /* Center text on smaller screens */
     margin-top: 50px;
     font-size: 30px;
   }
@@ -2804,9 +2872,6 @@ margin-top: 15px;
     font-size: 36px;
     line-height: 39px;
   }
-  .client-main-review-wrap {
-    padding: 50px 0;
-  }
   .cta-main-wraper h2 {
     font-size: 30px;
   }
@@ -2876,22 +2941,23 @@ margin-top: 15px;
 .visit-portfolio-btn a:hover {
   background: #000;
   color: #fff;
+  border: 2px solid #fff;
 }
 /* Apply custom styles for screens between 576px and 768px */
 @media (min-width: 768px) and (max-width: 992px) {
   .service-block .ico {
     font-size: 33px !important; /* Reduce the icon size for this range */
   }
-  .name{
+  .name {
     font-size: 15px !important;
   }
-  .info{
+  .info {
     font-size: 11px !important;
   }
-  .text{
+  .text {
     font-size: 9px !important;
   }
-  .text-block{
+  .text-block {
     margin-left: 40 !important;
   }
 }
@@ -2901,18 +2967,13 @@ margin-top: 15px;
     right: auto;
     left: 135px;
   }
-  .listing-client-wrap {
-    margin-top: 80px;
-    padding-top: 60px;    
-    margin-bottom: 55px;
-  }
 }
 @media (min-width: 768px) and (max-width: 1169px) {
-  .slider-image-wrap img{
+  .slider-image-wrap img {
     margin-top: 100px;
   }
 }
-@media (max-width: 992px) and (min-width: 768px){
+@media (max-width: 992px) and (min-width: 768px) {
   .listing-featured-text h3 {
     font-size: 20px !important;
   }
@@ -2921,7 +2982,8 @@ margin-top: 15px;
   }
 }
 @media (min-width: 1170px) {
-  #blog-title, #services-title {
+  #blog-title,
+  #services-title {
     padding-top: 50px; /*blog and services */
   }
   #project-title {
@@ -2962,24 +3024,29 @@ margin-top: 15px;
   max-width: 600px; /* Set a maximum width for the slider */
   margin: 0 auto; /* Center the slider */
 }
+.header-row {
+  justify-content: center;
+}
 /* Center the slider vertically within its column */
-.col-md-7 {
+.hero-carousel {
   display: flex;
   align-items: center; /* Vertically center the slider */
   justify-content: center; /* Horizontally center the slider */
   flex-direction: column;
   flex: 0 0 48%; /* Control the width of the slider */
   max-width: 48%;
+  padding-left: 47.5px;
 }
 /* Center the text vertically within its column */
-.col-md-5 {
+.header-section {
   display: flex;
   align-items: center; /* Vertically center the text */
   flex: 0 0 48%; /* Control the width of the text */
   max-width: 48%;
-  padding-right: 95px;
+  padding-right: 47.5px;
 }
-#hero-slider .owl-next, #hero-slider .owl-prev {
+#hero-slider .owl-next,
+#hero-slider .owl-prev {
   visibility: hidden;
 }
 #hero-slider .owl-dots {
@@ -2999,23 +3066,29 @@ margin-top: 15px;
 #hero-slider .owl-dot.active {
   background: #333; /* Color of the active dot */
 }
+#hero-slider .owl-item {
+  margin-left: 10px !important;
+}
 /* Ensure consistent size and stacking for smaller screens */
 @media (max-width: 768px) {
-  .col-md-5, .col-md-7 {
+  .header-section,
+  .hero-carousel{
     flex: 0 0 100%; /* Full width for both text and slider */
     max-width: 100%; /* Ensure full width for both */
     justify-content: center; /* Center the content on smaller screens */
     margin: 0 auto; /* Center the columns */
   }
   /* Move the slider above the text */
-  .col-md-7 {
+  .hero-carousel{
     order: -1; /* Ensure the slider is on top */
     margin: 0 auto; /* Center the slider when it's on top */
+    padding-left: 12px;
   }
-  .col-md-5 {
+  .header-section {
     padding: 0;
   }
-  #hero-slider .owl-next, #hero-slider .owl-prev {
+  #hero-slider .owl-next,
+  #hero-slider .owl-prev {
     visibility: hidden;
   }
   /* Shrink the slider and its content even more */
@@ -3061,4 +3134,36 @@ margin-top: 15px;
 .no-style-link:hover {
   text-decoration: none;
   color: inherit;
+}
+
+.homepage-hero {
+  height: 86vh; /* Adjust for navbar height */
+  min-height: 550px; /* Minimum height to prevent content squishing */
+  display: flex;
+  align-items: center; /* Align content to the top */
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  position: relative; /* For precise control over scroll button positioning */
+}
+
+
+@media (max-width: 768px) {
+  .homepage-hero {
+    height: 86vh; /* Use full height on very small screens */
+    min-height: 700px;
+  }
+
+  .scroll-down-btn {
+    position: static;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 540px) {
+  .homepage-hero {
+    height: 100vh;
+    min-height: 800px;
+  }
 }

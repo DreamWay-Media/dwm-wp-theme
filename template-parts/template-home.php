@@ -4,7 +4,7 @@
 get_header();
 ?>
 
-<section class="header-slider-wrap"> 
+<section class="header-slider-wrap homepage-slider-wrap"> 
   <?php 
   // Fetching banner fields for text content
   $banner_heading = get_field('banner_heading');
@@ -14,11 +14,11 @@ get_header();
   ?>
   
   <!--slider-->
-  <section class="slider-main-wrap">
-    <div class="container">
-      <div class="row">
+  <section class="slider-main-wrap homepage-hero">
+    <div class="container home-container">
+      <div class="row header-row">
         <!--Text on the left side-->
-        <div class="col-md-5">
+        <div class="col-md-6 header-section">
           <div class="slider-text-wrap" data-aos="fade-up">
             <h1><?php echo wp_kses_post($banner_heading); ?></h1>
             <p><?php echo wp_kses_post($banner_description); ?></p>
@@ -31,7 +31,7 @@ get_header();
         </div>
         
         <!--Slider on the right side-->
-        <div class="col-md-7">
+        <div class="col-md-6 hero-carousel">
           <div id="hero-slider" class="owl-carousel owl-theme" data-aos="fade-up">
             <?php
             $args = array(
@@ -68,18 +68,14 @@ get_header();
           </div>
         </div>
         <!--Slider End-->
+        <!--scroll down-->
+        <div class="scroll-down-btn" data-aos="fade-up"> <a href="#about-main-wrap"> <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="circle"></a> 
+        </div>
+        <!--scroll down--> 
       </div>
     </div>
   </section>
   <!--slider--> 
-  
-  <!--scroll down-->
-  <div class="scroll-down-btn" data-aos="fade-up"> 
-      <a href="#about-main-wrap"> 
-          <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/circle.svg" alt="scroll down">
-      </a> 
-  </div>
-  <!--scroll down--> 
   
 </section>
 
@@ -89,157 +85,103 @@ get_header();
   
   <!--about-->
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-  <div class="container bootstrap snippets bootdey " data-aos="fade-up">
+  <div class="container bootstrap snippets bootdey home-container" data-aos="fade-up">
+<!-- Services Section -->
 <section id="services" class="current">
     <div class="services-top">
-        <div class="container bootstrap snippets bootdey">
+        <div class="container bootstrap snippets bootdey home-container">
             <div class="row text-center">
                 <div class="col-12">
                     <h2>What We Offer</h2>
-                    <h2 style="font-size: 60px;line-height: 60px;margin-bottom: 20px;font-weight: 900;">What you really need</h2>
-                    <p>We offer wider range of services to ensure you get what you need, all under one roof.</p>
+                    <h2 style="font-size: 60px; line-height: 60px; margin-bottom: 20px; font-weight: 900;">What you really need</h2>
+                    <p>We offer a wide range of services to ensure you get what you need, all under one roof.</p>
                 </div>
             </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12">
-          <div class="services-list">
-              <div class="row">
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-magic highlight"></div>
-                          <div class="text-block">
-                          <?php
-                              // Get the menu items
-                              $menuitems = wp_get_nav_menu_items(2, array('order' => 'DESC'));
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="services-list">
+                        <div class="row">
+                            <?php
+                            // Query the 'services' custom post type
+                            $args = array(
+                                'post_type' => 'services',
+                                'posts_per_page' => -1,  // Fetch all services
+                                'order' => 'ASC',
+                                'orderby' => 'menu_order',
+                            );
+                            $services_query = new WP_Query($args);
 
-                              // Initialize service link variables
-                              $graphicLink = '';
-                              $codingLink = '';
-                              $contentLink = '';
-                              $photoLink = '';
-                              $motionLink = '';
-                              $videoLink = '';
-                              $marketingLink = '';
-                              $ecommerceLink = '';
-                              $strategyLink = '';
+                            if ($services_query->have_posts()) :
+                                while ($services_query->have_posts()) : $services_query->the_post();
+                                    // Get custom fields
+                                    $service_icon = get_field('service_icon'); // Icon class
+                                    $service_info = get_field('service_info'); // Short info
+                                    $service_link = get_field('service_link'); // Custom link
 
-                              // Loop through menu items and assign URLs to each service link variable
-                              foreach ($menuitems as $item) :
-                                  if ($item->title == 'Graphic Design') :
-                                      $graphicLink = esc_url($item->url);
-                                  elseif ($item->title == 'Web Development') :
-                                      $codingLink = esc_url($item->url);
-                                  elseif ($item->title == 'Content Creation') :
-                                      $contentLink = esc_url($item->url);
-                                  elseif ($item->title == 'Photography') :
-                                      $photoLink = esc_url($item->url);
-                                  elseif ($item->title == 'Motion Graphics') :
-                                      $motionLink = esc_url($item->url);
-                                  elseif ($item->title == 'Video Production') :
-                                      $videoLink = esc_url($item->url);
-                                  elseif ($item->title == 'Web Marketing') :
-                                      $marketingLink = esc_url($item->url);
-                                  elseif ($item->title == 'E-commerce') :
-                                      $ecommerceLink = esc_url($item->url);
-                                  endif;
-                              endforeach;
-                              ?>
-                              <a class="no-style-link" href="<?php echo $graphicLink; ?>"><div class="name">Graphic Design</div></a>
-                              <div class="info">Beauty and function</div>
-                              <div class="text">Branding & Identity Design, Logo Design, Web Design, Product Design, Packaging Design, Thumbnails, Infographics, Amazon A+ </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-code highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $codingLink; ?>"><div class="name">Development/Coding</div></a>
-                              <div class="info">Quality code that lasts</div>
-                              <div class="text">Shopify, WordPress, Magento, WooCommerce, Hydrogen, Gatsby, Etc</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-pencil highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $contentLink; ?>"><div class="name">Content Creation</div></a>
-                              <div class="info">Words that tell your story</div>
-                              <div class="text">Copywriting, Product Meta Content, Website Text Content, Scriptwriting, Ghostwriting</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-camera highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $photoLink; ?>"><div class="name">Photography</div></a>
-                              <div class="info">High-quality images of your products & services</div>
-                              <div class="text">Product Photography, Portrairs, Headshots, Events, Landscape, Realestate </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-film highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $motionLink; ?>"><div class="name">Motion Graphics</div></a>
-                              <div class="info">Create engaging motion graphics to captivate and capture audiences attention</div>
-                              <div class="text">Animations, Special Effects</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-video-camera highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $videoLink; ?>"><div class="name">Video Production</div></a>
-                              <div class="info">Professional videos that tells your brand story and helps with your sales</div>
-                              <div class="text">Filming on Location, Video Editing, Casting, Sound Design, UGC</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-bullhorn highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $marketingLink; ?>"><div class="name">Web Marketing</div></a>
-                              <div class="info">Converting users to customers</div>
-                              <div class="text">SMM (Social Media Managment), SEO (Search Engine Optimizartion), PPC (Pay Per Click), Email Markting</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-shopping-cart highlight"></div>
-                          <div class="text-block">
-                              <a class="no-style-link" href="<?php echo $ecommerceLink; ?>"><div class="name">E-commerce</div></a>
-                              <div class="info">Helping you run your shop</div>
-                              <div class="text">E-commerce Management, Product Management, System Administration, Shipping & Fulfilment</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="service-block" style="visibility: visible;">
-                          <div class="ico fa fa-umbrella highlight"></div>
-                          <div class="text-block">
-                              <div class="name">Strategy/Planning</div>
-                              <div class="info">Thinking beyond tomorrow</div>
-                              <div class="text">1-on-1 Consultation, Website audit, Reports</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="see-more-btn" data-aos="fade-up">
-                     <a href="/services/">Our Services</a>
-                  </div>
+                                    // Fallbacks if fields are empty
+                                    if (!$service_icon) {
+                                        $service_icon = 'fa fa-star'; // Default icon
+                                    }
+                                    if (!$service_info) {
+                                        $service_info = get_the_excerpt();
+                                    }
+                                    ?>
+                                    <div class="col-sm-6 col-md-4">
+                                        <div class="service-block" style="visibility: visible;">
+                                            <div class="ico <?php echo esc_attr($service_icon); ?> highlight"></div>
+                                            <div class="text-block">
+                                                <?php if ($service_link) : ?>
+                                                    <a class="no-style-link" href="<?php echo esc_url($service_link); ?>">
+                                                        <div class="name"><?php the_title(); ?></div>
+                                                    </a>
+                                                <?php else : ?>
+                                                    <div class="name"><?php the_title(); ?></div>
+                                                <?php endif; ?>
+                                                <div class="info"><?php echo esc_html($service_info); ?></div>
+                                                <!-- Sub-Services List -->
+                                                <?php
+                                                // Initialize an array to hold sub-services
+                                                $sub_services = array();
+
+                                                if (have_rows('sub_service')) {
+                                                    while (have_rows('sub_service')) {
+                                                        the_row();
+                                                        $sub_service_name = get_sub_field('service');
+                                                        if ($sub_service_name) {
+                                                            $sub_services[] = $sub_service_name;
+                                                        }
+                                                    }
+                                                }
+
+                                                // Now, join the sub-services with commas and output
+                                                if (!empty($sub_services)) {
+                                                    echo '<div class="text">' . esc_html(implode(', ', $sub_services)) . '</div>';
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                endwhile;
+                                wp_reset_postdata();
+                            else :
+                                echo '<p>No services found.</p>';
+                            endif;
+                            ?>
+                        </div>
+                        <div class="see-more-btn" data-aos="fade-up">
+                            <a href="/services/">Our Services</a>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
+<!-- End of Services Section -->
+
+
+
   </div>  
 </section>
 
@@ -290,7 +232,7 @@ get_header();
   
   <!--numbers-->
   <div class="site-number-main-wrap">
-    <div class="container">
+    <div class="container home-container">
       <h3 data-aos="fade-up" data-aos-anchor-placement="top-bottom"><?php echo wp_kses_post($info_heading); ?></h3>
       <ul class="row" data-aos="zoom-in-right">
         <?php if (have_rows('info_features')) : 
@@ -321,7 +263,7 @@ get_header();
   ?>
   
   <div class="featured-main-wraper">
-    <div class="container"> 
+    <div class="container home-container"> 
       <!--heading-->
       <div class="featured-heading-wrap">
         <div class="row">
@@ -346,41 +288,40 @@ get_header();
     );
     $query = new WP_Query($args);
 
-    if ($query->have_posts()) :
-      while ($query->have_posts()) : $query->the_post(); 
-        $thumbnail_url = esc_url(wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())));
-        ?>
-        <li class="col-md-4">
-          <div class="listing-featured-wrap" data-aos="fade-up">
-            <a href="<?php echo esc_url(get_the_permalink()); ?>">
-              <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div>
-            </a>
-            <div class="listing-featured-text">
-              <h3><a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a></h3>
-              <p>
-                <?php
-                $excerpt = wp_trim_words(get_the_content(), 24, '...');
-                echo esc_html($excerpt);
-                ?>
-              </p>
-              <div class="tag-featured-wrap">
-                <?php 
-                $terms = wp_get_post_terms(get_the_ID(), array('project_category'));
-             
-                foreach ($terms as $term) : ?>
-                  <span><?php echo esc_html($term->name); ?></span>
-                <?php endforeach; ?>
-              </div>
-            </div>
-          </div>
-        </li>
-      <?php endwhile; 
-    else : ?>
-      <h1 class="page-title screen-reader-text"><?php esc_html_e('No Posts Found', 'dreamway-media'); ?></h1>
-    <?php endif;
-    wp_reset_postdata(); ?>
-  </ul>
-</div>
+          if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post(); 
+              $thumbnail_url = esc_url(wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())));
+              ?>
+              <li class="col-md-6">
+                <div class="listing-featured-wrap" data-aos="fade-up">
+                <a href="<?php echo esc_url(get_the_permalink()); ?>">
+                  <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
+                  <div class="listing-featured-text">
+                    <div class="tag-featured-wrap">
+                      <?php 
+                      $terms = wp_get_post_terms(get_the_ID(), array('project_category'));
+                   
+                      foreach ($terms as $term) : ?>
+                        <span><?php echo esc_html($term->name); ?></span>
+                      <?php endforeach; ?>
+                    </div>
+                    <h3><a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a></h3>
+                    <p>
+                      <?php
+                      $excerpt = wp_trim_words(get_the_content(), 24, '...');
+                      echo esc_html($excerpt);
+                      ?>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            <?php endwhile; 
+          else : ?>
+            <h1 class="page-title screen-reader-text"><?php esc_html_e('No Posts Found', 'dreamway-media'); ?></h1>
+          <?php endif;
+          wp_reset_postdata(); ?>
+        </ul>
+      </div>
       
       <div class="visit-portfolio-btn" data-aos="fade-up">
         <a href="<?php echo esc_url($project_button_link); ?>"><?php echo esc_html($project_button_text); ?></a>
@@ -404,7 +345,7 @@ get_header();
   ?>
 
   <div class="featured-blog-wrap">
-    <div class="container">
+    <div class="container home-container">
       <div class="featured-blog-heading-wrap">
         <div class="row">
           <div data-aos="fade-up" class="col-md-6"><h2><?php echo esc_html($featured_blog_title); ?></h2></div>
@@ -420,7 +361,7 @@ get_header();
               $featured = get_field('is_featured_blog');
               if ($featured && $count < 3) : // Change $count number as needed ?>
                   <?php $count++; ?>
-                  <li class="featured-blog-item col-md-4">
+                  <li class="mb-5 mb-md-0 featured-blog-item col-md-4">
                     <div class="featured-blog" data-aos="fade-up">
                       <a href="<?php echo esc_url(get_the_permalink()); ?>">
                         <div class="featured-blog-image" style="background: url(<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id($post->ID))); ?>) no-repeat top;"></div>
@@ -433,9 +374,9 @@ get_header();
                           $words = explode(' ', $content);
                           $excerpt = implode(' ', array_slice($words, 0, 15));
                           if (count($words) > 15) {
-                              $excerpt .= '...';
+                              $excerpt .= '..<br><a class="read-more-btn" href="' . esc_url(get_permalink()) . '">Read More.</a>';
                           }
-                          echo esc_html($excerpt);
+                          echo $excerpt;
                           ?>
                         </p>
                       </div>
@@ -460,7 +401,7 @@ get_header();
   
   <section class="client-main-review-wrap"> 
     <div class="client-heading-wrap">
-      <div class="container">
+      <div class="container home-container">
         <div class="row">
           <div class="col-md-12">
             <h2 data-aos="fade-up"><?php echo wp_kses_post($testimonial_heading); ?></h2>
@@ -508,10 +449,10 @@ get_header();
   ?>
   
   <div class="cta-main-wraper">
-    <div class="container">
+    <div class="container home-container">
       <h2 data-aos="fade-up"><?php echo wp_kses_post($cta_heading); ?></h2>
       <div class="btn-cta-wrap aos-init" data-aos="fade-up">
-        <a class="startNowBtn" href="<?php echo esc_url($cta_button_link); ?>"><?php echo esc_html($cta_button_text); ?></a>
+        <a class="homeStartNowBtn" href="<?php echo esc_url($cta_button_link); ?>"><?php echo esc_html($cta_button_text); ?></a>
       </div>
     </div>
   </div>
