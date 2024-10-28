@@ -12,7 +12,7 @@ if ( have_posts() ) :
     <h1 class="demo-title"><?php the_title(); ?></h1>
 
     <?php 
-    $gallery = get_field('demo_gallery'); // Replace with your ACF field name
+    $gallery = get_field('demo_gallery'); // Ensure this ACF field exists
 
     if ($gallery): ?>
     <div data-aos="fade-up">
@@ -24,8 +24,10 @@ if ( have_posts() ) :
                         <img class="demo-image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                     </div>
                 <?php endforeach; ?>
+                </div>
             </div>
         </div>
+    </div>
     <?php endif; ?>
 
 <?php
@@ -34,12 +36,11 @@ endif;
 ?>
 </section>
 
-
 <?php
-    get_footer();
+get_footer();
 ?>
 <style>
-    .demo-title{
+    .demo-title {
         text-align: center;
     }
     #demo-slider {
@@ -47,19 +48,19 @@ endif;
         grid-template-rows: 50px auto;
     }
     .demo-image {
-        width: 100vw;
+        width: 100%;
         height: auto;
     }
-    .demo-image:hover{
+    .demo-image:hover {
         cursor: grab;
     }
     .demo-image:active {
         cursor: grabbing;
     }
-    .owl-nav .owl-prev{
+    .owl-nav .owl-prev {
         position: static;
     }
-    .owl-nav .owl-next{
+    .owl-nav .owl-next {
         position: static;
     }
     #demo-slider .owl-nav {
