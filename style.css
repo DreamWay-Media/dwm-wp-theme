@@ -100,7 +100,6 @@ img {
 /* CSS header & slider */
 .header-slider-wrap {
   background: #101010;
-  height: 100vh;
 }
 /* CSS header */
 .header-main-wrap {
@@ -451,10 +450,15 @@ img {
 .slider-text-btn a:hover {
   background: #000;
   color: #fff;
+  border: 2px solid #fff;
 }
 .scroll-down-btn {
   margin: -10px auto;
-  width: 6%;
+  width: 100px;
+  padding-bottom: 6%;
+}
+#about-main-wrap {
+  scroll-margin-top: -10px;
 }
 /* CSS slider */
 
@@ -795,6 +799,13 @@ img {
 .featured-blog-title a {
   color: black;
   font-size: 30px;
+}
+.read-more-btn {
+  color: black;
+  font-weight: bold;
+}
+.read-more-btn:hover{
+  color: #c8f031;
 }
 .see-more-btn {
   margin-top: 40px;
@@ -1248,6 +1259,7 @@ img {
 }
 .filter-project-btns {
   margin-top: 3%;
+  padding-bottom: 60px;
 }
 .filter-project-btns h2 {
   font-size: 16px;
@@ -1571,7 +1583,7 @@ img {
 /* Removed empty ruleset */
 /* Removed empty ruleset */
 .service-slider-wrap {
-  padding-top: 50px;
+  padding-top: 60px;
 }
 .service-slider-wrap h1 {
   font-size: 120px;
@@ -2022,14 +2034,15 @@ img {
   margin-left: 65px;
 }
 a.startNowBtn {
-  color: black;
-  border: 1px solid black;
+  color: white;
+  background-color: black;
   padding: 16px 35px;
   border-radius: 6px;
 }
 a.startNowBtn:hover {
-  color: white;
-  background-color: black;
+  color: black;
+  background: #c8f031;
+  border: 2px solid black;
 }
 /* Removed empty ruleset */
 .contact-form-wraper form .form-group .form-control {
@@ -2489,7 +2502,7 @@ a.startNowBtn:hover {
     background: none;
   }
   .scroll-down-btn {
-    width: 20%;
+    width: 92px;
   }
   .mobile-slider-image {
     display: block;
@@ -2498,6 +2511,10 @@ a.startNowBtn:hover {
   }
   .slider-main-wrap {
     padding-top: 15px;
+  }
+  .header-row {
+    padding-bottom: 15px !important;
+    padding-top: 60px;
   }
   .slider-main-wrap h1 span {
     display: inline-block;
@@ -2560,7 +2577,7 @@ a.startNowBtn:hover {
     margin-bottom: 20px;
   }
   .listing-featured-text h3 {
-    padding: 0 0 10px 0;
+    padding: 25px 0 10px 0;
   }
   .tag-featured-wrap span {
     padding: 6px 15px;
@@ -2921,6 +2938,7 @@ a.startNowBtn:hover {
 .visit-portfolio-btn a:hover {
   background: #000;
   color: #fff;
+  border: 2px solid #fff;
 }
 /* Apply custom styles for screens between 576px and 768px */
 @media (min-width: 768px) and (max-width: 992px) {
@@ -3003,22 +3021,27 @@ a.startNowBtn:hover {
   max-width: 600px; /* Set a maximum width for the slider */
   margin: 0 auto; /* Center the slider */
 }
+.header-row {
+  justify-content: center;
+  padding-bottom: 75px;
+}
 /* Center the slider vertically within its column */
-.col-md-7 {
+.hero-carousel {
   display: flex;
   align-items: center; /* Vertically center the slider */
   justify-content: center; /* Horizontally center the slider */
   flex-direction: column;
   flex: 0 0 48%; /* Control the width of the slider */
   max-width: 48%;
+  padding-left: 47.5px;
 }
 /* Center the text vertically within its column */
-.col-md-5 {
+.header-section {
   display: flex;
   align-items: center; /* Vertically center the text */
   flex: 0 0 48%; /* Control the width of the text */
   max-width: 48%;
-  padding-right: 95px;
+  padding-right: 47.5px;
 }
 #hero-slider .owl-next,
 #hero-slider .owl-prev {
@@ -3041,21 +3064,25 @@ a.startNowBtn:hover {
 #hero-slider .owl-dot.active {
   background: #333; /* Color of the active dot */
 }
+#hero-slider .owl-item {
+  margin-left: 10px !important;
+}
 /* Ensure consistent size and stacking for smaller screens */
 @media (max-width: 768px) {
-  .col-md-5,
-  .col-md-7 {
+  .header-section,
+  .hero-carousel{
     flex: 0 0 100%; /* Full width for both text and slider */
     max-width: 100%; /* Ensure full width for both */
     justify-content: center; /* Center the content on smaller screens */
     margin: 0 auto; /* Center the columns */
   }
   /* Move the slider above the text */
-  .col-md-7 {
+  .hero-carousel{
     order: -1; /* Ensure the slider is on top */
     margin: 0 auto; /* Center the slider when it's on top */
+    padding-left: 12px;
   }
-  .col-md-5 {
+  .header-section {
     padding: 0;
   }
   #hero-slider .owl-next,

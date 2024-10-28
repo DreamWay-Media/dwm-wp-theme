@@ -302,3 +302,36 @@ function dreamway_register_hero_slides_cpt() {
     register_post_type( 'hero_slides', $args );
 }
 add_action( 'init', 'dreamway_register_hero_slides_cpt', 0 );
+
+function create_services_post_type() {
+    $labels = array(
+        'name' => __('Services'),
+        'singular_name' => __('Service'),
+        'add_new' => __('Add New Service'),
+        'add_new_item' => __('Add New Service'),
+        'edit_item' => __('Edit Service'),
+        'new_item' => __('New Service'),
+        'all_items' => __('All Services'),
+        'view_item' => __('View Service'),
+        'search_items' => __('Search Services'),
+        'not_found' => __('No services found'),
+        'not_found_in_trash' => __('No services found in Trash'),
+        'menu_name' => __('Services')
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'description' => 'Displays the list of services offered',
+        'public' => true,
+        'menu_position' => 5,
+        'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'page-attributes'),
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'services'),
+        'menu_icon' => 'dashicons-admin-tools', // Optional icon
+        'orderby' => 'menu_order',
+        'order' => 'ASC',        // Or 'DESC' if you want descending order
+    );
+
+    register_post_type('services', $args);
+}
+add_action('init', 'create_services_post_type');
