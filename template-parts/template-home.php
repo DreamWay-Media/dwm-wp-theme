@@ -292,7 +292,7 @@ get_header();
             while ($query->have_posts()) : $query->the_post(); 
               $thumbnail_url = esc_url(wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())));
               ?>
-              <li class="col-md-6">
+              <li class="col-md-4">
                 <div class="listing-featured-wrap" data-aos="fade-up">
                 <a href="<?php echo esc_url(get_the_permalink()); ?>">
                   <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
@@ -452,7 +452,7 @@ get_header();
     <div class="container home-container">
       <h2 data-aos="fade-up"><?php echo wp_kses_post($cta_heading); ?></h2>
       <div class="btn-cta-wrap aos-init" data-aos="fade-up">
-        <a class="homeStartNowBtn" href="<?php echo esc_url($cta_button_link); ?>"><?php echo esc_html($cta_button_text); ?></a>
+        <a class="startNowBtn" href="<?php echo esc_url($cta_button_link); ?>"><?php echo esc_html($cta_button_text); ?></a>
       </div>
     </div>
   </div>
