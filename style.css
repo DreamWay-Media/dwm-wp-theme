@@ -957,9 +957,9 @@ img {
 .dropdown-menu {
   text-align: left !important;
   background: #000 !important;
-  padding: 0 !important;
+  padding: 10 !important;
   margin: 0 !important;
-  margin-top: 15px !important;
+  margin-top: 0px !important;
 }
 .dropdown-menu li {
   display: block !important;
@@ -2441,6 +2441,14 @@ a.startNowBtn:hover {
     font-size: 16px !important;
     color: #fff;
   }
+  .dropdown-menu {
+    display: none; /* Hide dropdown by default */
+}
+
+/* Show dropdown when the checkbox is checked */
+.dropdown-toggle:checked + .dropdown-toggle-label + .dropdown-menu {
+    display: block; /* Show dropdown when checkbox is checked */
+}
 }
 @media screen and (max-width: 990px) {
   .container {
@@ -3129,4 +3137,7 @@ a.startNowBtn:hover {
 .no-style-link:hover {
   text-decoration: none;
   color: inherit;
+}
+.dropdown:hover .dropdown-menu {
+  display: block; /* Show dropdown on hover */
 }
