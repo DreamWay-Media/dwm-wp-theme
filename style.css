@@ -100,7 +100,6 @@ img {
 /* CSS header & slider */
 .header-slider-wrap {
   background: #101010;
-  height: 100vh;
 }
 /* CSS header */
 .header-main-wrap {
@@ -454,8 +453,9 @@ img {
   border: 2px solid #fff;
 }
 .scroll-down-btn {
-  margin: -10px auto;
-  width: 6%;
+  width: 100px;
+  position: absolute; 
+  bottom: 50px;
 }
 /* CSS slider */
 
@@ -508,10 +508,6 @@ img {
 @media (max-width: 992px) {
   .wrapper {
     width: 100%;
-  }
-  .listing-client-wrap {
-    margin-top: 0;
-    padding-top: 0;
   }
 }
 
@@ -1260,6 +1256,7 @@ img {
 }
 .filter-project-btns {
   margin-top: 3%;
+  padding-bottom: 60px;
 }
 .filter-project-btns h2 {
   font-size: 16px;
@@ -1583,7 +1580,7 @@ img {
 /* Removed empty ruleset */
 /* Removed empty ruleset */
 .service-slider-wrap {
-  padding-top: 50px;
+  padding-top: 60px;
 }
 .service-slider-wrap h1 {
   font-size: 120px;
@@ -2343,6 +2340,38 @@ a.startNowBtn:hover {
   }
 }
 @media screen and (max-width: 1169px) {
+  .featured-blog-wrap{
+    padding-top: 80px;
+    padding-bottom: 0px;
+  }
+  .client-main-review-wrap {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    position: relative;
+  }
+  .listing-client-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the text vertically */
+    align-items: flex-start; /* Align the text to the start (left) */
+    height: 250px; /* Keep a consistent height for all testimonials */
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center; /* Center text horizontally if needed */
+    margin-top: 25px;
+  }
+  .listing-client-wrap p {
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 0px;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+    flex-grow: 1;
+    display: flex;
+    align-items: center; /* Center text vertically within the space */
+    justify-content: center; /* Center text horizontally */
+    text-align: start;
+  }
   .slider-main-wrap h1 {
     font-size: 50px;
     line-height: 50px;
@@ -2353,6 +2382,9 @@ a.startNowBtn:hover {
   .header-slider-wrap {
     height: auto;
     padding-bottom: 60px;
+  }
+  .homepage-slider-wrap {
+    padding-bottom: 0 !important;
   }
   .text-services-wrp {
     margin-left: 0;
@@ -2437,12 +2469,19 @@ a.startNowBtn:hover {
     font-size: 16px !important;
     color: #fff;
   }
+  #hero-slider .owl-stage {
+    display: flex;
+    align-items: center;
+  }
 }
 @media screen and (max-width: 990px) {
   .container {
     max-width: 100%;
     padding: 0 25px;
     height: 100%;
+  }
+  .home-container {
+    height: auto !important;
   }
   .inner-slider-wrap p {
     width: 100%;
@@ -2470,7 +2509,7 @@ a.startNowBtn:hover {
     background: none;
   }
   .scroll-down-btn {
-    width: 20%;
+    width: 92px;
   }
   .mobile-slider-image {
     display: block;
@@ -2554,23 +2593,6 @@ a.startNowBtn:hover {
     right: auto;
     left: 135px;
   }
-  .listing-client-wrap {
-    margin: 10px;
-    height: auto; /* Let the height adjust to content */
-    margin-bottom: 0;
-  }
-  .listing-client-wrap p {
-    height: auto; /* Remove fixed height to prevent text from being cut off */
-    margin-bottom: 15px; /* Add margin to separate text from the client name and image */
-    line-height: 1.5; /* Ensure proper line spacing for readability */
-    margin-top: 0;
-  }
-  .client-main-review-wrap {
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-  }
-
   .slider-image-wrap {
     margin-top: -40px; /* Adjust this to move the image down */
     padding-bottom: 30px; /* Reduce padding to make space */
@@ -2850,9 +2872,6 @@ a.startNowBtn:hover {
     font-size: 36px;
     line-height: 39px;
   }
-  .client-main-review-wrap {
-    padding: 50px 0;
-  }
   .cta-main-wraper h2 {
     font-size: 30px;
   }
@@ -2948,11 +2967,6 @@ a.startNowBtn:hover {
     right: auto;
     left: 135px;
   }
-  .listing-client-wrap {
-    margin-top: 80px;
-    padding-top: 60px;
-    margin-bottom: 55px;
-  }
 }
 @media (min-width: 768px) and (max-width: 1169px) {
   .slider-image-wrap img {
@@ -3010,22 +3024,26 @@ a.startNowBtn:hover {
   max-width: 600px; /* Set a maximum width for the slider */
   margin: 0 auto; /* Center the slider */
 }
+.header-row {
+  justify-content: center;
+}
 /* Center the slider vertically within its column */
-.col-md-7 {
+.hero-carousel {
   display: flex;
   align-items: center; /* Vertically center the slider */
   justify-content: center; /* Horizontally center the slider */
   flex-direction: column;
   flex: 0 0 48%; /* Control the width of the slider */
   max-width: 48%;
+  padding-left: 47.5px;
 }
 /* Center the text vertically within its column */
-.col-md-5 {
+.header-section {
   display: flex;
   align-items: center; /* Vertically center the text */
   flex: 0 0 48%; /* Control the width of the text */
   max-width: 48%;
-  padding-right: 95px;
+  padding-right: 47.5px;
 }
 #hero-slider .owl-next,
 #hero-slider .owl-prev {
@@ -3048,21 +3066,25 @@ a.startNowBtn:hover {
 #hero-slider .owl-dot.active {
   background: #333; /* Color of the active dot */
 }
+#hero-slider .owl-item {
+  margin-left: 10px !important;
+}
 /* Ensure consistent size and stacking for smaller screens */
 @media (max-width: 768px) {
-  .col-md-5,
-  .col-md-7 {
+  .header-section,
+  .hero-carousel{
     flex: 0 0 100%; /* Full width for both text and slider */
     max-width: 100%; /* Ensure full width for both */
     justify-content: center; /* Center the content on smaller screens */
     margin: 0 auto; /* Center the columns */
   }
   /* Move the slider above the text */
-  .col-md-7 {
+  .hero-carousel{
     order: -1; /* Ensure the slider is on top */
     margin: 0 auto; /* Center the slider when it's on top */
+    padding-left: 12px;
   }
-  .col-md-5 {
+  .header-section {
     padding: 0;
   }
   #hero-slider .owl-next,
@@ -3112,4 +3134,36 @@ a.startNowBtn:hover {
 .no-style-link:hover {
   text-decoration: none;
   color: inherit;
+}
+
+.homepage-hero {
+  height: 86vh; /* Adjust for navbar height */
+  min-height: 550px; /* Minimum height to prevent content squishing */
+  display: flex;
+  align-items: center; /* Align content to the top */
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  position: relative; /* For precise control over scroll button positioning */
+}
+
+
+@media (max-width: 768px) {
+  .homepage-hero {
+    height: 86vh; /* Use full height on very small screens */
+    min-height: 700px;
+  }
+
+  .scroll-down-btn {
+    position: static;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 540px) {
+  .homepage-hero {
+    height: 100vh;
+    min-height: 800px;
+  }
 }
