@@ -2356,7 +2356,7 @@ a.startNowBtn:hover {
     align-items: flex-start; /* Align the text to the start (left) */
     height: 250px; /* Keep a consistent height for all testimonials */
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     text-align: center; /* Center text horizontally if needed */
     margin-top: 35px;
   }
