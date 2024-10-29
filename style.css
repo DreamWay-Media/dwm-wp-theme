@@ -950,9 +950,9 @@ img {
 .dropdown-menu {
   text-align: left !important;
   background: #000 !important;
-  padding: 0 !important;
+  padding: 10 !important;
   margin: 0 !important;
-  margin-top: 15px !important;
+  margin-top: 0px !important;
 }
 .dropdown-menu li {
   display: block !important;
@@ -2469,7 +2469,7 @@ a.startNowBtn:hover {
     font-size: 16px !important;
     color: #fff;
   }
-  #hero-slider .owl-stage {
+ #hero-slider .owl-stage {
     display: flex;
     align-items: center;
   }
@@ -3136,6 +3136,9 @@ a.startNowBtn:hover {
 .no-style-link:hover {
   text-decoration: none;
   color: inherit;
+}
+.dropdown:hover .dropdown-menu {
+  display: block; /* Show dropdown on hover */
 }
 
 .homepage-hero {
