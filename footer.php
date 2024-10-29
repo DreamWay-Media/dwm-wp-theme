@@ -24,9 +24,11 @@
       
       <!--logo, detail-->
       <div class="col-md-6">
-        <div class="footer-logo-wrp"> <img src="<?php echo $footer_logo['url']; ?>" alt="<?php echo $footer_logo['url']; ?>" title="<?php echo $footer_logo['title']; ?>"> </div>
-        <p> <?php echo $footer_description; ?></p>
-      </div>
+  <div class="footer-logo-wrp">
+    <img src="<?php echo $footer_logo['url']; ?>" alt="<?php echo $footer_logo['title']; ?>" style="filter: brightness(0) invert(1); width: 150px; height: 150px;">
+  </div>
+</div>
+
       <!--logo, detail--> 
       
       <!--footer nav + social-->
