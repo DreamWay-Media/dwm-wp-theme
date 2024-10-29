@@ -92,8 +92,8 @@ get_header();
         <div class="container bootstrap snippets bootdey home-container">
             <div class="row text-center">
                 <div class="col-12">
-                    <h2>What We Offer</h2>
-                    <h2 style="font-size: 60px; line-height: 60px; margin-bottom: 20px; font-weight: 900;">What you really need</h2>
+                    <h2>Your Local and Friendly</h2>
+                    <h2 style="font-size: 60px; line-height: 60px; margin-bottom: 20px; font-weight: 900;">Web Marketing Agency</h2>
                     <p>We offer a wide range of services to ensure you get what you need, all under one roof.</p>
                 </div>
             </div>
