@@ -39,8 +39,6 @@
           <div class="footer-widget-area">
             <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
               <?php dynamic_sidebar( 'footer-1' ); ?>
-            <?php else : ?>
-              <p>Add widgets to the Footer Widget Area via WordPress admin.</p>
             <?php endif; ?>
           </div>
       <!--social icons-->
