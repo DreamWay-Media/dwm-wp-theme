@@ -24,9 +24,11 @@
       
       <!--logo, detail-->
       <div class="col-md-6">
-        <div class="footer-logo-wrp"> <img src="<?php echo $footer_logo['url']; ?>" alt="<?php echo $footer_logo['url']; ?>" title="<?php echo $footer_logo['title']; ?>"> </div>
-        <p> <?php echo $footer_description; ?></p>
-      </div>
+  <div class="footer-logo-wrp">
+    <img src="<?php echo $footer_logo['url']; ?>" alt="<?php echo $footer_logo['title']; ?>" style="filter: brightness(0) invert(1); width: 150px; height: 150px;">
+  </div>
+</div>
+
       <!--logo, detail--> 
       
       <!--footer nav + social-->
@@ -37,8 +39,6 @@
           <div class="footer-widget-area">
             <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
               <?php dynamic_sidebar( 'footer-1' ); ?>
-            <?php else : ?>
-              <p>Add widgets to the Footer Widget Area via WordPress admin.</p>
             <?php endif; ?>
           </div>
       <!--social icons-->
