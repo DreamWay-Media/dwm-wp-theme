@@ -2,63 +2,40 @@
 /**
  * The template for displaying 404 pages (not found)
  *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
  * @package Dreamway_Media
  */
 
 get_header();
 ?>
 
-<main id="primary" class="site-main">
-
-    <section class="error-404 not-found">
-        <header class="page-header">
-            <h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'dreamway-media' ); ?></h1>
+<main id="primary" class="site-main" style="min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <section class="error-404 not-found" style="text-align: center; max-width: 600px; width: 100%;">
+        
+        <header class="page-header" style="margin-bottom: 20px;">
+            <h1 class="page-title" style="font-size: 3rem; color: #333;">Oops! Page Not Found</h1>
+            <p style="font-size: 1.2rem; color: #777;">We couldn’t find the page you were looking for.</p>
         </header><!-- .page-header -->
 
-        <div class="page-content">
-            <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'dreamway-media' ); ?></p>
-
-            <?php
-            get_search_form();
-
-            the_widget( 'WP_Widget_Recent_Posts' );
-            ?>
-
-            <div class="widget widget_categories">
-                <h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'dreamway-media' ); ?></h2>
-                <ul>
-                    <?php
-                    wp_list_categories(
-                        array(
-                            'orderby'    => 'count',
-                            'order'      => 'DESC',
-                            'show_count' => 1,
-                            'title_li'   => '',
-                            'number'     => 10,
-                        )
-                    );
-                    ?>
+        <div class="page-content" style="margin-top: 20px;">
+            <p style="font-size: 1rem; color: #555;">But don't worry! Let's get you back on track.</p>
+            
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="button" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #c8f031; color: black; text-decoration: none; border-radius: 5px; font-weight: bold;">Return to Homepage</a>
+            
+            <div class="helpful-links" style="margin-top: 40px;">
+                <h2 style="font-size: 1.5rem; color: #333;">Here are some helpful links:</h2>
+                <ul style="list-style-type: none; padding: 0; margin-top: 20px;">
+                    <li><a href="<?php echo esc_url(home_url('/about')); ?>" style="color: #007acc; text-decoration: none; padding: 5px 0; display: inline-block;">About Us</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/services')); ?>" style="color: #007acc; text-decoration: none; padding: 5px 0; display: inline-block;">Our Services</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/contact')); ?>" style="color: #007acc; text-decoration: none; padding: 5px 0; display: inline-block;">Contact Us</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/portfolio')); ?>" style="color: #007acc; text-decoration: none; padding: 5px 0; display: inline-block;">Portfolio</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/blog')); ?>" style="color: #007acc; text-decoration: none; padding: 5px 0; display: inline-block;">Blog</a></li>
                 </ul>
-            </div><!-- .widget -->
-
-            <?php
-            /* translators: %1$s: smiley */
-            $dreamway_media_archive_content = sprintf(
-                '<p>' . esc_html__( 'Try looking in the monthly archives. %1$s', 'dreamway-media' ),
-                convert_smilies( ':)' ).'</p>'
-            );
-
-            the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$dreamway_media_archive_content" );
-
-            the_widget( 'WP_Widget_Tag_Cloud' );
-            ?>
-
+            </div>
         </div><!-- .page-content -->
-    </section><!-- .error-404 -->
 
+    </section><!-- .error-404 -->
 </main><!-- #main -->
 
 <?php
 get_footer();
+?>
