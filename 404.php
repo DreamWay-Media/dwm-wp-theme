@@ -25,8 +25,12 @@ get_header();
 
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="button-return-home"><?php esc_html_e( 'Return Home', 'dreamway-media' ); ?></a>
 
+            <div class="widget widget_recent_posts">
+                <?php the_widget( 'WP_Widget_Recent_Posts', array( 'number' => 5 ) ); ?>
+            </div>
+
             <div class="widget widget_categories">
-                <h2 class="widget-title"><?php esc_html_e( 'Explore Categories', 'dreamway-media' ); ?></h2>
+                <h2 class="widgettitle"><?php esc_html_e( 'Most Used Categories', 'dreamway-media' ); ?></h2>
                 <ul>
                     <?php
                     wp_list_categories(
