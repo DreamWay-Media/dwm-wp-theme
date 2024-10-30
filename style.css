@@ -3172,3 +3172,92 @@ a.startNowBtn:hover {
     min-height: 800px;
   }
 }
+
+.error-404 {
+  text-align: center;
+  padding: 50px 20px;
+  color: #333;
+}
+.page-header .page-title {
+  font-size: 2.5em;
+  margin: 0;
+  color: #333;
+}
+.page-header .page-subtitle {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 30px;
+}
+.page-content p {
+  font-size: 1em;
+  color: #666;
+}
+.error-404 {
+  text-align: center;
+  padding: 50px 20px;
+  color: #333;
+}
+.page-header .page-title {
+  font-size: 2.5em;
+  margin: 0;
+  color: #333;
+}
+.page-header .page-subtitle {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 30px;
+}
+.page-content p {
+  font-size: 1em;
+  color: #666;
+}
+.button-return-home {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 12px 30px;
+  background-color: #c8f031;
+  color: #1a1e24;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+.button-return-home:hover {
+  background-color: #1a1e24;
+  color: #c8f031;
+}
+.widget-title {
+  font-size: 1.5em;
+  color: #333;
+  margin-top: 30px;
+}
+.widget ul {
+  list-style: none;
+  padding: 0;
+}
+.widget ul li {
+  padding: 8px 0;
+}
+.widget_tag_cloud .tagcloud a {
+  display: inline-block;
+  margin: 4px 6px;
+  padding: 6px 12px;
+  font-size: 0.9em;
+  color: #1a1e24;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+.widget_tag_cloud .tagcloud a:hover {
+  background-color: #1a1e24;
+  color: #f0f0f0;
+}
+.widget_categories ul,
+.widget ul {
+  font-size: 0.95em;
+}
+
+.widget {
+  margin-bottom: 50px;
+}
