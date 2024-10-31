@@ -19,7 +19,7 @@ get_header();
         </header><!-- .page-header -->
 
         <div class="page-content">
-            <p><?php esc_html_e( 'Maybe try one of the links below or a search?', 'dreamway-media' ); ?></p>
+            <p><?php esc_html_e( 'Try searching below to find what you need!', 'dreamway-media' ); ?></p>
             <?php get_search_form(); ?>
             <a href="<?php echo esc_url(home_url('/')); ?>" class="button">Return to Homepage</a>
         </div><!-- .page-content -->
