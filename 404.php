@@ -15,15 +15,13 @@ get_header();
     <section class="error-404 not-found">
         <header class="page-header">
             <h1 class="page-title"><?php esc_html_e( 'Oops! We couldn\'t find that page.', 'dreamway-media' ); ?></h1>
-            <p class="page-subtitle"><?php esc_html_e( 'It seems the page you’re looking for doesn’t exist or may have been moved.', 'dreamway-media' ); ?></p>
+            <p class="page-subtitle"><?php esc_html_e( 'It looks like nothing was found at this location.', 'dreamway-media' ); ?></p>
         </header><!-- .page-header -->
 
         <div class="page-content">
-            <p><?php esc_html_e( 'Try one of the options below or go back to the homepage.', 'dreamway-media' ); ?></p>
+            <p><?php esc_html_e( 'Maybe try one of the links below or a search?', 'dreamway-media' ); ?></p>
 
             <?php get_search_form(); ?>
-
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="button-return-home"><?php esc_html_e( 'Return Home', 'dreamway-media' ); ?></a>
 
             <div class="widget widget_recent_posts">
                 <?php the_widget( 'WP_Widget_Recent_Posts', array( 'number' => 5 ) ); ?>
@@ -39,7 +37,7 @@ get_header();
                             'order'      => 'DESC',
                             'show_count' => 1,
                             'title_li'   => '',
-                            'number'     => 5,
+                            'number'     => 10,
                         )
                     );
                     ?>

@@ -3211,21 +3211,6 @@ a.startNowBtn:hover {
   font-size: 1em;
   color: #666;
 }
-.button-return-home {
-  display: inline-block;
-  margin: 20px auto;
-  padding: 12px 30px;
-  background-color: #c8f031;
-  color: #1a1e24;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-  font-weight: bold;
-}
-.button-return-home:hover {
-  background-color: #1a1e24;
-  color: #c8f031;
-}
 .widget-title {
   font-size: 1.5em;
   color: #333;
