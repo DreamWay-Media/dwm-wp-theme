@@ -268,7 +268,7 @@ get_header();
         <div class="container">
             <h2 data-aos="fade-up" class="aos-init aos-animate"><?php echo wp_kses_post( $cta_heading ); ?></h2>
             <div class="btn-cta-wrap aos-init aos-animate" data-aos="fade-up">
-                <a href="<?php echo esc_url( $cta_button_link ); ?>"><?php echo esc_html( $cta_button_text ); ?></a>
+                <a href="<?php echo esc_url( $cta_button_link ); ?>" class="startNowBtn"><?php echo esc_html( $cta_button_text ); ?></a>
             </div>
         </div>
     </div>
