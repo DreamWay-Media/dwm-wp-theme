@@ -170,7 +170,7 @@ get_header();
                             ?>
                         </div>
                         <div class="see-more-btn" data-aos="fade-up">
-                            <a href="/services/">Our Services</a>
+                            <a href="/services/">Learn more about our services</a>
                         </div>
                     </div>
                 </div>
