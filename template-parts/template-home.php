@@ -347,11 +347,11 @@ get_header();
   <div class="featured-blog-wrap">
     <div class="container home-container">
       <div class="featured-blog-heading-wrap">
-        <div class="row">
-          <div data-aos="fade-up" class="col-md-6"><h2><?php echo esc_html($featured_blog_title); ?></h2></div>
-          <div data-aos="fade-left" class="col-md-6"><p><?php echo esc_html($featured_blog_description) ?></p></div>
-        </div>
-      </div>  
+      <div class="row">
+        <div data-aos="fade-up" class="col-md-6"><h2><?php echo esc_html($featured_blog_title); ?></h2></div>
+        <div data-aos="fade-left" class="col-md-6 mt-5 mt-md-0"><p><?php echo esc_html($featured_blog_description) ?></p></div>
+      </div>
+      </div>
       <ul class="row">
       <?php $count = 0;  ?>
       <?php if ($query->have_posts()) : ?>
