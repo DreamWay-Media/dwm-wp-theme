@@ -505,6 +505,13 @@ img {
 .wrapper {
   width: 70%;
 }
+.highlighted-heading {
+  font-size: 60px;
+  line-height: 60px;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+
 @media (max-width: 992px) {
   .wrapper {
     width: 100%;
@@ -2858,6 +2865,12 @@ a.startNowBtn:hover {
   .listing-client-wrap {
     margin-top: 50px;
   }
+  .highlighted-heading {
+    font-size: 30px;
+    line-height: normal;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
 }
 
 @media screen and (max-width: 550px) {
