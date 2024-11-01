@@ -505,6 +505,13 @@ img {
 .wrapper {
   width: 70%;
 }
+.highlighted-heading {
+  font-size: 60px;
+  line-height: 60px;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+
 @media (max-width: 992px) {
   .wrapper {
     width: 100%;
@@ -1309,6 +1316,9 @@ img {
 .see-more-btn {
   margin-top: 30px;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 .see-more-btn a {
   background: #000000;
@@ -2275,8 +2285,8 @@ a.startNowBtn:hover {
 
 @media (max-width: 1400px) and (min-width: 1170px) {
   .slider-main-wrap h1 {
-    font-size: 72px;
-    line-height: 73px;
+    font-size: 65px;
+    line-height: 65px;
   }
   .service-heading-wrap h2:before {
     display: none;
@@ -2308,8 +2318,8 @@ a.startNowBtn:hover {
 }
 @media (max-width: 1200px) and (min-width: 1170px) {
   .slider-main-wrap h1 {
-    font-size: 55px;
-    line-height: 55px;
+    font-size: 65px;
+    line-height: 65px;
   }
   .accordin-services-wrap button h4 {
     padding-left: 0;
@@ -2373,8 +2383,8 @@ a.startNowBtn:hover {
     text-align: start;
   }
   .slider-main-wrap h1 {
-    font-size: 50px;
-    line-height: 50px;
+    font-size: 65px;
+    line-height: 65px;
   }
   .inner-slider-image {
     margin-top: -80px;
@@ -2858,6 +2868,12 @@ a.startNowBtn:hover {
   .listing-client-wrap {
     margin-top: 50px;
   }
+  .highlighted-heading {
+    font-size: 30px;
+    line-height: normal;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
 }
 
 @media screen and (max-width: 550px) {
@@ -3171,4 +3187,108 @@ a.startNowBtn:hover {
     height: 100vh;
     min-height: 800px;
   }
+}
+
+/* 404 Page Styling */
+
+/* Main layout */
+#primary.site-main {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Error section */
+.error-404.not-found {
+  text-align: center;
+  padding: 50px;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Header styling */
+.error-404 .page-header {
+  margin-bottom: 20px;
+}
+
+.error-404 .page-title {
+  font-size: 3rem;
+  color: #333;
+}
+
+.error-404 .page-header p {
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Page content styling */
+.error-404 .page-content {
+  margin-top: 20px;
+}
+
+.error-404 .page-content p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Return to Homepage button */
+.error-404 .button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  background: #1a1e24;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.error-404 .button:hover {
+  background-color: #c8f031;
+  color: #1a1e24;
+}
+
+.search-submit {
+  padding: 4px 8px;
+  color: #fff;
+  background-color: #1a1e24;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover effect */
+.search-submit:hover {
+  background-color: #c8f031;
+  color: #1a1e24;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Search input field styling */
+.search-form .search-field {
+  padding: 4px;
+  width: 250px;
+  max-width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Focus effect on search field */
+.search-form .search-field:focus {
+  border-color: #1a1e24;
+  box-shadow: 0 0 5px rgba(26, 30, 36, 0.2);
+  outline: none;
 }

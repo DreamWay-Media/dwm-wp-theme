@@ -93,7 +93,7 @@ get_header();
             <div class="row text-center">
                 <div class="col-12">
                     <h2>Your Local & Friendly</h2>
-                    <h2 style="font-size: 60px; line-height: 60px; margin-bottom: 20px; font-weight: 900;">Web Marketing Agency</h2>
+                    <h2 class="highlighted-heading">Web Marketing Agency</h2>
                     <p>We offer a wide range of services to ensure you get what you need, all under one roof.</p>
                 </div>
             </div>
@@ -170,7 +170,7 @@ get_header();
                             ?>
                         </div>
                         <div class="see-more-btn" data-aos="fade-up">
-                            <a href="/services/">Our Services</a>
+                            <a href="/services/">Learn more about our services</a>
                         </div>
                     </div>
                 </div>
@@ -347,11 +347,11 @@ get_header();
   <div class="featured-blog-wrap">
     <div class="container home-container">
       <div class="featured-blog-heading-wrap">
-        <div class="row">
-          <div data-aos="fade-up" class="col-md-6"><h2><?php echo esc_html($featured_blog_title); ?></h2></div>
-          <div data-aos="fade-left" class="col-md-6"><p><?php echo esc_html($featured_blog_description) ?></p></div>
-        </div>
-      </div>  
+      <div class="row">
+        <div data-aos="fade-up" class="col-md-6"><h2><?php echo esc_html($featured_blog_title); ?></h2></div>
+        <div data-aos="fade-left" class="col-md-6 mt-5 mt-md-0"><p><?php echo esc_html($featured_blog_description) ?></p></div>
+      </div>
+      </div>
       <ul class="row">
       <?php $count = 0;  ?>
       <?php if ($query->have_posts()) : ?>
