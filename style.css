@@ -943,6 +943,10 @@ img {
   font-weight: 800;
   margin-bottom: 60px;
 }
+.cta-main-wraper h2.homecta {
+  font-size: 90px;
+  font-weight: 700;
+}
 .btn-cta-wrap {
   text-align: center;
 }
@@ -2616,6 +2620,9 @@ a.startNowBtn:hover {
   }
   .cta-main-wraper h2 {
     font-size: 40px;
+  }
+  .cta-main-wraper h2.homecta {
+    font-size: 50px;
   }
   .fotoer-nav-wrap ul {
     display: flex;
