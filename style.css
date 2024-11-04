@@ -1623,12 +1623,15 @@ img {
 }
 /* Removed empty ruleset */
 .service-list-wrap .listing-service-wrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 25px;
+  border: 1px solid #ccc;
   text-align: center;
   font-weight: bold;
   padding-top: 13px;
-  margin-right: 10px;
-  /* Adjusted for consistency */
-  float: left;
 }
 .service-list-wrap h3 {
   float: left;
@@ -2805,6 +2808,9 @@ a.startNowBtn:hover {
   }
   .icon-next-btn {
     display: none;
+  }
+  .service-list-wrap .listing-service-wrap {
+    margin-right: 10px;
   }
   .grid-service-list {
     margin-bottom: 20px;
