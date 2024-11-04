@@ -3,7 +3,8 @@
 
 get_header();
 ?>
-
+<!-- Font Awesome Library Link -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <!--header slider-->
 <section class="header-slider-wrap inner-header-slider-wrap inner-service-wrap"> 
   
@@ -30,6 +31,25 @@ get_header();
   <section class="services-listing-wraper">
     <div class="container">
       <ul class="accordion" id="accordionMain">
+<?php
+    // Custom query to fetch `service_icon` for each service
+    $args = array(
+        'post_type' => 'services',
+        'posts_per_page' => -1,  // Fetch all services
+        'order' => 'ASC',
+        'orderby' => 'menu_order',
+    );
+    $services_query = new WP_Query($args);
+    $service_icons = array();
+    if ($services_query->have_posts()) :
+        while ($services_query->have_posts()) : $services_query->the_post();
+            $service_icon = get_field('service_icon') ?: 'fa fa-star';  // Default icon if empty
+            $service_icons[] = $service_icon;  // Store each icon in array
+        endwhile;
+        wp_reset_postdata();
+    endif;
+?>
+
         <?php if( have_rows('our_services') ): ?>
           <?php 
           $counter = 1;
@@ -45,7 +65,13 @@ get_header();
                 <div class="d-none d-md-block">
                   <div class="row">
                     <div class="col-md-6 d-flex align-items-center">
-                      <div class="listing-service-wrap">0<?php echo esc_html( $counter ); ?></div>
+                      <div class="listing-service-wrap">
+                        <?php
+                          // Display icon from `service_icons` array
+                          $icon_index = $counter - 1;  // Adjust for 0-based indexing
+                          echo '<i class="' . esc_attr($service_icons[$icon_index]) . ' ico highlight"></i>';
+                        ?>
+                      </div>
                       <h3 class="service-heading mb-0 ms-3"><?php echo esc_html( $service_heading ); ?></h3>
                     </div>
                     <div class="col-md-6 d-flex flex-row">
@@ -60,12 +86,18 @@ get_header();
                   </div>
                 </div>
 
-                <!-- Mobile Layout -->
-                <div class="d-block d-md-none">
+                      <!-- Mobile Layout -->
+                      <div class="d-block d-md-none">
                   <!-- Title and Button Row -->
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center flex-grow-1">
-                      <div class="listing-service-wrap">0<?php echo esc_html( $counter ); ?></div>
+                      <div class="listing-service-wrap">
+                        <?php
+                          // Display icon from `service_icons` array
+                          $icon_index = $counter - 1;  // Adjust for 0-based indexing
+                          echo '<i class="' . esc_attr($service_icons[$icon_index]) . ' ico highlight"></i>';
+                        ?>
+                      </div>
                       <h3 class="service-heading mb-0 ms-3 me-3"><?php echo esc_html( $service_heading ); ?></h3>
                       <button class="accordion-button collapsed mb-5 ms-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseService<?php echo $counter; ?>" aria-expanded="false" aria-controls="collapseService<?php echo $counter; ?>" style="width: 40px; min-width: 40px;">
                       </button>
@@ -130,4 +162,15 @@ get_header();
 <!--content-->
 
 <?php
-get_footer();
+get_footer();?>
+
+<style>
+    .listing-service-wrap .ico {
+        font-size: 32px;
+        float: left;
+    }
+    .listing-service-wrap .highlight {
+        color: #a0ca00;
+        font-weight: bold;
+    }
+</style>
