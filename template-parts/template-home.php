@@ -374,7 +374,7 @@ get_header();
                           $words = explode(' ', $content);
                           $excerpt = implode(' ', array_slice($words, 0, 15));
                           if (count($words) > 15) {
-                              $excerpt .= '..<br><a class="read-more-btn" href="' . esc_url(get_permalink()) . '">Read More.</a>';
+                              $excerpt .= '<br><a class="read-more-btn" href="' . esc_url(get_permalink()) . '">Read More.</a>';
                           }
                           echo $excerpt;
                           ?>
