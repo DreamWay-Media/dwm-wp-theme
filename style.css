@@ -733,7 +733,11 @@ img {
   height: auto;
   background-size: cover !important;
   aspect-ratio: 1 / 1;
-  border-radius: 6px;
+  border-radius: 15px;
+  border: 4px solid #000000;
+}
+.listing-featured-wrap-image:hover {
+  border: 4px solid #ffffff;
 }
 .tag-featured-wrap {
   margin-top: 30px;
@@ -788,7 +792,8 @@ img {
   height: auto;
   background-size: cover !important;
   aspect-ratio: 1 / 1;
-  border-radius: 45px;
+  border-radius:15px;
+  border: 4px solid white;
 }
 .featured-blog-image:hover {
   border: 4px solid #c8f031;
