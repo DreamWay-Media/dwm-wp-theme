@@ -1,0 +1,306 @@
+.site-number-main-wrap {
+  background: url(assets/images/bg-agency.svg) no-repeat top;
+  padding: 100px 0;
+  background-size: cover;
+}
+.site-number-main-wrap h3 {
+  font-size: 40px;
+  color: #000;
+  text-align: center;
+  padding: 0 126px;
+  font-weight: bold;
+  margin-bottom: 80px;
+}
+.site-number-main-wrap ul {
+  list-style: none;
+  margin: 0 50px;
+}
+.site-number-main-wrap ul li {
+  text-align: center;
+}
+/* Removed empty ruleset */
+.site-number-main-wrap ul li .number-list-wrap strong {
+  font-size: 50px;
+  font-weight: 800;
+  display: block;
+}
+.site-number-main-wrap ul li .number-list-wrap h5 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: -10px;
+  color: #66791d;
+}
+.featured-main-wraper {
+  padding: 80px 0;
+  background: #101010;
+}
+.featured-heading-wrap {
+  margin-bottom: 65px;
+}
+.featured-main-wraper h2 {
+  font-size: 50px;
+  color: #fff;
+  font-weight: bold;
+  margin-right: 115px;
+  line-height: 50px;
+}
+.featured-main-wraper p {
+  color: #dddddd;
+  padding-left: 50px;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 300;
+  padding-top: 10px;
+}
+/* Removed empty ruleset */
+.featured-listing-wrap ul {
+  list-style: none;
+}
+.featured-listing-wrap ul li {
+  margin-bottom: 30px;
+}
+/* Removed empty ruleset */
+
+.listing-featured-wrap .listing-featured-wrap-image {
+  width: 100%;
+  height: auto;
+  background-size: cover !important;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+}
+.tag-featured-wrap {
+  margin-top: 30px;
+}
+.tag-featured-wrap span {
+  background: #202020;
+  color: #aaaaaa;
+  font-size: 13px;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  margin-right: 10px;
+  border-radius: 30px;
+}
+.listing-featured-text h3 {
+  text-transform: uppercase;
+  font-size: 30px;
+  padding: 25px 0 15px 0;
+}
+.listing-featured-text h3 a {
+  font-weight: 500;
+  color: #fff;
+}
+.featured-listing-wrap ul li .listing-featured-wrap:hover h3 a {
+  color: #c8f031;
+}
+.listing-featured-text p {
+  padding: 0;
+  margin: 0;
+  color: #aaaaaa;
+}
+.featured-blog-wrap {
+  padding: 80px 0px;
+}
+.featured-blog-wrap h2 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-right: 120px;
+  line-height: 52px;
+}
+.featured-blog-wrap .row {
+  padding-bottom: 40px;
+}
+.featured-blog-heading-wrap {
+  margin-bottom: 40px;
+}
+.featured-blog-item {
+  list-style-type: none;
+}
+.featured-blog-image {
+  width: 100%;
+  height: auto;
+  background-size: cover !important;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+}
+.featured-blog-title {
+  padding: 24px 0px 16px 0px;
+}
+.featured-blog-title a {
+  color: black;
+  font-size: 30px;
+}
+.read-more-btn {
+  color: black;
+  font-weight: bold;
+}
+.read-more-btn:hover{
+  color: #c8f031;
+}
+.see-more-btn {
+  margin-top: 40px;
+  text-align: center;
+}
+.see-more-btn a {
+  border: 1px solid #fff;
+  padding: 14px 20px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+.see-more-btn a:hover {
+  background: #c8f031;
+  color: #000;
+  border: 1px solid #c8f031;
+}
+.scroll-down-btn {
+  width: 100px;
+  position: absolute; 
+  bottom: 50px;
+}
+.scroll-down-btn {
+  margin-top: 0;
+  display: block;
+  opacity: 0; /* Start hidden for fade-in effect */
+  animation: fadeInUp 1s ease-in forwards, pulse 2s infinite 1s; /* Apply fadeInUp first, then pulse */
+  color: #ff4081;
+}
+.see-more-btn {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.see-more-btn a {
+  background: #000000;
+  padding: 16px 24px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.visit-portfolio-btn {
+  margin-top: 25px;
+  text-align: center; /* Added text-align: center */
+}
+.visit-portfolio-btn a {
+  background: #c8f031;
+  padding: 16px 35px;
+  color: #000000;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+.visit-portfolio-btn a:hover {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+}
+#hero-slider .owl-stage {
+  display: flex;
+  align-items: center;
+}
+#hero-slider .slide-item {
+  overflow: hidden; /* Ensure the image and content follow the same border radius */
+  width: 100%; /* Make sure the wrapper takes full width */
+  max-width: 700px; /* Set a max-width to match the image */
+  margin: 0 auto; /* Center the slider items */
+}
+/* Ensure all images in the slider are responsive and consistent */
+#hero-slider .slide-item img {
+  width: 100%; /* Image always takes 100% of its container */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 360px; /* Set a maximum height to ensure images are proportionate */
+  object-fit: contain; /* Ensure the image is fully visible without cropping */
+  margin: 0 auto; /* Center the image */
+}
+/* Ensure the slide content matches the image width */
+#hero-slider .slide-content {
+  width: 100%; /* Always match the image width */
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box; /* Ensure padding is included in the width calculation */
+  overflow-y: auto; /* Enable scrolling if content exceeds max height */
+  max-height: 100%; /* Limit the height to prevent covering other content */
+  margin-top: 5px;
+}
+/* General styling for the carousel container */
+#hero-slider {
+  max-width: 600px; /* Set a maximum width for the slider */
+  margin: 0 auto; /* Center the slider */
+}
+.header-row {
+  justify-content: center;
+}
+/* Center the slider vertically within its column */
+.hero-carousel {
+  display: flex;
+  align-items: center; /* Vertically center the slider */
+  justify-content: center; /* Horizontally center the slider */
+  flex-direction: column;
+  flex: 0 0 48%; /* Control the width of the slider */
+  max-width: 48%;
+  padding-left: 47.5px;
+}
+/* Center the text vertically within its column */
+.header-section {
+  display: flex;
+  align-items: center; /* Vertically center the text */
+  flex: 0 0 48%; /* Control the width of the text */
+  max-width: 48%;
+  padding-right: 47.5px;
+}
+#hero-slider .owl-next,
+#hero-slider .owl-prev {
+  visibility: hidden;
+}
+#hero-slider .owl-dots {
+  display: block !important; /* Force dots to be displayed */
+  text-align: center; /* Center the dots */
+  margin-top: 5px; /* Add space above the dots */
+}
+#hero-slider .owl-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #ccc; /* Default dot color */
+  border-radius: 50%; /* Make dots circular */
+  margin: 5px;
+  cursor: pointer;
+}
+#hero-slider .owl-dot.active {
+  background: #333; /* Color of the active dot */
+}
+#hero-slider .owl-item {
+  margin-left: 10px !important;
+}
+.no-style-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.no-style-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+.dropdown:hover .dropdown-menu {
+  display: block; /* Show dropdown on hover */
+}
+
+.homepage-hero {
+  height: 86vh; /* Adjust for navbar height */
+  min-height: 550px; /* Minimum height to prevent content squishing */
+  display: flex;
+  align-items: center; /* Align content to the top */
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  position: relative; /* For precise control over scroll button positioning */
+}
