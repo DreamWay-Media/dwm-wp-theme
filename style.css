@@ -2295,8 +2295,8 @@ a.startNowBtn:hover {
 
 @media (max-width: 1400px) and (min-width: 1170px) {
   .slider-main-wrap h1 {
-    font-size: 65px;
-    line-height: 65px;
+    font-size: 40px;
+    line-height: normal;
   }
   .service-heading-wrap h2:before {
     display: none;
@@ -2328,8 +2328,8 @@ a.startNowBtn:hover {
 }
 @media (max-width: 1200px) and (min-width: 1170px) {
   .slider-main-wrap h1 {
-    font-size: 65px;
-    line-height: 65px;
+    font-size: 40px;
+    line-height: normal;
   }
   .accordin-services-wrap button h4 {
     padding-left: 0;
@@ -2393,8 +2393,8 @@ a.startNowBtn:hover {
     text-align: start;
   }
   .slider-main-wrap h1 {
-    font-size: 65px;
-    line-height: 65px;
+    font-size: 35px;
+    line-height: normal;
   }
   .inner-slider-image {
     margin-top: -80px;
