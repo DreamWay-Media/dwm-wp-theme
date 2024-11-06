@@ -2041,6 +2041,11 @@ img {
   text-transform: uppercase;
   margin-left: 65px;
 }
+.aboutformbtn:hover {
+  color: black;
+  background: #c8f031;
+  border: 2px solid black;
+}
 a.startNowBtn {
   color: white;
   background-color: black;
