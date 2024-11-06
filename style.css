@@ -947,17 +947,26 @@ img {
   font-size: 90px;
   font-weight: 700;
 }
+/* Submit Button Styling */
 .btn-cta-wrap {
   text-align: center;
-}
-.btn-cta-wrap {
-  padding: 16px 35px;
+  background: #101010;
+  padding: 10px 35px;
   color: #fff;
   font-size: 12px;
   font-weight: bold;
   border-radius: 6px;
   text-transform: uppercase;
+  margin-left: 65px;
 }
+
+/* Hover Effect */
+.btn-cta-wrap:hover {
+  color: black;
+  background: #c8f031;
+  border: 2px solid black;
+}
+
 .dropdown-menu {
   text-align: left !important;
   background: #000 !important;
@@ -1231,31 +1240,73 @@ img {
   font-weight: bold;
   padding-bottom: 20px;
 }
-.cta-main-wraper .form-group {
-  width: 50%;
+/* General Form Container Styling for Desktop */
+.cta-main-wraper .form-container {
+  display: flex;
+  gap: 20px; /* Gap between Name and Email fields */
+  max-width: 600px; /* Total width for Name + gap + Email */
   margin: 0 auto;
-  margin-bottom: 45px;
 }
+
+.cta-main-wraper .form-container .form-group.half-width {
+  flex: 1;
+}
+
+.cta-main-wraper .form-group.full-width {
+  max-width: 600px; /* Extended width for "Tell us about your project requirements" on desktop */
+  margin: 20px auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Form Field Styling */
 .cta-main-wraper .form-group .form-control {
   background: none;
   border: none;
-  box-shadow: none;
   outline: none;
-  text-align: center;
+  box-shadow: none;
+  text-align: start;
   border-bottom: 1px solid #000;
   border-radius: 0;
-  color: #90aa2d;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px 0;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding doesn’t affect width */
 }
-.cta-main-wraper .form-group .form-control::-webkit-input-placeholder {
-  /* Edge */
-  color: #90aa2d;
-}
-.cta-main-wraper .form-group .form-control:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #90aa2d;
-}
+
+/* Placeholder Styling - Dark grey initially */
 .cta-main-wraper .form-group .form-control::placeholder {
-  color: #90aa2d;
+  color: #666;
+}
+
+/* Text color remains black while typing */
+.cta-main-wraper .form-group .form-control:focus {
+  color: #000;
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+  /* Stack all fields vertically and make them equal width */
+  .cta-main-wraper .form-container {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+    padding: 0 20px;
+    min-width: 320px; /* Prevent container from shrinking below 320px */
+  }
+
+  /* Full width for each form field on mobile */
+  .cta-main-wraper .form-group {
+    width: 100%;
+  }
+
+  .cta-main-wraper .form-group .form-control {
+    font-size: 14px;
+    padding: 5px 0; /* Consistent padding for all fields */
+    min-width: 350px; /* Prevent input fields from shrinking below 280px */
+  }
 }
 .slider-portfolio-wrap {
   padding-top: 60px;
@@ -2030,16 +2081,6 @@ img {
 .contact-text-wrap ul li img {
   width: 25px;
   margin-right: 10px;
-}
-.aboutformbtn {
-  background: #101010;
-  padding: 16px 35px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 6px;
-  text-transform: uppercase;
-  margin-left: 65px;
 }
 a.startNowBtn {
   color: white;

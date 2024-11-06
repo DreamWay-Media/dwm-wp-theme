@@ -119,14 +119,12 @@ $cta_button_link = get_field('cta_button_link');
   <!--portfolio listing--> 
   
   <!--cta-->
-  <div class="cta-main-wraper">
-    <div class="container">
-      <h2 data-aos="fade-up"><?php echo wp_kses_post( $cta_heading ); ?></h2>
-      <div class="btn-cta-wrap" data-aos="fade-up">
-        <a class="startNowBtn" href="<?php echo esc_url( $cta_button_link ); ?>"><?php echo esc_html( $cta_button_text ); ?></a>
-      </div>
-    </div>
+  <div class="cta-main-wraper about-page-form">
+  <div class="container">
+    <h2 data-aos="fade-up" class="aos-init aos-animate"><?php echo esc_html($cta_heading); ?></h2>
+    <?php echo do_shortcode('[contact-form-7 id="b8b65df" title="About US Page"]'); ?>
   </div>
+</div>
   <!--cta--> 
 </section>
 <!--content-->
