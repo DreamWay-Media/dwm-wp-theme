@@ -297,6 +297,13 @@ get_header();
                 <a href="<?php echo esc_url(get_the_permalink()); ?>">
                   <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
                   <div class="listing-featured-text">
+                   <h3><a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a></h3>
+                    <p>
+                      <?php
+                      $excerpt = wp_trim_words(get_the_content(), 24, '...');
+                      echo esc_html($excerpt);
+                      ?>
+                    </p>
                     <div class="tag-featured-wrap">
                       <?php 
                       $terms = wp_get_post_terms(get_the_ID(), array('project_category'));
@@ -305,13 +312,6 @@ get_header();
                         <span><?php echo esc_html($term->name); ?></span>
                       <?php endforeach; ?>
                     </div>
-                    <h3><a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a></h3>
-                    <p>
-                      <?php
-                      $excerpt = wp_trim_words(get_the_content(), 24, '...');
-                      echo esc_html($excerpt);
-                      ?>
-                    </p>
                   </div>
                 </div>
               </li>
