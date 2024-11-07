@@ -740,7 +740,11 @@ img {
   height: auto;
   background-size: cover !important;
   aspect-ratio: 1 / 1;
-  border-radius: 6px;
+  border-radius: 15px;
+  border: 4px solid #000000;
+}
+.listing-featured-wrap-image:hover {
+  border: 4px solid #ffffff;
 }
 .tag-featured-wrap {
   margin-top: 30px;
@@ -748,10 +752,10 @@ img {
 .tag-featured-wrap span {
   background: #202020;
   color: #aaaaaa;
-  font-size: 13px;
+  font-size: 10px;
   display: inline-block;
   margin-bottom: 10px;
-  padding: 10px 15px;
+  padding: 5px 10px;
   margin-right: 10px;
   border-radius: 30px;
 }
@@ -795,7 +799,12 @@ img {
   height: auto;
   background-size: cover !important;
   aspect-ratio: 1 / 1;
-  border-radius: 6px;
+  border-radius:15px;
+  border: 4px solid white;
+}
+.featured-blog-image:hover {
+  border: 4px solid #c8f031;
+
 }
 .featured-blog-title {
   padding: 24px 0px 16px 0px;
@@ -2286,8 +2295,8 @@ a.startNowBtn:hover {
 
 @media (max-width: 1400px) and (min-width: 1170px) {
   .slider-main-wrap h1 {
-    font-size: 65px;
-    line-height: 65px;
+    font-size: 40px;
+    line-height: normal;
   }
   .service-heading-wrap h2:before {
     display: none;
@@ -2319,8 +2328,8 @@ a.startNowBtn:hover {
 }
 @media (max-width: 1200px) and (min-width: 1170px) {
   .slider-main-wrap h1 {
-    font-size: 65px;
-    line-height: 65px;
+    font-size: 40px;
+    line-height: normal;
   }
   .accordin-services-wrap button h4 {
     padding-left: 0;
@@ -2384,8 +2393,8 @@ a.startNowBtn:hover {
     text-align: start;
   }
   .slider-main-wrap h1 {
-    font-size: 65px;
-    line-height: 65px;
+    font-size: 35px;
+    line-height: normal;
   }
   .inner-slider-image {
     margin-top: -80px;
@@ -2594,7 +2603,7 @@ a.startNowBtn:hover {
     padding: 25px 0 10px 0;
   }
   .tag-featured-wrap span {
-    padding: 6px 15px;
+    padding: 5px 10px;
   }
   .see-more-btn {
     margin-top: 0;
