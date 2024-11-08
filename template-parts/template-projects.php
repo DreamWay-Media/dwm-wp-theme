@@ -86,14 +86,9 @@ $cta_button_link = get_field('cta_button_link');
             <li class="col-md-4" data-categories="<?php echo $categories_string; ?>">
               <div class="listing-featured-wrap">
               <a href="<?php echo esc_url( get_the_permalink() ); ?>">
-                  <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
+                <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
                 <div class="listing-featured-text">
-                  <div class="tag-featured-wrap">
-                    <?php foreach ($terms as $term) : ?>
-                      <span><?php echo esc_html( $term->name ); ?></span>
-                    <?php endforeach; ?>
-                  </div>
-                  <h3><a href="<?php echo esc_url( get_the_permalink() ); ?>"><?php the_title(); ?></a></h3>
+                 <h3><a href="<?php echo esc_url( get_the_permalink() ); ?>"><?php the_title(); ?></a></h3>
                   <p>
                     <?php
                     $content = wp_strip_all_tags( get_the_content() );
@@ -101,7 +96,12 @@ $cta_button_link = get_field('cta_button_link');
                     echo esc_html( $excerpt );
                     ?>
                   </p>
-                </div>
+                  <div class="tag-featured-wrap">
+                    <?php foreach ($terms as $term) : ?>
+                      <span><?php echo esc_html( $term->name ); ?></span>
+                    <?php endforeach; ?>
+                  </div>
+               </div>
               </div>
             </li>
             <?php
