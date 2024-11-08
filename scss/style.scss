@@ -1,0 +1,27 @@
+// Base Styles (global settings and foundational styles)
+@use 'base/reset';
+@use 'base/base';
+@use 'base/typography';
+@use 'base/animations';
+
+// Components (site-wide elements)
+@use 'components/header';
+@use 'components/footer';
+@use 'components/buttons';
+@use 'components/slider';
+@use 'components/navigation';
+
+// Page-specific Styles (styles unique to each page)
+@use 'pages/home';
+@use 'pages/about';
+@use 'pages/blog';
+@use 'pages/services';
+@use 'pages/projects';
+@use 'pages/contact';
+@use 'pages/404' as page404; // Alias for 404 page
+@use 'pages/single';
+@use 'pages/single-projects';
+@use 'pages/common';
+
+// Media Queries (to ensure they can override earlier styles if needed)
+@use 'base/media-queries';

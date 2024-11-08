@@ -78,4 +78,35 @@ VALUES ((SELECT ID FROM wp_users WHERE user_login = 'admin'), 'wp_user_level', '
 1. **Activate the Theme**
 	Once the theme is cloned, the database is imported, and have created admin credentials, log in to your WordPress admin dashboard at http://localhost:8000/wp-admin and go to **Plugins** to and activate each of them. Then go to **Appearance > Themes** to activate the theme.
 
+### Step 5: Development with Sass
+To ensure consistency with styling, this project uses SCSS with npm and Sass for development. Follow these steps to set up and compile SCSS files.
+
+#### Step 1: Install Dependencies
+1. **Install Node.js and npm** If you don’t already have Node.js and npm installed, download and install from [Node.js](https://nodejs.org/en).
+
+2. **Install Sass Dependencies** In your themes root directory, run:
+
+```npm install```
+
+#### Step 2: SCSS Development Commands
+The following commands will allow you to compile SCSS files into CSS:
+
+1. **Watch for SCSS Changes** (during development) Run this command to automatically recompile SCSS to CSS as you make changes:
+
+```npm run sass```
+
+2. **Build for Production** (compressed/minified CSS) When ready for deployment, use this command to generate a minified version of `style.css`:
+
+```npm run build-css```
+
+#### Step 3: Working with CSS Files
+- **SCSS Structure**: All SCSS files are located in the scss directory, organized into subdirectories for base styles, components, pages, and templates.
+- **File Imports**: The main scss/style.scss file imports all other SCSS files, which are then compiled into style.css.
+
+#### Step 4: Updating CSS:
+After making SCSS updates, recompile CSS with:
+
+```npm run sass```
+
+**Note**: Avoid editing `style.css` directly; all style changes should be made in SCSS files to ensure consistency.
 ### Happy developing!

@@ -97,7 +97,7 @@ get_header();
     <div class="container">
       <h2 data-aos="fade-up" class="aos-init aos-animate">Ready to unlock the full potential of your business with a dynamic digital strategy?</h2>
       <div class="btn-cta-wrap aos-init aos-animate" data-aos="fade-up">
-        <a href="#">Start now</a>
+        <a class="startNowBtn" href="/contact">Start now</a>
       </div>
     </div>
   </div>
