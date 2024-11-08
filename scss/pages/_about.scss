@@ -1,0 +1,184 @@
+.connect-main-wrap {
+  padding-bottom: 60px;
+}
+.connect-main-wrap h2 {
+  font-size: 60px;
+  line-height: 60px;
+  color: #101010;
+  font-weight: bold;
+}
+.connect-main-wrap p {
+  font-size: 16px;
+  color: #444444;
+  padding-top: 10px;
+  line-height: 26px;
+}
+.connect-main-wrap p strong {
+  color: #000000;
+}
+/* Removed empty ruleset */
+.connect-heading {
+  margin-bottom: 30px;
+}
+.owner-info-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px; /* Add gap between image and text */
+}
+/* Removed empty ruleset */
+.owner-info-wrap .owner-info-image {
+  width: 120px;
+  height: 120px;
+  background-size: cover !important;
+}
+.owner-info-text {
+  text-align: center;
+}
+.owner-message-wraper {
+  padding: 90px 40px; /* Match the padding of the team section */
+  display: flex;
+  justify-content: space-between; /* Ensure proper spacing on larger screens */
+  align-items: center;
+  gap: 40px; /* Gap between the image and the text */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  border-bottom: 1px solid #ddd;
+}
+.owner-info-text h3 {
+  font-size: 24px; /* Match font size with "Meet the Team" names */
+  font-weight: 600;
+}
+.owner-info-text span {
+  font-size: 18px; /* Match font size with "Meet the Team" titles */
+  color: #666666;
+}
+.owner-message-wraper p {
+  font-size: 35px;
+  font-weight: 500;
+  font-style: italic;
+  padding-right: 15px;
+}
+
+.team-intro {
+  padding-top: 90px;
+  font-size: 60px;
+  color: #101010;
+  font-weight: bold;
+  text-align: center;
+}
+.team-all {
+  padding: 90px 40px;
+  gap: 48px;
+  justify-content: space-around;
+}
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.about-team-image {
+  clip-path: circle();
+  max-width: 120px;
+}
+.about-team-name {
+  font-weight: 600;
+  text-align: center;
+}
+.about-team-title {
+  color: #444444;
+  text-align: center;
+}
+
+.about-sucess-wrap {
+  padding: 30px 0;
+}
+.about-sucess-wrap ul {
+  list-style: none;
+}
+/* Removed empty ruleset */
+.listing-about-sucess {
+  line-height: 55px;
+}
+.about-sucess-wrap ul li span {
+  font-size: 16px;
+  color: #666666;
+  display: block;
+}
+.about-sucess-wrap ul li strong {
+  font-size: 70px;
+  color: #000;
+  font-weight: 400;
+}
+.team-main-wraper {
+  padding: 80px 0;
+  background: #f5f5f5;
+}
+.team-main-wraper h3 {
+  font-size: 50px;
+  line-height: 50px;
+  color: #101010;
+  font-weight: bold;
+}
+.team-main-wraper ul {
+  list-style: none;
+  margin-top: 70px;
+}
+/* Removed empty ruleset */
+/* Removed empty ruleset */
+.team-listing-wraper .team-listing-image {
+  height: 280px;
+  border-radius: 6px;
+  background-size: cover !important;
+  margin-bottom: 20px;
+}
+.team-listing-text h5 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
+}
+.team-listing-text span {
+  color: #666666;
+  font-size: 16px;
+}
+.join-team-wraper {
+  padding: 80px 0;
+}
+.join-team-wraper h2 {
+  font-size: 50px;
+  color: #101010;
+  font-weight: bold;
+}
+.join-team-text p {
+  font-size: 18px;
+  color: #000000;
+  line-height: 28px;
+  margin-top: 10px;
+  padding-bottom: 30px;
+}
+.join-team-text a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+.join-team-text a:hover {
+  color: #c8f031;
+}
+.join-team-text a img {
+  margin-left: 10px;
+}
+.join-team-inner {
+  border-top: 1px solid #ddd;
+  padding-top: 60px;
+}
+.aboutformbtn {
+  background: #101010;
+  padding: 16px 35px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  text-transform: uppercase;
+  margin-left: 65px;
+}

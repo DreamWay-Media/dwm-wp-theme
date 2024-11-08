@@ -1,0 +1,113 @@
+.menusitebar-main-wraper {
+  display: none;
+}
+.inner-header-slider-wrap {
+  height: 570px;
+}
+.inner-slider-wrap {
+  padding-top: 40px;
+}
+.inner-slider-wrap h1 {
+  font-size: 70px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.inner-slider-wrap p {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+  color: #fff;
+  width: 47%;
+  padding-bottom: 40px;
+}
+.inner-slider-image {
+  margin-top: -200px;
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 90px;
+  margin-bottom: 90px;
+}
+.portfolio-header-slider-wrap {
+  height: auto;
+}
+.heading-text-wrap {
+  color: #ffffff;
+}
+.slider-main-wrap {
+  padding-top: 75px;
+}
+.slider-main-wrap h1 {
+  font-size: 60px;
+  color: #fff;
+  position: relative;
+  line-height: auto;
+}
+.slider-main-wrap h1 span {
+  display: block;
+  color: #c8f031;
+}
+.slider-main-wrap h1:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -26px;
+  background: url(assets/images/star-icon.svg) no-repeat top;
+  background-size: contain;
+  width: 35px;
+  height: 35px;
+}
+.slider-main-wrap p {
+  font-size: 16px;
+  color: #dddddd;
+  line-height: 25px;
+  padding: 15px 0;
+  font-weight: 300;
+}
+.slider-text-btn {
+  margin-top: 25px;
+}
+.slider-text-btn a {
+  background: #c8f031;
+  padding: 16px 35px;
+  color: #000000;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+.slider-text-btn a:hover {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.inner-header-slider-wrap {
+  height: 520px;
+}
+.panel-heading {
+  padding: 0;
+  border: 0;
+}
+.panel-title > a,
+.panel-title > a:active {
+  display: block;
+  padding: 15px;
+  color: #555;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  text-decoration: none;
+}
+.panel-heading a:before {
+  font-family: "Glyphicons Halflings";
+  content: "\e114";
+  float: right;
+  transition: all 0.5s;
+}
+.panel-heading.active a:before {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
+}

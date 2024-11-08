@@ -1,0 +1,128 @@
+.blog-listing-wraper {
+  padding: 80px 0;
+}
+.blog-tag-wrap {
+  margin: 20px 0 15px 0;
+}
+.blog-tag-wrap span {
+  background: #f5f5f5;
+  padding: 10px 15px;
+  color: #666666;
+  font-size: 14px;
+  border-radius: 30px;
+}
+.big-blog-list-wrap {
+  margin-bottom: 40px;
+}
+.big-blog-list-wrap h2 {
+  color: #000000;
+}
+.big-blog-list-image img {
+  width: 100%;
+}
+.blog-tag-wrap strong {
+  font-weight: normal !important;
+  padding: 4px 0;
+  color: #666666;
+  font-size: 14px;
+  float: right;
+}
+.blog-listing-wraper h2 {
+  margin-bottom: 15px;
+}
+.blog-listing-wraper h2 a {
+  font-weight: bold;
+  color: #000;
+  font-size: 34px;
+}
+.blog-listing-wraper p {
+  font-size: 16px;
+  color: #666666;
+  line-height: 26px;
+}
+/* Removed empty ruleset */
+.small-listing-wrap ul {
+  list-style: none;
+}
+/* Removed empty ruleset */
+.small-listing-wrap ul li .blog-small-list {
+  margin-bottom: 35px;
+}
+.blog-small-list .blog-small-image {
+  width: 240px;
+  height: 150px;
+  background-size: cover !important;
+  float: left;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0px;
+}
+.custom-pagination {
+  font-size: 20px;
+}
+.pagination-link {
+  margin: 0px 8px;
+}
+.page-numbers {
+  color: black;
+}
+.page-numbers:hover {
+  color: black;
+}
+.current {
+  font-weight: bolder;
+}
+.next {
+  color: black;
+  border: 1px solid black;
+  padding: 16px 35px;
+  border-radius: 6px;
+}
+.next:hover {
+  color: white;
+  background-color: black;
+}
+.prev {
+  color: black;
+  border: 1px solid black;
+  padding: 16px 35px;
+  border-radius: 6px;
+}
+.prev:hover {
+  color: white;
+  background-color: black;
+}
+.blog-small-text {
+  width: 61%;
+  float: left;
+  padding-left: 25px;
+}
+.small-tags-rap {
+  margin-bottom: 25px;
+}
+.small-tags-rap span {
+  background: #f5f5f5;
+  padding: 10px 15px;
+  color: #666666;
+  font-size: 14px;
+  border-radius: 30px;
+}
+.small-tags-rap strong {
+  font-weight: normal !important;
+  padding: 4px 0;
+  color: #666666;
+  font-size: 14px;
+  float: right;
+}
+.blog-small-text h4 {
+  font-weight: bold;
+  color: #000;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+.blog-single-wrap {
+  padding-top: 60px;
+  text-align: center;
+}

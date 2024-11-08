@@ -1,0 +1,163 @@
+.client-main-review-wrap {
+  padding: 60px 0;
+  position: relative;
+}
+.client-heading-wrap h2 {
+  font-size: 50px;
+  color: #000;
+  line-height: 60px;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 20px;
+}
+/* Removed empty ruleset */
+.listing-client-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the text vertically */
+  align-items: flex-start; /* Align the text to the start (left) */
+  height: 300px; /* Keep a consistent height for all testimonials */
+  padding: 20px;
+  margin-bottom: 25px;
+  text-align: center; /* Center text horizontally if needed */
+  margin-top: 25px;
+}
+.listing-client-wrap p {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  flex-grow: 1;
+  display: flex;
+  align-items: center; /* Center text vertically within the space */
+  justify-content: center; /* Center text horizontally */
+  text-align: start;
+}
+.client-name-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: auto; /* Pushes the profile image and name to the bottom */
+}
+.client-image {
+  width: 60px;
+  height: 60px;
+  background-size: cover !important;
+  background-position: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.client-name {
+  display: flex;
+  flex-direction: column;
+}
+.client-name h5 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin: 0;
+  text-align: start; /* Center the name */
+}
+.client-name span {
+  font-size: 13px;
+  color: #666666;
+  margin-top: 5px;
+  text-align: start; /* Center the designation */
+}
+.owl-nav {
+  position: absolute;
+  top: -60px;
+  right: 22%;
+}
+.owl-nav button {
+  font-size: 11px !important;
+  border: none !important;
+  border-radius: 6px;
+  border: 1px solid #101010 !important;
+  color: #101010 !important;
+  margin-left: 15px;
+  width: 100px;
+  height: 34px;
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+.owl-nav button:hover {
+  background: #101010 !important;
+  color: #fff !important;
+}
+.owl-nav .owl-prev {
+  left: -120px !important;
+  position: absolute;
+  outline: none;
+}
+.owl-nav .owl-next {
+  position: absolute;
+  outline: none;
+}
+.owl-dots {
+  display: none;
+}
+.cta-main-wraper {
+  background: url(assets/images/bg-agency.svg) no-repeat top;
+  background-size: cover;
+  padding: 110px 0 80px 0;
+}
+.cta-main-wraper h2 {
+  font-size: 50px;
+  color: #000;
+  text-align: center;
+  padding: 0 110px;
+  font-weight: 800;
+  margin-bottom: 60px;
+}
+.cta-main-wraper h2.homecta {
+  font-size: 90px;
+  font-weight: 700;
+}
+.btn-cta-wrap {
+  text-align: center;
+}
+.btn-cta-wrap {
+  padding: 16px 35px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+.cta-main-wraper p {
+  text-align: center;
+  font-size: 20px;
+  line-height: 26px;
+  color: #000;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+.cta-main-wraper .form-group {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 45px;
+}
+.cta-main-wraper .form-group .form-control {
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  border-radius: 0;
+  color: #90aa2d;
+}
+.cta-main-wraper .form-group .form-control::-webkit-input-placeholder {
+  /* Edge */
+  color: #90aa2d;
+}
+.cta-main-wraper .form-group .form-control:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #90aa2d;
+}
+.cta-main-wraper .form-group .form-control::placeholder {
+  color: #90aa2d;
+}

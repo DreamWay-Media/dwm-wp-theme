@@ -1,0 +1,100 @@
+#primary.site-main {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Error section */
+.error-404.not-found {
+  text-align: center;
+  padding: 50px;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Header styling */
+.error-404 .page-header {
+  margin-bottom: 20px;
+}
+
+.error-404 .page-title {
+  font-size: 3rem;
+  color: #333;
+}
+
+.error-404 .page-header p {
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Page content styling */
+.error-404 .page-content {
+  margin-top: 20px;
+}
+
+.error-404 .page-content p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Return to Homepage button */
+.error-404 .button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  background: #1a1e24;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.error-404 .button:hover {
+  background-color: #c8f031;
+  color: #1a1e24;
+}
+
+.search-submit {
+  padding: 4px 8px;
+  color: #fff;
+  background-color: #1a1e24;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover effect */
+.search-submit:hover {
+  background-color: #c8f031;
+  color: #1a1e24;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Search input field styling */
+.search-form .search-field {
+  padding: 4px;
+  width: 250px;
+  max-width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Focus effect on search field */
+.search-form .search-field:focus {
+  border-color: #1a1e24;
+  box-shadow: 0 0 5px rgba(26, 30, 36, 0.2);
+  outline: none;
+}
