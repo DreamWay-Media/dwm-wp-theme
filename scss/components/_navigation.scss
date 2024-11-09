@@ -1,0 +1,251 @@
+.dropdown-toggle::after {
+  display: none;
+}
+.dropdown-toggle {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #aaaaaa;
+  padding: 0;
+}
+.dropdown-toggle:hover {
+  color: #fff;
+}
+.dropdown-toggle img {
+  width: 12px;
+}
+.drawer-menu {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  padding: 65px 0 0 0;
+  background: #101010;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-transform-origin: right center;
+  -ms-transform-origin: right center;
+  transform-origin: right center;
+  -webkit-transform: perspective(500px) rotateY(-90deg);
+  transform: perspective(500px) rotateY(-90deg);
+  opacity: 0;
+  overflow: auto;
+}
+.drawer-menu li {
+  text-align: left;
+}
+.drawer-menu li a {
+  display: block;
+  height: auto;
+  line-height: 65px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  padding-left: 30px;
+}
+.drawer-menu li a:hover {
+  color: #1a1e24;
+  background: #c8f031;
+}
+/* Ensure dropdown toggle is styled correctly */
+.drawer-menu .dropdown-toggle {
+  display: flex;
+  justify-content: space-between; /* Align caret to the right */
+  align-items: center; /* Vertically center text and icon */
+  width: 100%; /* Make the toggle button take full width */
+  padding: 0px 30px; /* Adjust padding as needed */
+  color: #ffffff;
+}
+
+/* Style for the dropdown content */
+.drawer-menu .dropdown-menu {
+  position: relative !important; /* Position relative to its container */
+  top: 0; /* Adjust based on alignment needs */
+  left: 0; /* Align to the left side */
+  background-color: #000; /* Ensure background color */
+  padding: 10px 20px; /* Adjust padding */
+  width: 100%; /* Make sure dropdown takes full width */
+  transform: translate3d(-10px, -20px, 0px) !important;
+  margin-bottom: 20px;
+}
+
+/* Ensure dropdown menu items have proper padding and spacing */
+.drawer-menu .dropdown-menu li a {
+  padding: 10px 30px; /* Adjust padding for better alignment */
+  color: #ffffff; /* Ensure text color */
+}
+
+/* Dropdown hover effect */
+.drawer-menu .dropdown-menu li a:hover {
+  background-color: #c8f031; /* Change hover background color */
+  color: #000; /* Change hover text color */
+}
+/* Optional: Adjust caret positioning */
+.dropdown-toggle img {
+  margin-left: auto; /* Push the caret to the right */
+  width: 12px; /* Adjust size as needed */
+}
+/* checkbox */
+.check {
+  display: none;
+}
+/* menu button - label tag */
+.menu-btn {
+  position: absolute;
+  display: block;
+  top: 33px;
+  right: 40px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  font-size: 10px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 3;
+}
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 35px;
+  height: 1.5px;
+  background: #fff;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform-origin: left top;
+  -ms-transform-origin: left top;
+  transform-origin: left top;
+}
+.bar.middle {
+  top: 10px;
+  opacity: 1;
+}
+.bar.bottom {
+  top: 20px;
+  -webkit-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  transform-origin: left bottom;
+}
+.menu-btn__text {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: #fff;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+.menu-btn:hover .bar {
+  background: #18b6a4;
+}
+.close-menu {
+  position: fixed;
+  top: 0;
+  right: 280px;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0);
+  cursor: url(http://theorthodoxworks.com/demo/images/cross.svg), auto;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  visibility: hidden;
+  opacity: 0;
+}
+/* checked */
+.check:checked ~ .drawer-menu {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  opacity: 1;
+  z-index: 2;
+}
+.check:checked ~ .contents {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-transform: translateX(-300px);
+  -ms-transform: translateX(-300px);
+  transform: translateX(-300px);
+}
+.check:checked ~ .menu-btn .menu-btn__text {
+  visibility: hidden;
+  opacity: 0;
+}
+.check:checked ~ .menu-btn .bar.top {
+  width: 40px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background: #fff;
+}
+.check:checked ~ .menu-btn .bar.middle {
+  opacity: 0;
+}
+.check:checked ~ .menu-btn .bar.bottom {
+  width: 40px;
+  top: 28px;
+  background: #fff;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.check:checked ~ .close-menu {
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: visible;
+  opacity: 1;
+  z-index: 3;
+}
+.drawer-menu ul {
+  list-style: none;
+}
+.drawer-menu ul li a {
+  text-decoration: none;
+  border-bottom: 1px solid #1e1e1e;
+}
+.drawer-menu ul li a img {
+  margin-right: 5px;
+  margin-top: -2px;
+}
+.dropdown-menu {
+  text-align: left !important;
+  background: #000 !important;
+  padding: 10 !important;
+  margin: 0 !important;
+  margin-top: 0px !important;
+}
+.dropdown-menu li {
+  display: block !important;
+  margin: 0 !important;
+  padding: 4px 0 !important;
+}
+.dropdown-menu li a {
+  font-size: 12px !important;
+  padding: 10px 20px !important;
+}
+.dropdown-menu li a:hover {
+  background: #c8f031 !important;
+  color: #000000 !important;
+}

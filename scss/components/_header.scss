@@ -1,0 +1,35 @@
+/* CSS header & slider */
+.header-slider-wrap {
+  background: #101010;
+}
+/* CSS header */
+.header-main-wrap {
+  background: #101010;
+  border-bottom: 1px solid #333333;
+  padding: 12px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Removed empty ruleset */
+.header-nav-wrap ul {
+  list-style: none;
+  text-align: right;
+  margin-top: 20px;
+}
+
+.header-nav-wrap ul li {
+  display: inline-block;
+  margin-left: calc(10px + 2vw); /* Adjust spacing based on viewport width */
+}
+.header-nav-wrap ul li a {
+  color: #aaaaaa;
+  font-size: 14px;
+  font-weight: 400;
+}
+.header-nav-wrap ul li a:hover {
+  color: #fff;
+}
+.site-logo img {
+  width: 300px;
+}
