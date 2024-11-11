@@ -65,36 +65,37 @@ get_header();
             <h3><?php echo esc_html( $info_headings ); ?></h3>
             <div class="product-slider-text">
                 <div class="row">
-                    <!-- Image -->
-                    <div class="col-md-6">
-                        <div class="product-image-wrap">
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <?php if ( $info_gallery ): ?>
-                                        <?php $counter = 1; ?>
-                                        <?php foreach ( $info_gallery as $image ): ?>
-                                        <div class="carousel-item <?php echo ( $counter === 1 ) ? 'active' : ''; ?>">
-                                            <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" title="<?php echo esc_attr( $image['title'] ); ?>">
-                                        </div>
-                                        <?php $counter++; ?>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+                <?php if ( $info_gallery ): ?>
+                <!-- Image -->
+                <div class="col-md-6">
+                    <div class="product-image-wrap">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <?php $counter = 1; ?>
+                                <?php foreach ( $info_gallery as $image ): ?>
+                                    <div class="carousel-item <?php echo ( $counter === 1 ) ? 'active' : ''; ?>">
+                                        <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" title="<?php echo esc_attr( $image['title'] ); ?>">
+                                    </div>
+                                    <?php $counter++; ?>
+                                <?php endforeach; ?>
                             </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
                     </div>
-                    <!-- Image -->
+                </div>
+                <!-- Image -->
+                <?php endif; ?>
+
 
                     <!-- Text -->
-                    <div class="col-md-6">
+                    <div class="<?php echo $info_gallery ? 'col-md-6' : 'col-md-12'; ?>">
                         <div class="product-detail-text">
                             <?php echo wp_kses_post( $info_complete_left_texts ); ?>
                         </div>
