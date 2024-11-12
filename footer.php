@@ -11,17 +11,27 @@
 
 ?>
 <?php
+
+      $mini_form_description = get_field('mini_form_description', 'option');
 			$footer_logo = get_field('footer_logo', 'option');
 			$footer_description = get_field('footer_description', 'option');
 			$footer_copyrights_text = get_field('footer_copyrights_text', 'option');
 			
 		?>
-
+<!--cta-->
+<?php if (!is_page('contact')) : ?>
+<div class="cta-main-wraper">
+    <div class="container">
+      <h2 data-aos="fade-up" class="aos-init aos-animate"><?php echo $mini_form_description; ?></h2>
+      <?php echo do_shortcode('[contact-form-7 id="b8b65df" title="Mini Footer Form"]'); ?>
+    </div>
+</div>
+<?php endif; ?>
+<!--cta-->
 <!--footer-->
 <footer class="footer-main-wraper">
   <div class="container">
     <div class="row"> 
-      
       <!--logo, detail-->
       <div class="col-md-6">
   <div class="footer-logo-wrp">

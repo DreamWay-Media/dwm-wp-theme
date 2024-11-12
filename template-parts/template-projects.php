@@ -7,9 +7,6 @@ get_header();
 <?php 
 $banner_heading = get_field('banner_heading');
 $banner_description = get_field('banner_description');
-$cta_heading = get_field('cta_heading');
-$cta_button_text = get_field('cta_button_text');
-$cta_button_link = get_field('cta_button_link');
 ?>
 
 <!--header slider-->
@@ -117,17 +114,6 @@ $cta_button_link = get_field('cta_button_link');
     </div>
   </section>
   <!--portfolio listing--> 
-  
-  <!--cta-->
-  <div class="cta-main-wraper">
-    <div class="container">
-      <h2 data-aos="fade-up"><?php echo wp_kses_post( $cta_heading ); ?></h2>
-      <div class="btn-cta-wrap" data-aos="fade-up">
-        <a class="startNowBtn" href="<?php echo esc_url( $cta_button_link ); ?>"><?php echo esc_html( $cta_button_text ); ?></a>
-      </div>
-    </div>
-  </div>
-  <!--cta--> 
 </section>
 <!--content-->
 
