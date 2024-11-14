@@ -1,11 +1,16 @@
-a.startNowBtn {
+.startNowBtn {
   color: white;
   background-color: black;
   padding: 16px 35px;
   border-radius: 6px;
+
+  &:hover {
+    color: black;
+    background: #c8f031;
+    border: 2px solid black;
+  }
 }
-a.startNowBtn:hover {
-  color: black;
-  background: #c8f031;
-  border: 2px solid black;
+a.startNowBtn,
+.wpcf7-submit.startNowBtn {
+  @extend .startNowBtn;
 }
