@@ -9,6 +9,17 @@
     text-align: left;
     padding-bottom: 30px;
   }
+  .footer-logo-wrp {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-logo-wrp img{
+    filter: brightness(0) invert(1); 
+    width: 150px; 
+    height: 150px;
+    margin-bottom: 10px;
+  }
 }
 @media (max-width: 768px) {
   .footer-nav-wrap {

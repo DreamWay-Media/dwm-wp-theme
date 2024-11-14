@@ -8,6 +8,16 @@
   justify-content: center;
   height: 100%; /* Ensure the row takes full height of the footer */
 }
+.footer-logo-wrp {
+  display: flex; 
+  justify-content: start;
+  align-items: left;
+}
+.footer-logo-wrp img{
+  filter: brightness(0) invert(1); 
+  width: 150px; 
+  height: 150px;
+}
 .footer-widget-area {
   margin-top: 8px;
   display: flex;
