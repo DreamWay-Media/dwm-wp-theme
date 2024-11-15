@@ -136,20 +136,7 @@ if ($query->have_posts()) : ?>
   $join_team_description = get_field('join_team_description');
   $join_team_button_text = get_field('join_team_button_text');
   $join_team_button_link = get_field('join_team_button_link');
-  $about_contact_heading = get_field('about_contact_heading');
-  $about_contact_sub_heading = get_field('about_contact_sub_heading');
   ?>
-
-  <!--cta-->
-  <div class="cta-main-wraper">
-    <div class="container">
-      <h2 data-aos="fade-up" class="aos-init aos-animate"><?php echo esc_html($about_contact_heading); ?></h2>
-      <p><?php echo wp_kses_post($about_contact_sub_heading); ?></p>
-      <?php echo do_shortcode('[contact-form-7 id="b8b65df" title="About US Page"]'); ?>
-    </div>
-  </div>
-  <!--cta--> 
-
 </section>
 <!--content--> 
 
