@@ -91,6 +91,74 @@ get_header();
       </div>
     </div>
   </div>
+
+  <!-- Related Posts Section -->
+<section class="content-main-wrap">
+  <div class="blog-listing-wraper related-wrapper">
+    <div class="container related-container">
+      <h3>Related Posts</h3>
+      <div class="row">
+        <?php
+        // Get categories of the current post
+        $categories = wp_get_post_terms($post_id, 'category', array('fields' => 'ids'));
+
+        if ($categories) {
+          // Query for related posts in the same categories
+          $related_args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 3, // Limit to 3 related posts
+            'post__not_in' => array($post_id), // Exclude the current post
+            'category__in' => $categories,
+            'orderby' => 'date', // Order by date
+            'order' => 'DESC' // Most recent first
+          );
+
+          $related_query = new WP_Query($related_args);
+
+          if ($related_query->have_posts()) :
+            while ($related_query->have_posts()) : $related_query->the_post();
+              $related_post_id = get_the_ID();
+              ?>
+              <div class="col-md-4">
+                <a href="<?php echo esc_url(get_the_permalink()); ?>">
+                  <div class="big-blog-list-wrap big-related-list-wrap">
+                    <div class="big-blog-list-image">
+                      <img src="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id($related_post_id))); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+                    </div>
+                    <div class="blog-tag-wrap">
+                      <span><?php echo esc_html(get_the_category($related_post_id)[0]->name); ?></span> 
+                      <strong><?php echo esc_html(get_the_date('d-m-Y')); ?></strong>
+                      <div class="clearfix"></div>
+                    </div>
+                    <h2><?php the_title(); ?></h2>
+                    <p>
+                      <?php
+                      $content = strip_tags(get_the_content());
+                      $words = explode(' ', $content);
+                      $excerpt = implode(' ', array_slice($words, 0, 20)); // Shorter excerpt for related posts
+
+                      if (count($words) > 20) {
+                        $excerpt .= '...';
+                      }
+
+                      echo esc_html($excerpt);
+                      ?>
+                    </p>
+                  </div>
+                </a>    
+              </div>
+              <?php
+            endwhile;
+            
+            wp_reset_postdata();
+          else :
+            echo '<p>No related posts found.</p>';
+          endif;
+        }
+        ?>
+      </div>
+    </div>
+  </div>
 </section>
 
 <?php get_footer(); ?>

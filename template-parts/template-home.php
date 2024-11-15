@@ -295,7 +295,7 @@ get_header();
               <li class="col-md-4">
                 <div class="listing-featured-wrap" data-aos="fade-up">
                 <a href="<?php echo esc_url(get_the_permalink()); ?>">
-                  <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
+                  <div class="listing-featured-wrap-image home-featured" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
                   <div class="listing-featured-text">
                    <h3><a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a></h3>
                     <p>
