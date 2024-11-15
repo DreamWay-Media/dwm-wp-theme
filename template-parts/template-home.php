@@ -441,23 +441,6 @@ get_header();
   </section>
   <!--Testimonials Section--> 
 
-  <!--CTA Section-->
-  <?php 
-  $cta_heading = get_field('cta_heading');
-  $cta_button_text = get_field('cta_button_text');
-  $cta_button_link = get_field('cta_button_link');
-  ?>
-  
-  <div class="cta-main-wraper">
-    <div class="container home-container">
-      <h2 class="homecta" data-aos="fade-up"><?php echo wp_kses_post($cta_heading); ?></h2>
-      <div class="btn-cta-wrap aos-init" data-aos="fade-up">
-        <a class="startNowBtn" href="<?php echo esc_url($cta_button_link); ?>"><?php echo esc_html($cta_button_text); ?></a>
-      </div>
-    </div>
-  </div>
-  <!--CTA Section--> 
-
 </section>
 <!--content--> 
 
