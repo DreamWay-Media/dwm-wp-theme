@@ -223,9 +223,77 @@ get_header();
     font-weight:bold;
 }
 </style>
-
 <!--about section--> 
+<?php
+// Checking if ACF is active and fields exist
+if( function_exists('get_field') ):  
+    // Stored fields in variables
+    $achievement_heading = get_field('achievement_heading');
+    $shopify_title = get_field('shopify_title');
+    $shopify_logo = get_field('shopify_logo');
+    $reach_us_button_text = get_field('reach_us_button_text');
+    $reach_us_button_link = get_field('reach_us_button_link');
+?>
+<section class="achievements-main-wrap py-5">
+    <div class="container">
+        <!-- Achievement Heading -->
+        <?php if( $achievement_heading ): ?>
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h3><?php echo $achievement_heading; ?></h3>
+                </div>
+            </div>
+        <?php endif; ?>
+        <!-- Achievements Repeater -->
+        <?php if( have_rows('achievements') ): ?>
+            <div class="row justify-content-center mb-5 g-1">
+                <?php 
+                while( have_rows('achievements') ): the_row();
+                    $achievement_icon = get_sub_field('achievement_icon');
+                    $achievement_text = get_sub_field('achievement_text');
+                ?>
+                    <div class="col-md-3 col-sm-6 text-center mb-4">
+                        <?php if($achievement_icon): ?>
+                            <div class="achievement-icon mb-3">
+                                <img src="<?php echo esc_url($achievement_icon['url']); ?>" 
+                                     alt="<?php echo esc_attr($achievement_text); ?>"
+                                     class="img-fluid">
+                            </div>
+                        <?php endif; ?>
+                        <?php if($achievement_text): ?>
+                            <div class="achievement-text">
+                                <p class="text-white text-center mb-0 achievement-text-color"><?php echo wp_kses_post($achievement_text); ?></p>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
 
+        <!-- Shopify Partner Section -->
+        <?php if( $shopify_title ): ?>
+            <div class=" row justify-content-center">
+                <div class="shopify-title col-12 text-center mb-4">
+                    <h3 class="text-white"><?php echo $shopify_title; ?></h3>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if( $shopify_logo ): ?>
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <img src="<?php echo esc_url($shopify_logo['url']); ?>" 
+                         alt="Shopify Partner"
+                         class="img-fluid shopify-logo">
+                </div>
+            </div>
+            <div class="reach-us-btn" data-aos="fade-up">
+              <a href="<?php echo esc_url($reach_us_button_link); ?>" class="btn"><?php echo esc_html($reach_us_button_text); ?></a>
+            </div>
+        <?php endif; ?>
+    </div>
+</section>
+<?php endif; ?>
 <!--content-->
 <section class="content-main-wrap"> 
   <?php $info_heading = get_field('info_heading'); ?>
