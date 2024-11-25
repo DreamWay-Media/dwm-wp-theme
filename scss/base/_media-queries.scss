@@ -833,7 +833,20 @@
   .second-description-text {
     padding-left: calc(var(--bs-gutter-x)* .5); /* Further reduced padding */
   }
-  .logo-container .logo {
-    visibility: hidden !important;
+  .content-container {
+    justify-content: center;
+    text-align: center;
+  }
+  .content-container h1, .content-container .single-portfolio-list {
+    text-align: center;
+  }
+  .row-container {
+    justify-content: center;
+  }
+  .content-container p {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 27px; /* 168.75% */
   }
 }
