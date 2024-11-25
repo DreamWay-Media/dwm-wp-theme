@@ -2,67 +2,115 @@
   padding-top: 30px;
 }
 .portfolio-slider-wrap h1 {
-  text-align: center;
-  font-size: 70px;
+  text-align: start;
+  font-size: 42px;
   color: #fff;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
 }
 .portfolio-slider-wrap p {
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
+  width: 593px;
+  text-align: start;
   color: #dddddd;
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 20px;
 }
 .portfolio-slider-wrap .single-portfolio-list {
-  text-align: center;
-  margin-top: 40px;
+  text-align: start;
+  margin-top: 10px;
   margin-bottom: 21px;
 }
 .portfolio-slider-wrap .single-portfolio-list span {
-  background: #202020;
-  color: #aaaaaa;
-  font-size: 13px;
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
   padding: 10px 15px;
-  margin-right: 10px;
-  border-radius: 30px;
+  margin-right: 5px;
+  border-radius: 20px;
+  border: 1px solid #FFF;
   margin-top: 9px;
   display: inline-block;
 }
+.row-container {
+  display: flex; /* Enables side-by-side layout */
+  flex-wrap: nowrap; /* Prevents wrapping to the next line */
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.content-container {
+  flex: 2; /* Makes the left column take 2 parts of the total space */
+  max-width: 70%; /* Optional: Prevent it from growing too large */
+  box-sizing: border-box; /* Includes padding and borders in width */
+}
+
+.logo-container {
+  flex: 1; /* Makes the right column take 1 part of the total space */
+  max-width: 30%; /* Optional: Restricts the maximum width */
+  box-sizing: border-box; /* Includes padding and borders in width */
+  display: flex;
+  justify-content: end; /* Centers the logo horizontally */
+  align-items: end; /* Centers the logo vertically */
+}
+
+.logo-container img {
+  max-width: 100%; /* Ensure the logo fits within its container */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 21px;
+}
+
+.logo-container .logo {
+  
+  height: auto;
+}
 .button-portfolio {
-  text-align: center;
+  text-align: start;
+  margin-top: 18px;
 }
 .button-portfolio a {
-  color: #fff;
+  border-radius: 20px;
+  border: 1px solid #C9EE46;
+  color: #C9EE46;
   font-size: 16px;
-  text-decoration: none;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 10px;
 }
 .button-portfolio a img {
   width: 21px;
-  position: relative;
-  top: -1px;
 }
 .slider-image-wrap {
-  margin-top: -140px;
-  border-bottom: 1px solid #ddd;
+  margin-top: -196px;
   padding-bottom: 70px;
   margin-bottom: 70px;
   text-align: center;
 }
 .slider-image-wrap img {
-  width: 70%;
+  width: 100%;
 }
 /* Removed empty ruleset */
 .what-they-need-wrap h3 {
-  font-size: 32px;
-  font-weight: bold;
+  color: #828282;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.project-title{
   color: #000;
-  margin-bottom: 45px;
-  line-height: 34px;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px; /* 138.889% */
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+#second-heading, #third-heading, #fourth-heading {
+  margin-top: 75px;
 }
 .carousel-inner img {
   width: 100%;
@@ -93,7 +141,35 @@
 }
 .product-slider-text {
   padding-bottom: 40px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid black;
+}
+.second-product-slider-text{
+  padding-bottom: 40px;
+}
+.second-description-text {
+  padding-left: 240px;
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 175% */
+}
+.second-section-images, .third-section-images, .fourth-section-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Align items to the start */
+  align-items: center; /* Align items at the top */
+  gap: 10px;
+}
+
+.second-section-images img, .third-section-images img, .fourth-section-images img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.grid-item {
+  align-self: center;
 }
 /* Removed empty ruleset */
 .product-detail-text h4 {
@@ -105,12 +181,58 @@
 }
 .product-detail-text {
   padding-left: 40px;
+  margin-top: 30px;
 }
 .product-detail-text p {
-  font-size: 14px;
-  color: #444444;
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
   line-height: 28px;
 }
+.result-section-wrap {
+  background-color: #101010; /* Black background */
+  padding: 40px 20px;
+  color: #ffffff; /* White text color */
+  margin-top: 150px;
+}
+
+.result-section-wrap .container {
+  max-width: 1440px;
+  height: 550px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  justify-content: center; /* Adds space between columns */
+  align-items: center;
+}
+
+.result-heading {
+  color: #C9EE46;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.result-title {
+  color: #FFF;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 48px;
+  text-transform: uppercase;
+  margin-top: 30px;
+  max-width: 450px;
+}
+
+.result-description {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  max-width: 650px;
+
+}
+
 .main-job-wraper {
   padding-left: 40px;
   padding-top: 40px;
@@ -265,4 +387,7 @@
   border-radius: 6px;
   border: none;
   outline: none;
+}
+.featured-main-wraper{
+  background: white;
 }

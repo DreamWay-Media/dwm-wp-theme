@@ -17,30 +17,37 @@ get_header();
     
     <!-- Slider -->
     <section class="portfolio-slider-wrap">
-        <div class="container">
-            <h1 id="project-title"><?php the_title(); ?></h1>
-            <p>
-                <?php
-                $content = get_the_content();
-                $excerpt = wp_trim_words( $content, 24, '...' );
-                echo wp_kses_post( $excerpt );
-                ?>
-            </p>
-            <div class="single-portfolio-list">
-                <?php $terms = wp_get_post_terms( $post_id, 'project_category' ); ?>
-                <?php foreach ( $terms as $term ) : ?>
-                <span><?php echo esc_html( $term->name ); ?></span>
-                <?php endforeach; ?>
+        <div class="container row-container">
+            <div class="content-container">
+                <h1 id="project-title"><?php the_title(); ?></h1>
+                <p>
+                    <?php
+                    $content = get_the_content();
+                    $excerpt = wp_trim_words( $content, 24, '...' );
+                    echo wp_kses_post( $excerpt );
+                    ?>
+                </p>
+                <div class="single-portfolio-list">
+                    <?php $terms = wp_get_post_terms( $post_id, 'project_category' ); ?>
+                    <?php foreach ( $terms as $term ) : ?>
+                        <span><?php echo esc_html( $term->name ); ?></span>
+                    <?php endforeach; ?>
+                </div>
             </div>
-            <div class="button-portfolio">
-                <a href="<?php echo esc_url( $website_link ); ?>" target="_blank">
-                    Visit Website <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/arrow-portfolio.svg' ); ?>" alt="arrow">
-                </a>
-            </div>
+
+            <?php 
+            $logo = get_field('header_logo'); // Fetch the field value for the current post
+            $logo_alt = get_field('logo_alt_text');
+
+            if ($logo): ?>
+                <div class="logo-container">
+                    <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo_alt ?: 'Logo'); ?>" class="logo">
+                </div>
+            <?php endif; ?>
         </div>
     </section>
-    <!-- Slider -->
 </section>
+
 <!-- Header Slider -->
 
 <!-- Content -->
@@ -56,46 +63,27 @@ get_header();
     <?php
     $info_headings = get_field('info_headings', $post_id);
     $info_gallery = get_field('info_gallery', $post_id);
+    $first_section_title = get_field('first_section_title', $post_id);
     $info_complete_left_texts = get_field('info_complete_left_texts', $post_id);
     ?>
 
-    <!-- What They Need -->
+    <!-- First Section -->
     <div class="what-they-need-wrap">
         <div class="container">
             <h3><?php echo esc_html( $info_headings ); ?></h3>
             <div class="product-slider-text">
                 <div class="row">
                 <?php if ( $info_gallery ): ?>
-                <!-- Image -->
-                <div class="col-md-6">
-                    <div class="product-image-wrap">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <?php $counter = 1; ?>
-                                <?php foreach ( $info_gallery as $image ): ?>
-                                    <div class="carousel-item <?php echo ( $counter === 1 ) ? 'active' : ''; ?>">
-                                        <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" title="<?php echo esc_attr( $image['title'] ); ?>">
-                                    </div>
-                                    <?php $counter++; ?>
-                                <?php endforeach; ?>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
+                <!-- Title -->
+                <div class="col-md-5">
+                    <h2 class="project-title"><?php echo esc_html( $first_section_title ); ?></h2>
                 </div>
-                <!-- Image -->
+                <!-- Title -->
                 <?php endif; ?>
 
 
                     <!-- Text -->
-                    <div class="<?php echo $info_gallery ? 'col-md-6' : 'col-md-12'; ?>">
+                    <div class="col-md-7">
                         <div class="product-detail-text">
                             <?php echo wp_kses_post( $info_complete_left_texts ); ?>
                         </div>
@@ -105,89 +93,297 @@ get_header();
             </div>
         </div>
     </div>
-    <!-- What They Need -->
+    <!-- First Section -->
 
     <?php
     $second_section_heading = get_field('second_section_heading', $post_id);
+    $second_section_title = get_field('second_section_title', $post_id);
     $second_section_description = get_field('second_section_description', $post_id);
     $second_section_images = get_field('second_section_images', $post_id);
 
     if ( $second_section_heading || $second_section_description ) :
     ?>
-    <!-- Logo Design -->
-    <section class="logo-design-wrap">
+    <!-- Second Section -->
+    <div class="what-they-need-wrap">
         <div class="container">
-            <!-- Heading and Text -->
-            <div class="logo-heading-text-wrap">
+            <h3 id="second-heading"><?php echo esc_html( $second_section_heading ); ?></h3>
+            <div class="second-product-slider-text">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h4><?php echo esc_html( $second_section_heading ); ?></h4>
-                    </div>
-                    <div class="col-md-6">
-                        <p><?php echo wp_kses_post( $second_section_description ); ?></p>
-                    </div>
+                <?php if ( $second_section_images ): ?>
+                <!-- Title -->
+                <div class="col-md-5">
+                    <h2 class="project-title"><?php echo esc_html( $second_section_title ); ?></h2>
+                    <div class="button-portfolio">
+                <a href="<?php echo esc_url( $website_link ); ?>" target="_blank">
+                    Visit Website <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/arrow-portfolio.svg' ); ?>" alt="arrow">
+                </a>
+            </div>
                 </div>
-            </div>
-            <!-- Logo Images -->
-            <div class="logo-image-wrap">
-                <ul class="row">
-                    <?php if ( have_rows( 'second_section_images' ) ) : ?>
-                        <?php while ( have_rows( 'second_section_images' ) ) : the_row(); ?>
-                            <?php $image = get_sub_field( 'image' ); ?>
-                            <li class="col-md-6">
-                                <div class="logo-image-portfolio">
-                                    <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>">
-                                </div>
-                            </li>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- Logo Design -->
-    <?php endif; ?>
+                <!-- Title -->
+                <?php endif; ?>
 
-    <?php
-    $third_section_heading = get_field('third_section_heading', $post_id);
-    $third_section_description = get_field('third_section_description', $post_id);
-    $third_section_button_text = get_field('third_section_button_text', $post_id);
-    $third_section_button_link = get_field('third_section_button_link', $post_id);
-    $third_section_image = get_field('third_section_image', $post_id);
 
-    if ( $third_section_heading || $third_section_description ) :
-    ?>
-    <!-- Website Design & Development -->
-    <section class="design-development-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="heading-text-wrap">
-                        <h3><?php echo esc_html( $third_section_heading ); ?></h3>
-                        <p><?php echo wp_kses_post( $third_section_description ); ?></p>
-                        <?php if ( $third_section_button_link ) : ?>
-                        <div class="btn-website-wrap">
-                            <a href="<?php echo esc_url( $third_section_button_link ); ?>">
-                                <?php echo esc_html( $third_section_button_text ); ?>
-                                <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/arrow-website.svg' ); ?>" alt="arrow">
-                            </a>
+                    <!-- Text -->
+                    <div class="col-md-7 second-description-text">
+                        <div class="product-detail-text">
+                            <?php echo wp_kses_post( $second_section_description ); ?>
                         </div>
-                        <?php endif; ?>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <?php if ( $third_section_image ) : ?>
-                    <div class="design-image-wrap">
-                        <img src="<?php echo esc_url( $third_section_image['url'] ); ?>" alt="<?php echo esc_attr( $third_section_image['alt'] ); ?>">
-                    </div>
-                    <?php endif; ?>
+                    <!-- Text -->
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Website Design & Development -->
-    <?php endif; ?>
+                <!-- Images Section -->
+                <?php if ( have_rows('second_section_images', $post_id) ): ?>
+        <div class="second-section-images">
+                <?php while ( have_rows('second_section_images', $post_id) ): the_row(); ?>
+                    <?php
+                    $image = get_sub_field('image'); // Assuming the subfield is called 'image'
+                    $image_url = isset($image['url']) ? $image['url'] : '';
+                    $image_alt = isset($image['alt']) ? $image['alt'] : 'Image';
+                    ?>
+                    <?php if ( $image_url ): ?>
+                        
+                        <div class="grid-item">
+                        <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+                        </div>
 
+                    <?php endif; ?>
+                <?php endwhile; ?>
+        </div>
+        <?php endif; ?>
+        <!-- Images Section -->
+    </div>
+</div>
+<!-- Second Section -->
+<?php endif; ?>
+<?php
+// Third Section Variables
+$third_section_heading = get_field('third_section_heading', $post_id);
+$third_section_title = get_field('third_section_title', $post_id);
+$third_section_description = get_field('third_section_description', $post_id);
+$third_section_images = get_field('third_section_images', $post_id);
+
+// Third Section Output
+if ( $third_section_heading || $third_section_description ) :
+?>
+<!-- Third Section -->
+<div class="what-they-need-wrap">
+    <div class="container">
+        <h3 id="third-heading"><?php echo esc_html( $third_section_heading ); ?></h3>
+        <div class="second-product-slider-text">
+            <div class="row">
+                <?php if ( $third_section_images ): ?>
+                <!-- Title -->
+                <div class="col-md-5">
+                    <h2 class="project-title"><?php echo esc_html( $third_section_title ); ?></h2>
+                    <!-- Button omitted -->
+                </div>
+                <!-- Title -->
+                <?php endif; ?>
+
+                <!-- Text -->
+                <div class="col-md-7 second-description-text">
+                    <div class="product-detail-text">
+                        <?php echo wp_kses_post( $third_section_description ); ?>
+                    </div>
+                </div>
+                <!-- Text -->
+            </div>
+        </div>
+        <!-- Images Section -->
+        <?php if ( have_rows('third_section_images', $post_id) ): ?>
+        <div class="third-section-images">
+            <?php while ( have_rows('third_section_images', $post_id) ): the_row(); ?>
+                <?php
+                $image = get_sub_field('image');
+                $image_url = isset($image['url']) ? $image['url'] : '';
+                $image_alt = isset($image['alt']) ? $image['alt'] : 'Image';
+                ?>
+                <?php if ( $image_url ): ?>
+                    <div class="grid-item">
+                    <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+                    </div>
+                <?php endif; ?>
+            <?php endwhile; ?>
+        </div>
+        <?php endif; ?>
+        <!-- Images Section -->
+    </div>
+</div>
+<!-- Third Section -->
+<?php endif; ?>
+
+<?php
+// Fourth Section Variables
+$fourth_section_heading = get_field('fourth_section_heading', $post_id);
+$fourth_section_title = get_field('fourth_section_title', $post_id);
+$fourth_section_description = get_field('fourth_section_description', $post_id);
+$fourth_section_images = get_field('fourth_section_images', $post_id);
+
+// Fourth Section Output
+if ( $fourth_section_heading || $fourth_section_description ) :
+?>
+<!-- Fourth Section -->
+<div class="what-they-need-wrap">
+    <div class="container">
+        <h3 id="fourth-heading"><?php echo esc_html( $fourth_section_heading ); ?></h3>
+        <div class="second-product-slider-text">
+            <div class="row">
+                <?php if ( $fourth_section_images ): ?>
+                <!-- Title -->
+                <div class="col-md-5">
+                    <h2 class="project-title"><?php echo esc_html( $fourth_section_title ); ?></h2>
+                    <!-- Button omitted -->
+                </div>
+                <!-- Title -->
+                <?php endif; ?>
+
+                <!-- Text -->
+                <div class="col-md-7 second-description-text">
+                    <div class="product-detail-text">
+                        <?php echo wp_kses_post( $fourth_section_description ); ?>
+                    </div>
+                </div>
+                <!-- Text -->
+            </div>
+        </div>
+        <!-- Images Section -->
+        <?php if ( have_rows('fourth_section_images', $post_id) ): ?>
+        <div class="fourth-section-images">
+            <?php while ( have_rows('fourth_section_images', $post_id) ): the_row(); ?>
+                <?php
+                $image = get_sub_field('image');
+                $image_url = isset($image['url']) ? $image['url'] : '';
+                $image_alt = isset($image['alt']) ? $image['alt'] : 'Image';
+                ?>
+                <?php if ( $image_url ): ?>
+                    <div class="grid-item">
+                    <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+                    </div>
+                <?php endif; ?>
+            <?php endwhile; ?>
+        </div>
+        <?php endif; ?>
+        <!-- Images Section -->
+    </div>
+</div>
+<!-- Fourth Section -->
+<?php endif; ?>
+
+<?php
+// Result Section Variables
+$result_heading = get_field('result_heading', $post_id);
+$result_title = get_field('result_title', $post_id);
+$result_description = get_field('result_description', $post_id);
+
+// Result Section Output
+if ($result_heading || $result_description) :
+?>
+<!-- Result Section -->
+<div class="result-section-wrap">
+    <div class="container">
+        <div>
+            <div class="row">
+                <!-- Title -->
+                <h3 class="result-heading"><?php echo esc_html( $result_heading ); ?></h3>
+                <div class="col-md-6">
+                    
+                    <h2 class="result-title"><?php echo esc_html( $result_title ); ?></h2>
+                    <!-- Button omitted -->
+                </div>
+                <!-- Title -->
+                <?php endif; ?>
+
+                <!-- Text -->
+                <div class="col-md-6 result-description">
+                    <div class="product-detail-text">
+                        <?php echo wp_kses_post( $result_description ); ?>
+                    </div>
+                </div>
+                <!-- Text -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Result Section -->
+ <!--content-->
+<section class="content-main-wrap"> 
+  <!--portfolio listing-->
+  <section class="portfolio-listing-wrap">
+    <div class="container">
+      <ul class="row projects_ul single_ul">
+        <?php 
+        $current_post_id = get_the_ID(); // Get the current post ID
+        $categories = wp_get_post_terms($current_post_id, 'project_category', array('fields' => 'ids')); // Get categories of current post
+        $args = array(
+          'posts_per_page' => 3, // Show 3 related projects
+          'orderby'        => 'rand', // Random order
+          'post_type'      => 'projects',
+          'post_status'    => 'publish',
+          'post__not_in'   => array($current_post_id), // Exclude current post
+          'tax_query'      => array( // Filter by category
+            array(
+              'taxonomy' => 'project_category',
+              'field'    => 'term_id',
+              'terms'    => $categories,
+            ),
+          ),
+        );
+        $query = new WP_Query($args);
+
+        if ($query->have_posts()) {
+          $counter = 1;
+          while ($query->have_posts()) {
+            $query->the_post();
+            $post_id = get_the_ID();
+            $terms = wp_get_post_terms($post_id, 'project_category');
+            $categories = array();
+
+            foreach ($terms as $term) {
+              $name = esc_html( $term->name );
+              $un_name = esc_attr( str_replace(' ', '_', $name) );
+              $categories[] = $un_name;
+            }
+
+            $categories_string = esc_attr( implode(' ', $categories) );
+            $thumbnail_url = esc_url( wp_get_attachment_url(get_post_thumbnail_id($post_id)) );
+            ?>
+            <li class="col-md-4" data-categories="<?php echo $categories_string; ?>">
+              <div class="listing-featured-wrap">
+              <a href="<?php echo esc_url( get_the_permalink() ); ?>">
+                <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
+                <div class="listing-featured-text">
+                 <h3><a href="<?php echo esc_url( get_the_permalink() ); ?>"><?php the_title(); ?></a></h3>
+                  <p>
+                    <?php
+                    $content = wp_strip_all_tags( get_the_content() );
+                    $excerpt = wp_trim_words($content, 24, '...');
+                    echo esc_html( $excerpt );
+                    ?>
+                  </p>
+                  <div class="tag-featured-wrap">
+                    <?php foreach ($terms as $term) : ?>
+                      <span><?php echo esc_html( $term->name ); ?></span>
+                    <?php endforeach; ?>
+                  </div>
+               </div>
+              </div>
+            </li>
+            <?php
+            $counter++;
+          }
+        } else {
+          echo '<h1 class="page-title screen-reader-text">' . esc_html__( 'No Posts Found', 'dreamway-media' ) . '</h1>';
+        }
+
+        wp_reset_postdata();
+        ?>
+      </ul>
+    </div>
+  </section>
+  <!--portfolio listing--> 
+</section>
+<!--content-->
     <?php
     $video_heading = get_field('video_heading', $post_id);
     $video_description = get_field('video_description', $post_id);
