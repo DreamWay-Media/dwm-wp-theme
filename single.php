@@ -42,7 +42,71 @@ get_header();
         <div>
           <div class="blog-detail-wraper">
             <?php the_content(); ?>
-             <div class="Share-this-post-wrap">
+
+            <!-- Related Posts Section -->
+            <section class="content-main-wrap">
+              <div class="blog-listing-wraper related-wrapper">
+                <div class="related-container">
+                  <h2>Related Posts</h3>
+                  <div class="row">
+                    <?php
+                    // Get categories of the current post
+                    $categories = wp_get_post_terms($post_id, 'category', array('fields' => 'ids'));
+
+                    if ($categories) {
+                      // Query for related posts in the same categories
+                      $related_args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 3, // Limit to 3 related posts
+                        'post__not_in' => array($post_id), // Exclude the current post
+                        'category__in' => $categories,
+                        'orderby' => 'date', // Order by date
+                        'order' => 'DESC' // Most recent first
+                      );
+
+                      $related_query = new WP_Query($related_args);
+
+                      if ($related_query->have_posts()) :
+                        while ($related_query->have_posts()) : $related_query->the_post();
+                          $related_post_id = get_the_ID();
+                          ?>
+                          <div class="col-md-4">
+                            <a href="<?php echo esc_url(get_the_permalink()); ?>">
+                              <div class="big-blog-list-wrap big-related-list-wrap">
+                                <div class="featured-blog-image" style="background: url(<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id($related_post_id))); ?>) no-repeat center / cover;"></div>
+                                <div class="featured-blog-text">
+                        <h3 class="featured-blog-title related-blog-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                        <p id="related-text">
+                          <?php
+                          $content = strip_tags(get_the_content());
+                          $words = explode(' ', $content);
+                          $excerpt = implode(' ', array_slice($words, 0, 15));
+                          if (count($words) > 15) {
+                              $excerpt .= '<br><a class="read-more-btn" href="' . esc_url(get_permalink()) . '">Read More.</a>';
+                          }
+                          echo $excerpt;
+                          ?>
+                        </p>
+                      </div>
+                              </div>
+                            </a>    
+                          </div>
+                          <?php
+                        endwhile;
+
+                        wp_reset_postdata();
+                      else :
+                        echo '<p>No related posts found.</p>';
+                      endif;
+                    }
+                    ?>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Share This Post -->
+            <div class="Share-this-post-wrap">
               <h5>Share this post</h5>
               <div id="shareButtons">
                 <a href="<?php echo esc_url(get_the_permalink()); ?>" id="twitterLink">
@@ -60,102 +124,34 @@ get_header();
                 </a>
                 <span class="copyMessage" id="linkedInMessage">Copied</span>
               </div>
-
-              <div class="leave-comment-wrap bg-light p-4 rounded shadow mt-5">
-                <?php if (comments_open() || get_comments_number()) : ?>
-                    <?php 
-                    // Customize the comment form using Bootstrap classes
-                    $comment_form_args = array(
-                        'fields' => array(
-                            'author' => '<div class="form-group mb-3"><label for="author" class="form-label">Name *</label> ' .
-                                        '<input id="author" name="author" type="text" class="form-control" value="" size="30" /></div>',
-                            'email'  => '<div class="form-group mb-3"><label for="email" class="form-label">Email *</label> ' .
-                                        '<input id="email" name="email" type="email" class="form-control" value="" size="30" /></div>',
-                            'url'    => '<div class="form-group mb-3"><label for="url" class="form-label">Website</label> ' .
-                                        '<input id="url" name="url" type="url" class="form-control" value="" size="30" /></div>',
-                        ),
-                        'comment_field' => '<div class="form-group mb-3"><label for="comment" class="form-label">Comment *</label> ' .
-                                          '<textarea id="comment" name="comment" class="form-control" rows="5" aria-required="true"></textarea></div>',
-                        'submit_button' => '<button type="submit" class="btn btn-primary">Post Comment</button>',
-                        'comment_notes_before' => '<p class="form-text text-muted mb-3">Your email address will not be published. Required fields are marked *</p>',
-                    );
-
-                    comment_form($comment_form_args);
-                    ?>
-                <?php endif; ?>
             </div>
 
+            <!-- Comment Section -->
+            <div class="leave-comment-wrap bg-light p-4 rounded shadow mt-3 mt-lg-5">
+              <?php if (comments_open() || get_comments_number()) : ?>
+                  <?php 
+                  $comment_form_args = array(
+                      'fields' => array(
+                          'author' => '<div class="form-group mb-3"><label for="author" class="form-label">Name *</label> ' .
+                                      '<input id="author" name="author" type="text" class="form-control" value="" size="30" /></div>',
+                          'email'  => '<div class="form-group mb-3"><label for="email" class="form-label">Email *</label> ' .
+                                      '<input id="email" name="email" type="email" class="form-control" value="" size="30" /></div>',
+                          'url'    => '<div class="form-group mb-3"><label for="url" class="form-label">Website</label> ' .
+                                      '<input id="url" name="url" type="url" class="form-control" value="" size="30" /></div>',
+                      ),
+                      'comment_field' => '<div class="form-group mb-3"><label for="comment" class="form-label">Comment *</label> ' .
+                                        '<textarea id="comment" name="comment" class="form-control" rows="5" aria-required="true"></textarea></div>',
+                      'submit_button' => '<button type="submit" class="btn btn-primary">Post Comment</button>',
+                      'comment_notes_before' => '<p class="form-text text-muted mb-3">Your email address will not be published. Required fields are marked *</p>',
+                  );
+
+                  comment_form($comment_form_args);
+                  ?>
+              <?php endif; ?>
             </div>
+
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Related Posts Section -->
-<section class="content-main-wrap">
-  <div class="blog-listing-wraper related-wrapper">
-    <div class="container related-container">
-      <h3>Related Posts</h3>
-      <div class="row">
-        <?php
-        // Get categories of the current post
-        $categories = wp_get_post_terms($post_id, 'category', array('fields' => 'ids'));
-
-        if ($categories) {
-          // Query for related posts in the same categories
-          $related_args = array(
-            'post_type' => 'post',
-            'posts_per_page' => 3, // Limit to 3 related posts
-            'post__not_in' => array($post_id), // Exclude the current post
-            'category__in' => $categories,
-            'orderby' => 'date', // Order by date
-            'order' => 'DESC' // Most recent first
-          );
-
-          $related_query = new WP_Query($related_args);
-
-          if ($related_query->have_posts()) :
-            while ($related_query->have_posts()) : $related_query->the_post();
-              $related_post_id = get_the_ID();
-              ?>
-              <div class="col-md-4">
-                <a href="<?php echo esc_url(get_the_permalink()); ?>">
-                  <div class="big-blog-list-wrap big-related-list-wrap">
-                    <div class="big-blog-list-image">
-                      <img src="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id($related_post_id))); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-                    </div>
-                    <div class="blog-tag-wrap">
-                      <span><?php echo esc_html(get_the_category($related_post_id)[0]->name); ?></span> 
-                      <strong><?php echo esc_html(get_the_date('d-m-Y')); ?></strong>
-                      <div class="clearfix"></div>
-                    </div>
-                    <h2><?php the_title(); ?></h2>
-                    <p>
-                      <?php
-                      $content = strip_tags(get_the_content());
-                      $words = explode(' ', $content);
-                      $excerpt = implode(' ', array_slice($words, 0, 20)); // Shorter excerpt for related posts
-
-                      if (count($words) > 20) {
-                        $excerpt .= '...';
-                      }
-
-                      echo esc_html($excerpt);
-                      ?>
-                    </p>
-                  </div>
-                </a>    
-              </div>
-              <?php
-            endwhile;
-            
-            wp_reset_postdata();
-          else :
-            echo '<p>No related posts found.</p>';
-          endif;
-        }
-        ?>
       </div>
     </div>
   </div>

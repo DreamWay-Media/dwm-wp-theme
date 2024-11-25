@@ -54,7 +54,7 @@
       <!--social icons-->
           
       <!--nav-->
-        <div class="fotoer-nav-wrap">
+        <div class="footer-nav-wrap">
           <ul>
 		  <?php 
 					$menuitems = wp_get_nav_menu_items( 3, array( 'order' => 'DESC' ) );
