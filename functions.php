@@ -154,6 +154,7 @@ function dreamway_media_scripts() {
 
     wp_enqueue_style( 'dreamway-media-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_enqueue_script( 'dreamway-media-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'logo-handler', get_template_directory_uri() . '/js/logo-handler.js', array(), '1.0', true );
     wp_script_add_data( 'dreamway-media-navigation', 'async', true );
     if ( is_page( 'contact' ) ) { // Replace 'contact' with your actual contact page slug or ID
         wp_enqueue_style( 'font-awesome-4.7', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
