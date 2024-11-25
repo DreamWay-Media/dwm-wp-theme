@@ -833,4 +833,7 @@
   .second-description-text {
     padding-left: calc(var(--bs-gutter-x)* .5); /* Further reduced padding */
   }
+  .logo-container .logo {
+    visibility: hidden !important;
+  }
 }

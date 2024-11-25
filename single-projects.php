@@ -55,11 +55,18 @@ get_header();
     <!-- Slider Image -->
     <div class="container">
         <div class="slider-image-wrap">
-            <img src="<?php echo esc_url( wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) ) ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+            <?php 
+            $slider_image = get_field('slider_image', $post_id); // Fetch the custom field value
+            if ( $slider_image ) : 
+            ?>
+                <img src="<?php echo esc_url( $slider_image['url'] ); ?>" alt="<?php echo esc_attr( $slider_image['alt'] ?: get_the_title() ); ?>">
+            <?php else : ?>
+                <!-- Fallback to post thumbnail if custom field is empty -->
+                <img src="<?php echo esc_url( wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) ) ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+            <?php endif; ?>
         </div>
     </div>
     <!-- Slider Image -->
-
     <?php
     $info_headings = get_field('info_headings', $post_id);
     $info_gallery = get_field('info_gallery', $post_id);
