@@ -160,6 +160,7 @@
   justify-content: center; /* Align items to the start */
   align-items: center; /* Align items at the top */
   gap: 10px;
+  flex: 1 1 calc(100% - 20px);
 }
 
 .second-section-images img, .third-section-images img, .fourth-section-images img {
@@ -170,6 +171,7 @@
 
 .grid-item {
   align-self: center;
+  text-align: center;
 }
 /* Removed empty ruleset */
 .product-detail-text h4 {
@@ -180,8 +182,10 @@
   font-weight: bold;
 }
 .product-detail-text {
-  padding-left: 40px;
   margin-top: 30px;
+}
+.product-detail-padding {
+  padding-left: 40px;
 }
 .product-detail-text p {
   color: #000;
