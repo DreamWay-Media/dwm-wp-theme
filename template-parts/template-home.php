@@ -252,6 +252,7 @@ get_header();
       </ul>
     </div>
     <!--logo-scroll--> 
+<div class="logo-scroll-container">
 <div class="logo-scroll">
     <div class="logos-slide">
         <?php
@@ -276,6 +277,7 @@ get_header();
         wp_reset_postdata();
         ?>
     </div>
+</div>
 </div> <!--logo-scroll--> 
   </div>
   <!--numbers--> 

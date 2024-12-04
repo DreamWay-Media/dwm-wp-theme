@@ -318,6 +318,11 @@ $gap: 2px;
   --scroll-speed: #{$scroll-speed}; /* Set scroll speed as a CSS variable */
   --gap: #{$gap}; /* Set gap as a CSS variable */
 }
+.logo-scroll-container {
+  width: 90%;
+  margin: 0 auto; 
+  overflow: hidden; 
+}
 
 .logo-scroll {
   position: relative;
@@ -368,5 +373,8 @@ $gap: 2px;
 
   .logo-scroll .logo-item {
     max-width: 150px;
+  }
+  .logo-scroll-container {
+    width: 95%;
   }
 }
