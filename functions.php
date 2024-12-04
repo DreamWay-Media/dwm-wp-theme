@@ -336,3 +336,26 @@ function create_services_post_type() {
     register_post_type('services', $args);
 }
 add_action('init', 'create_services_post_type');
+//scroll-logos
+function enqueue_logo_scroll_assets() {
+    // Enqueue JavaScript file
+    wp_enqueue_script('logo-scroll-js', get_template_directory_uri() . '/assets/js/scroll-logos.js', array(), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_logo_scroll_assets');
+// Register Custom Post Type for Partner Logos
+function register_partner_logos_post_type() {
+    register_post_type('partner_logo', array(
+        'labels' => array(
+            'name' => 'Partner Logos',
+            'singular_name' => 'Partner Logo',
+            'add_new' => 'Add New Logo',
+            'add_new_item' => 'Add New Partner Logo',
+            'edit_item' => 'Edit Partner Logo',
+        ),
+        'public' => true,
+        'supports' => array('title', 'thumbnail'),
+        'menu_icon' => 'dashicons-images-alt2',
+        'menu_position' => 20,
+    ));
+}
+add_action('init', 'register_partner_logos_post_type');

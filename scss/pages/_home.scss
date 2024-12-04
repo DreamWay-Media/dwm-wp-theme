@@ -310,3 +310,63 @@
   overflow: hidden;
   position: relative; /* For precise control over scroll button positioning */
 }
+/* scroll-logos*/
+$scroll-speed: 50s;
+$gap: 2px;
+
+:root {
+  --scroll-speed: #{$scroll-speed}; /* Set scroll speed as a CSS variable */
+  --gap: #{$gap}; /* Set gap as a CSS variable */
+}
+
+.logo-scroll {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+
+  .logos-slide {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: var(--gap);
+    min-width: 100%;
+    will-change: transform;
+    animation: scroll var(--scroll-speed) linear infinite;
+
+    .logo-item {
+      flex: 0 0 auto;
+      max-width: 200px;
+      aspect-ratio: 3/2;
+      padding: 0.5rem;
+      filter: grayscale(100%) brightness(95%);
+      transition: all 0.3s ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --scroll-speed: 30s; /* Update scroll speed for small screens */
+  }
+
+  .logo-scroll .logo-item {
+    max-width: 150px;
+  }
+}
