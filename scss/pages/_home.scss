@@ -311,7 +311,7 @@
   position: relative; /* For precise control over scroll button positioning */
 }
 /* scroll-logos*/
-$scroll-speed: 50s;
+$scroll-speed: 60s;
 $gap: 2px;
 
 :root {
@@ -363,7 +363,7 @@ $gap: 2px;
 
 @media (max-width: 768px) {
   :root {
-    --scroll-speed: 30s; /* Update scroll speed for small screens */
+    --scroll-speed: 40s; /* Update scroll speed for small screens */
   }
 
   .logo-scroll .logo-item {
