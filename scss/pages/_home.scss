@@ -1,3 +1,52 @@
+.achievements-main-wrap {
+  background: url(assets/images/why_choose_dmw_bg.svg) no-repeat top;
+  padding: 100px 0;
+  background-size: cover;
+  overflow: hidden; 
+  position: relative; 
+}
+.achievements-main-wrap h3 {
+  font-weight: bold;
+  font-size: 35px;
+  color: #ffffff;
+}
+.achievements-main-wrap h3 span {
+  color: #c8f031;
+}
+.achievement-icon img {
+  transition: transform 0.3s ease;
+  max-height: 80px;
+}
+.achievement-icon img:hover {
+  transform: scale(1.1);
+}
+.achievement-text p {
+  font-weight: bold;
+  font-size: 14px;
+}
+.shopify-title h3 {
+  font-size: 25px; /* Smaller size for Shopify title */
+  font-weight: normal; /* Default weight */
+}
+.shopify-title h3 span {
+  color: #fff;
+}
+.shopify-logo {
+  max-width: 300px;
+}
+.row.justify-content-center.mb-5.g-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -1rem -1rem; /* Reduce the horizontal and vertical spacing, add margin on left/right */
+}
+
+.row.justify-content-center.mb-5.g-1 > .col-md-3 {
+  flex: 0 0 auto;
+  width: 15%; /* Reduce the column width to fit more in a row */
+  padding: 0.5rem;
+  margin: 0 1rem; /* Add margin on left and right of each column */
+}
 .site-number-main-wrap {
   background: url(assets/images/bg-agency.svg) no-repeat top;
   padding: 100px 0;
@@ -190,11 +239,11 @@
   font-weight: bold;
   text-transform: uppercase;
 }
-.visit-portfolio-btn {
+.reach-us-btn, .visit-portfolio-btn {
   margin-top: 25px;
-  text-align: center; /* Added text-align: center */
+  text-align: center; 
 }
-.visit-portfolio-btn a {
+.reach-us-btn a, .visit-portfolio-btn a {
   background: #c8f031;
   padding: 16px 35px;
   color: #000000;
@@ -202,8 +251,11 @@
   font-size: 12px;
   font-weight: bold;
   border-radius: 6px;
+  box-sizing: border-box; 
+  border: 2px solid transparent; 
+  padding: 14px 33px; 
 }
-.visit-portfolio-btn a:hover {
+.reach-us-btn a:hover, .visit-portfolio-btn a:hover {
   background: #000;
   color: #fff;
   border: 2px solid #fff;
