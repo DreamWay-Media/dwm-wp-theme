@@ -90,8 +90,8 @@ get_header();
 
 
                     <!-- Text -->
-                    <div class="col-md-7">
-                        <div class="product-detail-text">
+                    <div class="<?php echo $first_section_title ? 'col-md-7' : 'col-md-12'; ?>">
+                        <div class="<?php echo $first_section_title ? 'product-detail-padding' : ''; ?> product-detail-text">
                             <?php echo wp_kses_post( $info_complete_left_texts ); ?>
                         </div>
                     </div>
@@ -131,8 +131,8 @@ get_header();
 
 
                     <!-- Text -->
-                    <div class="col-md-7 second-description-text">
-                        <div class="product-detail-text">
+                    <div class="<?php echo $first_section_title ? 'col-md-7 second-description-text' : 'col-md-12'; ?>">
+                        <div class="<?php echo $first_section_title ? 'product-detail-padding' : ''; ?> product-detail-text">
                             <?php echo wp_kses_post( $second_section_description ); ?>
                         </div>
                     </div>
@@ -189,8 +189,8 @@ if ( $third_section_heading || $third_section_description ) :
                 <?php endif; ?>
 
                 <!-- Text -->
-                <div class="col-md-7 second-description-text">
-                    <div class="product-detail-text">
+                <div class="<?php echo $first_section_title ? 'col-md-7 second-description-text' : 'col-md-12'; ?>">
+                    <div class="<?php echo $first_section_title ? 'product-detail-padding' : ''; ?> product-detail-text">
                         <?php echo wp_kses_post( $third_section_description ); ?>
                     </div>
                 </div>
@@ -246,8 +246,8 @@ if ( $fourth_section_heading || $fourth_section_description ) :
                 <?php endif; ?>
 
                 <!-- Text -->
-                <div class="col-md-7 second-description-text">
-                    <div class="product-detail-text">
+                <div class="<?php echo $first_section_title ? 'col-md-7 second-description-text' : 'col-md-12'; ?>">
+                    <div class="<?php echo $first_section_title ? 'product-detail-padding' : ''; ?> product-detail-text">
                         <?php echo wp_kses_post( $fourth_section_description ); ?>
                     </div>
                 </div>
@@ -303,7 +303,7 @@ if ($result_heading || $result_description) :
 
                 <!-- Text -->
                 <div class="col-md-6 result-description">
-                    <div class="product-detail-text">
+                    <div class="<?php echo $first_section_title ? 'product-detail-padding' : ''; ?> product-detail-text">
                         <?php echo wp_kses_post( $result_description ); ?>
                     </div>
                 </div>
@@ -312,86 +312,8 @@ if ($result_heading || $result_description) :
         </div>
     </div>
 </div>
-<!-- Result Section -->
- <!--content-->
-<section class="content-main-wrap"> 
-  <!--portfolio listing-->
-  <section class="portfolio-listing-wrap">
-    <div class="container">
-      <ul class="row projects_ul single_ul">
-        <?php 
-        $current_post_id = get_the_ID(); // Get the current post ID
-        $categories = wp_get_post_terms($current_post_id, 'project_category', array('fields' => 'ids')); // Get categories of current post
-        $args = array(
-          'posts_per_page' => 3, // Show 3 related projects
-          'orderby'        => 'rand', // Random order
-          'post_type'      => 'projects',
-          'post_status'    => 'publish',
-          'post__not_in'   => array($current_post_id), // Exclude current post
-          'tax_query'      => array( // Filter by category
-            array(
-              'taxonomy' => 'project_category',
-              'field'    => 'term_id',
-              'terms'    => $categories,
-            ),
-          ),
-        );
-        $query = new WP_Query($args);
-
-        if ($query->have_posts()) {
-          $counter = 1;
-          while ($query->have_posts()) {
-            $query->the_post();
-            $post_id = get_the_ID();
-            $terms = wp_get_post_terms($post_id, 'project_category');
-            $categories = array();
-
-            foreach ($terms as $term) {
-              $name = esc_html( $term->name );
-              $un_name = esc_attr( str_replace(' ', '_', $name) );
-              $categories[] = $un_name;
-            }
-
-            $categories_string = esc_attr( implode(' ', $categories) );
-            $thumbnail_url = esc_url( wp_get_attachment_url(get_post_thumbnail_id($post_id)) );
-            ?>
-            <li class="col-md-4" data-categories="<?php echo $categories_string; ?>">
-              <div class="listing-featured-wrap">
-              <a href="<?php echo esc_url( get_the_permalink() ); ?>">
-                <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
-                <div class="listing-featured-text">
-                 <h3><a href="<?php echo esc_url( get_the_permalink() ); ?>"><?php the_title(); ?></a></h3>
-                  <p>
-                    <?php
-                    $content = wp_strip_all_tags( get_the_content() );
-                    $excerpt = wp_trim_words($content, 24, '...');
-                    echo esc_html( $excerpt );
-                    ?>
-                  </p>
-                  <div class="tag-featured-wrap">
-                    <?php foreach ($terms as $term) : ?>
-                      <span><?php echo esc_html( $term->name ); ?></span>
-                    <?php endforeach; ?>
-                  </div>
-               </div>
-              </div>
-            </li>
-            <?php
-            $counter++;
-          }
-        } else {
-          echo '<h1 class="page-title screen-reader-text">' . esc_html__( 'No Posts Found', 'dreamway-media' ) . '</h1>';
-        }
-
-        wp_reset_postdata();
-        ?>
-      </ul>
-    </div>
-  </section>
-  <!--portfolio listing--> 
-</section>
 <!--content-->
-    <?php
+<?php
     $video_heading = get_field('video_heading', $post_id);
     $video_description = get_field('video_description', $post_id);
     $intro_video_heading = get_field('intro_video_heading', $post_id);
@@ -465,5 +387,84 @@ if ($result_heading || $result_description) :
 <!-- Content -->
 
 <?php endwhile; // End of the loop. ?>
+<!-- Result Section -->
+ <!--content-->
+<section class="content-main-wrap"> 
+  <!--portfolio listing-->
+  <section class="portfolio-listing-wrap">
+    <div class="container">
+      <ul class="row projects_ul single_ul">
+        <?php 
+        $current_post_id = get_the_ID(); // Get the current post ID
+        $categories = wp_get_post_terms($current_post_id, 'project_category', array('fields' => 'ids')); // Get categories of current post
+        $args = array(
+          'posts_per_page' => 3, // Show 3 related projects
+          'orderby'        => 'rand', // Random order
+          'post_type'      => 'projects',
+          'post_status'    => 'publish',
+          'post__not_in'   => array($current_post_id), // Exclude current post
+          'tax_query'      => array( // Filter by category
+            array(
+              'taxonomy' => 'project_category',
+              'field'    => 'term_id',
+              'terms'    => $categories,
+            ),
+          ),
+        );
+        $query = new WP_Query($args);
+
+        if ($query->have_posts()) {
+          $counter = 1;
+          while ($query->have_posts()) {
+            $query->the_post();
+            $post_id = get_the_ID();
+            $terms = wp_get_post_terms($post_id, 'project_category');
+            $categories = array();
+
+            foreach ($terms as $term) {
+              $name = esc_html( $term->name );
+              $un_name = esc_attr( str_replace(' ', '_', $name) );
+              $categories[] = $un_name;
+            }
+
+            $categories_string = esc_attr( implode(' ', $categories) );
+            $thumbnail_url = esc_url( wp_get_attachment_url(get_post_thumbnail_id($post_id)) );
+            ?>
+            <li class="col-md-4" data-categories="<?php echo $categories_string; ?>">
+              <div class="listing-featured-wrap">
+              <a href="<?php echo esc_url( get_the_permalink() ); ?>">
+                <div class="listing-featured-wrap-image" style="background: url(<?php echo $thumbnail_url; ?>) no-repeat top;"></div></a>
+                <div class="listing-featured-text">
+                 <h3><a href="<?php echo esc_url( get_the_permalink() ); ?>"><?php the_title(); ?></a></h3>
+                  <p class="single-paragraph">
+                    <?php
+                    $content = wp_strip_all_tags( get_the_content() );
+                    $excerpt = wp_trim_words($content, 24, '...');
+                    echo esc_html( $excerpt );
+                    ?>
+                  </p>
+                  <div class="tag-featured-wrap">
+                    <?php foreach ($terms as $term) : ?>
+                      <span><?php echo esc_html( $term->name ); ?></span>
+                    <?php endforeach; ?>
+                  </div>
+               </div>
+              </div>
+            </li>
+            <?php
+            $counter++;
+          }
+        } else {
+          echo '<h1 class="page-title screen-reader-text">' . esc_html__( 'No Posts Found', 'dreamway-media' ) . '</h1>';
+        }
+
+        wp_reset_postdata();
+        ?>
+      </ul>
+    </div>
+  </section>
+  <!--portfolio listing--> 
+</section>
+
 
 <?php get_footer(); ?>
