@@ -10,6 +10,7 @@
 get_header();
 ?>
 <!-- Header Slider -->
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <section class="header-slider-wrap inner-header-slider-wrap">
   <?php while ( have_posts() ) : the_post(); ?>
   <?php $post_id = get_the_ID(); ?>
@@ -82,7 +83,7 @@ get_header();
                           $words = explode(' ', $content);
                           $excerpt = implode(' ', array_slice($words, 0, 15));
                           if (count($words) > 15) {
-                              $excerpt .= '<br><a class="read-more-btn" href="' . esc_url(get_permalink()) . '">Read More.</a>';
+                              $excerpt .= '<br><a class="read-more-btn" href="' . esc_url(get_permalink()) . '">Read More <i class=\'fa fa-angle-right\'></i></a>';
                           }
                           echo $excerpt;
                           ?>

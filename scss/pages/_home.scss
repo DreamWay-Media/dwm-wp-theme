@@ -136,31 +136,6 @@
   color: black;
   font-size: 30px;
 }
-.read-more-btn {
-  color: black;
-  font-weight: bold;
-}
-.read-more-btn:hover{
-  color: #c8f031;
-}
-.read-more-btn-hp {
-  display: inline-block;
-  padding: 5px 10px;
-  font-weight: bold;
-  font-size: 10px;
-  color: #101010;
-  border-radius: 6px;
-  border: 1px solid #101010;
-  text-align: center;
-  text-transform: uppercase;
-  margin-top: 5px;
-
-  &:hover {
-    background: #101010 !important;
-    color: #fff !important;
-  }
-}
-
 .see-more-btn {
   margin-top: 40px;
   text-align: center;
