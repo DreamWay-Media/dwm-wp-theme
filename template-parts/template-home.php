@@ -253,7 +253,7 @@ get_header();
     </div>
     <!--logo-scroll--> 
 <div class="logo-scroll-container">
-<div class="logo-scroll">
+  <div class="logo-scroll">
     <div class="logos-slide">
         <?php
         $logos = new WP_Query(array(
@@ -262,8 +262,7 @@ get_header();
             'orderby' => 'menu_order',
             'order' => 'ASC'
         ));
-
-        if ($logos->have_posts()) :
+          if ($logos->have_posts()) :
             while ($logos->have_posts()) : $logos->the_post();
                 if (has_post_thumbnail()) :
                     ?>
@@ -278,7 +277,8 @@ get_header();
         ?>
     </div>
 </div>
-</div> <!--logo-scroll--> 
+</div> 
+<!-- logo-scroll-->
   </div>
   <!--numbers--> 
 

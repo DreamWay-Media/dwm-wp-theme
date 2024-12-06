@@ -312,16 +312,22 @@
 }
 /* scroll-logos*/
 $scroll-speed: 60s;
-$gap: 2px;
+$gap: 3px;
 
 :root {
-  --scroll-speed: #{$scroll-speed}; /* Set scroll speed as a CSS variable */
-  --gap: #{$gap}; /* Set gap as a CSS variable */
+  --scroll-speed: #{$scroll-speed};
+  --gap: #{$gap}; 
 }
 .logo-scroll-container {
-  width: 90%;
   margin: 0 auto; 
   overflow: hidden; 
+  max-width: 1320px;
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    max-width: 1140px;
+  }
+  @media(min-width: 992px) and (max-width: 1200px) {
+    max-width: 960px;
+  }
 }
 
 .logo-scroll {
@@ -368,7 +374,7 @@ $gap: 2px;
 
 @media (max-width: 768px) {
   :root {
-    --scroll-speed: 40s; /* Update scroll speed for small screens */
+    --scroll-speed: 60s; 
   }
 
   .logo-scroll .logo-item {
