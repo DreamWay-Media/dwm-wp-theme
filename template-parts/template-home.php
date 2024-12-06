@@ -442,7 +442,7 @@ if( function_exists('get_field') ):
                           $words = explode(' ', $content);
                           $excerpt = implode(' ', array_slice($words, 0, 15));
                           if (count($words) > 15) {
-                              $excerpt .= '<br><a class="read-more-btn" href="' . esc_url(get_permalink()) . '">Read More.</a>';
+                              $excerpt .= '<br><a class="read-more-btn" href="' . esc_url(get_permalink()) . '">Read More <i class=\'fa fa-angle-right\'></i></a>';
                           }
                           echo $excerpt;
                           ?>
