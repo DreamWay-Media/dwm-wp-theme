@@ -355,3 +355,77 @@
   overflow: hidden;
   position: relative; /* For precise control over scroll button positioning */
 }
+/* horizontal scroll-logos*/
+$scroll-speed: 60s;
+$gap: 3px;
+
+:root {
+  --scroll-speed: #{$scroll-speed};
+  --gap: #{$gap}; 
+}
+.logo-scroll-container {
+  margin: 0 auto; 
+  overflow: hidden; 
+  max-width: 1320px;
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    max-width: 1140px;
+  }
+  @media(min-width: 992px) and (max-width: 1200px) {
+    max-width: 960px;
+  }
+}
+
+.logo-scroll {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+
+  .logos-slide {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: var(--gap);
+    min-width: 100%;
+    will-change: transform;
+    animation: scroll var(--scroll-speed) linear infinite;
+
+    .logo-item {
+      flex: 0 0 auto;
+      max-width: 200px;
+      aspect-ratio: 3/2;
+      padding: 0.5rem;
+      filter: grayscale(100%) brightness(95%);
+      transition: all 0.3s ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --scroll-speed: 60s; 
+  }
+
+  .logo-scroll .logo-item {
+    max-width: 150px;
+  }
+  .logo-scroll-container {
+    width: 95%;
+  }
+}

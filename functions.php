@@ -336,3 +336,66 @@ function create_services_post_type() {
     register_post_type('services', $args);
 }
 add_action('init', 'create_services_post_type');
+//scroll-logos
+function enqueue_logo_scroll_assets() {
+    // Enqueue JavaScript file
+    wp_enqueue_script('logo-scroll-js', get_template_directory_uri() . '/assets/js/logosHorizontalScroll.js', array(), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_logo_scroll_assets');
+// Register Custom Post Type for Partner Logos
+function register_partner_logos_post_type() {
+    // Register the custom post type
+    $args = array(
+        'labels' => array(
+            'name' => 'Partner Logos',
+            'singular_name' => 'Partner Logo',
+            'add_new' => 'Add New Logo',
+            'add_new_item' => 'Add New Partner Logo',
+            'edit_item' => 'Edit Partner Logo',
+            'new_item' => 'New Partner Logo',
+            'view_item' => 'View Partner Logo',
+            'search_items' => 'Search Partner Logos',
+            'not_found' => 'No Partner Logos found',
+            'not_found_in_trash' => 'No Partner Logos found in Trash',
+            'all_items' => 'All Partner Logos',
+            'menu_name' => 'Partner Logos',
+            'name_admin_bar' => 'Partner Logo',
+            'archives' => 'Partner Logo Archives',
+            'parent_item_colon' => '',
+        ),
+        'description' => 'Custom post type for partner logos.',
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_admin_bar' => true,
+        'menu_icon' => 'dashicons-images-alt2',
+        'menu_position' => 20,
+        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'excerpt'), 
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'partner-logos'),
+        'show_in_rest' => true, // Enable for Gutenberg editor if needed
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+    );
+    register_post_type('partner_logo', $args);
+}
+add_action('init', 'register_partner_logos_post_type');
+
+
+function add_partner_logo_columns($columns) {
+    return array_merge($columns, array(
+        'partner_logo_thumbnail' => 'Logo'
+    ));
+}
+add_filter('manage_partner_logo_posts_columns', 'add_partner_logo_columns');
+
+
+function custom_partner_logo_column_data($column, $post_id) {
+    if ($column == 'partner_logo_thumbnail') {
+        $thumbnail = get_the_post_thumbnail($post_id, array(50, 50));
+        echo $thumbnail ? $thumbnail : 'No image';
+    }
+}
+add_action('manage_partner_logo_posts_custom_column', 'custom_partner_logo_column_data', 10, 2);
