@@ -349,7 +349,7 @@ if( function_exists('get_field') ):
   <ul class="row">
     <?php 
     $args = array(
-      'posts_per_page' => 6,
+      'posts_per_page' => 3,
       'order'          => 'DESC',
       'post_type'      => 'projects',
       'post_status'    => 'publish'
