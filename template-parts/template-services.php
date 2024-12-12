@@ -7,11 +7,9 @@ get_header();
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <!--header slider-->
 <section class="header-slider-wrap inner-header-slider-wrap inner-service-wrap"> 
-  
   <?php 
   $our_service_banner_description = get_field('our_service_banner_description');
   ?>
-
   <!--slider-->
   <section class="service-slider-wrap">
     <div class="container">
@@ -20,13 +18,11 @@ get_header();
     </div>
   </section>
   <!--slider--> 
-  
 </section>
 <!--header slider--> 
 
 <!--content-->
 <section class="content-main-wrap"> 
-  
   <!--services-->
   <section class="services-listing-wraper">
     <div class="container">
@@ -57,9 +53,11 @@ get_header();
             $service_heading = get_sub_field('service_heading');
             $service_description = get_sub_field('service_description');
             $service_image = get_sub_field('service_image');
+            $service_id = preg_replace("/[^a-zA-Z]+/", "", $service_heading); // Generate sanitized ID
           ?>
             <li class="accordion-item">
-              <div class="service-list-wrap" id="<?php echo esc_attr( preg_replace("/[^a-zA-Z]+/", "", $service_heading) ); ?>">
+              <!-- Assign unique ID to the accordion section -->
+              <div class="service-list-wrap" id="<?php echo esc_attr($service_id); ?>">
 
                 <!-- Desktop Layout -->
                 <div class="d-none d-md-block">
@@ -80,40 +78,14 @@ get_header();
                           <?php echo esc_html( $service_description ); ?>
                         </p>
                       </div>
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseService<?php echo $counter; ?>" aria-expanded="false" aria-controls="collapseService<?php echo $counter; ?>">
-                        </button>
-                    </div>
-                  </div>
-                </div>
-
-                      <!-- Mobile Layout -->
-                      <div class="d-block d-md-none">
-                  <!-- Title and Button Row -->
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center flex-grow-1">
-                      <div class="listing-service-wrap">
-                        <?php
-                          // Display icon from `service_icons` array
-                          $icon_index = $counter - 1;  // Adjust for 0-based indexing
-                          echo '<i class="' . esc_attr($service_icons[$icon_index]) . ' ico highlight"></i>';
-                        ?>
-                      </div>
-                      <h3 class="service-heading mb-0 ms-3 me-3"><?php echo esc_html( $service_heading ); ?></h3>
-                      <button class="accordion-button collapsed mb-5 ms-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseService<?php echo $counter; ?>" aria-expanded="false" aria-controls="collapseService<?php echo $counter; ?>" style="width: 40px; min-width: 40px;">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseService<?php echo $counter; ?>" aria-expanded="false" aria-controls="collapseService<?php echo $counter; ?>">
                       </button>
                     </div>
-                 
-                  </div>
-                  <!-- Description Row -->
-                  <div class="mt-3">
-                    <p class="mb-0" style="font-size: 1rem; color: grey;">
-                      <?php echo esc_html( $service_description ); ?>
-                    </p>
                   </div>
                 </div>
 
-                <!-- Accordion Content (shared between layouts) -->
-                <div id="collapseService<?php echo $counter; ?>" class="accordion-collapse collapse mt-3" aria-labelledby="heading<?php echo $counter; ?>" data-bs-parent="#accordionMain">
+                <!-- Accordion Content -->
+                <div id="collapseService<?php echo $counter; ?>" class="accordion-collapse collapse mt-3" aria-labelledby="<?php echo esc_attr($service_id); ?>" data-bs-parent="#accordionMain">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="service-inner-image">
@@ -157,12 +129,39 @@ get_header();
     </div>
   </section>
   <!--services--> 
-  
 </section>
 <!--content-->
 
-<?php
-get_footer();?>
+<!-- JavaScript to Handle URL Hash Targeting -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Function to handle hash navigation
+        function handleHashNavigation() {
+            const hash = window.location.hash; // Get the current hash
+            if (hash) {
+                const targetAccordion = document.querySelector(hash); // Find the element with the matching ID
+                if (targetAccordion) {
+                    // Expand the accordion
+                    const collapseElement = targetAccordion.querySelector('.accordion-collapse');
+                    if (collapseElement) {
+                        collapseElement.classList.add('show'); // Add 'show' class to expand the section
+                        collapseElement.setAttribute('aria-expanded', 'true');
+                    }
+
+                    // Scroll to the accordion
+                    targetAccordion.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        // Initial hash handling when the page loads
+        handleHashNavigation();
+
+        // Add an event listener for hash changes (e.g., clicking a link on the same page)
+        window.addEventListener("hashchange", handleHashNavigation);
+    });
+</script>
+<?php get_footer(); ?>
 
 <style>
     .listing-service-wrap .ico {
@@ -174,3 +173,5 @@ get_footer();?>
         font-weight: bold;
     }
 </style>
+
+
