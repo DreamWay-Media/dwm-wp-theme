@@ -78,14 +78,14 @@ get_header();
                           <?php echo esc_html( $service_description ); ?>
                         </p>
                       </div>
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseService<?php echo $counter; ?>" aria-expanded="false" aria-controls="collapseService<?php echo $counter; ?>">
+                      <button class="accordion-button <?php echo ($counter === 1) ? '' : 'collapsed'; ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseService<?php echo $counter; ?>" aria-expanded="<?php echo ($counter === 1) ? 'true' : 'false'; ?>" aria-controls="collapseService<?php echo $counter; ?>">
                       </button>
                     </div>
                   </div>
                 </div>
 
                 <!-- Accordion Content -->
-                <div id="collapseService<?php echo $counter; ?>" class="accordion-collapse collapse mt-3" aria-labelledby="<?php echo esc_attr($service_id); ?>" data-bs-parent="#accordionMain">
+                <div id="collapseService<?php echo $counter; ?>" class="accordion-collapse collapse <?php echo ($counter === 1) ? 'show' : ''; ?> mt-3" aria-labelledby="<?php echo esc_attr($service_id); ?>" data-bs-parent="#accordionMain">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="service-inner-image">
@@ -141,7 +141,14 @@ get_header();
             if (hash) {
                 const targetAccordion = document.querySelector(hash); // Find the element with the matching ID
                 if (targetAccordion) {
-                    // Expand the accordion
+                    // Close any currently open sections
+                    const openAccordions = document.querySelectorAll('#accordionMain .accordion-collapse.show');
+                    openAccordions.forEach(function (openAccordion) {
+                        openAccordion.classList.remove('show'); // Remove the 'show' class
+                        openAccordion.setAttribute('aria-expanded', 'false');
+                    });
+
+                    // Expand the targeted accordion
                     const collapseElement = targetAccordion.querySelector('.accordion-collapse');
                     if (collapseElement) {
                         collapseElement.classList.add('show'); // Add 'show' class to expand the section
