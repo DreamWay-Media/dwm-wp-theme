@@ -319,6 +319,34 @@ if( function_exists('get_field') ):
         endif; ?>
       </ul>
     </div>
+        <!--logo-scroll--> 
+<div class="logo-scroll-container">
+  <div class="logo-scroll">
+    <div class="logos-slide">
+        <?php
+        $logos = new WP_Query(array(
+            'post_type' => 'partner_logo',
+            'posts_per_page' => -1,
+            'orderby' => 'menu_order',
+            'order' => 'ASC'
+        ));
+          if ($logos->have_posts()) :
+            while ($logos->have_posts()) : $logos->the_post();
+                if (has_post_thumbnail()) :
+                    ?>
+                    <div class="logo-item">
+                        <?php the_post_thumbnail('full', array('alt' => get_the_title())); ?>
+                    </div>
+                    <?php
+                endif;
+            endwhile;
+        endif;
+        wp_reset_postdata();
+        ?>
+    </div>
+</div>
+</div> 
+<!-- logo-scroll-->
   </div>
   <!--numbers--> 
 
