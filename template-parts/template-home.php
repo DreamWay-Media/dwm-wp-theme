@@ -294,61 +294,6 @@ if( function_exists('get_field') ):
     </div>
 </section>
 <?php endif; ?>
-
- <!-- case study-->
-<div class="case-study-wrap">
-<div class="container home-container"> 
-<?php
-$title = get_field('cs_title');
-$paragraph = get_field('cs_paragraph');
-$paragraph1 = get_field('cs_paragraph1');
-$image = get_field('cs_image');
-$button_text = get_field('cs_buttontext');
-$button_link = get_field('cs_buttonlink');
-?>
-<div class="row align-items-center">
-    <!-- Left Column: Title, Paragraph, and Button -->
-    <div class="col-md-6 d-flex flex-column align-items-center text-center">
-        <!-- Section Heading -->
-        <?php if( $title ): ?>
-            <h2 class="highlighted-heading" data-aos="fade-up">
-                <?php echo esc_html($title); ?>
-            </h2>
-        <?php endif; ?>
-
-        <!-- Paragraph Section -->
-        <?php if( $paragraph ): ?>
-            <p data-aos="fade-up">
-                <?php echo esc_html($paragraph); ?>
-            </p>
-        <?php endif; ?>
-        <?php if( $paragraph1 ): ?>
-            <p data-aos="fade-up">
-                <?php echo esc_html($paragraph1); ?>
-            </p>
-        <?php endif; ?>
-
-        <!-- Button Section -->
-        <?php if( $button_text && $button_link ): ?>
-            <div class="see-more-btn" data-aos="fade-up">
-                <a href="<?php echo esc_url($button_link); ?>">
-                    <?php echo esc_html($button_text); ?>
-                </a>
-            </div>
-        <?php endif; ?>
-    </div>
- <!-- Right Column: Image -->
-    <div class="col-md-6 text-center">
-        <?php if( $image ): ?>
-            <img src="<?php echo esc_url($image['url']); ?>" 
-                 alt="<?php echo esc_attr($image['alt']); ?>" 
-                 class="img-case-study" data-aos="fade-up">
-        <?php endif; ?>
-    </div>
- </div>
-</div>
-</div>
- <!-- case study-->
 <!--content-->
 <section class="content-main-wrap"> 
   <?php $info_heading = get_field('info_heading'); ?>
@@ -404,6 +349,60 @@ $button_link = get_field('cs_buttonlink');
 <!-- logo-scroll-->
   </div>
   <!--numbers--> 
+   <!-- case study-->
+<div class="case-study-wrap">
+<div class="container home-container"> 
+<?php
+$title = get_field('cs_title');
+$paragraph = get_field('cs_paragraph');
+$paragraph1 = get_field('cs_paragraph1');
+$image = get_field('cs_image');
+$button_text = get_field('cs_buttontext');
+$button_link = get_field('cs_buttonlink');
+?>
+<div class="row align-items-center">
+    <!-- Left Column: Title, Paragraph, and Button -->
+    <div class="col-md-6 d-flex flex-column align-items-center text-center">
+        <!-- Section Heading -->
+        <?php if( $title ): ?>
+            <h2 class="highlighted-heading" data-aos="fade-up">
+                <?php echo esc_html($title); ?>
+            </h2>
+        <?php endif; ?>
+
+        <!-- Paragraph Section -->
+        <?php if( $paragraph ): ?>
+            <p data-aos="fade-up">
+                <?php echo esc_html($paragraph); ?>
+            </p>
+        <?php endif; ?>
+        <?php if( $paragraph1 ): ?>
+            <p data-aos="fade-up">
+                <?php echo esc_html($paragraph1); ?>
+            </p>
+        <?php endif; ?>
+
+        <!-- Button Section -->
+        <?php if( $button_text && $button_link ): ?>
+            <div class="see-more-btn" data-aos="fade-up">
+                <a href="<?php echo esc_url($button_link); ?>">
+                    <?php echo esc_html($button_text); ?>
+                </a>
+            </div>
+        <?php endif; ?>
+    </div>
+ <!-- Right Column: Image -->
+    <div class="col-md-6 text-center">
+        <?php if( $image ): ?>
+            <img src="<?php echo esc_url($image['url']); ?>" 
+                 alt="<?php echo esc_attr($image['alt']); ?>" 
+                 class="img-case-study" data-aos="fade-up">
+        <?php endif; ?>
+    </div>
+ </div>
+</div>
+</div>
+ <!-- case study-->
 
   <!--Our Featured Projects-->
   <?php 
