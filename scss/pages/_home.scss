@@ -433,10 +433,17 @@ $gap: 3px;
   background: url(assets/images/casestudy-bg.svg) no-repeat top;
   padding: 100px 0;
   background-size: cover;
+  h2{
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 52px;
+    margin-bottom: 20px;
+}
 
   p {
-    text-align: justify;
-    font-weight: bold;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 300;
   }
 }
 
@@ -444,23 +451,3 @@ $gap: 3px;
   max-width: 70%;
 }
 
-@media (max-width: 768px) {
-  .case-study-wrap {
-    background: url(assets/images/CaseStudybg_mobile.svg) no-repeat top;
-    padding: 60px 0;
-  }
-  .row {
-    flex-direction: column-reverse; 
-  }
-  h2
-  {
-    margin-top: 10%;
-  }
-
-  .case-study-wrap p:last-of-type {
-    margin-bottom: 20px;  
-  }
-  .img-case-study {
-    max-width: 70%;
-  }
-}
