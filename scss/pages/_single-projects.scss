@@ -12,7 +12,7 @@
   width: 593px;
   text-align: start;
   color: #dddddd;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
   margin-top: 20px;
 }
@@ -65,23 +65,6 @@
 .logo-container .logo {
   
   height: auto;
-}
-.button-portfolio {
-  text-align: start;
-  margin-top: 18px;
-}
-.button-portfolio a {
-  border-radius: 20px;
-  border: 1px solid #C9EE46;
-  color: #C9EE46;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  padding: 10px;
-}
-.button-portfolio a img {
-  width: 21px;
 }
 .slider-image-wrap {
   margin-top: -196px;
@@ -147,7 +130,6 @@
   padding-bottom: 40px;
 }
 .second-description-text {
-  padding-left: 240px;
   color: #000;
   font-size: 16px;
   font-style: normal;
@@ -391,4 +373,7 @@
   border-radius: 6px;
   border: none;
   outline: none;
+}
+.portfolio-btn {
+  justify-content: start !important;
 }
