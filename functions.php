@@ -399,3 +399,205 @@ function custom_partner_logo_column_data($column, $post_id) {
     }
 }
 add_action('manage_partner_logo_posts_custom_column', 'custom_partner_logo_column_data', 10, 2);
+
+// Register Video Projects CPT
+function dwm_register_video_projects_cpt() {
+    $labels = array(
+        'name'               => 'Video Projects',
+        'singular_name'      => 'Video Project',
+        'menu_name'          => 'Video Projects',
+        'add_new'            => 'Add New Project',
+        'add_new_item'       => 'Add New Video Project',
+        'edit_item'          => 'Edit Video Project',
+        'new_item'           => 'New Video Project',
+        'view_item'          => 'View Video Project',
+        'search_items'       => 'Search Video Projects',
+        'not_found'          => 'No video projects found',
+        'not_found_in_trash' => 'No video projects found in Trash',
+        'all_items'          => 'All Video Projects',
+        'archives'           => 'Video Project Archives',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true, // /video-projects/
+        'rewrite'            => array(
+            'slug' => 'video-projects', // front-end slug
+        ),
+        'menu_icon'          => 'dashicons-format-video',
+        'supports'           => array('title', 'editor', 'thumbnail'),
+        'show_in_rest'       => true, // Enable Gutenberg/REST
+    );
+
+    register_post_type('video_project', $args);
+}
+add_action('init', 'dwm_register_video_projects_cpt');
+
+// Register Categories for Video Projects
+function dwm_register_project_categories() {
+    $labels = array(
+        'name'              => 'Project Categories',
+        'singular_name'     => 'Project Category',
+        'search_items'      => 'Search Project Categories',
+        'all_items'         => 'All Project Categories',
+        'parent_item'       => 'Parent Category',
+        'parent_item_colon' => 'Parent Category:',
+        'edit_item'         => 'Edit Category',
+        'update_item'       => 'Update Category',
+        'add_new_item'      => 'Add New Category',
+        'new_item_name'     => 'New Category Name',
+        'menu_name'         => 'Project Categories',
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'hierarchical'      => true,
+        'public'            => true,
+        'show_admin_column' => true,
+        'show_in_rest'      => true,
+    );
+
+    // Attach the taxonomy to 'video_project'
+    register_taxonomy('video_project_category', 'video_project', $args);
+}
+add_action('init', 'dwm_register_project_categories');
+
+// Register Videos CPT
+function dwm_register_videos_cpt() {
+    $labels = array(
+        'name'               => 'Videos',
+        'singular_name'      => 'Video',
+        'menu_name'          => 'Videos',
+        'add_new'            => 'Add New Video',
+        'add_new_item'       => 'Add New Video',
+        'edit_item'          => 'Edit Video',
+        'new_item'           => 'New Video',
+        'view_item'          => 'View Video',
+        'search_items'       => 'Search Videos',
+        'not_found'          => 'No videos found',
+        'not_found_in_trash' => 'No videos found in Trash',
+        'all_items'          => 'All Videos',
+        'archives'           => 'Video Archives',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true, // /videos/
+        'rewrite'            => array(
+            'slug' => 'videos', // front-end slug
+        ),
+        'menu_icon'          => 'dashicons-video-alt2',
+        'supports'           => array('title', 'editor', 'thumbnail'),
+        'show_in_rest'       => true, // Enable Gutenberg/REST
+    );
+
+    register_post_type('videos', $args);
+}
+add_action('init', 'dwm_register_videos_cpt');
+
+// Add Meta Box for Videos to Associate with a Video Project
+function dwm_add_video_project_meta_box() {
+    add_meta_box(
+        'associated_video_project',
+        'Associated Video Project',
+        'dwm_render_video_project_meta_box',
+        'videos',
+        'side',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'dwm_add_video_project_meta_box');
+
+// Render the Meta Box
+function dwm_render_video_project_meta_box($post) {
+    // Fetch all Video Projects
+    $video_projects = get_posts([
+        'post_type'      => 'video_project',
+        'posts_per_page' => -1,
+    ]);
+
+    // Get current associated project
+    $associated_project = get_post_meta($post->ID, 'associated_video_project', true);
+
+    echo '<select name="associated_video_project" style="width: 100%;">';
+    echo '<option value="">-- Select a Video Project --</option>';
+
+    foreach ($video_projects as $project) {
+        echo '<option value="' . esc_attr($project->ID) . '"' . selected($associated_project, $project->ID, false) . '>';
+        echo esc_html($project->post_title);
+        echo '</option>';
+    }
+
+    echo '</select>';
+}
+
+// Save the Associated Video Project
+function dwm_save_associated_video_project($post_id) {
+    if (array_key_exists('associated_video_project', $_POST)) {
+        update_post_meta(
+            $post_id,
+            'associated_video_project',
+            sanitize_text_field($_POST['associated_video_project'])
+        );
+    }
+}
+add_action('save_post', 'dwm_save_associated_video_project');
+
+// Add Meta Box for Video Orientation
+function dwm_add_video_orientation_meta_box() {
+    add_meta_box(
+        'video_orientation_meta_box',
+        __('Video Orientation', 'dreamway-media'),
+        'dwm_render_video_orientation_meta_box',
+        'video_project',
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'dwm_add_video_orientation_meta_box');
+
+// Render the Meta Box
+function dwm_render_video_orientation_meta_box($post) {
+    // Retrieve the current value
+    $orientation = get_post_meta($post->ID, 'video_orientation', true);
+
+    // Security nonce for saving
+    wp_nonce_field('dwm_save_video_orientation_meta_box', 'dwm_video_orientation_nonce');
+
+    ?>
+    <p>
+        <label>
+            <input type="radio" name="video_orientation" value="horizontal" <?php checked($orientation, 'horizontal'); ?>>
+            <?php _e('Horizontal Videos (e.g., YouTube style)', 'dreamway-media'); ?>
+        </label>
+    </p>
+    <p>
+        <label>
+            <input type="radio" name="video_orientation" value="vertical" <?php checked($orientation, 'vertical'); ?>>
+            <?php _e('Vertical Videos (e.g., Shorts style)', 'dreamway-media'); ?>
+        </label>
+    </p>
+    <?php
+}
+
+// Save the Meta Box Data
+function dwm_save_video_orientation_meta_box($post_id) {
+    // Verify the nonce
+    if (!isset($_POST['dwm_video_orientation_nonce']) || !wp_verify_nonce($_POST['dwm_video_orientation_nonce'], 'dwm_save_video_orientation_meta_box')) {
+        return;
+    }
+
+    // Check user permissions
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    // Save the orientation
+    if (isset($_POST['video_orientation'])) {
+        $orientation = sanitize_text_field($_POST['video_orientation']);
+        update_post_meta($post_id, 'video_orientation', $orientation);
+    }
+}
+add_action('save_post', 'dwm_save_video_orientation_meta_box');

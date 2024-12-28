@@ -1,0 +1,138 @@
+.single-video-page {
+    .video-player-wrap {
+      margin-bottom: 30px;
+  
+      .video-player {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    }
+  
+    .video-details-wrap {
+      .related-videos-wrap {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+  
+        h2 {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+        }
+  
+        .related-videos-list {
+          list-style: none;
+          padding: 0;
+  
+          li {
+            margin-bottom: 15px;
+  
+            .related-video-thumbnail {
+              width: 100%;
+              padding-top: 56.25%;
+              background-size: cover;
+              background-position: center;
+              border-radius: 8px;
+              margin-bottom: 5px;
+            }
+  
+            h3 {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  
+    .share-section {
+      text-align: center;
+      padding: 20px 0;
+  
+      h5 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+  
+      .share-buttons {
+        a {
+          margin: 0 10px;
+          display: inline-block;
+          font-size: 0.9rem;
+  
+          i {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+
+.blog-image-wrap .wp-block-video {
+    margin-top: -160px;
+}
+
+.wp-block-video video {
+    width: 80%;
+}
+
+/* Styles for Vertical Videos */
+.video-vertical .wp-block-video iframe,
+.video-vertical .wp-block-video video {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Related Videos Section */
+.related-container {
+    margin-top: 50px;
+}
+
+.section-title {
+    font-size: 24px; /* Slightly smaller title */
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Related Videos Grid */
+.related-videos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Related Video Item */
+.related-video-item {
+    flex-shrink: 0;
+    justify-content: center;
+}
+
+/* Related Thumbnail */
+.related-thumbnail {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 60%;
+    border: 1px solid #eaeaea;
+}
+
+/* Smaller Horizontal Videos */
+.video-horizontal .related-thumbnail {
+    aspect-ratio: 16/9; /* Maintain 16:9 ratio */
+}
+
+.video-horizontal .related-video-item {
+    flex: 0 0 calc(40% - 15px); /* Smaller width for two per row */
+}
+
+/* Smaller Vertical Videos */
+.video-vertical .related-thumbnail {
+    aspect-ratio: 9/16; /* Maintain 9:16 ratio */
+}
+
+.video-vertical .related-video-item {
+    flex: 0 0 calc(30% - 15px); /* Smaller width for three per row */
+}
