@@ -993,3 +993,24 @@
     width: 100%
   }
 }
+@media (max-width: 768px) {
+  .case-study-wrap {
+    background: url(assets/images/CaseStudybg_mobile.svg) no-repeat top;
+    padding: 60px 0;
+  }
+  .row {
+    flex-direction: column-reverse; 
+  }
+  h2
+  {
+    margin-top: 10%;
+    font-size: 36px !important;
+  }
+
+  .case-study-wrap p:last-of-type {
+    margin-bottom: 20px;  
+  }
+  .img-case-study {
+    max-width: 70%;
+  }
+}
