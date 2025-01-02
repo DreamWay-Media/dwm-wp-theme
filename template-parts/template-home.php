@@ -330,18 +330,27 @@ if( function_exists('get_field') ):
             'orderby' => 'menu_order',
             'order' => 'ASC'
         ));
-          if ($logos->have_posts()) :
-            while ($logos->have_posts()) : $logos->the_post();
-                if (has_post_thumbnail()) :
-                    ?>
-                    <div class="logo-item">
-                        <?php the_post_thumbnail('full', array('alt' => get_the_title())); ?>
-                    </div>
-                    <?php
-                endif;
-            endwhile;
-        endif;
-        wp_reset_postdata();
+        $logo_items = array();
+        if ($logos->have_posts()) :
+          while ($logos->have_posts()) : $logos->the_post();
+              if (has_post_thumbnail()) :
+                 ob_start();
+                  ?>
+                  <div class="logo-item">
+                  <?php the_post_thumbnail('full', array(
+                        'alt' => get_the_title(),
+                        'loading' => 'lazy'
+                    )); ?>
+                  </div>
+                  <?php
+                $logo_items[] = ob_get_clean();
+              endif;
+          endwhile;
+      endif;
+      wp_reset_postdata();
+      echo implode('', $logo_items);
+      echo implode('', $logo_items);
+
         ?>
     </div>
 </div>

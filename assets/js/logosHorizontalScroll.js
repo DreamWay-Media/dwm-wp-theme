@@ -1,62 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-	const slideTrack = document.querySelector('.logos-slide');
-	const logoItems = document.querySelectorAll('.logo-item');
+	const logoScroll = document.querySelector('.logos-slide');
 	
-	let totalLogos = logoItems.length;
-	let clonedLogosCount = totalLogos;
-  
-	function cloneLogos() {
-	  const containerWidth = slideTrack.offsetWidth;
-	  const logoWidth = logoItems[ 0 ].offsetWidth;
-	  const logosNeeded = Math.ceil(containerWidth / logoWidth);
-  
-	  if (logosNeeded > clonedLogosCount) {
-			const logosToClone = logosNeeded - clonedLogosCount+5;
-			for (let i = 0; i < logosToClone; i++) {
-		  logoItems.forEach((logo) => {
-					const clone = logo.cloneNode(true);
-					slideTrack.appendChild(clone);
-					clonedLogosCount++;
-		  });
-			}
-	  }
-	  else
-	  {
-		for (let i = 0; i < 5; i++) {
-			logoItems.forEach((logo) => {
-					  const clone = logo.cloneNode(true);
-					  slideTrack.appendChild(clone);
-					  clonedLogosCount++;
-			});
-			  }
-	  }
-	}
-  
-	cloneLogos();
-  
+	
+	// Ensure smooth animation after window resize
 	let resizeTimer;
 	window.addEventListener('resize', () => {
 	  clearTimeout(resizeTimer);
+	  logoScroll.style.animationPlayState = 'paused';
+	  
 	  resizeTimer = setTimeout(() => {
-		// Only re-clone if needed
-		if (logosNeeded > clonedLogosCount) {
-			cloneLogos();
-		}
-			
-	  }, 200); // Throttle resizing events
+		logoScroll.style.animationPlayState = 'running';
+	  }, 100);
 	});
-  
-	function appendClones() {
-	  const firstLogo = slideTrack.querySelector('.logo-item');
-	  if (firstLogo && clonedLogosCount < totalLogos) {
-			const clone = firstLogo.cloneNode(true);
-			slideTrack.appendChild(clone);
-			clonedLogosCount++;
-	  }
-	}
-  
-	slideTrack.addEventListener('animationiteration', () => {
-	  appendClones();
-	});
-});
-  
+  });

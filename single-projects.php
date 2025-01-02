@@ -116,18 +116,17 @@ get_header();
             <h3 id="second-heading"><?php echo esc_html( $second_section_heading ); ?></h3>
             <div class="second-product-slider-text">
                 <div class="row">
-                <?php if ( $second_section_images ): ?>
                 <!-- Title -->
                 <div class="col-md-5">
                     <h2 class="project-title"><?php echo esc_html( $second_section_title ); ?></h2>
-                    <div class="button-portfolio">
-                <a href="<?php echo esc_url( $website_link ); ?>" target="_blank">
-                    Visit Website <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/arrow-portfolio.svg' ); ?>" alt="arrow">
-                </a>
-            </div>
+                    <div class="see-more-btn aos-init aos-animate portfolio-btn" data-aos="fade-up">
+                        <a href="<?php echo esc_url( $website_link ); ?>" target="_blank">
+                            Visit Website
+                        </a>
+                    </div>
                 </div>
                 <!-- Title -->
-                <?php endif; ?>
+
 
 
                     <!-- Text -->
@@ -179,14 +178,12 @@ if ( $third_section_heading || $third_section_description ) :
         <h3 id="third-heading"><?php echo esc_html( $third_section_heading ); ?></h3>
         <div class="second-product-slider-text">
             <div class="row">
-                <?php if ( $third_section_images ): ?>
                 <!-- Title -->
                 <div class="col-md-5">
                     <h2 class="project-title"><?php echo esc_html( $third_section_title ); ?></h2>
                     <!-- Button omitted -->
                 </div>
                 <!-- Title -->
-                <?php endif; ?>
 
                 <!-- Text -->
                 <div class="<?php echo $first_section_title ? 'col-md-7 second-description-text' : 'col-md-12'; ?>">
@@ -236,14 +233,12 @@ if ( $fourth_section_heading || $fourth_section_description ) :
         <h3 id="fourth-heading"><?php echo esc_html( $fourth_section_heading ); ?></h3>
         <div class="second-product-slider-text">
             <div class="row">
-                <?php if ( $fourth_section_images ): ?>
                 <!-- Title -->
                 <div class="col-md-5">
                     <h2 class="project-title"><?php echo esc_html( $fourth_section_title ); ?></h2>
                     <!-- Button omitted -->
                 </div>
                 <!-- Title -->
-                <?php endif; ?>
 
                 <!-- Text -->
                 <div class="<?php echo $first_section_title ? 'col-md-7 second-description-text' : 'col-md-12'; ?>">
