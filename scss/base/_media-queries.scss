@@ -34,6 +34,14 @@
     padding-left: 0 !important;
   }
 }
+@media (max-width: 768px) {
+  .website-green-tag {
+      font-size: 2rem; 
+  }
+  .eco-friendly-tag img {
+      max-width: 100px; 
+  }
+}
 /* Mini contact form */
 @media (max-width: 768px) {
   .cta-main-wraper {
