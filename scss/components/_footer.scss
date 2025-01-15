@@ -181,32 +181,30 @@
   display: none;
 }
 .website-green-tag {
-  display: flex; /* Use flexbox for alignment */
-  justify-content: space-between; /* Place items at opposite corners */
-  align-items: center; /* Keep vertical alignment consistent */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
   background-color: #101010;
   color: #c8f031;
   font-size: 2.5rem;
   font-weight: bold;
   text-transform: uppercase;
-  height: auto; /* Let height adjust based on content */
-  line-height: 0.6; /* Tight line height */
-  padding: 0 0 5px 0; /* Remove padding */
-  margin: 0; /* Remove margin */
-  white-space: nowrap; /* Prevent text wrapping */
-  overflow: hidden; /* Ensure no unexpected overflow */
+  height: auto; 
+  line-height: 0.6; 
+  padding: 0 0 5px 0; 
+  margin: 0; 
+  white-space: nowrap; 
+  overflow: hidden; 
 }
-
 .eco-friendly-tag {
-  flex-shrink: 0; /* Prevent shrinking of the image */
+  flex-shrink: 0; 
 }
-
 .eco-friendly-tag img {
-  max-width: 150px; /* Set maximum width for the tag */
-  height: auto; /* Maintain aspect ratio */
-  margin: 5px 0 0 5px;
+  max-width: 150px; 
+  height: auto; 
+  margin: 0 0 0 5px;
 }
 .website-green-text {
-  transform: rotate(180deg); /* Invert only the text */
-  display: inline-block; /* Prevent inline rotation affecting layout */
+  transform: rotate(180deg); 
+  display: inline-block; 
 }
