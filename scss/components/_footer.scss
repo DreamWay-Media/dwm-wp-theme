@@ -180,3 +180,31 @@
 .mobile-slider-image {
   display: none;
 }
+.website-green-tag {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  background-color: #101010;
+  color: #c8f031;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: auto; 
+  line-height: 0.6; 
+  padding: 0 0 5px 0; 
+  margin: 0; 
+  white-space: nowrap; 
+  overflow: hidden; 
+}
+.eco-friendly-tag {
+  flex-shrink: 0; 
+}
+.eco-friendly-tag img {
+  max-width: 150px; 
+  height: auto; 
+  margin: 0 0 0 5px;
+}
+.website-green-text {
+  transform: rotate(180deg); 
+  display: inline-block; 
+}
