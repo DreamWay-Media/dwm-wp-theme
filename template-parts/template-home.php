@@ -369,7 +369,7 @@ $image = get_field('cs_image');
 $button_text = get_field('cs_buttontext');
 $button_link = get_field('cs_buttonlink');
 ?>
-<div class="row align-items-center">
+<div class="row case-study-row align-items-center">
     <!-- Left Column: Title, Paragraph, and Button -->
     <div class="col-md-6 d-flex flex-column align-items-center text-center">
         <!-- Section Heading -->
