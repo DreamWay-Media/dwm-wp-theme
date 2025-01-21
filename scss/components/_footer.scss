@@ -6,6 +6,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 8;
 
   .container {
     width: 100%;

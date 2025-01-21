@@ -1,5 +1,8 @@
 /* CSS header & slider */
 .header-slider-wrap {
+  position: relative;
+  z-index: 1;
+
   background: #101010;
 }
 /* CSS header */
@@ -8,7 +11,7 @@
   border-bottom: 1px solid #333333;
   padding: 12px 0;
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 /* Removed empty ruleset */

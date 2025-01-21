@@ -3,7 +3,10 @@
   padding: 100px 0;
   background-size: cover;
   overflow: hidden; 
-  position: relative; 
+  position: relative;
+  z-index: 3;
+
+
 }
 .achievements-main-wrap h3 {
   font-weight: bold;
@@ -51,6 +54,7 @@
   background: url(assets/images/bg-agency.svg) no-repeat top;
   padding: 100px 0;
   background-size: cover;
+  z-index:4;
 }
 .site-number-main-wrap h3 {
   font-size: 40px;
@@ -82,6 +86,8 @@
 .featured-main-wraper {
   padding: 80px 0;
   background: #101010;
+  position:relative;
+  z-index:5;
 }
 .featured-heading-wrap {
   margin-bottom: 65px;
@@ -149,6 +155,8 @@
 }
 .featured-blog-wrap {
   padding: 80px 0px;
+  position: relative;
+  z-index:6;
 }
 .featured-blog-wrap h2 {
   font-size: 50px;
@@ -354,4 +362,92 @@
   padding-bottom: 0;
   overflow: hidden;
   position: relative; /* For precise control over scroll button positioning */
+}
+
+#services .services-top {
+  padding: 70px 0 50px;
+}
+
+#services .services-list {
+  padding-top: 50px;
+}
+
+.services-list .service-block {
+  margin-bottom: 25px;
+}
+
+.services-list .service-block .ico {
+  font-size: 38px;
+  float: left;
+}
+
+.services-list .service-block .text-block {
+  margin-left: 58px;
+}
+
+.services-list .service-block .text-block .name {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.services-list .service-block .text-block .info {
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.services-list .service-block .text-block .text {
+  font-size: 12px;
+  line-height: normal;
+  font-weight: 300;
+}
+
+.highlight {
+  color: #a0ca00;
+  font-weight: bold;
+}
+
+.about-main-wrap {
+  position: relative;
+  z-index: 2;
+
+
+}
+
+.content-home-wrap {
+  position: relative;
+}
+
+.icon {
+  width: 92px;
+  height: 92px;
+}
+
+.parallax-svg {
+  will-change: transform;
+  position: absolute;
+  mix-blend-mode: difference;
+  transition: all 2s ease-out;
+}
+
+.parallax-star {
+  fill: #474747;
+  opacity: 0.80;
+  animation: fading 20s linear infinite;
+}
+
+@keyframes fading {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.80;
+  }
+
+  100% {
+    opacity: 0;
+    fill: white;
+  }
 }

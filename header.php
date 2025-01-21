@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -11,9 +12,10 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
     <!-- Required meta tags -->
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--CSS -->
@@ -21,7 +23,7 @@
     <link href="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/css/aos.css'); ?>" rel="stylesheet">
     <link href="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/css/owl.carousel.min.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    
+
     <!--fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title><?php bloginfo('name'); ?></title>
@@ -29,15 +31,19 @@
 
     <?php wp_head(); ?>
 </head>
+
+
+
+
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <!--header-->
     <header class="header-main-wrap">
         <div class="container">
-            <div class="row"> 
+            <div class="row">
                 <!--logo-->
                 <div class="col-md-4">
-                    <div class="site-logo"> 
+                    <div class="site-logo">
                         <a href="<?php echo esc_url(site_url()); ?>">
                             <img src="<?php echo esc_url(wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'full')[0]); ?>" class="custom-logo" alt="Dreamway Media" decoding="async">
                         </a>
@@ -62,30 +68,30 @@
 
                                     if (!$item->menu_item_parent) :
                                         $parent_id = $item->ID;
-                                        ?>
+                                ?>
                                         <li>
                                             <?php if (has_submenu($menuitems, $parent_id)) : ?>
                                                 <div class="dropdown">
-                                                  <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" onclick="window.location.href='<?php echo $link; ?>'">
-                                                         <?php echo $title; ?>
-                                                  <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/caret-down.svg'); ?>" alt="caret-down">
-                                                  </button>
-                                            <?php else : ?>
-                                                <a href="<?php echo $link; ?>" class="title">
-                                                    <?php echo $title; ?>
-                                                </a>
+                                                    <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" onclick="window.location.href='<?php echo $link; ?>'">
+                                                        <?php echo $title; ?>
+                                                        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/caret-down.svg'); ?>" alt="caret-down">
+                                                    </button>
+                                                <?php else : ?>
+                                                    <a href="<?php echo $link; ?>" class="title">
+                                                        <?php echo $title; ?>
+                                                    </a>
+                                                <?php endif; ?>
                                             <?php endif; ?>
-                                        <?php endif; ?>
 
-                                        <?php if ($parent_id == $item->menu_item_parent) : ?>
-                                            <?php if (!$submenu) : $submenu = true; ?>
-                                                <ul class="dropdown-menu">
-                                            <?php endif; ?>
-                                            <li>
-                                                <a class="dropdown-item" href="<?php echo $link; ?>"><?php echo $title; ?></a>
-                                            </li>
-                                            <?php if ($menuitems[$count + 1]->menu_item_parent != $parent_id && $submenu) : ?>
-                                                </ul>
+                                            <?php if ($parent_id == $item->menu_item_parent) : ?>
+                                                <?php if (!$submenu) : $submenu = true; ?>
+                                                    <ul class="dropdown-menu">
+                                                    <?php endif; ?>
+                                                    <li>
+                                                        <a class="dropdown-item" href="<?php echo $link; ?>"><?php echo $title; ?></a>
+                                                    </li>
+                                                    <?php if ($menuitems[$count + 1]->menu_item_parent != $parent_id && $submenu) : ?>
+                                                    </ul>
                                                 </div>
                                                 <?php $submenu = false; ?>
                                             <?php endif; ?>
@@ -94,7 +100,8 @@
                                             echo '</li>';
                                             $submenu = false;
                                         } ?>
-                                        <?php $count++; endforeach; ?>
+                                    <?php $count++;
+                                endforeach; ?>
                             </ul>
                         <?php endif; ?>
                     </div>
@@ -121,7 +128,7 @@
 
                                             if (!$item->menu_item_parent) :
                                                 $parent_id = $item->ID;
-                                                ?>
+                                        ?>
                                                 <li>
                                                     <?php if (has_submenu($menuitems, $parent_id)) : ?>
                                                         <div class="dropdown">
@@ -129,18 +136,18 @@
                                                                 <?php echo $title; ?>
                                                                 <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/caret-down.svg'); ?>" alt="caret-down">
                                                             </button>
-                                                    <?php else : ?>
-                                                        <a href="<?php echo $link; ?>" class="title"><?php echo $title; ?></a>
+                                                        <?php else : ?>
+                                                            <a href="<?php echo $link; ?>" class="title"><?php echo $title; ?></a>
+                                                        <?php endif; ?>
                                                     <?php endif; ?>
-                                                <?php endif; ?>
 
-                                                <?php if ($parent_id == $item->menu_item_parent) : ?>
-                                                    <?php if (!$submenu) : $submenu = true; ?>
-                                                        <ul class="dropdown-menu">
-                                                    <?php endif; ?>
-                                                    <li><a class="dropdown-item" href="<?php echo $link; ?>"><?php echo $title; ?></a></li>
-                                                    <?php if ($menuitems[$count + 1]->menu_item_parent != $parent_id && $submenu) : ?>
-                                                        </ul>
+                                                    <?php if ($parent_id == $item->menu_item_parent) : ?>
+                                                        <?php if (!$submenu) : $submenu = true; ?>
+                                                            <ul class="dropdown-menu">
+                                                            <?php endif; ?>
+                                                            <li><a class="dropdown-item" href="<?php echo $link; ?>"><?php echo $title; ?></a></li>
+                                                            <?php if ($menuitems[$count + 1]->menu_item_parent != $parent_id && $submenu) : ?>
+                                                            </ul>
                                                         </div>
                                                         <?php $submenu = false; ?>
                                                     <?php endif; ?>
@@ -149,7 +156,8 @@
                                                     echo '</li>';
                                                     $submenu = false;
                                                 } ?>
-                                                <?php $count++; endforeach; ?>
+                                            <?php $count++;
+                                        endforeach; ?>
                                     </ul>
                                 <?php endif; ?>
                             </ul>
@@ -162,5 +170,7 @@
         </div>
     </header>
     <!--header-->
+    
 </body>
+
 </html>
