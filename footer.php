@@ -28,6 +28,23 @@
 </div>
 <?php endif; ?>
 <!--cta-->
+<!-- "This Website is Green" Text -->
+<div class="website-green-tag">
+    <!-- Eco-Friendly Tag -->
+    <div class="eco-friendly-tag">
+        <a href="https://www.greengeeks.com" alt="GreenGeeks" rel="nofollow">
+            <img src="https://greengeeks.com/includes/images/green-tags/Green_15.png" border="0" alt="Eco Friendly Tag">
+        </a>
+    </div>
+    <!-- Inverted Text -->
+    <?php 
+        // Fetching the ACF field value for the green website text
+        $website_green_text = get_field('website_green_text', 'option'); 
+        if ($website_green_text) {
+            echo '<span class="website-green-text">' . esc_html($website_green_text) . '</span>';
+        }
+    ?>
+</div>
 <!--footer-->
 <footer class="footer-main-wraper">
   <div class="container">
