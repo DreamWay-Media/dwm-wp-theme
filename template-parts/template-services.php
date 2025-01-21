@@ -59,7 +59,7 @@ get_header();
               <!-- Assign unique ID to the accordion section -->
               <div class="service-list-wrap" id="<?php echo esc_attr($service_id); ?>">
 
-                <!-- Desktop Layout -->
+                <!-- Desktop and Tablet Layout -->
                 <div class="d-none d-md-block">
                   <div class="row">
                     <div class="col-md-6 d-flex align-items-center">
@@ -78,6 +78,23 @@ get_header();
                           <?php echo esc_html( $service_description ); ?>
                         </p>
                       </div>
+                      <button class="accordion-button <?php echo ($counter === 1) ? '' : 'collapsed'; ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseService<?php echo $counter; ?>" aria-expanded="<?php echo ($counter === 1) ? 'true' : 'false'; ?>" aria-controls="collapseService<?php echo $counter; ?>">
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mobile Layout -->
+                <div class="d-block d-md-none">
+                  <div class="row">
+                    <div class="col-12 d-flex align-items-center">
+                      <div class="listing-service-wrap">
+                        <?php
+                          // Display icon from `service_icons` array
+                          echo '<i class="' . esc_attr($service_icons[$icon_index]) . ' ico highlight"></i>';
+                        ?>
+                      </div>
+                      <h3 class="service-heading mb-0 ms-3"><?php echo esc_html( $service_heading ); ?></h3>
                       <button class="accordion-button <?php echo ($counter === 1) ? '' : 'collapsed'; ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseService<?php echo $counter; ?>" aria-expanded="<?php echo ($counter === 1) ? 'true' : 'false'; ?>" aria-controls="collapseService<?php echo $counter; ?>">
                       </button>
                     </div>
@@ -135,36 +152,29 @@ get_header();
 <!-- JavaScript to Handle URL Hash Targeting -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Function to handle hash navigation
         function handleHashNavigation() {
-            const hash = window.location.hash; // Get the current hash
+            const hash = window.location.hash;
             if (hash) {
-                const targetAccordion = document.querySelector(hash); // Find the element with the matching ID
+                const targetAccordion = document.querySelector(hash);
                 if (targetAccordion) {
-                    // Close any currently open sections
                     const openAccordions = document.querySelectorAll('#accordionMain .accordion-collapse.show');
                     openAccordions.forEach(function (openAccordion) {
-                        openAccordion.classList.remove('show'); // Remove the 'show' class
+                        openAccordion.classList.remove('show');
                         openAccordion.setAttribute('aria-expanded', 'false');
                     });
 
-                    // Expand the targeted accordion
                     const collapseElement = targetAccordion.querySelector('.accordion-collapse');
                     if (collapseElement) {
-                        collapseElement.classList.add('show'); // Add 'show' class to expand the section
+                        collapseElement.classList.add('show');
                         collapseElement.setAttribute('aria-expanded', 'true');
                     }
 
-                    // Scroll to the accordion
                     targetAccordion.scrollIntoView({ behavior: 'smooth' });
                 }
             }
         }
 
-        // Initial hash handling when the page loads
         handleHashNavigation();
-
-        // Add an event listener for hash changes (e.g., clicking a link on the same page)
         window.addEventListener("hashchange", handleHashNavigation);
     });
 </script>
@@ -180,5 +190,3 @@ get_header();
         font-weight: bold;
     }
 </style>
-
-
