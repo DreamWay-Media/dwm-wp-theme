@@ -1,6 +1,8 @@
 <?php 
 /* Template Name: Blog Temp */ 
-get_header();
+get_header(); 
+// Include Font Awesome stylesheet
+echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />';
 ?>
 
 <!--header slider-->
@@ -143,19 +145,15 @@ get_header();
               'format' => '?paged=%#%',
               'current' => max(1, get_query_var('paged')),
               'total' => $total_pages,
-              'prev_text' => '<span class="pagination-prev">' . __('&laquo; Prev') . '</span>',
-              'next_text' => '<span class="pagination-next">' . __('Next &raquo;') . '</span>',
+              'prev_text' => '<span class="pagination-prev"><i class="fa-solid fa-arrow-left"></i></span>',
+              'next_text' => '<span class="pagination-next"><i class="fa-solid fa-arrow-right"></i></span>',
               'type' => 'array',
             ]);
           
             if ($pagination_links) {
               echo '<div class="custom-pagination">';
               foreach ($pagination_links as $link) {
-                  if(strpos($link, 'pagination-prev') !== false || strpos($link, 'pagination-next') !== false) {
-                    echo '<span class="pagination-link btn-cta-wrap aos-init aos-animate" data-aos="fade-up">' . $link . '</span>';
-                  } else {
-                    echo '<span class="pagination-link">' . $link . '</span>';
-                  };
+                  echo '<span class="pagination-link">' . $link . '</span>';
               }
               echo '</div>';
             }
