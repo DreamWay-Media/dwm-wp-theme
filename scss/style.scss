@@ -22,6 +22,8 @@
 @use 'pages/single';
 @use 'pages/single-projects';
 @use 'pages/common';
+@use 'pages/video-gallery';
+@use 'pages/single-videos';
 
 // Media Queries (to ensure they can override earlier styles if needed)
 @use 'base/media-queries';

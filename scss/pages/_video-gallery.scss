@@ -1,0 +1,71 @@
+/* Video Project Group Wrapper */
+.videos-listing-wrap {
+    padding: 60px 0;
+}
+.video-project-group {
+    margin-bottom: 70px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+/* Project Title */
+.video-project-title {
+    color: #101010;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+/* Project Category Tags */
+.video-project-category span {
+    display: inline-block;
+    margin-top: 40px;
+    border-radius: 20px;
+    background: #EEE;
+    color: #101010;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 10px 17px;
+    margin-bottom: 100px;
+}
+
+/* Video Grid Layout */
+.videos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Video Item Styles */
+.videos-item {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+    flex-shrink: 0; /* Prevent shrinking too small */
+}
+
+/* Horizontal Videos */
+.video-horizontal {
+    flex: 0 0 calc(50% - 20px); /* Two per row */
+}
+.video-horizontal .videos-thumbnail-image {
+    width: 100%;
+    aspect-ratio: 16/9; /* Maintain proportional ratio */
+    background-size: cover;
+}
+
+/* Vertical Videos */
+.video-vertical {
+    flex: 0 0 calc(33.33% - 20px); /* Three per row */
+}
+.video-vertical .videos-thumbnail-image {
+    width: 100%;
+    aspect-ratio: 9/16; /* Maintain proportional ratio */
+    background-size: cover;
+}

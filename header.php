@@ -21,11 +21,10 @@
     <link href="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/css/aos.css'); ?>" rel="stylesheet">
     <link href="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/css/owl.carousel.min.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    
+
     <!--fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title><?php bloginfo('name'); ?></title>
-
 
     <?php wp_head(); ?>
 </head>
@@ -70,6 +69,39 @@
                                                          <?php echo $title; ?>
                                                   <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/caret-down.svg'); ?>" alt="caret-down">
                                                   </button>
+                                                  <!-- Services Dropdown -->
+                                                  <?php if (strtolower($title) === 'services') : ?>
+                                                      <ul class="dropdown-menu">
+                                                          <?php 
+                                                          // Fetch the "Services" page by slug
+                                                          $services_page = get_page_by_path('services'); // Replace 'services' with the correct slug
+                                                          if ($services_page) {
+                                                              $services_page_id = $services_page->ID;
+
+                                                              // Check if the 'our_services' repeater field exists and has rows
+                                                              if (have_rows('our_services', $services_page_id)) {
+                                                                  while (have_rows('our_services', $services_page_id)) {
+                                                                      the_row();
+                                                                      $service_heading = get_sub_field('service_heading'); // Service heading
+                                                                      $service_id = preg_replace("/[^a-zA-Z]+/", "", $service_heading); // Generate sanitized ID
+                                                                      ?>
+                                                                      <li>
+                                                                          <a class="dropdown-item" href="<?php echo esc_url(get_permalink($services_page_id) . '#' . $service_id); ?>">
+                                                                              <?php echo esc_html($service_heading); ?>
+                                                                          </a>
+                                                                      </li>
+                                                                      <?php
+                                                                  }
+                                                              } else {
+                                                                  echo '<li><a class="dropdown-item" href="#">No Services Found</a></li>';
+                                                              }
+                                                          } else {
+                                                              echo '<li><a class="dropdown-item" href="#">Services Page Not Found</a></li>';
+                                                          }
+                                                          ?>
+                                                      </ul>
+                                                  <?php endif; ?>
+                                                <!-- End Services Dropdown -->
                                             <?php else : ?>
                                                 <a href="<?php echo $link; ?>" class="title">
                                                     <?php echo $title; ?>
@@ -130,7 +162,7 @@
                                                                 <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/caret-down.svg'); ?>" alt="caret-down">
                                                             </button>
                                                     <?php else : ?>
-                                                        <a href="<?php echo $link; ?>" class="title"><?php echo $title; ?></a>
+                                                        <a href="<?php echo $link; ?>" class="title"> <?php echo $title; ?></a>
                                                     <?php endif; ?>
                                                 <?php endif; ?>
 

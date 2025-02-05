@@ -357,7 +357,7 @@
 }
 /* horizontal scroll-logos*/
   :root {
-    --scroll-speed: 30s;
+    --scroll-speed: 60s;
     --gap: 75px;
   }
 .logo-scroll-container {
@@ -438,3 +438,25 @@
   }
 }
 /* horizontal scroll-logos*/
+
+.case-study-wrap {
+  background: url(assets/images/casestudy-bg.svg) no-repeat top;
+  padding: 100px 0;
+  background-size: cover;
+  h2{
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 52px;
+    margin-bottom: 20px;
+}
+
+  p {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 300;
+  }
+}
+
+.img-case-study {
+  max-width: 70%;
+}
