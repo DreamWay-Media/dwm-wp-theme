@@ -6,6 +6,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;//for eco friendly tag
 
   .container {
     width: 100%;
@@ -198,6 +199,9 @@
 }
 .eco-friendly-tag {
   flex-shrink: 0; 
+  position: absolute;  // Position absolutely within .cta-main-wraper
+    bottom: 10px;      
+    left: 10px;          
 }
 .eco-friendly-tag img {
   max-width: 150px; 
