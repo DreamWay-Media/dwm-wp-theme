@@ -135,29 +135,61 @@ echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-a
         <div class="row">
           <!-- Pagination Links -->
           <div class="pagination">
-            <?php
-            // Pagination logic
-            $big = 999999999; // An unlikely integer to serve as a placeholder
-            $total_posts = wp_count_posts()->publish; // Total published posts
-            $total_pages = ceil($total_posts / 10);
-            $pagination_links = paginate_links([
-              'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-              'format' => '?paged=%#%',
-              'current' => max(1, get_query_var('paged')),
-              'total' => $total_pages,
-              'prev_text' => '<span class="pagination-prev"><i class="fa-solid fa-arrow-left"></i></span>',
-              'next_text' => '<span class="pagination-next"><i class="fa-solid fa-arrow-right"></i></span>',
-              'type' => 'array',
-            ]);
-          
-            if ($pagination_links) {
-              echo '<div class="custom-pagination">';
-              foreach ($pagination_links as $link) {
-                  echo '<span class="pagination-link">' . $link . '</span>';
-              }
-              echo '</div>';
-            }
-            ?>
+      <?php
+// Pagination logic
+    $big = 999999999; // An unlikely integer to serve as a placeholder
+    $total_posts = wp_count_posts()->publish; // Total published posts
+    $total_pages = ceil($total_posts / 10);
+    $current_page = max(1, get_query_var('paged'));
+
+    // Previous Arrow – always visible
+    if ($current_page > 1) {
+         $prev_link = '<a class="pagination-prev" href="' . esc_url(get_pagenum_link($current_page - 1)) . '">
+                    <i class="fa-solid fa-arrow-left"></i>
+                  </a>';
+     } else {
+        // On the first page, the arrow as a disabled span
+         $prev_link = '<span class="pagination-prev disabled">
+                    <i class="fa-solid fa-arrow-left"></i>
+                  </span>';
+    }
+
+        // Next Arrow – always visible
+     if ($current_page < $total_pages) {
+          $next_link = '<a class="pagination-next" href="' . esc_url(get_pagenum_link($current_page + 1)) . '">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </a>';
+   } else {
+        // On the last page, outputs the arrow as a disabled span
+        $next_link = '<span class="pagination-next disabled">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </span>';
+       }
+
+   // numbered pagination links (excluding previous/next arrows)
+      $pagination_links = paginate_links([
+        'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+        'format'    => '?paged=%#%',
+        'current'   => $current_page,
+        'total'     => $total_pages,
+        'type'      => 'array',
+        'prev_next' => false, // Disables - the default previous and next links
+      ]);
+
+   if ($pagination_links) {
+       echo '<div class="custom-pagination">';
+       // Outputs the custom previous arrow
+       echo $prev_link;
+
+      // Outputs each of the numbered page links
+       foreach ($pagination_links as $link) {
+          echo '<span class="pagination-link">' . $link . '</span>';
+      }
+       // Outputs the custom next arrow
+       echo $next_link;
+       echo '</div>';
+      }
+      ?>
           </div>
         </div>
       </div>
