@@ -25,6 +25,11 @@
       <h2 data-aos="fade-up" class="aos-init aos-animate"><?php echo $mini_form_description; ?></h2>
       <?php echo do_shortcode('[contact-form-7 id="b8b65df" title="Mini Footer Form"]'); ?>
     </div>
+     <!-- Eco-Friendly Tag -->
+     <div class="eco-friendly-tag">
+     <a href='https://www.greengeeks.com' alt='GreenGeeks' rel='nofollow'>
+      <img src='https://greengeeks.com/includes/images/green-tags/Green_5.png' border='0' alt=''></a>
+    </div>
 </div>
 <?php endif; ?>
 <!--cta-->
@@ -36,6 +41,7 @@
             <img src="https://greengeeks.com/includes/images/green-tags/Green_15.png" border="0" alt="Eco Friendly Tag">
         </a>
     </div>
+
     <!-- Inverted Text -->
     <?php 
         // Fetching the ACF field value for the green website text

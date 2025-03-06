@@ -102,8 +102,13 @@
   background-color: #c8f031;
   color: #fff;
 }
-
-
+.pagination-prev.disabled, 
+.pagination-next.disabled {
+  color:#cccccc;
+  border:2px solid #cccccc;
+  opacity: 0.8;
+  pointer-events: none;
+}
 .blog-small-text {
   width: 61%;
   float: left;
