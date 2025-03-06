@@ -119,7 +119,7 @@ get_header();
                 <!-- Title -->
                 <div class="col-md-5">
                     <h2 class="project-title"><?php echo esc_html( $second_section_title ); ?></h2>
-                    <div class="see-more-btn aos-init aos-animate portfolio-btn" data-aos="fade-up">
+                    <div class="see-more-btn portfolio-btn">
                         <a href="<?php echo esc_url( $website_link ); ?>" target="_blank">
                             Visit Website
                         </a>
