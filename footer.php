@@ -35,6 +35,13 @@
 <!--cta-->
 <!-- "This Website is Green" Text -->
 <div class="website-green-tag">
+    <!-- Eco-Friendly Tag -->
+    <div class="eco-friendly-tag">
+        <a href="https://dreamwaymedia.com/web-hosting-and-global-warming-carbon-free" alt="GreenGeeks" rel="nofollow">
+            <img src="https://greengeeks.com/includes/images/green-tags/Green_15.png" border="0" alt="Eco Friendly Tag">
+        </a>
+    </div>
+
     <!-- Inverted Text -->
     <?php 
         // Fetching the ACF field value for the green website text
