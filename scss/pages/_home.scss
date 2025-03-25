@@ -1,3 +1,247 @@
+/* =====Service Section Start=====*/
+#services {
+  width: 100%;
+}
+#services .services-top {
+  padding: 70px 0 50px;
+  text-align: center;
+}
+#services .services-list {
+  width: 100%;
+  padding-top: 50px;
+  text-align: center;
+  position: relative;
+}
+.services-list__wrapper {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+.services-list__bar-bg {
+  background: #ddd;
+  height: 12px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+.services-list__bar {
+  background: #a0ca00;
+  height: 12px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 2;
+  width: 0;
+}
+.services-list__columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 40px;
+}
+.services-list__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.services-list__icon {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+.services-list__icon img {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  transition: opacity 0.5s ease-in-out;
+}
+.services-list__icon .icon-before {
+  opacity: 1;
+}
+.services-list__icon .icon-after {
+  opacity: 0;
+}
+.services-list__circle {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #ddd;
+  border-radius: 50%;
+  background: #fff;
+  position: relative;
+  z-index: 3;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease-in-out;
+}
+.services-list__circle::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.3s ease-in-out;
+}
+.services-list__name-block {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+.services-list__name-block a {
+  color: #000;
+  text-decoration: none;
+}
+.services-list__name-block a:hover {
+  color: #a0ca00;
+}
+.services-list__icon.active .icon-before {
+  opacity: 0;
+}
+.services-list__icon.active .icon-after {
+  opacity: 1;
+}
+.services-list__circle.active {
+  border-color: #a0ca00;
+}
+.services-list__circle.active::before {
+  background: #a0ca00;
+}
+.services-list__name-block.active {
+  opacity: 1;
+}
+@media (max-width: 950px) {
+  .services-list__wrapper {
+    width: 90%;
+  }
+  .services-list__icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+  }
+  .services-list__icon img {
+    width: 50px;
+    height: 50px;
+  }
+  .services-list__circle {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+    margin-bottom: 8px;
+  }
+  .services-list__circle::before {
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+  }
+  .services-list__name-block {
+    font-size: 14px;
+  }
+  .services-list__bar-bg,
+  .services-list__bar {
+    height: 8px;
+    border-radius: 4px;
+  }
+}
+@media (max-width: 768px) {
+  #services .services-list {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .services-list__wrapper {
+    width: 85%;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 0 15px 0 35px;
+  }
+  .services-list__columns {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    gap: 30px;
+    margin-left: 25px;
+  }
+  .services-list__col {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding-left: 20px;
+  }
+  .services-list__icon,
+  .services-list__circle,
+  .services-list__name-block {
+    margin: 0 5px;
+  }
+}
+@media (max-width: 480px) {
+  .services-list__wrapper {
+    width: 90%;
+    max-width: 280px;
+    padding: 0 10px 0 25px;
+  }
+  .services-list__columns {
+    gap: 20px;
+    margin-left: 15px;
+  }
+  .services-list__icon {
+    width: 40px;
+    height: 40px;
+  }
+  .services-list__icon img {
+    width: 40px;
+    height: 40px;
+  }
+  .services-list__circle {
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
+  }
+  .services-list__circle::before {
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+  }
+  .services-list__name-block {
+    font-size: 12px;
+  }
+  .services-list__col {
+    padding-left: 10px;
+    gap: 6px;
+  }
+  .services-list__bar-bg,
+  .services-list__bar {
+    width: 8px;
+  }
+}
+@media (max-width: 360px) {
+  .services-list__wrapper {
+    transform: translateX(10px);
+  }
+  .services-list__icon {
+    margin-right: 3px;
+  }
+  .services-list__name-block {
+    font-size: clamp(10px, 3vw, 14px);
+  }
+}
+.pin-spacer {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+/* =====Service Section End=====*/
 .achievements-main-wrap {
   background: url(assets/images/why_choose_dmw_bg.svg) no-repeat top;
   padding: 100px 0;
