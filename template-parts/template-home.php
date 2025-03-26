@@ -82,147 +82,68 @@ get_header();
 <!-- Rest of your sections remain unchanged -->
 <!--header slider--> 
 <section class="about-main-wrap" id="about-main-wrap"> 
-  
   <!--about-->
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-  <div class="container bootstrap snippets bootdey home-container" data-aos="fade-up">
+  <div class="container bootstrap snippets bootdey home-container">
 <!-- Services Section -->
 <section id="services" class="current">
-    <div class="services-top">
+      <div class="services-top">
         <div class="container bootstrap snippets bootdey home-container">
-            <div class="row text-center">
-                <div class="col-12">
-                    <h2>Your Local & Friendly</h2>
-                    <h2 class="highlighted-heading">Web Marketing Agency</h2>
-                    <p>We offer a wide range of services to ensure you get what you need, all under one roof.</p>
-                </div>
+          <div class="row text-center">
+            <div class="col-12">
+              <h2>Your Local & Friendly</h2>
+              <h2 class="highlighted-heading">Web Marketing Agency</h2>
+              <p>We offer a wide range of services to ensure you get what you need, all under one roof.</p>
             </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="services-list">
-                        <div class="row">
-                            <?php
-                            // Query the 'services' custom post type
-                            $args = array(
-                                'post_type' => 'services',
-                                'posts_per_page' => -1,  // Fetch all services
-                                'order' => 'ASC',
-                                'orderby' => 'menu_order',
-                            );
-                            $services_query = new WP_Query($args);
-
-                            if ($services_query->have_posts()) :
-                                while ($services_query->have_posts()) : $services_query->the_post();
-                                    // Get custom fields
-                                    $service_icon = get_field('service_icon'); // Icon class
-                                    $service_info = get_field('service_info'); // Short info
-                                    $service_link = get_field('service_link'); // Custom link
-
-                                    // Fallbacks if fields are empty
-                                    if (!$service_icon) {
-                                        $service_icon = 'fa fa-star'; // Default icon
-                                    }
-                                    if (!$service_info) {
-                                        $service_info = get_the_excerpt();
-                                    }
-                                    ?>
-                                    <div class="col-sm-6 col-md-4">
-                                        <div class="service-block" style="visibility: visible;">
-                                            <div class="ico <?php echo esc_attr($service_icon); ?> highlight"></div>
-                                            <div class="text-block">
-                                                <?php if ($service_link) : ?>
-                                                    <a class="no-style-link" href="<?php echo esc_url($service_link); ?>">
-                                                        <div class="name"><?php the_title(); ?></div>
-                                                    </a>
-                                                <?php else : ?>
-                                                    <div class="name"><?php the_title(); ?></div>
-                                                <?php endif; ?>
-                                                <div class="info"><?php echo esc_html($service_info); ?></div>
-                                                <!-- Sub-Services List -->
-                                                <?php
-                                                // Initialize an array to hold sub-services
-                                                $sub_services = array();
-
-                                                if (have_rows('sub_service')) {
-                                                    while (have_rows('sub_service')) {
-                                                        the_row();
-                                                        $sub_service_name = get_sub_field('service');
-                                                        if ($sub_service_name) {
-                                                            $sub_services[] = $sub_service_name;
-                                                        }
-                                                    }
-                                                }
-
-                                                // Now, join the sub-services with commas and output
-                                                if (!empty($sub_services)) {
-                                                    echo '<div class="text">' . esc_html(implode(', ', $sub_services)) . '</div>';
-                                                }
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php
-                                endwhile;
-                                wp_reset_postdata();
-                            else :
-                                echo '<p>No services found.</p>';
-                            endif;
-                            ?>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div id="progression" class="services-list">
+                <div class="services-list__wrapper">
+                  <div class="services-list__bar-bg"></div>
+                  <div class="services-list__bar"></div>
+                  <div class="services-list__columns">
+                    <?php 
+                    $services = get_field('we_offer_services');
+                    if ($services):
+                      foreach ($services as $service):
+                        $icon_before = $service['process_icon_before'];
+                        $icon_after  = $service['process_icon_after'];
+                        $process_text = $service['process_text'];
+                        $process_link = $service['process_link'];
+                    ?>
+                      <div class="services-list__col">
+                        <div class="services-list__icon">
+                          <img class="icon-before" src="<?php echo esc_url($icon_before['url']); ?>" alt="<?php echo esc_attr($icon_before['alt']); ?>">
+                          <img class="icon-after" src="<?php echo esc_url($icon_after['url']); ?>" alt="<?php echo esc_attr($icon_after['alt']); ?>">
                         </div>
-                        <div class="see-more-btn" data-aos="fade-up">
-                            <a href="/services/">Learn more about our services</a>
+                        <div class="services-list__circle"></div>
+                        <div class="services-list__name-block">
+                          <?php if ($process_link): ?>
+                            <a href="<?php echo esc_url($process_link); ?>">
+                              <?php echo esc_html($process_text); ?>
+                            </a>
+                          <?php else: ?>
+                            <?php echo esc_html($process_text); ?>
+                          <?php endif; ?>
                         </div>
-                    </div>
+                      </div>
+                    <?php endforeach; endif; ?>
+                  </div>
                 </div>
+              </div>
+              <div class="see-more-btn" data-aos="fade-up">
+                <a href="/services/">Learn more about our services</a>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 <!-- End of Services Section -->
-
-
-
   </div>  
 </section>
 
-<!--CSS-->
-<style>                 
-#services .services-top {
-    padding: 70px 0 50px;
-}
-#services .services-list {
-    padding-top: 50px;
-}
-.services-list .service-block {
-    margin-bottom: 25px;
-}
-.services-list .service-block .ico {
-    font-size: 38px;
-    float: left;
-}
-.services-list .service-block .text-block {
-    margin-left: 58px;
-}
-.services-list .service-block .text-block .name {
-    font-size: 20px;
-    font-weight: 900;
-    margin-bottom: 5px;
-}
-.services-list .service-block .text-block .info {
-    font-size: 16px;
-    font-weight: 300;
-    margin-bottom: 10px;
-}
-.services-list .service-block .text-block .text {
-    font-size: 12px;
-    line-height: normal;
-    font-weight: 300;
-}
-.highlight {
-    color: #a0ca00;
-    font-weight:bold;
-}
-</style>
 <!--about section--> 
 <?php
 // Checking if ACF is active and fields exist
@@ -599,9 +520,152 @@ $button_link = get_field('cs_buttonlink');
     
   </section>
   <!--Testimonials Section--> 
-
 </section>
 <!--content--> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  gsap.registerPlugin(ScrollTrigger);
 
+  let circles = document.querySelectorAll(".services-list__circle");
+  let icons   = document.querySelectorAll(".services-list__icon");
+  let names   = document.querySelectorAll(".services-list__name-block");
+  let fillBar = document.querySelector(".services-list__bar");
+  let barBg   = document.querySelector(".services-list__bar-bg");
+  let wrapper = document.querySelector(".services-list__wrapper");
+  let servicesSection = document.querySelector("#services");
+
+  let totalSteps = circles.length;
+  let totalBarDimension = 0; // will hold width (desktop) or height (mobile)
+
+  /**
+   * Position the barBg and fillBar between the first and last circle.
+   * Calculates totalBarDimension (the distance between first & last circle).
+   */
+  function updateProgressBar() {
+    if (!wrapper || !fillBar || !barBg) return;
+
+    let firstCircle = document.querySelector(".services-list__columns .services-list__col:first-child .services-list__circle");
+    let lastCircle  = document.querySelector(".services-list__columns .services-list__col:last-child .services-list__circle");
+
+    if (!firstCircle || !lastCircle) return;
+
+    const wrapperRect = wrapper.getBoundingClientRect();
+    const firstRect   = firstCircle.getBoundingClientRect();
+    const lastRect    = lastCircle.getBoundingClientRect();
+
+    if (window.innerWidth > 768) {
+      // Desktop (horizontal layout)
+      const left  = firstRect.left - wrapperRect.left + firstRect.width / 2;
+      const right = lastRect.right - wrapperRect.left - lastRect.width / 2;
+      totalBarDimension = right - left;
+
+      const top = firstRect.top - wrapperRect.top + firstRect.height / 2 - 6;
+
+      // Grey bar background
+      barBg.style.left   = left + "px";
+      barBg.style.top    = top + "px";
+      barBg.style.width  = totalBarDimension + "px";
+      barBg.style.height = "12px";
+
+      // Green fill bar
+      fillBar.style.left   = left + "px";
+      fillBar.style.top    = top + "px";
+      fillBar.style.width  = "0px"; // reset to 0 each time
+      fillBar.style.height = "12px";
+    } else {
+      // Mobile (vertical layout)
+      const centerX  = firstRect.left - wrapperRect.left + firstRect.width / 2 - 6;
+      const topPos    = firstRect.top - wrapperRect.top + firstRect.height / 2;
+      const bottomPos = lastRect.top - wrapperRect.top + lastRect.height / 2;
+      totalBarDimension = bottomPos - topPos;
+
+      // Grey bar background
+      barBg.style.left   = centerX + "px";
+      barBg.style.top    = topPos + "px";
+      barBg.style.height = totalBarDimension + "px";
+      barBg.style.width  = "12px";
+
+      // Green fill bar
+      fillBar.style.left   = centerX + "px";
+      fillBar.style.top    = topPos + "px";
+      fillBar.style.height = "0px"; // reset to 0 each time
+      fillBar.style.width  = "12px";
+    }
+  }
+
+  /**
+   * Activates or deactivates icons/circles/names based on the progress
+   * @param {number} progress - a value between 0 and 1
+   */
+  function updateActiveSteps(progress) {
+    let stepProgress = progress * (totalSteps - 1);
+    let stepIndex    = Math.round(stepProgress);
+
+    circles.forEach((circle, i) => {
+      circle.classList.toggle("active", i <= stepIndex);
+    });
+    icons.forEach((icon, i) => {
+      icon.classList.toggle("active", i <= stepIndex);
+    });
+    names.forEach((name, i) => {
+      name.classList.toggle("active", i <= stepIndex);
+    });
+  }
+
+  /**
+   * Create ScrollTriggers with matchMedia to handle Desktop vs Mobile.
+   */
+  ScrollTrigger.matchMedia({
+    // =========== DESKTOP: pinned horizontal progress ===========
+    "(min-width: 769px)": function() {
+      updateProgressBar();
+
+      ScrollTrigger.create({
+        trigger: "#services",
+        start: "top top",
+        end: () => "+=" + (totalBarDimension + 100), 
+        scrub: 2,
+        pin: true,            
+        pinSpacing: true,     
+        onUpdate: (self) => {
+          // Fill the bar horizontally
+          fillBar.style.width = (self.progress * totalBarDimension) + "px";
+          // Activate circles/icons/text
+          updateActiveSteps(self.progress);
+        },
+      });
+    },
+    // =========== MOBILE: pinned vertical progress ===========
+    "(max-width: 768px)": function() {
+      updateProgressBar();
+
+      ScrollTrigger.create({
+        trigger: "#progression",
+        start: "top top", 
+        end: () => "+=" + (totalBarDimension + 100), 
+        scrub: 2,
+        pin: true,
+        pinSpacing: true,
+
+        onUpdate: (self) => {
+          // Fill the bar vertically
+          fillBar.style.height = (self.progress * totalBarDimension) + "px";
+          // Activate circles/icons/text
+          updateActiveSteps(self.progress);
+        },
+      });
+    }
+  });
+  updateProgressBar();
+  window.addEventListener("resize", function() {
+    requestAnimationFrame(function() {
+      updateProgressBar();
+      ScrollTrigger.refresh();
+    });
+  });
+});
+</script>
 <?php
 get_footer();
