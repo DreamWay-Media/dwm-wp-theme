@@ -91,10 +91,16 @@ get_header();
         <div class="container bootstrap snippets bootdey home-container">
           <div class="row text-center">
             <div class="col-12">
-              <h2>Your Local & Friendly</h2>
-              <h2 class="highlighted-heading">Web Marketing Agency</h2>
-              <p>We offer a wide range of services to ensure you get what you need, all under one roof.</p>
+              <h2>Elevate Customer Experiences with Tailored AI</h2>
+              <h2 class="highlighted-heading">Bespoke E-Commerce Automation Agency</h2>
+              <p>Create loyal customers with experiences and engagement that feel personal. 
+                Our solution engineers develop innovative AI tools that assist in automating 
+                customer interaction, anticipate needs, reduce friction, and drive satisfaction across your entire digital storefront. 
+                Our robust AI content generation and strategy toolkits are customized for efficiency and growth.</p>
             </div>
+            <div class="reach-us-btn" data-aos="fade-up">
+                <a href="/services/">Explore Solutions</a>
+              </div>
           </div>
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -132,9 +138,6 @@ get_header();
                   </div>
                 </div>
               </div>
-              <div class="see-more-btn" data-aos="fade-up">
-                <a href="/services/">Learn more about our services</a>
-              </div>
             </div>
           </div>
         </div>
@@ -144,6 +147,97 @@ get_header();
   </div>  
 </section>
 
+<!-- Toolkits Section -->
+<?php
+if( function_exists('get_field') ):  
+    // Stored fields in variables
+    $toolkits_heading = get_field('toolkits_heading');
+?>
+<section class="toolkits-main-wrap py-5">
+    <div class="container">
+        <!-- Toolkits Heading -->
+        <?php if( $toolkits_heading ): ?>
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h3><?php echo $toolkits_heading; ?></h3>
+                </div>
+            </div>
+        <?php endif; ?>
+        
+        <!-- Toolkits Content -->
+        <?php if( have_rows('toolkits_content') ): ?>
+            <div class="row justify-content-center mb-5 g-1">
+                <?php 
+                while( have_rows('toolkits_content') ): the_row();
+                    $toolkit_image = get_sub_field('toolkit_image');
+                    $toolkit_subheading = get_sub_field('toolkit_subheading');
+                    $toolkit_text = get_sub_field('toolkit_text');
+                    $toolkit_button_text = get_sub_field('toolkit_button_text');
+                    $toolkit_button_link = get_sub_field('toolkit_button_link');
+                ?>
+                    <div class="col-md-4 col-sm-12 text-center mb-4">
+                        <?php if($toolkit_image): ?>
+                            <div class="toolkit-icon mb-3">
+                                <img src="<?php echo esc_url($toolkit_image['url']); ?>" 
+                                     alt="<?php echo esc_attr($toolkit_text); ?>"
+                                     class="img-fluid">
+                            </div>
+                        <?php endif; ?>
+                        <?php if($toolkit_subheading): ?>
+                            <div class="toolkit-subheading mb-3">
+                                <h4><?php echo esc_html($toolkit_subheading); ?></h4>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($toolkit_text): ?>
+                            <div class="toolkit-text">
+                                <p class="text-center mb-0 p-5"><?php echo wp_kses_post($toolkit_text); ?></p>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($toolkit_button_text): ?>
+                            <div class="reach-us-btn mt-3">
+                                <a href="<?php echo esc_url($toolkit_button_link); ?>" class="btn"><?php echo esc_html($toolkit_button_text); ?></a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</section>
+<?php endif; ?>
+<!-- End Toolkits Section -->
+<!-- LLM Logos Section -->
+<?php
+if( function_exists('get_field') ):  
+    // Stored fields in variables
+    $llm_heading = get_field('llm_heading');
+?>
+<section class="llm-main-wrap py-5">
+  <div class="container">
+  <?php if( $llm_heading ): ?>
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h3><?php echo $llm_heading; ?></h3>
+      </div>
+    </div>
+    <?php endif; ?>
+    <?php if( have_rows('llm_company_list') ): ?>
+      <div class="row justify-content-center mb-5 g-0">
+        <?php while( have_rows('llm_company_list') ): the_row();
+          $llm_image = get_sub_field('llm_image');
+          ?>
+          <div class="col-md-4 col-sm-12 text-center mb-4">
+            <?php if($llm_image): ?>
+              <img src="<?php echo esc_url($llm_image['url']); ?>" alt="<?php echo esc_attr($llm_image['alt']); ?>" class="img-fluid">
+            <?php endif; ?>
+          </div>
+        <?php endwhile; ?>
+      </div>
+    <?php endif; ?>
+  </div>
+</section>
+<?php endif; ?>
+<!-- End LLM Logos Section -->
 <!--about section--> 
 <?php
 // Checking if ACF is active and fields exist
