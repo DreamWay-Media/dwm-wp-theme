@@ -98,9 +98,6 @@ get_header();
                 customer interaction, anticipate needs, reduce friction, and drive satisfaction across your entire digital storefront. 
                 Our robust AI content generation and strategy toolkits are customized for efficiency and growth.</p>
             </div>
-            <div class="reach-us-btn" data-aos="fade-up">
-                <a href="/services/">Explore Solutions</a>
-              </div>
           </div>
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -138,6 +135,9 @@ get_header();
                   </div>
                 </div>
               </div>
+              <div class="reach-us-btn" data-aos="fade-up">
+                <a href="/services/">Explore Solutions</a>
+            </div>
             </div>
           </div>
         </div>
@@ -212,7 +212,7 @@ if( function_exists('get_field') ):
     // Stored fields in variables
     $llm_heading = get_field('llm_heading');
 ?>
-<section class="llm-main-wrap py-5">
+<section class="llm-main-wrap pt-4 pb-2">
   <div class="container">
   <?php if( $llm_heading ): ?>
     <div class="row mb-5">
@@ -373,61 +373,108 @@ if( function_exists('get_field') ):
 <!-- logo-scroll-->
   </div>
   <!--numbers--> 
-   <!-- case study-->
-<div class="case-study-wrap">
-<div class="container home-container"> 
+  
 <?php
-$title = get_field('cs_title');
-$paragraph = get_field('cs_paragraph');
-$paragraph1 = get_field('cs_paragraph1');
-$image = get_field('cs_image');
-$button_text = get_field('cs_buttontext');
-$button_link = get_field('cs_buttonlink');
+if( function_exists('get_field') ):  
+    $cs_title = get_field('cs_title');
+    $cs_subheading = get_field('cs_subheading');
 ?>
-<div class="row case-study-row align-items-center">
-    <!-- Left Column: Title, Paragraph, and Button -->
-    <div class="col-md-6 d-flex flex-column align-items-center text-center">
-        <!-- Section Heading -->
-        <?php if( $title ): ?>
-            <h2 class="highlighted-heading" data-aos="fade-up">
-                <?php echo esc_html($title); ?>
-            </h2>
-        <?php endif; ?>
-
-        <!-- Paragraph Section -->
-        <?php if( $paragraph ): ?>
-            <p data-aos="fade-up">
-                <?php echo esc_html($paragraph); ?>
-            </p>
-        <?php endif; ?>
-        <?php if( $paragraph1 ): ?>
-            <p data-aos="fade-up">
-                <?php echo esc_html($paragraph1); ?>
-            </p>
-        <?php endif; ?>
-
-        <!-- Button Section -->
-        <?php if( $button_text && $button_link ): ?>
-            <div class="see-more-btn" data-aos="fade-up">
-                <a href="<?php echo esc_url($button_link); ?>">
-                    <?php echo esc_html($button_text); ?>
-                </a>
+   <!-- Case Study Section -->
+  <div class="case-study-wrap">
+    <div class="container home-container">
+      <!-- Case Study Heading Section -->
+      <div class="row text-center mb-5">
+        <div class="col-12">
+          <h2 class="case-study-heading"><?php echo $cs_title; ?></h2>
+          <h3 class="case-study-subheading"><?php echo $cs_subheading; ?></h3>
+        </div>
+      </div>
+      <!-- Case Study Content -->
+      <div class="row text-center case-study-content-row">
+        <?php if( have_rows('cs_section_1') ):?>
+          <?php while( have_rows('cs_section_1') ): the_row(); ?>
+            <div class="col-md-6">
+              <div class="case-study-column">
+                <div class="case-study-content">
+                  <?php if(get_sub_field('cs_section_1_title')): ?>
+                    <h3 class="case-study-title"><?php echo get_sub_field('cs_section_1_title'); ?></h3>
+                  <?php endif; ?>
+                  <?php if(get_sub_field('cs_section_1_subtitle')): ?>
+                    <h4 class="case-study-subtitle"><?php echo get_sub_field('cs_section_1_subtitle'); ?></h4>
+                  <?php endif; ?>
+                  <div class="case-study-spacing"></div>
+                  <?php if(get_sub_field('cs_section_1_description')): ?>
+                    <p class="case-study-description"><?php echo get_sub_field('cs_section_1_description'); ?></p>
+                  <?php endif; ?>
+                </div>
+                <div class="case-study-white-box">
+                <?php if(get_sub_field('cs_section_1_image')): ?>
+                  <img class="case-study-main-image" src="<?php echo esc_url(get_sub_field('cs_section_1_image')['url']); ?>" alt="<?php echo get_sub_field('cs_section_1_title'); ?>">
+                <?php endif; ?>
+                  <!-- Content for section 1 will go here -->
+                   <p>Trail Chews is a testament to how Generative AI can empower businesses to launch rapidly while maintaining high-quality brand execution. 
+                    From ideation and product development to digital commerce and marketing, AI played an integral role in every stage of the business, 
+                    demonstrating that technology can drive efficiency, innovation, and social impact simultaneously.</p>
+                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-group.png" alt="group image">
+                   <p>Users wanted to track new followers/unfollowers, top interactions, easily block or mute, 
+                      and audience growth trends at a glance</p>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-bar-chart.png" alt="bar chart">
+                   <p>Existing solutions for BlueSky primarily focused on posting content without any engagement analytics which would be beneficial 
+                      for streamlined communication and marketing.</p>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-warning.png" alt="warning">
+                   <p>With the rise of fake accounts, users were concerned about bot-driven engagement, leading to skewed audience metrics and potential reputational risks.</p>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-checkmark.png" alt="checkmark">
+                   <p>No AI sourced fact-checking capabilities</p>
+                </div>
+              </div>
             </div>
+          <?php endwhile; ?>
         <?php endif; ?>
-    </div>
- <!-- Right Column: Image -->
-    <div class="col-md-6 text-center">
-        <?php if( $image ): ?>
-            <img src="<?php echo esc_url($image['url']); ?>" 
-                 alt="<?php echo esc_attr($image['alt']); ?>" 
-                 class="img-case-study" data-aos="fade-up">
+        <?php if( have_rows('cs_section_2') ):?>
+          <?php while( have_rows('cs_section_2') ): the_row(); ?>
+            <div class="col-md-6">
+              <div class="case-study-column">
+                <div class="case-study-content">
+                  <?php if(get_sub_field('cs_section_2_title')): ?>
+                    <h3 class="case-study-title"><?php echo get_sub_field('cs_section_2_title'); ?></h3>
+                  <?php endif; ?>
+                  <?php if(get_sub_field('cs_section_2_subtitle')): ?>
+                    <h4 class="case-study-subtitle"><?php echo get_sub_field('cs_section_2_subtitle'); ?></h4>
+                  <?php endif; ?>
+                  <div class="case-study-spacing"></div>
+                  <?php if(get_sub_field('cs_section_2_description')): ?>
+                    <p class="case-study-description"><?php echo get_sub_field('cs_section_2_description'); ?></p>
+                  <?php endif; ?>
+                </div>
+                <div class="case-study-white-box">
+                  <?php if(get_sub_field('cs_section_2_image')): ?>
+                    <img class="case-study-main-image" src="<?php echo esc_url(get_sub_field('cs_section_2_image')['url']); ?>" alt="<?php echo get_sub_field('cs_section_2_title'); ?>">
+                  <?php endif; ?>
+                  <!-- Content for section 2 will go here -->
+                   
+                   <p>Bluesky Social is rapidly gaining popularity as a decentralized social media platform, but its functionality remains limited. 
+                    Users face challenges in managing followers, indentifying bot, and filtering disinformation - highlighting the need for better 
+                    companion applications to navigate the platform effectively.</p>
+                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-group.png" alt="group image">
+                    <p>Users wanted to track new followers/unfollowers, top interactions, easily block or mute, and audience growth trends at a glance</p>
+                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-bar-chart.png" alt="bar chart">
+                    
+                    <p>Existing solutions for BlueSky primarily focused on posting content without any engagement analytics which would be beneficial 
+                      for streamlined communication and marketing.</p>
+                      <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-warning.png" alt="warning">
+                    <p>With the rise of fake accounts, users were concerned about bot-driven engagement, leading to skewed audience metrics and potential reputational risks.</p>
+                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-checkmark.png" alt="checkmark">
+                    <p>No AI sourced fact-checking capabilities</p>
+              </div>
+            </div>
+          <?php endwhile; ?>
         <?php endif; ?>
+      </div>
     </div>
- </div>
+  </div>
 </div>
-</div>
- <!-- case study-->
-
+  <!-- End Case Study Section -->
+<?php endif; ?>
   <!--Our Featured Projects-->
   <?php 
   $project_heading = get_field('project_heading');
