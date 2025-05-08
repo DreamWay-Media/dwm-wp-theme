@@ -273,6 +273,108 @@ if ( $fourth_section_heading || $fourth_section_description ) :
 <?php endif; ?>
 
 <?php
+// Fifth Section Variables
+$fifth_section_heading = get_field('fifth_section_heading', $post_id);
+$fifth_section_title = get_field('fifth_section_title', $post_id);
+$fifth_section_description = get_field('fifth_section_description', $post_id);
+
+// Fifth Section Output
+if ($fifth_section_heading || $fifth_section_description) :
+?>
+<!-- Fifth Section -->
+<div class="what-they-need-wrap">
+    <div class="container">
+        <h3 id="fifth-heading"><?php echo esc_html( $fifth_section_heading ); ?></h3>
+        <div class="second-product-slider-text">
+            <div class="row">
+                <!-- Title -->
+                <div class="col-md-5">
+                    <h2 class="project-title"><?php echo esc_html( $fifth_section_title ); ?></h2>
+                </div>
+                <!-- Title -->
+
+                <!-- Text -->
+                <div class="<?php echo $fifth_section_title ? 'col-md-7 second-description-text' : 'col-md-12'; ?>">
+                    <div class="<?php echo $fifth_section_title ? 'product-detail-padding' : ''; ?> product-detail-text">
+                        <?php echo wp_kses_post( $fifth_section_description ); ?>
+                    </div>
+                </div>
+                <!-- Text -->
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<?php
+// Sixth Section Variables
+$sixth_section_heading = get_field('sixth_section_heading', $post_id);
+$sixth_section_title = get_field('sixth_section_title', $post_id);
+$sixth_section_description = get_field('sixth_section_description', $post_id);
+
+// Sixth Section Output
+if ($sixth_section_heading || $sixth_section_description) :
+?>
+<!-- Sixth Section -->
+<div class="what-they-need-wrap">
+    <div class="container">
+        <h3 id="sixth-heading"><?php echo esc_html( $sixth_section_heading ); ?></h3>
+        <div class="second-product-slider-text">
+            <div class="row">
+                <!-- Title -->
+                <div class="col-md-5">
+                    <h2 class="project-title"><?php echo esc_html( $sixth_section_title ); ?></h2>
+                </div>
+                <!-- Title -->
+
+                <!-- Text -->
+                <div class="<?php echo $sixth_section_title ? 'col-md-7 second-description-text' : 'col-md-12'; ?>">
+                    <div class="<?php echo $sixth_section_title ? 'product-detail-padding' : ''; ?> product-detail-text">
+                        <?php echo wp_kses_post( $sixth_section_description ); ?>
+                    </div>
+                </div>
+                <!-- Text -->
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<?php
+// Seventh Section Variables
+$seventh_section_heading = get_field('seventh_section_heading', $post_id);
+$seventh_section_title = get_field('seventh_section_title', $post_id);
+$seventh_section_description = get_field('seventh_section_description', $post_id);
+
+// Seventh Section Output
+if ($seventh_section_heading || $seventh_section_description) :
+?>
+<!-- Seventh Section -->
+<div class="what-they-need-wrap">
+    <div class="container">
+        <h3 id="seventh-heading"><?php echo esc_html( $seventh_section_heading ); ?></h3>
+        <div class="second-product-slider-text">
+            <div class="row">
+                <!-- Title -->
+                <div class="col-md-5">
+                    <h2 class="project-title"><?php echo esc_html( $seventh_section_title ); ?></h2>
+                </div>
+                <!-- Title -->
+
+                <!-- Text -->
+                <div class="<?php echo $seventh_section_title ? 'col-md-7 second-description-text' : 'col-md-12'; ?>">
+                    <div class="<?php echo $seventh_section_title ? 'product-detail-padding' : ''; ?> product-detail-text">
+                        <?php echo wp_kses_post( $seventh_section_description ); ?>
+                    </div>
+                </div>
+                <!-- Text -->
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<?php
 // Result Section Variables
 $result_heading = get_field('result_heading', $post_id);
 $result_title = get_field('result_title', $post_id);
@@ -307,6 +409,7 @@ if ($result_heading || $result_description) :
         </div>
     </div>
 </div>
+
 <!--content-->
 <?php
     $video_heading = get_field('video_heading', $post_id);
