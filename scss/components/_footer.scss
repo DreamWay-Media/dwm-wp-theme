@@ -199,9 +199,7 @@
 }
 .eco-friendly-tag {
   flex-shrink: 0; 
-  position: absolute;  // Position absolutely within .cta-main-wraper
-    bottom: 10px;      
-    left: 10px;          
+  margin-right: 10px;
 }
 .eco-friendly-tag img {
   max-width: 150px; 
