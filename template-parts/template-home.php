@@ -412,19 +412,30 @@ if( function_exists('get_field') ):
                   <img class="case-study-main-image" src="<?php echo esc_url(get_sub_field('cs_section_1_image')['url']); ?>" alt="<?php echo get_sub_field('cs_section_1_title'); ?>">
                 <?php endif; ?>
                   <!-- Content for section 1 will go here -->
-                   <p>Trail Chews is a testament to how Generative AI can empower businesses to launch rapidly while maintaining high-quality brand execution. 
-                    From ideation and product development to digital commerce and marketing, AI played an integral role in every stage of the business, 
-                    demonstrating that technology can drive efficiency, innovation, and social impact simultaneously.</p>
-                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-group.png" alt="group image">
-                   <p>Users wanted to track new followers/unfollowers, top interactions, easily block or mute, 
-                      and audience growth trends at a glance</p>
+                   <?php if(get_sub_field('cs_section_1_intro_paragraph')): ?>
+                     <p><?php echo get_sub_field('cs_section_1_intro_paragraph'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-group.png" alt="group image">
+                   <?php if(get_sub_field('cs_section_1_paragraph_1')): ?>
+                     <p><?php echo get_sub_field('cs_section_1_paragraph_1'); ?></p>
+                   <?php endif; ?>
                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-bar-chart.png" alt="bar chart">
-                   <p>Existing solutions for BlueSky primarily focused on posting content without any engagement analytics which would be beneficial 
-                      for streamlined communication and marketing.</p>
+                   <?php if(get_sub_field('cs_section_1_paragraph_2')): ?>
+                     <p><?php echo get_sub_field('cs_section_1_paragraph_2'); ?></p>
+                   <?php endif; ?>
                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-warning.png" alt="warning">
-                   <p>With the rise of fake accounts, users were concerned about bot-driven engagement, leading to skewed audience metrics and potential reputational risks.</p>
+                   <?php if(get_sub_field('cs_section_1_paragraph_3')): ?>
+                     <p><?php echo get_sub_field('cs_section_1_paragraph_3'); ?></p>
+                   <?php endif; ?>
                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-checkmark.png" alt="checkmark">
-                   <p>No AI sourced fact-checking capabilities</p>
+                   <?php if(get_sub_field('cs_section_1_paragraph_4')): ?>
+                     <p><?php echo get_sub_field('cs_section_1_paragraph_4'); ?></p>
+                   <?php endif; ?>
+                   <?php if(get_sub_field('cs_section_1_button_text') && get_sub_field('cs_section_1_button_link')): ?>
+                     <div class="case-study-button">
+                       <a href="<?php echo esc_url(get_sub_field('cs_section_1_button_link')); ?>" class="btn"><?php echo esc_html(get_sub_field('cs_section_1_button_text')); ?></a>
+                     </div>
+                   <?php endif; ?>
                 </div>
               </div>
             </div>
@@ -451,20 +462,31 @@ if( function_exists('get_field') ):
                     <img class="case-study-main-image" src="<?php echo esc_url(get_sub_field('cs_section_2_image')['url']); ?>" alt="<?php echo get_sub_field('cs_section_2_title'); ?>">
                   <?php endif; ?>
                   <!-- Content for section 2 will go here -->
-                   
-                   <p>Bluesky Social is rapidly gaining popularity as a decentralized social media platform, but its functionality remains limited. 
-                    Users face challenges in managing followers, indentifying bot, and filtering disinformation - highlighting the need for better 
-                    companion applications to navigate the platform effectively.</p>
-                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-group.png" alt="group image">
-                    <p>Users wanted to track new followers/unfollowers, top interactions, easily block or mute, and audience growth trends at a glance</p>
-                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-bar-chart.png" alt="bar chart">
-                    
-                    <p>Existing solutions for BlueSky primarily focused on posting content without any engagement analytics which would be beneficial 
-                      for streamlined communication and marketing.</p>
-                      <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-warning.png" alt="warning">
-                    <p>With the rise of fake accounts, users were concerned about bot-driven engagement, leading to skewed audience metrics and potential reputational risks.</p>
-                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-checkmark.png" alt="checkmark">
-                    <p>No AI sourced fact-checking capabilities</p>
+                   <?php if(get_sub_field('cs_section_2_intro_paragraph')): ?>
+                     <p><?php echo get_sub_field('cs_section_2_intro_paragraph'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-group.png" alt="group image">
+                   <?php if(get_sub_field('cs_section_2_paragraph_1')): ?>
+                     <p><?php echo get_sub_field('cs_section_2_paragraph_1'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-bar-chart.png" alt="bar chart">
+                   <?php if(get_sub_field('cs_section_2_paragraph_2')): ?>
+                     <p><?php echo get_sub_field('cs_section_2_paragraph_2'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-warning.png" alt="warning">
+                   <?php if(get_sub_field('cs_section_2_paragraph_3')): ?>
+                     <p><?php echo get_sub_field('cs_section_2_paragraph_3'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-checkmark.png" alt="checkmark">
+                   <?php if(get_sub_field('cs_section_2_paragraph_4')): ?>
+                     <p><?php echo get_sub_field('cs_section_2_paragraph_4'); ?></p>
+                   <?php endif; ?>
+                   <?php if(get_sub_field('cs_section_2_button_text') && get_sub_field('cs_section_2_button_link')): ?>
+                     <div class="case-study-button">
+                       <a href="<?php echo esc_url(get_sub_field('cs_section_2_button_link')); ?>" class="btn"><?php echo esc_html(get_sub_field('cs_section_2_button_text')); ?></a>
+                     </div>
+                   <?php endif; ?>
+                </div>
               </div>
             </div>
           <?php endwhile; ?>
