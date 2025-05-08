@@ -91,9 +91,12 @@ get_header();
         <div class="container bootstrap snippets bootdey home-container">
           <div class="row text-center">
             <div class="col-12">
-              <h2>Your Local & Friendly</h2>
-              <h2 class="highlighted-heading">Web Marketing Agency</h2>
-              <p>We offer a wide range of services to ensure you get what you need, all under one roof.</p>
+              <h2>Elevate Customer Experiences with Tailored AI</h2>
+              <h2 class="highlighted-heading">Bespoke E-Commerce Automation Agency</h2>
+              <p>Create loyal customers with experiences and engagement that feel personal. 
+                Our solution engineers develop innovative AI tools that assist in automating 
+                customer interaction, anticipate needs, reduce friction, and drive satisfaction across your entire digital storefront. 
+                Our robust AI content generation and strategy toolkits are customized for efficiency and growth.</p>
             </div>
           </div>
           <div class="row">
@@ -132,9 +135,9 @@ get_header();
                   </div>
                 </div>
               </div>
-              <div class="see-more-btn" data-aos="fade-up">
-                <a href="/services/">Learn more about our services</a>
-              </div>
+              <div class="reach-us-btn" data-aos="fade-up">
+                <a href="/services/">Explore Solutions</a>
+            </div>
             </div>
           </div>
         </div>
@@ -144,6 +147,97 @@ get_header();
   </div>  
 </section>
 
+<!-- Toolkits Section -->
+<?php
+if( function_exists('get_field') ):  
+    // Stored fields in variables
+    $toolkits_heading = get_field('toolkits_heading');
+?>
+<section class="toolkits-main-wrap py-5">
+    <div class="container">
+        <!-- Toolkits Heading -->
+        <?php if( $toolkits_heading ): ?>
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h3><?php echo $toolkits_heading; ?></h3>
+                </div>
+            </div>
+        <?php endif; ?>
+        
+        <!-- Toolkits Content -->
+        <?php if( have_rows('toolkits_content') ): ?>
+            <div class="row justify-content-center mb-5 g-1">
+                <?php 
+                while( have_rows('toolkits_content') ): the_row();
+                    $toolkit_image = get_sub_field('toolkit_image');
+                    $toolkit_subheading = get_sub_field('toolkit_subheading');
+                    $toolkit_text = get_sub_field('toolkit_text');
+                    $toolkit_button_text = get_sub_field('toolkit_button_text');
+                    $toolkit_button_link = get_sub_field('toolkit_button_link');
+                ?>
+                    <div class="col-md-4 col-sm-12 text-center mb-4">
+                        <?php if($toolkit_image): ?>
+                            <div class="toolkit-icon mb-3">
+                                <img src="<?php echo esc_url($toolkit_image['url']); ?>" 
+                                     alt="<?php echo esc_attr($toolkit_text); ?>"
+                                     class="img-fluid">
+                            </div>
+                        <?php endif; ?>
+                        <?php if($toolkit_subheading): ?>
+                            <div class="toolkit-subheading mb-3">
+                                <h4><?php echo esc_html($toolkit_subheading); ?></h4>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($toolkit_text): ?>
+                            <div class="toolkit-text">
+                                <p class="text-center mb-0 p-5"><?php echo wp_kses_post($toolkit_text); ?></p>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($toolkit_button_text): ?>
+                            <div class="reach-us-btn mt-3">
+                                <a href="<?php echo esc_url($toolkit_button_link); ?>" class="btn"><?php echo esc_html($toolkit_button_text); ?></a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</section>
+<?php endif; ?>
+<!-- End Toolkits Section -->
+<!-- LLM Logos Section -->
+<?php
+if( function_exists('get_field') ):  
+    // Stored fields in variables
+    $llm_heading = get_field('llm_heading');
+?>
+<section class="llm-main-wrap pt-4 pb-2">
+  <div class="container">
+  <?php if( $llm_heading ): ?>
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h3><?php echo $llm_heading; ?></h3>
+      </div>
+    </div>
+    <?php endif; ?>
+    <?php if( have_rows('llm_company_list') ): ?>
+      <div class="row justify-content-center mb-5 g-0">
+        <?php while( have_rows('llm_company_list') ): the_row();
+          $llm_image = get_sub_field('llm_image');
+          ?>
+          <div class="col-md-4 col-sm-12 text-center mb-4">
+            <?php if($llm_image): ?>
+              <img src="<?php echo esc_url($llm_image['url']); ?>" alt="<?php echo esc_attr($llm_image['alt']); ?>" class="img-fluid">
+            <?php endif; ?>
+          </div>
+        <?php endwhile; ?>
+      </div>
+    <?php endif; ?>
+  </div>
+</section>
+<?php endif; ?>
+<!-- End LLM Logos Section -->
 <!--about section--> 
 <?php
 // Checking if ACF is active and fields exist
@@ -279,61 +373,130 @@ if( function_exists('get_field') ):
 <!-- logo-scroll-->
   </div>
   <!--numbers--> 
-   <!-- case study-->
-<div class="case-study-wrap">
-<div class="container home-container"> 
+  
 <?php
-$title = get_field('cs_title');
-$paragraph = get_field('cs_paragraph');
-$paragraph1 = get_field('cs_paragraph1');
-$image = get_field('cs_image');
-$button_text = get_field('cs_buttontext');
-$button_link = get_field('cs_buttonlink');
+if( function_exists('get_field') ):  
+    $cs_title = get_field('cs_title');
+    $cs_subheading = get_field('cs_subheading');
 ?>
-<div class="row case-study-row align-items-center">
-    <!-- Left Column: Title, Paragraph, and Button -->
-    <div class="col-md-6 d-flex flex-column align-items-center text-center">
-        <!-- Section Heading -->
-        <?php if( $title ): ?>
-            <h2 class="highlighted-heading" data-aos="fade-up">
-                <?php echo esc_html($title); ?>
-            </h2>
-        <?php endif; ?>
-
-        <!-- Paragraph Section -->
-        <?php if( $paragraph ): ?>
-            <p data-aos="fade-up">
-                <?php echo esc_html($paragraph); ?>
-            </p>
-        <?php endif; ?>
-        <?php if( $paragraph1 ): ?>
-            <p data-aos="fade-up">
-                <?php echo esc_html($paragraph1); ?>
-            </p>
-        <?php endif; ?>
-
-        <!-- Button Section -->
-        <?php if( $button_text && $button_link ): ?>
-            <div class="see-more-btn" data-aos="fade-up">
-                <a href="<?php echo esc_url($button_link); ?>">
-                    <?php echo esc_html($button_text); ?>
-                </a>
+   <!-- Case Study Section -->
+  <div class="case-study-wrap">
+    <div class="container home-container">
+      <!-- Case Study Heading Section -->
+      <div class="row text-center mb-5">
+        <div class="col-12">
+          <h2 class="case-study-heading"><?php echo $cs_title; ?></h2>
+          <h3 class="case-study-subheading"><?php echo $cs_subheading; ?></h3>
+        </div>
+      </div>
+      <!-- Case Study Content -->
+      <div class="row text-center case-study-content-row">
+        <?php if( have_rows('cs_section_1') ):?>
+          <?php while( have_rows('cs_section_1') ): the_row(); ?>
+            <div class="col-md-6">
+              <div class="case-study-column">
+                <div class="case-study-content">
+                  <?php if(get_sub_field('cs_section_1_title')): ?>
+                    <h3 class="case-study-title"><?php echo get_sub_field('cs_section_1_title'); ?></h3>
+                  <?php endif; ?>
+                  <?php if(get_sub_field('cs_section_1_subtitle')): ?>
+                    <h4 class="case-study-subtitle"><?php echo get_sub_field('cs_section_1_subtitle'); ?></h4>
+                  <?php endif; ?>
+                  <div class="case-study-spacing"></div>
+                  <?php if(get_sub_field('cs_section_1_description')): ?>
+                    <p class="case-study-description"><?php echo get_sub_field('cs_section_1_description'); ?></p>
+                  <?php endif; ?>
+                </div>
+                <div class="case-study-white-box">
+                <?php if(get_sub_field('cs_section_1_image')): ?>
+                  <img class="case-study-main-image" src="<?php echo esc_url(get_sub_field('cs_section_1_image')['url']); ?>" alt="<?php echo get_sub_field('cs_section_1_title'); ?>">
+                <?php endif; ?>
+                  <!-- Content for section 1 will go here -->
+                   <?php if(get_sub_field('cs_section_1_intro_paragraph')): ?>
+                     <p><?php echo get_sub_field('cs_section_1_intro_paragraph'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-group.png" alt="group image">
+                   <?php if(get_sub_field('cs_section_1_paragraph_1')): ?>
+                     <p><?php echo get_sub_field('cs_section_1_paragraph_1'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-bar-chart.png" alt="bar chart">
+                   <?php if(get_sub_field('cs_section_1_paragraph_2')): ?>
+                     <p><?php echo get_sub_field('cs_section_1_paragraph_2'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-warning.png" alt="warning">
+                   <?php if(get_sub_field('cs_section_1_paragraph_3')): ?>
+                     <p><?php echo get_sub_field('cs_section_1_paragraph_3'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-checkmark.png" alt="checkmark">
+                   <?php if(get_sub_field('cs_section_1_paragraph_4')): ?>
+                     <p><?php echo get_sub_field('cs_section_1_paragraph_4'); ?></p>
+                   <?php endif; ?>
+                   <?php if(get_sub_field('cs_section_1_button_text') && get_sub_field('cs_section_1_button_link')): ?>
+                     <div class="case-study-button">
+                       <a href="<?php echo esc_url(get_sub_field('cs_section_1_button_link')); ?>" class="btn"><?php echo esc_html(get_sub_field('cs_section_1_button_text')); ?></a>
+                     </div>
+                   <?php endif; ?>
+                </div>
+              </div>
             </div>
+          <?php endwhile; ?>
         <?php endif; ?>
-    </div>
- <!-- Right Column: Image -->
-    <div class="col-md-6 text-center">
-        <?php if( $image ): ?>
-            <img src="<?php echo esc_url($image['url']); ?>" 
-                 alt="<?php echo esc_attr($image['alt']); ?>" 
-                 class="img-case-study" data-aos="fade-up">
+        <?php if( have_rows('cs_section_2') ):?>
+          <?php while( have_rows('cs_section_2') ): the_row(); ?>
+            <div class="col-md-6">
+              <div class="case-study-column">
+                <div class="case-study-content">
+                  <?php if(get_sub_field('cs_section_2_title')): ?>
+                    <h3 class="case-study-title"><?php echo get_sub_field('cs_section_2_title'); ?></h3>
+                  <?php endif; ?>
+                  <?php if(get_sub_field('cs_section_2_subtitle')): ?>
+                    <h4 class="case-study-subtitle"><?php echo get_sub_field('cs_section_2_subtitle'); ?></h4>
+                  <?php endif; ?>
+                  <div class="case-study-spacing"></div>
+                  <?php if(get_sub_field('cs_section_2_description')): ?>
+                    <p class="case-study-description"><?php echo get_sub_field('cs_section_2_description'); ?></p>
+                  <?php endif; ?>
+                </div>
+                <div class="case-study-white-box">
+                  <?php if(get_sub_field('cs_section_2_image')): ?>
+                    <img class="case-study-main-image" src="<?php echo esc_url(get_sub_field('cs_section_2_image')['url']); ?>" alt="<?php echo get_sub_field('cs_section_2_title'); ?>">
+                  <?php endif; ?>
+                  <!-- Content for section 2 will go here -->
+                   <?php if(get_sub_field('cs_section_2_intro_paragraph')): ?>
+                     <p><?php echo get_sub_field('cs_section_2_intro_paragraph'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-group.png" alt="group image">
+                   <?php if(get_sub_field('cs_section_2_paragraph_1')): ?>
+                     <p><?php echo get_sub_field('cs_section_2_paragraph_1'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-bar-chart.png" alt="bar chart">
+                   <?php if(get_sub_field('cs_section_2_paragraph_2')): ?>
+                     <p><?php echo get_sub_field('cs_section_2_paragraph_2'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-warning.png" alt="warning">
+                   <?php if(get_sub_field('cs_section_2_paragraph_3')): ?>
+                     <p><?php echo get_sub_field('cs_section_2_paragraph_3'); ?></p>
+                   <?php endif; ?>
+                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-checkmark.png" alt="checkmark">
+                   <?php if(get_sub_field('cs_section_2_paragraph_4')): ?>
+                     <p><?php echo get_sub_field('cs_section_2_paragraph_4'); ?></p>
+                   <?php endif; ?>
+                   <?php if(get_sub_field('cs_section_2_button_text') && get_sub_field('cs_section_2_button_link')): ?>
+                     <div class="case-study-button">
+                       <a href="<?php echo esc_url(get_sub_field('cs_section_2_button_link')); ?>" class="btn"><?php echo esc_html(get_sub_field('cs_section_2_button_text')); ?></a>
+                     </div>
+                   <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          <?php endwhile; ?>
         <?php endif; ?>
+      </div>
     </div>
- </div>
+  </div>
 </div>
-</div>
- <!-- case study-->
-
+  <!-- End Case Study Section -->
+<?php endif; ?>
   <!--Our Featured Projects-->
   <?php 
   $project_heading = get_field('project_heading');
