@@ -409,28 +409,38 @@ if( function_exists('get_field') ):
                 </div>
                 <div class="case-study-white-box">
                 <?php if(get_sub_field('cs_section_1_image')): ?>
-                  <img class="case-study-main-image" src="<?php echo esc_url(get_sub_field('cs_section_1_image')['url']); ?>" alt="<?php echo get_sub_field('cs_section_1_title'); ?>">
+                  <div class="case-study-main-image-wrap">  
+                    <img class="case-study-main-image" src="<?php echo esc_url(get_sub_field('cs_section_1_image')['url']); ?>" alt="<?php echo get_sub_field('cs_section_1_title'); ?>">
+                  </div>
                 <?php endif; ?>
                   <!-- Content for section 1 will go here -->
                    <?php if(get_sub_field('cs_section_1_intro_paragraph')): ?>
                      <p><?php echo get_sub_field('cs_section_1_intro_paragraph'); ?></p>
                    <?php endif; ?>
-                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-group.png" alt="group image">
-                   <?php if(get_sub_field('cs_section_1_paragraph_1')): ?>
-                     <p><?php echo get_sub_field('cs_section_1_paragraph_1'); ?></p>
-                   <?php endif; ?>
-                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-bar-chart.png" alt="bar chart">
-                   <?php if(get_sub_field('cs_section_1_paragraph_2')): ?>
-                     <p><?php echo get_sub_field('cs_section_1_paragraph_2'); ?></p>
-                   <?php endif; ?>
-                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-warning.png" alt="warning">
-                   <?php if(get_sub_field('cs_section_1_paragraph_3')): ?>
-                     <p><?php echo get_sub_field('cs_section_1_paragraph_3'); ?></p>
-                   <?php endif; ?>
-                   <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-checkmark.png" alt="checkmark">
-                   <?php if(get_sub_field('cs_section_1_paragraph_4')): ?>
+                   <div class="case-study-inline-block">
+                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-group.png" alt="group image">
+                    <?php if(get_sub_field('cs_section_1_paragraph_1')): ?>
+                      <p><?php echo get_sub_field('cs_section_1_paragraph_1'); ?></p>
+                    <?php endif; ?>
+                   </div>
+                   <div class="case-study-inline-block">
+                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-bar-chart.png" alt="bar chart">
+                    <?php if(get_sub_field('cs_section_1_paragraph_2')): ?>
+                      <p><?php echo get_sub_field('cs_section_1_paragraph_2'); ?></p>
+                    <?php endif; ?>
+                   </div>
+                   <div class="case-study-inline-block">
+                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-warning.png" alt="warning">
+                    <?php if(get_sub_field('cs_section_1_paragraph_3')): ?>
+                      <p><?php echo get_sub_field('cs_section_1_paragraph_3'); ?></p>
+                    <?php endif; ?>
+                    </div>
+                   <div class="case-study-inline-block">
+                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-checkmark.png" alt="checkmark">
+                    <?php if(get_sub_field('cs_section_1_paragraph_4')): ?>
                      <p><?php echo get_sub_field('cs_section_1_paragraph_4'); ?></p>
                    <?php endif; ?>
+                    </div>
                    <?php if(get_sub_field('cs_section_1_button_text') && get_sub_field('cs_section_1_button_link')): ?>
                      <div class="case-study-button">
                        <a href="<?php echo esc_url(get_sub_field('cs_section_1_button_link')); ?>" class="btn"><?php echo esc_html(get_sub_field('cs_section_1_button_text')); ?></a>
@@ -459,28 +469,38 @@ if( function_exists('get_field') ):
                 </div>
                 <div class="case-study-white-box">
                   <?php if(get_sub_field('cs_section_2_image')): ?>
-                    <img class="case-study-main-image" src="<?php echo esc_url(get_sub_field('cs_section_2_image')['url']); ?>" alt="<?php echo get_sub_field('cs_section_2_title'); ?>">
+                    <div class="case-study-main-image-wrap">
+                      <img class="case-study-main-image skyminder-main-image" src="<?php echo esc_url(get_sub_field('cs_section_2_image')['url']); ?>" alt="<?php echo get_sub_field('cs_section_2_title'); ?>">
+                    </div>
                   <?php endif; ?>
                   <!-- Content for section 2 will go here -->
                    <?php if(get_sub_field('cs_section_2_intro_paragraph')): ?>
-                     <p><?php echo get_sub_field('cs_section_2_intro_paragraph'); ?></p>
+                     <p class="skyminder-paragraph"><?php echo get_sub_field('cs_section_2_intro_paragraph'); ?></p>
                    <?php endif; ?>
+                   <div class="case-study-inline-block">
                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-group.png" alt="group image">
                    <?php if(get_sub_field('cs_section_2_paragraph_1')): ?>
                      <p><?php echo get_sub_field('cs_section_2_paragraph_1'); ?></p>
                    <?php endif; ?>
+                   </div>
+                   <div class="case-study-inline-block">
                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-bar-chart.png" alt="bar chart">
                    <?php if(get_sub_field('cs_section_2_paragraph_2')): ?>
                      <p><?php echo get_sub_field('cs_section_2_paragraph_2'); ?></p>
                    <?php endif; ?>
+                   </div>
+                   <div class="case-study-inline-block">
                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-warning.png" alt="warning">
                    <?php if(get_sub_field('cs_section_2_paragraph_3')): ?>
                      <p><?php echo get_sub_field('cs_section_2_paragraph_3'); ?></p>
                    <?php endif; ?>
+                   </div>
+                   <div class="case-study-inline-block">
                    <img class="case-study-inline-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cs-hp-checkmark.png" alt="checkmark">
                    <?php if(get_sub_field('cs_section_2_paragraph_4')): ?>
                      <p><?php echo get_sub_field('cs_section_2_paragraph_4'); ?></p>
                    <?php endif; ?>
+                   </div>
                    <?php if(get_sub_field('cs_section_2_button_text') && get_sub_field('cs_section_2_button_link')): ?>
                      <div class="case-study-button">
                        <a href="<?php echo esc_url(get_sub_field('cs_section_2_button_link')); ?>" class="btn"><?php echo esc_html(get_sub_field('cs_section_2_button_text')); ?></a>
