@@ -71,9 +71,15 @@
   padding-bottom: 70px;
   margin-bottom: 70px;
   text-align: center;
+  max-width: 1200px; /* Set a maximum width for the container */
+  margin-left: auto;
+  margin-right: auto;
 }
 .slider-image-wrap img {
-  width: 100%;
+  width: auto; /* Let the image maintain its natural width */
+  max-width: 100%; /* Ensure it doesn't overflow its container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image is fully visible without cropping */
 }
 /* Removed empty ruleset */
 .what-they-need-wrap h3 {
@@ -178,14 +184,15 @@
 }
 .result-section-wrap {
   background-color: #101010; /* Black background */
-  padding: 40px 20px;
+  padding: 40px 20px 120px 20px; /* Increased bottom padding from 40px to 120px */
   color: #ffffff; /* White text color */
   margin-top: 150px;
+  margin-bottom: 100px; /* Added bottom margin */
 }
 
 .result-section-wrap .container {
   max-width: 1440px;
-  height: 550px;
+  min-height: 550px; /* Changed from height to min-height to allow content to expand */
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap; /* Allows items to wrap on smaller screens */
