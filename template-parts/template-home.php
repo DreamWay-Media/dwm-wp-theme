@@ -91,9 +91,9 @@ get_header();
         <div class="container bootstrap snippets bootdey home-container">
           <div class="row text-center">
             <div class="col-12">
-              <h2><?php echo esc_html('we_offer_heading'); ?></h2>
-              <h2 class="highlighted-heading"><?php echo esc_html('we_offer_description_right'); ?></h2>
-              <p><?php echo esc_html('we_offer_button_text'); ?></p>
+              <h2><?php echo get_field('we_offer_heading'); ?></h2>
+              <h2 class="highlighted-heading"><?php echo get_field('we_offer_description_right'); ?></h2>
+              <p><?php echo get_field('we_offer_button_text'); ?></p>
             </div>
           </div>
           <div class="row">
