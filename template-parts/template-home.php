@@ -91,12 +91,9 @@ get_header();
         <div class="container bootstrap snippets bootdey home-container">
           <div class="row text-center">
             <div class="col-12">
-              <h2>Elevate Customer Experiences with Tailored AI</h2>
-              <h2 class="highlighted-heading">Bespoke E-Commerce Automation Agency</h2>
-              <p>Create loyal customers with experiences and engagement that feel personal. 
-                Our solution engineers develop innovative AI tools that assist in automating 
-                customer interaction, anticipate needs, reduce friction, and drive satisfaction across your entire digital storefront. 
-                Our robust AI content generation and strategy toolkits are customized for efficiency and growth.</p>
+              <h2><?php echo esc_html('we_offer_heading'); ?></h2>
+              <h2 class="highlighted-heading"><?php echo esc_html('we_offer_description_right'); ?></h2>
+              <p><?php echo esc_html('we_offer_button_text'); ?></p>
             </div>
           </div>
           <div class="row">
