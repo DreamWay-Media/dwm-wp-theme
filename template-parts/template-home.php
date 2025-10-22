@@ -92,7 +92,7 @@ get_header();
           <div class="row text-center">
             <div class="col-12">
               <h2 style="margin-bottom: 30px; font-size: 40px; line-height: 45px; font-weight: bold;"><?php echo get_field('we_offer_heading'); ?></h2>
-              <h3 class="highlighted-heading"><?php echo get_field('we_offer_description_right'); ?></h3>
+              <h3><?php echo get_field('we_offer_description_right'); ?></h3>
               
             </div>
           </div>
