@@ -92,8 +92,8 @@ get_header();
           <div class="row text-center">
             <div class="col-12">
               <h2><?php echo get_field('we_offer_heading'); ?></h2>
-              <h2 class="highlighted-heading"><?php echo get_field('we_offer_description_right'); ?></h2>
-              <p><?php echo get_field('we_offer_button_text'); ?></p>
+              <h3 class="highlighted-heading"><?php echo get_field('we_offer_description_right'); ?></h3>
+              
             </div>
           </div>
           <div class="row">
@@ -133,7 +133,8 @@ get_header();
                 </div>
               </div>
               <div class="reach-us-btn" data-aos="fade-up">
-                <a href="/services/">Explore Solutions</a>
+                <a href="<?php echo get_field('we_offer_button_link'); ?>"><?php echo get_field('we_offer_button_text'); ?></a>
+
             </div>
             </div>
           </div>
