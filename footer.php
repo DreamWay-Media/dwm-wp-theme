@@ -97,7 +97,7 @@
         <!--nav--> 
         
         <!--copyright-->
-        <div class="copyright-wrap"> <?php echo $footer_copyrights_text; ?></div>
+        <div class="copyright-wrap">@ <?php echo date('Y') . ' ' . get_bloginfo('name') . ' ' . $footer_copyrights_text; ?></div>
         <!--copyright--> 
         
       </div>
